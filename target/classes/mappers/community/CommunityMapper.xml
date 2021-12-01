@@ -4,4 +4,35 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.care.root.mybatis.community.CommunityMapper">
+		<resultMap  id="board" type="com.care.root.community.dto.CommunityDTO">
+		<id property="num" column="num"/>
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="groups" column="groups"/>
+		<result property="step" column="step"/>
+		<result property="indent" column="indent"/>
+		<result property="hit" column="hit"/>
+		<result property="times" column="times"/>
+    </resultMap>
+    <select id="selectBoardCount" resultType="Integer">
+	 	select count(*) from community_board
+	 </select>
+	  <select id="boardAllList" resultMap="board" >
+		select B.* from(select rownum rn, A.* from
+		(select * from community_board order by num desc)A)B where rn between #{s} and #{e}
+	</select>
+	<insert id="writeSave" >
+	    insert into community_board(num,id,title,content)
+	    values(community_board_seq.nextval,#{id},#{title},#{content})
+	</insert>
+	<select id="communityPost" resultMap="board">
+		select * from community_board where num = #{num}
+	</select>
+	<update id="upHit">
+		update community_board set hit = hit + 1 where num = #{num}
+	</update>
+	<delete id="communityDelete">
+		delete from community_board where num = #{num}
+	</delete>
 </mapper>

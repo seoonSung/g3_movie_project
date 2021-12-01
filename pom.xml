@@ -171,6 +171,14 @@
     <artifactId>commons-io</artifactId>
     <version>2.4</version>
 </dependency>
+
+	<!-- JSON.stringify(문자열 json타입 변경)  키:값 쌍으로 이루어져 있음-->
+		<dependency>
+		   <groupId>com.fasterxml.jackson.core</groupId>
+		   <artifactId>jackson-databind</artifactId>
+		   <version>2.9.5</version>
+		</dependency>
+
 	</dependencies>
     <build>
         <plugins>

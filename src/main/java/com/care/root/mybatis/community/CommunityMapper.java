@@ -1,5 +1,18 @@
 package com.care.root.mybatis.community;
 
-public interface CommunityMapper {
+import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
+import com.care.root.community.dto.CommunityDTO;
+
+
+
+public interface CommunityMapper {
+	public int selectBoardCount();
+	public List<CommunityDTO> boardAllList(@Param("s") int start, @Param("e") int end);
+	public int writeSave(CommunityDTO dto);
+	public CommunityDTO communityPost(int num);
+	public int communityDelete(int num);
+	public void upHit(int num);
 }
