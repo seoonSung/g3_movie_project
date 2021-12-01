@@ -15,4 +15,5 @@ public interface CommunityMapper {
 	public CommunityDTO communityPost(int num);
 	public int communityDelete(int num);
 	public void upHit(int num);
+//	public int modify(CommunityDTO dto);
 }

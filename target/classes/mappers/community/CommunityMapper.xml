@@ -35,4 +35,8 @@
 	<delete id="communityDelete">
 		delete from community_board where num = #{num}
 	</delete>
+	<!--  <update id="modify">
+		update community_board set title=#{title}, content=#{content}, 
+			where num=#{num}
+	</update>-->
 </mapper>

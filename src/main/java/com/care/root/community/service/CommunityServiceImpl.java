@@ -50,6 +50,21 @@ public class CommunityServiceImpl implements CommunityService{
 		
 		mapper.communityDelete(num);
 	}
+
+
+	
+	public void data(int num, Model model) {
+		model.addAttribute("personalDate", mapper.communityPost(num));
+		
+	}
+
+
+	
+//	public int modify(CommunityDTO dto) {
+//		int result = 0;
+//		result = mapper.modify(dto);
+//		return result;
+//	}
 	
 
 

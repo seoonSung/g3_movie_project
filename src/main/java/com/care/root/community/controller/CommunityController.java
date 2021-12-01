@@ -46,6 +46,7 @@ public class CommunityController {
 		return "redirect:communityMain";
 	}
 	
+	
 	@GetMapping("communityPost")
 	public String communityPost(@RequestParam int num, Model model) {
 		
@@ -59,4 +60,14 @@ public class CommunityController {
 		
 		return "redirect:communityMain";
 	}
+	@GetMapping("communityModifyForm")
+	public String communityModifyForm(@RequestParam int num, Model model) {
+		cs.data(num,model);
+		return "Community/communityModifyForm";
+	}
+//	@PostMapping("modify")
+//	public String modify(@RequestParam int num) {
+//		int result = cs.modify(num);
+//		return "redirect:communityMain";
+//	}
 }
