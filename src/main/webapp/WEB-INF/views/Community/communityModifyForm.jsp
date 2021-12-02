@@ -13,9 +13,10 @@
 <c:import url="../default/header.jsp" />
 	<div id="wrap" style="width: 400px; margin: 0 auto;">
 		<h1 style="text-align: center">수정하기</h1>
-		<form method="post" action="${contextPath}/main/modify">
+		<form method="post" action="${contextPath}/main/modify" id="modifyForm">
+			<input type="hidden" name="num" value="${personalDate.num}">
 			<b>작성자</b><br>
-			<input type="text" size="50" name="id" value="${personalDate.id }"/>
+			<input type="text" size="50" name="id" readonly="readonly" value="${personalDate.id }"/>
 			<hr>
 			<b>제목</b> <br> <input type="text" size="50" name="title" value="${personalDate.title }"/>
 			<hr>

@@ -13,6 +13,6 @@ public interface CommunityService {
 	public void communityPost(int num, Model model);
 	public void communityDelete(int num);
 	public void data(int num,Model model);
-//	public String modify(int num);
+	public int modify(CommunityDTO dto);
 
 }

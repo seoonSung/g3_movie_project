@@ -5,7 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 
 import com.care.root.community.dto.CommunityDTO;
 import com.care.root.mybatis.community.CommunityMapper;
@@ -47,24 +49,24 @@ public class CommunityServiceImpl implements CommunityService{
 
 
 	public void communityDelete(int num) {
-		
 		mapper.communityDelete(num);
 	}
 
-
-	
 	public void data(int num, Model model) {
 		model.addAttribute("personalDate", mapper.communityPost(num));
-		
 	}
+
+	
+	public int modify(CommunityDTO dto) {
+		 
+		return mapper.modify(dto);
+	}
+	
+	
 
 
 	
-//	public int modify(CommunityDTO dto) {
-//		int result = 0;
-//		result = mapper.modify(dto);
-//		return result;
-//	}
+
 	
 
 

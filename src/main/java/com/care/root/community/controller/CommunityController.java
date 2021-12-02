@@ -24,7 +24,6 @@ import com.care.root.community.service.CommunityService;
 @RequestMapping("main")
 public class CommunityController {
 	@Autowired CommunityService cs;
-	
 	@GetMapping("/communityMain")
 	public String communityMain(Model model,
 			@RequestParam(required = false, defaultValue = "1") int num ) {
@@ -65,9 +64,10 @@ public class CommunityController {
 		cs.data(num,model);
 		return "Community/communityModifyForm";
 	}
-//	@PostMapping("modify")
-//	public String modify(@RequestParam int num) {
-//		int result = cs.modify(num);
-//		return "redirect:communityMain";
-//	}
+	@PostMapping("modify")
+	public String modify(CommunityDTO dto, RedirectAttributes rt ) {
+		cs.modify(dto);
+		rt.addFlashAttribute("result","modify success");
+		return "redirect:communityMain";
+	}
 }
