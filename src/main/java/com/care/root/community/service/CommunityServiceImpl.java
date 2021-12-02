@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
 import com.care.root.community.dto.CommunityDTO;
+import com.care.root.community.dto.CommunityReplyDTO;
 import com.care.root.mybatis.community.CommunityMapper;
 
 @Service
@@ -20,13 +21,17 @@ public class CommunityServiceImpl implements CommunityService{
 		int pageLetter = 10;  // 페이지당 보여질 글 개수
 		int allCount = mapper.selectBoardCount(); // 총 개수
 		int repeat = allCount / pageLetter; // 반복횟수 및 총 페이지 수
+		
 		if(allCount % pageLetter != 0) {
 			repeat += 1;
 		}
 		int end = pageNum * pageLetter;
 		int start = end + 1 - pageLetter;
+		System.out.println("end : "+end);
+		System.out.println("start : "+start );
 		model.addAttribute("repeat", repeat);
 		model.addAttribute("boardList",mapper.boardAllList(start,end));
+		
 	}
 
 	
@@ -60,6 +65,21 @@ public class CommunityServiceImpl implements CommunityService{
 	public int modify(CommunityDTO dto) {
 		 
 		return mapper.modify(dto);
+	}
+
+
+	
+	public void communityReply(int num, Model model) {
+		model.addAttribute("personalDate", mapper.communityReply(num));
+		
+	}
+
+
+	@Override
+	public int replySave(CommunityDTO dto) {
+		int result = 0;
+		result = mapper.replySave(dto);
+		return result;
 	}
 	
 	

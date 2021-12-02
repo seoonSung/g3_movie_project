@@ -130,12 +130,14 @@
                            <th>이름</th>
 
                            <th>날짜</th>
+                           
+                           <th>답글</th>
 
                            <th>조회수</th>
                     </tr>
 					<c:if test="${boardList.size() == 0 }">
 				<tr>
-					<td colspan="5">저장 데이터 없음</td>
+					<td colspan="6">저장 데이터 없음</td>
 				</tr>
 				</c:if>
 				
@@ -148,12 +150,15 @@
 					</td>
 					<td class="td3">${dto.id}</td>
 					<td class="td4">${dto.times }</td>
+					<td class="td4">
+			<a href="${contextPath }/root/main/communityReply?num=${dto.num}">답글</a>
+					</td>
 					<td class="td5">${dto.hit }</td>
 					
 				</tr>
 			</c:forEach>
                    <tr>
-				<td colspan="5">
+				<td colspan="6">
 					<div align="left">
 						<c:forEach var="pageNum" begin="1" end="${repeat }">
 							<a href="communityMain?pageNum=${pageNum }">[${pageNum }]</a>

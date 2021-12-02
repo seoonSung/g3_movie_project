@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.community.dto.CommunityDTO;
+import com.care.root.community.dto.CommunityReplyDTO;
 import com.care.root.community.service.CommunityService;
 
 @Controller
@@ -70,4 +71,16 @@ public class CommunityController {
 		rt.addFlashAttribute("result","modify success");
 		return "redirect:communityMain";
 	}
+	@GetMapping("communityReply")
+	public String communityReply(@RequestParam int num, Model model) {
+		cs.communityReply(num,model);
+		return "Community/communityReply";
+	}
+	
+	@PostMapping("replySave")
+	public String replySave(CommunityDTO dto) {
+		int result = cs.replySave(dto);
+		return "redirect:communityMain";
+	}
+
 }
