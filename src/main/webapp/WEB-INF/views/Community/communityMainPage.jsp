@@ -120,7 +120,7 @@
              <!-- Ex21_board.htm -->
 <c:import url="../default/header.jsp"/>
 <div align="center">
-             <h3>게시판 리스트</h3> <a href="communityWrite">글쓰기</a>
+             <h3>게시판 리스트</h3> 
              <table id="list">
                     <tr>
                            <th>번호</th>
@@ -152,7 +152,16 @@
 					
 				</tr>
 			</c:forEach>
-                   
+                   <tr>
+				<td colspan="5">
+					<div align="left">
+						<c:forEach var="pageNum" begin="1" end="${repeat }">
+							<a href="communityMain?pageNum=${pageNum }">[${pageNum }]</a>
+						</c:forEach>
+					</div>
+					<a href="communityWrite">글쓰기</a>
+				</td>
+			</tr>
              </table>
 </div>
 <c:import url="../default/footer.jsp"/>

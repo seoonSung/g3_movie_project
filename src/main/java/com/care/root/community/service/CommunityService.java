@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.care.root.community.dto.CommunityDTO;
 
 public interface CommunityService {
-	public void communityMain(Model model, int num);
+	public void communityMain(Model model, int pageNum);
 	public int writeSave(CommunityDTO dto);
 	public void communityPost(int num, Model model);
 	public void communityDelete(int num);

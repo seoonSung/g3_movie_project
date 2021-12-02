@@ -26,9 +26,9 @@ public class CommunityController {
 	@Autowired CommunityService cs;
 	@GetMapping("/communityMain")
 	public String communityMain(Model model,
-			@RequestParam(required = false, defaultValue = "1") int num ) {
+			@RequestParam(required = false, defaultValue = "1") int pageNum ) {
 		
-		cs.communityMain(model, num);
+		cs.communityMain(model, pageNum);
 		
 		return "Community/communityMainPage";
 	}

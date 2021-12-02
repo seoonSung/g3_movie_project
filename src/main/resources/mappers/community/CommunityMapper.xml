@@ -38,4 +38,5 @@
 	<update id="modify">
 		update community_board set title = #{title}, content = #{content} where num = #{num}
 	</update>
+	
 </mapper>
