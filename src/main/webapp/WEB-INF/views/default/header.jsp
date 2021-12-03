@@ -40,7 +40,19 @@ nav ul li a:hover {
 <li><a href="#">극장</a></li>
 <li><a href="#">고객센터</a></li>
 <li><a href="#">스토어</a></li>
-<li><a href="#">로그인</a></li>
+<li>
+			<a href="${contextPath }/member/info">회원정보</a>
+</li>
+<li>
+	<c:choose>
+		<c:when test="${loginUser != null }">
+			<a href="${contextPath }/member/logout">로그아웃</a>
+		</c:when>
+		<c:otherwise>
+			<a href="${contextPath }/member/login">로그인</a>
+		</c:otherwise>
+	</c:choose>
+</li>
 <li><a href="#">커뮤니티</a></li>
 
 

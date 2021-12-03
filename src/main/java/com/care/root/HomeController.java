@@ -38,6 +38,7 @@ public class HomeController {
 	}
 	@GetMapping("main")
 	public String main() {
+		System.out.println("main 컨트롤러 실행");
 		return "default/main";
 	}
 	
