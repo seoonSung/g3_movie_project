@@ -17,12 +17,11 @@
 			<b>작성자</b><br>
 			<input type="text" size="50" name="id" />
 			<input type="hidden" name="groups" value="${personalDate.groups}">
-			<input type="hidden" name="step" value="${personalDate.step+1}">
+			<input type="hidden" name="step" value="${personalDate.num}">
 			<input type="hidden" name="indent" value="${personalDate.indent+1}">
-			<!-- 커뮤니티_보드 테이블의 groups값을 커뮤니티_보드_리플라이 테이블의 groups로 넘겨주기 위함 -->
+			
 			<hr>
-			<b>제목</b> <br> <input type="text" size="50" name="title" readonly="readonly"
-			 value="RE:${personalDate.title }"/>
+			<b>제목</b> <br> <input type="text" size="50" name="title" value="${personalDate.title }"/>
 			<hr>
 			<b>내용</b> <br>
 			<textarea name="content" rows="10" cols="50"></textarea>

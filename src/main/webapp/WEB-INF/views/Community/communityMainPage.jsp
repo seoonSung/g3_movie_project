@@ -4,136 +4,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+<meta name="viewport" content="width=device-width", initial-scale="1">
+<link rel="stylesheet" href="css/bootstrap.css">
+<title>커뮤니티 게시판 메인 페이지</title>      
+</head>
+<body>
 
-             <title></title>
-
-             <meta name="generator" content="editplus" />
-
-             <meta name="author" content="김종현" />
-
-             <style type="text/css">
-
-                    /*디자인은 큰틀부터 디자인하자.*/
-
-                    #list {
-
-                           width:500px;
-
-                           border:1px solid orange;
-
-                    /*겉테두리와 안테두리를 하나로 합쳐준다. */
-
-                           border-collapse:collapse;
-
-                    }
-
-                   
-
-                    /* 누구 자식인지 반드시 명시해 준다.*/
-
-                    #list td, #list th{
-
-                           font-size:12px;
-
-                           border:1px solid orange;
-
-                           padding:3px;
-
-                    }
-
- 
-
-                    #list th{
-
-                           background-color:#cc99cc;
-
-                    }
-
- 
-
-                    #list .td1 {
-
-                           width:3px;
-
-                           text-align:center;
-
-                    }
-
- 
-
-                    #list .td2 {
-
-                           width:150px;
-
-                           text-align:center;
-
-                    }
-
- 
-
-                    #list .td3 {
-
-                           width:50px;
-
-                           text-align:center;
-
-                    }
-
- 
-
-                    #list .td4 {
-
-                           width:50px;
-
-                           text-align:center;
-
-                    }
-
- 
-
-                    #list .td5 {
-
-                           width:5px;
-
-                           text-align:center;
-
-                    }
-
-                   
-
-                    /*부모 자식 관계 */
-
-                    #list .altRow{
-
-                           background-color:#e0f0b5;
-
-                    }
-
-             </style>
-
-       </head>
-
- 
-
-       <body>
-
-             <!-- Ex21_board.htm -->
+           
 <c:import url="../default/header.jsp"/>
-<div align="center">
+<div class="container" style="padding-left: 30%;">
              <h3>게시판 리스트</h3> 
-             <table id="list">
+             <table border="1" class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
                     <tr>
-                           <th>번호</th>
+                           <th style="background-color: #eeeeee; text-align: center;">번호</th>
 
-                           <th>제목</th>
+                           <th style="background-color: #eeeeee; text-align: center;">제목</th>
 
-                           <th>이름</th>
+                           <th style="background-color: #eeeeee; text-align: center;">이름</th>
 
-                           <th>날짜</th>
+                           <th style="background-color: #eeeeee; text-align: center;">날짜</th>
                            
-                           <th>답글</th>
+                           <th style="background-color: #eeeeee; text-align: center;">답글</th>
 
-                           <th>조회수</th>
+                           <th style="background-color: #eeeeee; text-align: center;">조회수</th>
                     </tr>
 					<c:if test="${boardList.size() == 0 }">
 				<tr>
@@ -143,22 +38,39 @@
 				
 				<c:forEach var="dto" items="${boardList }">
 				<tr class="altRow">
-				
-					<td class="td1">${dto.num }</td>
-					<td class="td2">
+				   <c:if test="${dto.indent ==0 }">
+				   		<td style="background-color: #eeeeee; text-align: center;">${dto.num }</td>
+					<td style="background-color: #eeeeee; text-align: left;">
 			<a href="${contextPath }/root/main/communityPost?num=${dto.num}">${dto.title }</a>
 					</td>
-					<td class="td3">${dto.id}</td>
-					<td class="td4">${dto.times }</td>
-					<td class="td4">
+					<td style="background-color: #eeeeee; text-align: center;">${dto.id}</td>
+					<td style="background-color: #eeeeee; text-align: center;">${dto.times }</td>
+					<td style="background-color: #eeeeee; text-align: center;">
 			<a href="${contextPath }/root/main/communityReply?num=${dto.num}">답글</a>
 					</td>
-					<td class="td5">${dto.hit }</td>
-					
+					<td style="background-color: #eeeeee; text-align: center;">${dto.hit }</td>
+				   </c:if>
+				   
+				   <!-- 답변글의 경우 -->
+				   <c:if test="${dto.indent > 0 }">
+				   		<td style="background-color: #eeeeee; text-align: center;">${dto.num }</td>
+					<td style="background-color: #eeeeee; text-align: left;">
+			<a href="${contextPath }/root/main/communityPost?num=${dto.num}">
+			<span style="color: red; font-style: italic; padding-left: ${dto.indent * 7}px;">┗ Re&nbsp;</span>
+			${dto.title }</a>
+					</td>
+					<td style="background-color: #eeeeee; text-align: center;">${dto.id}</td>
+					<td style="background-color: #eeeeee; text-align: center;">${dto.times }</td>
+					<td style="background-color: #eeeeee; text-align: center;">
+			<a href="${contextPath }/root/main/communityReply?num=${dto.num}">답글</a>
+					</td>
+					<td style="background-color: #eeeeee; text-align: center;">${dto.hit }</td>
+				   </c:if>
 				</tr>
+				
 			</c:forEach>
                    <tr>
-				<td colspan="6">
+				<td style="background-color: #eeeeee; text-align: center;">
 					<div align="left">
 						<c:forEach var="pageNum" begin="1" end="${repeat }">
 							<a href="communityMain?pageNum=${pageNum }">[${pageNum }]</a>
