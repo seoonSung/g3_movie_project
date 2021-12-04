@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,31 +28,31 @@ public class CommunityController {
 	@Autowired CommunityService cs;
 	@GetMapping("/communityMain")
 	public String communityMain(Model model,
-			@RequestParam(required = false, defaultValue = "1") int pageNum ) {
+			@RequestParam(required = false, defaultValue = "111") String keyword) throws Exception { //메인페이지 리스트 보여주기
 		
-		cs.communityMain(model, pageNum);
+		model.addAttribute("boardList", cs.communityMain(keyword));
 		
 		return "Community/communityMainPage";
 	}
-	
-	
-	@GetMapping("/communityWrite") //글 작성 페이지
+//	
+//	
+	@GetMapping("/communityWrite") //글 작성 페이지 이동
 	public String communityWrite() {
 		
 		return "Community/communityWrite";
 	}
-	@PostMapping("writeSave")
-	public String writeForm(CommunityDTO dto)  {
-		int result = cs.writeSave(dto);
+	@PostMapping("writeSave") 
+	public String writeSave(@ModelAttribute("CommunityDTO") CommunityDTO dto,
+			RedirectAttributes ra )throws Exception  { // 글 작성후 저장 메소드
+		cs.writeSave(dto);
 		return "redirect:communityMain";
 	}
 	
 	
 	@GetMapping("communityPost")
-	public String communityPost(@RequestParam int num, Model model) {
+	public String communityPost(@RequestParam int num, Model model)throws Exception {
 		
-		cs.communityPost(num,model);
-		
+		model.addAttribute("communityPost",cs.communityPost(num));
 		return "Community/communityPost";
 	}
 	@GetMapping("delete")
@@ -71,16 +72,18 @@ public class CommunityController {
 		rt.addFlashAttribute("result","modify success");
 		return "redirect:communityMain";
 	}
-	@GetMapping("communityReply")
-	public String communityReply(@RequestParam int num, Model model) {
-		cs.communityReply(num,model);
-		return "Community/communityReply";
-	}
+//	@GetMapping("communityReply")
+//	public String communityReply(@RequestParam int num, Model model) {
+//		cs.communityReply(num,model);
+//		return "Community/communityReply";
+//	}
+//	
+//	@PostMapping("replySave")
+//	public String replySave(CommunityDTO dto) {
+//		int result = cs.replySave(dto);
+//		return "redirect:communityMain";
+//	}
 	
-	@PostMapping("replySave")
-	public String replySave(CommunityDTO dto) {
-		int result = cs.replySave(dto);
-		return "redirect:communityMain";
-	}
+	
 
 }

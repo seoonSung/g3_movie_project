@@ -1,5 +1,8 @@
 package com.care.root.community.service;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,53 +15,39 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.care.root.community.dto.CommunityDTO;
 import com.care.root.community.dto.CommunityReplyDTO;
 import com.care.root.mybatis.community.CommunityMapper;
+import com.care.root.mybatis.community.ReplyMapper;
 
 @Service
 public class CommunityServiceImpl implements CommunityService{
 	@Autowired CommunityMapper mapper;
-	
-	public void communityMain(Model model, int pageNum) {
-		int pageLetter = 10;  // 페이지당 보여질 글 개수
-		int allCount = mapper.selectBoardCount(); // 총 개수
-		int repeat = allCount / pageLetter; // 반복횟수 및 총 페이지 수
+//	@Autowired ReplyMapper rmapper;
 		
-		if(allCount % pageLetter != 0) {
-			repeat += 1;
+		public List<CommunityDTO> communityMain(String keyword) throws Exception {
+			
+			return mapper.communityMain(keyword);
 		}
-		int end = pageNum * pageLetter;
-		int start = end + 1 - pageLetter;
-		System.out.println("end : "+end);
-		System.out.println("start : "+start );
-		model.addAttribute("repeat", repeat);
-		model.addAttribute("boardList",mapper.boardAllList(start,end));
 		
-	}
-
-	
-	public int writeSave(CommunityDTO dto) {
-		int result = 0;
-		result = mapper.writeSave(dto);
-		return result;
-	}
+		public void writeSave(CommunityDTO dto) throws Exception {
+			mapper.writeSave(dto);
+		}
 
 
-	
-	public void communityPost(int num, Model model) {
+		public CommunityDTO communityPost(int num) throws Exception {
 		
-		model.addAttribute("personalDate", mapper.communityPost(num));
-		upHit(num);
-	}
-	private void upHit(int num) {
-		mapper.upHit(num);
-	}
-
+			mapper.upHit(num);
+			return mapper.communityPost(num);
+			
+		}
+//	private void upHit(int num) {
+//		mapper.upHit(num);
+//	}
 
 	public void communityDelete(int num) {
 		mapper.communityDelete(num);
 	}
 
 	public void data(int num, Model model) {
-		model.addAttribute("personalDate", mapper.communityPost(num));
+		model.addAttribute("communityPost", mapper.communityPost(num));
 	}
 
 	
@@ -66,21 +55,39 @@ public class CommunityServiceImpl implements CommunityService{
 		 
 		return mapper.modify(dto);
 	}
+//
+//
+//	
+//	public void communityReply(int num, Model model) {
+//		model.addAttribute("personalDate", mapper.communityReply(num));
+//		
+//	}
+//
+//
+//	@Override
+//	public int replySave(CommunityDTO dto) {
+//		int result = 0;
+//		result = mapper.replySave(dto);
+//		return result;
+//	}
+//
+//
+//	
+//	public List<CommunityReplyDTO> getRepList(int wrnum) {
+//		return mapper.getRepList(wrnum);
+//		
+//	}
+//
+//
+//	
+//	public List<CommunityReplyDTO> getReplyList(int wrnum) throws Exception {
+//		
+//		return rmapper.getReplyList(wrnum);
+//	}
+
 
 
 	
-	public void communityReply(int num, Model model) {
-		model.addAttribute("personalDate", mapper.communityReply(num));
-		
-	}
-
-
-	@Override
-	public int replySave(CommunityDTO dto) {
-		int result = 0;
-		result = mapper.replySave(dto);
-		return result;
-	}
 	
 	
 

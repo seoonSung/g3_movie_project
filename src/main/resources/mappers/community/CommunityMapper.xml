@@ -16,25 +16,18 @@
 		<result property="times" column="times"/>
     </resultMap>
     
-    <resultMap  id="reply" type="com.care.root.community.dto.CommunityReplyDTO">
-		<id property="num" column="num"/>
-		<result property="id" column="id"/>
-		<result property="title" column="title"/>
-		<result property="content" column="content"/>
-		<result property="groups" column="groups"/>
-		<result property="step" column="step"/>
-		<result property="indent" column="indent"/>
-		<result property="hit" column="hit"/>
-		<result property="times" column="times"/>
-    </resultMap>
     
-    <select id="selectBoardCount" resultType="Integer">
+    
+    <!-- board 관련 -->
+    
+   <!--   <select id="selectBoardCount" resultType="Integer">
 	 	select count(*) from community_board
-	 </select>
-   <select id="boardAllList" resultMap="board" >
-		select B.* from(select rownum rn, A.* from
-		(select * from community_board order by groups desc, step, indent)A)B where rn between #{s} and #{e}
+	 </select>-->
+   <select id="communityMain" resultMap="board" >
+		 select * from community_board
+		 where title = #{keyword}
 	</select> 
+	
 	
 	<insert id="writeSave" >
 	    insert into community_board(num,id,title,content,groups)
@@ -59,8 +52,6 @@
 	    insert into community_board(num,id,title,content,groups,step,indent)
 	    values(community_board_seq.nextval,#{id},#{title},#{content},#{groups},#{step},#{indent})
 	</insert>
-	
-	<!-- 위 board 아래 reply -->
 	
 	
 	

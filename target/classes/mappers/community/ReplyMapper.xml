@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.care.root.mybatis.community.ReplyMapper">
+  		<resultMap  id="reply" type="com.care.root.community.dto.CommunityReplyDTO">
+			<id property="renum" column="renum"/>
+			<result property="wrnum" column="wrnum"/>
+			<result property="step" column="step"/>
+			<result property="id" column="id"/>
+			<result property="content" column="content"/>
+			<result property="times" column="times"/>
+    	</resultMap>
+    	
+    	<select id="getReplyList" resultType="Integer">
+	 		SELECT renum, wrnum, CONTENT, id, times FROM community_board_reply 
+			WHERE wrnum = 1
+			ORDER BY wrnum;
+		 </select>
+  </mapper>
