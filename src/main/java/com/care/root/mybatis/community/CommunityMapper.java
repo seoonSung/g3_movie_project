@@ -11,7 +11,7 @@ import com.care.root.community.dto.CommunityReplyDTO;
 
 public interface CommunityMapper {
 
-	public List<CommunityDTO> communityMain(String keyword)throws Exception; //메인목록
+	public List<CommunityDTO> communityMain(String searchOption,String keyword)throws Exception; //메인목록
 	public int writeSave(CommunityDTO dto) throws Exception; //글작성 저장
 	public CommunityDTO communityPost(int num); //작성된글 보기
 	public int communityDelete(int num); //글 삭제

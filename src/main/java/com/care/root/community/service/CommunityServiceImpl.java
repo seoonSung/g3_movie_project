@@ -20,11 +20,11 @@ import com.care.root.mybatis.community.ReplyMapper;
 @Service
 public class CommunityServiceImpl implements CommunityService{
 	@Autowired CommunityMapper mapper;
-//	@Autowired ReplyMapper rmapper;
+	@Autowired ReplyMapper rmapper;
 		
-		public List<CommunityDTO> communityMain(String keyword) throws Exception {
+		public List<CommunityDTO> communityMain(String searchOption,String keyword) throws Exception {
 			
-			return mapper.communityMain(keyword);
+			return mapper.communityMain(searchOption,keyword);
 		}
 		
 		public void writeSave(CommunityDTO dto) throws Exception {
@@ -77,13 +77,13 @@ public class CommunityServiceImpl implements CommunityService{
 //		return mapper.getRepList(wrnum);
 //		
 //	}
-//
-//
-//	
-//	public List<CommunityReplyDTO> getReplyList(int wrnum) throws Exception {
-//		
-//		return rmapper.getReplyList(wrnum);
-//	}
+
+
+	
+	public List<CommunityReplyDTO> getReplyList(int wrnum) throws Exception {
+		
+		return rmapper.getReplyList(wrnum);
+	}
 
 
 

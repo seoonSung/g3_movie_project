@@ -28,9 +28,10 @@ public class CommunityController {
 	@Autowired CommunityService cs;
 	@GetMapping("/communityMain")
 	public String communityMain(Model model,
-			@RequestParam(required = false, defaultValue = "111") String keyword) throws Exception { //메인페이지 리스트 보여주기
+			@RequestParam(required = false, defaultValue = "1") String searchOption,
+			@RequestParam(required = false) String keyword) throws Exception { //메인페이지 리스트 보여주기
 		
-		model.addAttribute("boardList", cs.communityMain(keyword));
+		model.addAttribute("boardList", cs.communityMain(searchOption,keyword));
 		
 		return "Community/communityMainPage";
 	}
@@ -53,6 +54,7 @@ public class CommunityController {
 	public String communityPost(@RequestParam int num, Model model)throws Exception {
 		
 		model.addAttribute("communityPost",cs.communityPost(num));
+		model.addAttribute("CommunityReplyDTO",new CommunityReplyDTO());
 		return "Community/communityPost";
 	}
 	@GetMapping("delete")

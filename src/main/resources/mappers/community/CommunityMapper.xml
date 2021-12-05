@@ -25,7 +25,9 @@
 	 </select>-->
    <select id="communityMain" resultMap="board" >
 		 select * from community_board
-		 where title = #{keyword}
+		<!--   <if test="searchOption == 'title'">where title = #{keyword}</if>
+		 <if test="searchOption == 'id'">where id = #{keyword}</if>
+		 <if test="searchOption == 'content'">where content = #{keyword}</if>-->
 	</select> 
 	
 	

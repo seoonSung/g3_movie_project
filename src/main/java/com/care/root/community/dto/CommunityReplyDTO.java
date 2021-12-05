@@ -1,5 +1,6 @@
 package com.care.root.community.dto;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class CommunityReplyDTO {
@@ -8,7 +9,7 @@ public class CommunityReplyDTO {
 	private int step;
 	private String id;
 	private String content;
-	private String times;
+	private Timestamp times;
 	public int getRenum() {
 		return renum;
 	}
@@ -39,13 +40,13 @@ public class CommunityReplyDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getTimes() {
+	public Timestamp getTimes() {
 		return times;
 	}
-	public void setTimes(java.sql.Timestamp times) {
-		SimpleDateFormat fo = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
-		this.times = fo.format(times);
+	public void setTimes(Timestamp times) {
+		this.times = times;
 	}
+	
 	
 	
 }

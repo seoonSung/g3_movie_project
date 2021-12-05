@@ -14,7 +14,7 @@
     	</resultMap>
     	
     	<select id="getReplyList" resultType="Integer">
-	 		SELECT renum, wrnum, CONTENT, id, times FROM community_board_reply 
+	 		SELECT * FROM community_board_reply 
 			WHERE wrnum = 1
 			ORDER BY wrnum;
 		 </select>
