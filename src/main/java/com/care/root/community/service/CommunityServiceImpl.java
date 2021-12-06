@@ -22,9 +22,17 @@ public class CommunityServiceImpl implements CommunityService{
 	@Autowired CommunityMapper mapper;
 	@Autowired ReplyMapper rmapper;
 		
-		public List<CommunityDTO> communityMain(String searchOption, String keyword) throws Exception {
-			
-			return mapper.communityMain(searchOption, keyword);
+		public List<CommunityDTO> communityMain(Model model, String searchOption, String keyword, int pageNum) throws Exception {
+			int pageLetter = 10;  // 페이지당 보여질 글 개수
+			int allCount = mapper.selectBoardCount(searchOption,keyword); // 총 개수
+			int repeat = allCount / pageLetter; // 반복횟수 및 총 페이지 수
+			if(allCount % pageLetter != 0) {
+				repeat += 1;
+			}
+			int end = pageNum * pageLetter;
+			int start = end + 1 - pageLetter;
+			model.addAttribute("repeat", repeat);
+			return mapper.communityMain(searchOption, keyword, start, end);
 		}
 		
 		

@@ -20,13 +20,9 @@
     
     <!-- board 관련 -->
     
-   <!--   <select id="selectBoardCount" resultType="Integer">
+    <select id="selectBoardCount" resultType="Integer">
 	 	select count(*) from community_board
-	 </select>-->
-   <select id="communityMain" resultMap="board">
-		
-		 select * from community_board
-		 <choose>
+	 	<choose>
 		 	<when test='searchOption == "e"'> <!-- 전체검색 -->
 		 		where title like '%' || #{keyword} || '%' 
 		 		or id like '%' || #{keyword} || '%'
@@ -45,6 +41,33 @@
 		 	</when>
 		 	<when test='searchOption == "content"'> <!-- 본문 -->
 		 		where content like '%' || #{keyword} || '%'
+		 	</when>
+		 	<otherwise>
+		 	</otherwise>
+		 </choose>
+	</select>
+   <select id="communityMain" resultMap="board">
+		 select B.* from(select rownum rn, A.* from
+		(select * from community_board order by num desc)A)B where rn between #{s} and #{e}
+		 <choose>
+		 	<when test='searchOption == "e"'> <!-- 전체검색 -->
+		 		and title like '%' || #{keyword} || '%' 
+		 		or id like '%' || #{keyword} || '%'
+		 		or content like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "tc"'> <!-- 제목+본문 -->
+		 		and title like '%' || #{keyword} || '%'
+		 		or content like '%' || #{keyword} || '%'
+		 		or title like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "title"'> <!-- 제목 -->
+		 		and title like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "id"'> <!-- 아이디 -->
+		 		and id like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "content"'> <!-- 본문 -->
+		 		and content like '%' || #{keyword} || '%'
 		 	</when>
 		 	<otherwise>
 		 	</otherwise>

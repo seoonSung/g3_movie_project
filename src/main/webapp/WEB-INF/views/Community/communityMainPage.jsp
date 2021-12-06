@@ -56,6 +56,50 @@ $(document).on('click', '#btnSearch', function(e){
 <c:import url="../default/header.jsp"/>
 <article>
 	<div class="container">
+<!-- 검색기능 -->
+
+		<div class="form-group row justify-content-end" >
+
+			<div class="w100" style="padding-right:10px">
+
+				<select class="form-control form-control-sm" name="searchOption" id="searchOption">
+					
+					<option value="e">전체</option>
+					
+					<option value="tc">제목+본문</option>
+					
+					<option value="title">제목</option>
+
+					<option value="content">본문</option>
+
+					<option value="id">작성자</option>
+
+				</select>
+
+			</div>
+
+			<div class="w300" style="padding-right:10px">
+
+				<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+
+			</div>
+
+			<div style="padding-right:10px">
+
+				<button  name="btnSearch" class="btn btn-sm btn-primary" id="btnSearch">검색</button>
+
+			</div>
+			
+			<div style="padding-right:10px">
+
+				<button type="button" class="btn btn-sm btn-primary" id="btnWriteForm">글쓰기</button>
+
+			</div>
+
+		</div>
+
+		<!-- search{e} -->
+
 		<div class="table-responsive">
 	<table class="table table-striped table-sm">
 
@@ -133,55 +177,31 @@ $(document).on('click', '#btnSearch', function(e){
 
 	</table>
 		</div>
-			<div >
+			
+			<!-- 페이징 -->
 
-				<button type="button" class="btn btn-sm btn-primary" id="btnWriteForm">글쓰기</button>
-
+			<div class="row" style="float: none; margin: 100 auto;">
+				<div class="col-md-3" style="float: none; margin: 0 auto;">
+					<ul class="pagination">
+					<c:if test="${pageNum != 1}">
+						<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					</c:if>	
+							<c:forEach var="pageNum" begin="1" end="${repeat }">
+								<li class="page-item"><a class="page-link" href="communityMain?pageNum=${pageNum }">${pageNum }</a></li>
+							</c:forEach>
+						<li class="page-item"><a class="page-link" href="#">Next</a></li>
+					</ul>
+				</div>
 			</div>
 
-	</div>
-	
-	<div><h3>페이징 추가해야함</h3></div>
-	
-	<!-- 검색기능 -->
 
-		<div class="form-group row justify-content-center">
 
-			<div class="w100" style="padding-right:10px">
 
-				<select class="form-control form-control-sm" name="searchOption" id="searchOption">
-					
-					<option value="e">전체</option>
-					
-					<option value="tc">제목+본문</option>
-					
-					<option value="title">제목</option>
 
-					<option value="content">본문</option>
 
-					<option value="id">작성자</option>
 
-				</select>
 
-			</div>
-
-			<div class="w300" style="padding-right:10px">
-
-				<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
-
-			</div>
-
-			<div>
-
-				<button  name="btnSearch" id="btnSearch">검색</button>
-
-			</div>
-
-		</div>
-
-		<!-- search{e} -->
-
-	
+		</div>	
 </article>
 <c:import url="../default/footer.jsp"/>
 </body>

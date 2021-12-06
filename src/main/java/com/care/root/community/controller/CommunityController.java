@@ -31,8 +31,10 @@ public class CommunityController {
 	@GetMapping("/communityMain")
 	public String communityMain(Model model,
 			@RequestParam(required = false, defaultValue = "") String searchOption,
-			@RequestParam(required = false, defaultValue = "") String keyword) throws Exception { //메인페이지 리스트 보여주기
-		model.addAttribute("boardList", cs.communityMain(searchOption, keyword));
+			@RequestParam(required = false, defaultValue = "") String keyword,
+			@RequestParam(required = false, defaultValue = "1") int pageNum) throws Exception { //메인페이지 리스트 보여주기
+		
+		model.addAttribute("boardList", cs.communityMain(model, searchOption, keyword, pageNum));
 
 		return "Community/communityMainPage";
 	}
