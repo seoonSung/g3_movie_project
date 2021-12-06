@@ -34,7 +34,7 @@ function fn_contentView(num){ //게시글의 num을 넘겨준다(글번호)(게�
 
 	}
 $(document).on('click', '#btnSearch', function(e){
-
+				// 아이디가 btnSearch 인것을 click 할때마다 이벤트가 일어난다.
 	e.preventDefault();
 
 	var url = "${pageContext.request.contextPath}/main/communityMain";
@@ -142,18 +142,22 @@ $(document).on('click', '#btnSearch', function(e){
 	</div>
 	
 	<div><h3>페이징 추가해야함</h3></div>
-	<!-- search{s} -->
+	
+	<!-- 검색기능 -->
 
 		<div class="form-group row justify-content-center">
 
 			<div class="w100" style="padding-right:10px">
 
 				<select class="form-control form-control-sm" name="searchOption" id="searchOption">
-
-
+					
+					<option value="e">전체</option>
+					
+					<option value="tc">제목+본문</option>
+					
 					<option value="title">제목</option>
 
-					<option value="Content">본문</option>
+					<option value="content">본문</option>
 
 					<option value="id">작성자</option>
 
@@ -169,7 +173,7 @@ $(document).on('click', '#btnSearch', function(e){
 
 			<div>
 
-				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
+				<button  name="btnSearch" id="btnSearch">검색</button>
 
 			</div>
 

@@ -2,6 +2,8 @@ package com.care.root.community.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,15 +30,14 @@ public class CommunityController {
 	@Autowired CommunityService cs;
 	@GetMapping("/communityMain")
 	public String communityMain(Model model,
-			@RequestParam(required = false, defaultValue = "1") String searchOption,
-			@RequestParam(required = false) String keyword) throws Exception { //메인페이지 리스트 보여주기
-		
-		model.addAttribute("boardList", cs.communityMain(searchOption,keyword));
-		
+			@RequestParam(required = false, defaultValue = "") String searchOption,
+			@RequestParam(required = false, defaultValue = "") String keyword) throws Exception { //메인페이지 리스트 보여주기
+		model.addAttribute("boardList", cs.communityMain(searchOption, keyword));
+
 		return "Community/communityMainPage";
 	}
-//	
-//	
+	
+	
 	@GetMapping("/communityWrite") //글 작성 페이지 이동
 	public String communityWrite() {
 		

@@ -22,10 +22,11 @@ public class CommunityServiceImpl implements CommunityService{
 	@Autowired CommunityMapper mapper;
 	@Autowired ReplyMapper rmapper;
 		
-		public List<CommunityDTO> communityMain(String searchOption,String keyword) throws Exception {
+		public List<CommunityDTO> communityMain(String searchOption, String keyword) throws Exception {
 			
-			return mapper.communityMain(searchOption,keyword);
+			return mapper.communityMain(searchOption, keyword);
 		}
+		
 		
 		public void writeSave(CommunityDTO dto) throws Exception {
 			mapper.writeSave(dto);

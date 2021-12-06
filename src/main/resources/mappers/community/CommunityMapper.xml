@@ -23,13 +23,33 @@
    <!--   <select id="selectBoardCount" resultType="Integer">
 	 	select count(*) from community_board
 	 </select>-->
-   <select id="communityMain" resultMap="board" >
+   <select id="communityMain" resultMap="board">
+		
 		 select * from community_board
-		<!--   <if test="searchOption == 'title'">where title = #{keyword}</if>
-		 <if test="searchOption == 'id'">where id = #{keyword}</if>
-		 <if test="searchOption == 'content'">where content = #{keyword}</if>-->
-	</select> 
-	
+		 <choose>
+		 	<when test='searchOption == "e"'> <!-- 전체검색 -->
+		 		where title like '%' || #{keyword} || '%' 
+		 		or id like '%' || #{keyword} || '%'
+		 		or content like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "tc"'> <!-- 제목+본문 -->
+		 		where title like '%' || #{keyword} || '%'
+		 		or content like '%' || #{keyword} || '%'
+		 		or title like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "title"'> <!-- 제목 -->
+		 		where title like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "id"'> <!-- 아이디 -->
+		 		where id like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "content"'> <!-- 본문 -->
+		 		where content like '%' || #{keyword} || '%'
+		 	</when>
+		 	<otherwise>
+		 	</otherwise>
+		 </choose>
+   </select> 
 	
 	<insert id="writeSave" >
 	    insert into community_board(num,id,title,content,groups)
