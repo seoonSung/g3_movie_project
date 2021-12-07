@@ -23,7 +23,7 @@ public class CommunityServiceImpl implements CommunityService{
 	@Autowired ReplyMapper rmapper;
 		
 		public List<CommunityDTO> communityMain(Model model, String searchOption, String keyword, int pageNum) throws Exception {
-			int pageLetter = 10;  // 페이지당 보여질 글 개수
+			int pageLetter = 5;  // 페이지당 보여질 글 개수
 			int allCount = mapper.selectBoardCount(searchOption,keyword); // 총 개수
 			int repeat = allCount / pageLetter; // 반복횟수 및 총 페이지 수
 			if(allCount % pageLetter != 0) {
@@ -31,7 +31,15 @@ public class CommunityServiceImpl implements CommunityService{
 			}
 			int end = pageNum * pageLetter;
 			int start = end + 1 - pageLetter;
+			model.addAttribute("so",searchOption);
+			model.addAttribute("ky",keyword);
+			System.out.println("start: "+ start);
+			System.out.println("end: "+ end);
+			System.out.println("searchOption: "+ searchOption);
+			System.out.println("keyword: "+ keyword);
+			model.addAttribute("pN",pageNum);
 			model.addAttribute("repeat", repeat);
+			model.addAttribute("ac", allCount);
 			return mapper.communityMain(searchOption, keyword, start, end);
 		}
 		
@@ -47,9 +55,9 @@ public class CommunityServiceImpl implements CommunityService{
 			return mapper.communityPost(num);
 			
 		}
-//	private void upHit(int num) {
-//		mapper.upHit(num);
-//	}
+		private void upHit(int num) { //조회수
+			mapper.upHit(num);
+		}
 
 	public void communityDelete(int num) {
 		mapper.communityDelete(num);

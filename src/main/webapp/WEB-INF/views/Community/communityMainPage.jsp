@@ -23,11 +23,23 @@
 
 	});
 
+function paging(pageNum,searchOption,keyword){ //페이징
 
+	var url = "${pageContext.request.contextPath}/main/communityMain";
+	
+	url = url + "?searchOption=" + searchOption;
+
+	url = url + "&keyword=" + keyword;
+	
+	url = url + "&pageNum="+pageNum;
+	
+	location.href = url;
+}
+	
 function fn_contentView(num){ //게시글의 num을 넘겨준다(글번호)(게시글 상세보기- 제목클릭)
 
 		var url = "${pageContext.request.contextPath}/main/communityPost";
-
+		
 		url = url + "?num="+num;
 
 		location.href = url;
@@ -56,6 +68,7 @@ $(document).on('click', '#btnSearch', function(e){
 <c:import url="../default/header.jsp"/>
 <article>
 	<div class="container">
+	게시글 수: ${ac }
 <!-- 검색기능 -->
 
 		<div class="form-group row justify-content-end" >
@@ -118,7 +131,7 @@ $(document).on('click', '#btnSearch', function(e){
 		</colgroup>
 
 		<thead>
-
+			
 			<tr>
 
 				<th>NO</th>
@@ -147,23 +160,23 @@ $(document).on('click', '#btnSearch', function(e){
 
 				<c:when test="${!empty boardList}">
 
-					<c:forEach var="list" items="${boardList}">
+					<c:forEach var="boardList" items="${boardList}">
 
 						<tr>
 
-							<td><c:out value="${list.num}"/></td>
+							<td><c:out value="${boardList.num}"/></td>
 
 							<td><!-- 클릭 했을때 fn_contentView() 함수 호출 -->
-							<a href="#" onClick="fn_contentView(<c:out value="${list.num }"/>)">
-								<c:out value="${list.title}"/>
+							<a href="#" onClick="fn_contentView(<c:out value="${boardList.num }"/>)">
+								<c:out value="${boardList.title}"/>
 							</a>
 							</td>
 
-							<td><c:out value="${list.id}"/></td>
+							<td><c:out value="${boardList.id}"/></td>
 
-							<td><c:out value="${list.hit}"/></td>
+							<td><c:out value="${boardList.hit}"/></td>
 
-							<td><c:out value="${list.times}"/></td>
+							<td><c:out value="${boardList.times}"/></td>
 
 						</tr>
 
@@ -179,21 +192,40 @@ $(document).on('click', '#btnSearch', function(e){
 		</div>
 			
 			<!-- 페이징 -->
-
-			<div class="row" style="float: none; margin: 100 auto;">
-				<div class="col-md-3" style="float: none; margin: 0 auto;">
+			<h1>so: ${so }</h1>
+			<h1>ky: ${ky }</h1>
+				<div id="paginationBox">
+				
 					<ul class="pagination">
-					<c:if test="${pageNum != 1}">
-						<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-					</c:if>	
-							<c:forEach var="pageNum" begin="1" end="${repeat }">
-								<li class="page-item"><a class="page-link" href="communityMain?pageNum=${pageNum }">${pageNum }</a></li>
-							</c:forEach>
-						<li class="page-item"><a class="page-link" href="#">Next</a></li>
+					<c:choose>
+					<c:when test="${pN == 1 }"> <!-- 1번 페이지는 next버튼 작동 x -->
+						<li class="disabled"><a class="page-link" href="#">Previous</a></li>
+						
+					</c:when>
+					<c:otherwise>
+						<li class="page-item"><a class="page-link" onClick="paging(<c:out value="${pN - 1 }"/>)" href="#">Previous</a></li>
+					</c:otherwise>
+					</c:choose>
+					
+					<c:forEach var="pN" begin="1" end="${repeat }">
+						<li class="page-item"><a class="page-link"  
+						onClick="paging(${pN },'${so }','${ky }')"
+						href="#">${pN }</a></li>
+					</c:forEach>
+						
+					<c:choose>
+					<c:when test="${repeat eq pN}"> <!-- 마지막 페이지는 next버튼 작동 x -->
+					<li class="disabled"><a class="page-link" onClick="paging(<c:out value="${pN + 1 }"/>)" href="#">Next</a></li>
+					</c:when>
+					<c:otherwise>
+					<li class="page-item"><a class="page-link" onClick="paging(<c:out value="${pN + 1 }"/>)" href="#">Next</a></li>
+					</c:otherwise>
+					</c:choose>
+						
 					</ul>
-				</div>
+				
 			</div>
-
+			
 
 
 

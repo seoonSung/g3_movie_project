@@ -48,28 +48,44 @@
 	</select>
    <select id="communityMain" resultMap="board">
 		 select B.* from(select rownum rn, A.* from
-		(select * from community_board order by num desc)A)B where rn between #{s} and #{e}
 		 <choose>
 		 	<when test='searchOption == "e"'> <!-- 전체검색 -->
-		 		and title like '%' || #{keyword} || '%' 
-		 		or id like '%' || #{keyword} || '%'
-		 		or content like '%' || #{keyword} || '%'
+		(select * from community_board 
+			where title like '%' || #{keyword} || '%' 
+		 	or id like '%' || #{keyword} || '%'
+		 	or content like '%' || #{keyword} || '%' 
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}	
 		 	</when>
 		 	<when test='searchOption == "tc"'> <!-- 제목+본문 -->
-		 		and title like '%' || #{keyword} || '%'
-		 		or content like '%' || #{keyword} || '%'
-		 		or title like '%' || #{keyword} || '%'
+		 		(select * from community_board 
+			where title like '%' || #{keyword} || '%' 
+		 	or content like '%' || #{keyword} || '%' 
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}
 		 	</when>
 		 	<when test='searchOption == "title"'> <!-- 제목 -->
-		 		and title like '%' || #{keyword} || '%'
+		 		(select * from community_board 
+			where title like '%' || #{keyword} || '%' 
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}
 		 	</when>
 		 	<when test='searchOption == "id"'> <!-- 아이디 -->
-		 		and id like '%' || #{keyword} || '%'
+		 		(select * from community_board 
+			where id like '%' || #{keyword} || '%'  
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}
 		 	</when>
 		 	<when test='searchOption == "content"'> <!-- 본문 -->
-		 		and content like '%' || #{keyword} || '%'
+		 		(select * from community_board 
+			where content like '%' || #{keyword} || '%'  
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}
 		 	</when>
 		 	<otherwise>
+		 	(select * from community_board  
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}
 		 	</otherwise>
 		 </choose>
    </select> 
