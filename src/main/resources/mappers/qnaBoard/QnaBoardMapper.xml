@@ -4,4 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.care.root.mybatis.qnaBoard.QnaBoardMapper">
+	<resultMap id="qnaBoard" type="com.care.root.qnaBoard.dto.QnaBoardDTO">
+		<id property="writeNo" column="num" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="saveDate" column="savedate" />
+		<result property="hit" column="hit" />
+		<result property="id" column="id" />
+	</resultMap>
+	
+	<select id="qnaBoard" resultMap="qnaBoard">
+		select * from qna_board
+	</select>
+	
+	<insert id="writeSave">
+		insert into
+		qna_board(num,id,title,content)
+		values(qna_board_seq.nextval,#{id},#{title},#{content})
+	</insert>
 </mapper>

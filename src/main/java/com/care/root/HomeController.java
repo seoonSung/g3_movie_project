@@ -38,7 +38,7 @@ public class HomeController {
 	}
 	@GetMapping("main")
 	public String main() {
-		return "default/main";
+		return "main";
 	}
 	
 	

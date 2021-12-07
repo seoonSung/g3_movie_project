@@ -38,7 +38,7 @@ nav ul li a:hover {
 <li><a href="#">영화</a></li>
 <li><a href="#">예매</a></li>
 <li><a href="#">극장</a></li>
-<li><a href="#">고객센터</a></li>
+<li><a href="${contextPath }/service/mainService">고객센터</a></li>
 <li><a href="#">스토어</a></li>
 <li><a href="#">로그인</a></li>
 <li><a href="#">커뮤니티</a></li>
