@@ -10,7 +10,14 @@ public class QnaBoardDTO {
 	private String saveDate;
 	private int hit;
 	private String id;
+	private String sort;
 	
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
 	public int getWriteNo() {
 		return writeNo;
 	}

@@ -20,9 +20,9 @@ table {
 		<table border="1">
 			<tr>
 				<th style="width: 30px">번호</th>
-				<!-- <th style="width: 60px">문의내용</th> -->
-				<th style="width: 80px">작성자</th>
+				<th style="width: 60px">문의내용</th>
 				<th style="width: 500px">제목</th>
+				<th style="width: 80px">작성자</th>
 				<th style="width: 130px">날짜</th>
 				<th style="width: 50px">조회수</th>
 			</tr>
@@ -34,10 +34,11 @@ table {
 			<c:forEach var="dto" items="${qnaList }">
 				<tr>
 					<td>${dto.writeNo}</td>
-					<td>${dto.id }</td>
+					<td>${dto.sort }</td>
 					<td><a
 						href="${contextPath}/service/qnaContentView?num=${dto.writeNo}">${dto.title }</a>
 					</td>
+					<td>${dto.id }</td>
 					<td>${dto.saveDate }</td>
 					<td>${dto.hit }</td>
 				</tr>
@@ -47,8 +48,8 @@ table {
 			<c:forEach var="num" begin="1" end="${repeat }">
 				<a href="qnaBoard?num=${num }">[${num }]</a>
 			</c:forEach>
-		</div><br>
-		<input class="btn" type="submit" value="글작성"
+		</div>
+		<br> <input class="btn" type="submit" value="글작성"
 			onclick="location.href='${contextPath }/service/writeForm'">
 	</div>
 	<c:import url="../default/footer.jsp" />

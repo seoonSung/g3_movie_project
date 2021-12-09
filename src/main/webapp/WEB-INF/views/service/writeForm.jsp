@@ -35,7 +35,7 @@
 			<!-- readonly : 읽기 전용 -->
 			<input type="text" name="id" value="${loginUser }" readonly /><br>
 			<br> <label for="contents" name="contents"><b>문의내용</b></label> <br> <select
-				id="contents" name="contents" size="1">
+				id="sort" name="sort" size="1">
 				<option value="">선택하세요.</option>
 				<option value="change/cancel">예약변경 및 취소</option>
 				<option value="complaint">불편사항</option>

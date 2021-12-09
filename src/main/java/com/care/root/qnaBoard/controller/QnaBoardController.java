@@ -29,7 +29,7 @@ public class QnaBoardController {
 	@GetMapping("qnaBoard")
 	public String qnaBoard(Model model) {
 		qbs.allList(model);
-		return "/service/qnaBoard";
+		return "/service/qnaBoard";//qnaBoard로 model로 보냄
 	}
 	
 	@GetMapping("writeForm")
@@ -37,7 +37,7 @@ public class QnaBoardController {
 		return "/service/writeForm";
 	}
 	
-	@PostMapping("writeSave")
+	/*@PostMapping("writeSave")
 	public void writeSave(QnaBoardDTO dto,
 						 HttpServletRequest request,
 						 HttpServletResponse response) throws IOException {
@@ -46,5 +46,17 @@ public class QnaBoardController {
 		response.setContentType("text/html; charset-utf-8");
 		out = response.getWriter();
 		out.println(message);
+	}*/
+	
+	@PostMapping("writeSave")
+	public String writeSave(QnaBoardDTO dto) {
+		int result = 0;
+		try {
+			qbs.writeSave(dto);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return "redirect: qnaBoard";//writeForm to save
 	}
 }

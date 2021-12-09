@@ -1,7 +1,5 @@
 package com.care.root.qnaBoard.service;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -20,6 +18,12 @@ public class QnaBoardServiceImpl implements QnaBoardService{
 	}
 
 	@Override
+	public void writeSave(QnaBoardDTO dto) {
+		// TODO Auto-generated method stub
+		mapper.writeSave(dto);
+	}
+
+	/*@Override
 	public String writeSave(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		QnaBoardDTO dto = new QnaBoardDTO();
@@ -36,9 +40,9 @@ public class QnaBoardServiceImpl implements QnaBoardService{
 	         return "/service/qnaBoard";
 	      }else {
 	         msg = "문제가 발생되었습니다.";
-	         return "/service/writeForm";
+	         return "redirect:/writeForm";
 	      }
-	}
+	}*/
 
 	
 }

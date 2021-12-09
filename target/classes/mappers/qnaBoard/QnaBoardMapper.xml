@@ -6,6 +6,7 @@
 <mapper namespace="com.care.root.mybatis.qnaBoard.QnaBoardMapper">
 	<resultMap id="qnaBoard" type="com.care.root.qnaBoard.dto.QnaBoardDTO">
 		<id property="writeNo" column="num" />
+		<result property="sort" column="sort" />
 		<result property="title" column="title" />
 		<result property="content" column="content" />
 		<result property="saveDate" column="savedate" />
@@ -19,7 +20,7 @@
 	
 	<insert id="writeSave">
 		insert into
-		qna_board(num,id,title,content)
-		values(qna_board_seq.nextval,#{id},#{title},#{content})
+		qna_board(num,sort,id,title,content)
+		values(qna_board_seq.nextval,#{sort},#{id},#{title},#{content})
 	</insert>
 </mapper>
