@@ -33,10 +33,6 @@ public class CommunityServiceImpl implements CommunityService{
 			int start = end + 1 - pageLetter;
 			model.addAttribute("so",searchOption);
 			model.addAttribute("ky",keyword);
-			System.out.println("start: "+ start);
-			System.out.println("end: "+ end);
-			System.out.println("searchOption: "+ searchOption);
-			System.out.println("keyword: "+ keyword);
 			model.addAttribute("pN",pageNum);
 			model.addAttribute("repeat", repeat);
 			model.addAttribute("ac", allCount);
@@ -81,12 +77,8 @@ public class CommunityServiceImpl implements CommunityService{
 //	}
 //
 //
-//	@Override
-//	public int replySave(CommunityDTO dto) {
-//		int result = 0;
-//		result = mapper.replySave(dto);
-//		return result;
-//	}
+	
+	
 //
 //
 //	
@@ -97,10 +89,31 @@ public class CommunityServiceImpl implements CommunityService{
 
 
 	
-	public List<CommunityReplyDTO> getReplyList(int wrnum) throws Exception {
-		
-		return rmapper.getReplyList(wrnum);
+	public List<CommunityReplyDTO> getReplyList(int num) throws Exception { //댓글 리스트보기
+		return rmapper.getReplyList(num);
 	}
+	public void saveReply(CommunityReplyDTO dto) { //댓글 저장
+			rmapper.saveReply(dto);
+		}
+
+	public void reDelete(int renum) { //댓글 삭제
+		rmapper.reDelete(renum);
+		
+	}
+
+
+	public void updateReply(int renum, String content) { //댓글 수정
+		rmapper.updateReply(renum,content);
+		
+	}
+
+
+	
+	public void rereSave(int renum, String content, String id, int groups,int num) { //대댓글 작성
+		rmapper.rereSave(renum, content, id, groups, num);
+		
+	}
+
 
 
 

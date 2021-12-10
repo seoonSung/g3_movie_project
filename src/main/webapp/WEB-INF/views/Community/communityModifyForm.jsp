@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 <%@ include file="/WEB-INF/views/Community/set.jsp"%>
 
 <!DOCTYPE html>
@@ -14,8 +15,8 @@
 <title>write form</title>
 
 
-
-<script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
 
 	$(document).on('click', '#btnModify', function(e){
 

@@ -14,8 +14,8 @@
 <title>write form</title>
 
 
-
-<script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
 
 	$(document).on('click', '#btnSave', function(e){
 
@@ -49,8 +49,8 @@
 <c:import url="../default/header.jsp"/>
 	<article>
 
-		<div class="container" role="main">
-
+		<div class="container" role="main" >
+		<div class="my-3 p-3 bg-white rounded shadow-sm">
 			<h2>board Form</h2>
 
 			<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/main/writeSave">
@@ -98,7 +98,7 @@
 				<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
 
 			</div>
-
+		</div>
 		</div>
 
 	</article>

@@ -20,9 +20,13 @@ public interface CommunityService {
 	public void communityDelete(int num); //글 삭제
 	public void data(int num,Model model); //수정페이지에 데이터 넘겨주기
 	public int modify(CommunityDTO dto); //수정페이지
-//	public void communityReply(int num, Model model);
-//	public int replySave(CommunityDTO dto);
-//	
-	public List<CommunityReplyDTO> getReplyList(int wrnum) throws Exception; //댓글 리스트
+
+	
+	
+	public List<CommunityReplyDTO> getReplyList(int num) throws Exception; //댓글 리스트
+	public void saveReply(CommunityReplyDTO dto);//댓글저장
+	public void reDelete(int renum);//댓글삭제
+	public void updateReply(int renum, String content); //댓글수정
+	public void rereSave(int renum, String content, String id, int groups, int num); //대댓글 작성
 	
 }

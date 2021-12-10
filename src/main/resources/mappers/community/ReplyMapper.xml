@@ -2,20 +2,52 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="com.care.root.mybatis.community.ReplyMapper">
-  		<resultMap  id="reply" type="com.care.root.community.dto.CommunityReplyDTO">
-			<id property="renum" column="renum"/>
-			<result property="wrnum" column="wrnum"/>
-			<result property="step" column="step"/>
-			<result property="id" column="id"/>
-			<result property="content" column="content"/>
-			<result property="times" column="times"/>
-    	</resultMap>
-    	
-    	<select id="getReplyList" resultType="Integer">
-	 		SELECT * FROM community_board_reply 
-			WHERE wrnum = 1
-			ORDER BY wrnum;
-		 </select>
-  </mapper>
+
+<mapper namespace="com.care.root.mybatis.community.ReplyMapper">
+	<resultMap id="reply"
+		type="com.care.root.community.dto.CommunityReplyDTO">
+		<id property="renum" column="renum" />
+		<result property="num" column="num" />
+		<result property="step" column="step" />
+		<result property="groups" column="groups" />
+		<result property="indent" column="indent" />
+		<result property="id" column="id" />
+		<result property="content" column="content" />
+		<result property="times" column="times" />
+	</resultMap>
+
+	<select id="getReplyList" resultMap="reply">
+		SELECT * FROM community_board_reply where num = #{num}
+		order by groups asc, step ASC, times asc
+
+	</select>
+	<insert id="saveReply">
+
+		INSERT INTO community_board_reply(renum,
+		num, id, content, groups)
+
+		VALUES
+		(community_board_reply_seq.nextval,#{num},#{id},#{content},
+		community_board_reply_seq.nextval)
+
+	</insert>
+
+	<delete id="reDelete">
+		delete from community_board_reply where renum = #{renum}
+	</delete>
+
+	<update id="updateReply">
+		update community_board_reply set content = #{content}
+		where renum = #{renum}
+	</update>
+
+	<insert id="rereSave">
+
+		INSERT INTO community_board_reply
+		(renum,	num, id, content, groups, step, indent)
+
+		VALUES
+		(community_board_reply_seq.nextval,#{num},#{id},#{content}, #{groups}, 1, 1)
+
+	</insert>
+</mapper>

@@ -10,8 +10,8 @@
 <head>
 
 <meta charset="UTF-8">
-
-<script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
 
 	$(document).on('click', '#btnWriteForm', function(e){ //글쓰기
 
@@ -203,7 +203,7 @@ $(document).on('click', '#btnSearch', function(e){
 						
 					</c:when>
 					<c:otherwise>
-						<li class="page-item"><a class="page-link" onClick="paging(<c:out value="${pN - 1 }"/>)" href="#">Previous</a></li>
+						<li class="page-item"><a class="page-link" onClick="paging(${pN - 1 }, '${so }', '${ky }')" href="#">Previous</a></li>
 					</c:otherwise>
 					</c:choose>
 					
@@ -215,24 +215,17 @@ $(document).on('click', '#btnSearch', function(e){
 						
 					<c:choose>
 					<c:when test="${repeat eq pN}"> <!-- 마지막 페이지는 next버튼 작동 x -->
-					<li class="disabled"><a class="page-link" onClick="paging(<c:out value="${pN + 1 }"/>)" href="#">Next</a></li>
+					<li class="disabled"><a class="page-link"  href="#">Next</a></li>
 					</c:when>
 					<c:otherwise>
-					<li class="page-item"><a class="page-link" onClick="paging(<c:out value="${pN + 1 }"/>)" href="#">Next</a></li>
+					<li class="page-item"><a class="page-link" onClick="paging(${pN + 1 }, '${so }', '${ky }')" href="#">Next</a></li>
 					</c:otherwise>
 					</c:choose>
 						
 					</ul>
 				
 			</div>
-			
-
-
-
-
-
-
-
+	
 		</div>	
 </article>
 <c:import url="../default/footer.jsp"/>

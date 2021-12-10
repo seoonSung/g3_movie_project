@@ -5,22 +5,38 @@ import java.text.SimpleDateFormat;
 
 public class CommunityReplyDTO {
 	private int renum;
-	private int wrnum;
+	private int num;
 	private int step;
+	private int groups;
+	private int indent;
 	private String id;
 	private String content;
 	private Timestamp times;
+	
+	public int getGroups() {
+		return groups;
+	}
+	public void setGroups(int groups) {
+		this.groups = groups;
+	}
+	public int getIndent() {
+		return indent;
+	}
+	public void setIndent(int indent) {
+		this.indent = indent;
+	}
 	public int getRenum() {
 		return renum;
 	}
 	public void setRenum(int renum) {
 		this.renum = renum;
 	}
-	public int getWrnum() {
-		return wrnum;
+	
+	public int getNum() {
+		return num;
 	}
-	public void setWrnum(int wrnum) {
-		this.wrnum = wrnum;
+	public void setNum(int num) {
+		this.num = num;
 	}
 	public int getStep() {
 		return step;
