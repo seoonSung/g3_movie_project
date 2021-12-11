@@ -24,11 +24,27 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 
-	$(document).on('click', '#btnList', function(){ //목록으로 이동
+	/*$(document).on('click', '#btnList', function(){ //목록으로 이동
+		
+		var url = "${pageContext.request.contextPath}/main/communityMain";
+		
+		
+		
+		location.href = url;
 
-		location.href = "${pageContext.request.contextPath}/main/communityMain";
+	});*/
+	function btnList(searchOption, keyword, pageNum){
+		
+		var url = "${pageContext.request.contextPath}/main/communityMain";
+		
+		url = url + "?searchOption=" + searchOption;
 
-	});
+		url = url + "&keyword=" + keyword;
+		
+		url = url + "&pageNum="+pageNum;
+		
+		location.href = url;
+	}
 	
 	$(document).on('click', '#btnUpdate', function(){ //수정으로 이동
 
@@ -46,7 +62,7 @@
 
 	    url = url + "?num=" + ${communityPost.num};
 
-			location.href = url;
+	    location.href = url;
 
 		});
 	//    댓글    /////////////////////////////////////////////////////////////////////////
@@ -57,15 +73,18 @@
 			url:"getReplyList/"+${communityPost.num}, type:"GET",
 			dataType:"json",
 			success: function(result){
-				console.log(result)
+				
 				let htmls = ""
 				
 				result.forEach(function(data){
+					console.log(data.indent)
+					
 					
 					htmls += '<div class="media text-muted pt-3" id="renum' + data.renum + '">';
 
-                   
-
+					if(data.indent == 0){ //모댓글
+						
+		            
                     htmls += '<p>';
 
                     htmls += '<span class="d-block">';
@@ -87,6 +106,37 @@
                     htmls += data.content;
 
                     htmls += '</p>';
+                    
+					}else{ //대댓글이면 들여쓰기
+					htmls += '<p>'
+					
+					htmls += '<h4>┖&nbsp&nbsp</h4>'
+					
+					htmls +='</p>'	
+						
+					htmls += '<p>';
+
+                    htmls += '<span class="d-block">';
+
+                    htmls += '<strong class="text-gray-dark">' + data.id + '</strong>';
+
+                    htmls += '<span style="padding-left: 7px; font-size: 9pt">';
+
+                    htmls += '<a href="javascript:void(0)" onclick="reUpdate(' + data.renum + ', \'' + data.id + '\', \'' + data.content + '\' )" style="padding-right:5px">수정</a>';
+
+                    htmls += '<a href="javascript:void(0)" onclick="reDelete(' + data.renum + ')" style="padding-right:5px">삭제</a>';
+
+                    htmls += '<a href="javascript:void(0)" onclick="rere(' + data.renum + ',' + data.num + ', \'' + data.groups + '\', \'' + data.id + '\')" style="padding-right:5px">답글</a>';
+                    																									// 아이디 부분 나중에 로그인한 값으로 바꿀것						
+                    htmls += '</span>';
+
+                    htmls += '</span>';
+
+                    htmls += data.content;
+
+                    htmls += '</p>';
+					
+					}
                     
                     htmls += '</div>';
 
@@ -241,6 +291,8 @@
 		htmls += '</span>';
 		
 		htmls += '<textarea name="content2" id="content2" class="form-control" rows="3">';
+		
+		
 
 		htmls += '</textarea>';
 
@@ -332,7 +384,7 @@
 
 				<button type="button" class="btn btn-sm btn-primary" id="btnDelete">삭제</button>
 
-				<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
+				<button type="button" class="btn btn-sm btn-primary"  onClick="btnList('${searchOption}', '${keyword}', ${pageNum})">목록</button>
 
 				
 			</div>

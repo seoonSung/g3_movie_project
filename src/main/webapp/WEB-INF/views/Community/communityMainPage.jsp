@@ -36,11 +36,19 @@ function paging(pageNum,searchOption,keyword){ //페이징
 	location.href = url;
 }
 	
-function fn_contentView(num){ //게시글의 num을 넘겨준다(글번호)(게시글 상세보기- 제목클릭)
-
+function fn_contentView(num,pageNum,searchOption,keyword){ 
+	//게시글의 num을 넘겨준다(글번호)(게시글 상세보기- 제목클릭)
+	// 게시글에서 목록버튼을 눌렀을때 첫페이지가 아닌 이전페이지로 돌려주기 위해 pagenum, searchOption, keyword
+	// 값을 같이 넘겨준 것
 		var url = "${pageContext.request.contextPath}/main/communityPost";
 		
 		url = url + "?num="+num;
+		
+		url = url + "&pageNum="+pageNum;
+		
+		url = url + "&searchOption="+searchOption;
+		
+		url = url + "&keyword="+keyword;
 
 		location.href = url;
 
@@ -167,7 +175,7 @@ $(document).on('click', '#btnSearch', function(e){
 							<td><c:out value="${boardList.num}"/></td>
 
 							<td><!-- 클릭 했을때 fn_contentView() 함수 호출 -->
-							<a href="#" onClick="fn_contentView(<c:out value="${boardList.num }"/>)">
+							<a href="#" onClick="fn_contentView(${boardList.num },${pN },'${so }','${ky }')">
 								<c:out value="${boardList.title}"/>
 							</a>
 							</td>
@@ -194,20 +202,31 @@ $(document).on('click', '#btnSearch', function(e){
 			<!-- 페이징 -->
 			<h1>so: ${so }</h1>
 			<h1>ky: ${ky }</h1>
+			
 				<div id="paginationBox">
 				
 					<ul class="pagination">
 					<c:choose>
-					<c:when test="${pN == 1 }"> <!-- 1번 페이지는 next버튼 작동 x -->
-						<li class="disabled"><a class="page-link" href="#">Previous</a></li>
+					<c:when test="${pN == 1 }"> <!-- 1번 페이지는 버튼 작동 x -->
+						<li class="disabled"><a class="page-link" href="#">《</a></li>
 						
 					</c:when>
 					<c:otherwise>
-						<li class="page-item"><a class="page-link" onClick="paging(${pN - 1 }, '${so }', '${ky }')" href="#">Previous</a></li>
+						<li class="page-item"><a class="page-link" onClick="paging(1, '${so }', '${ky }')" href="#">《</a></li>
 					</c:otherwise>
 					</c:choose>
 					
-					<c:forEach var="pN" begin="1" end="${repeat }">
+					<c:choose>
+					<c:when test="${pN == 1 }"> <!-- 1번 페이지는 next버튼 작동 x -->
+						<li class="disabled"><a class="page-link" href="#">〈</a></li>
+						
+					</c:when>
+					<c:otherwise>
+						<li class="page-item"><a class="page-link" onClick="paging(${pN - 1 }, '${so }', '${ky }')" href="#">〈</a></li>
+					</c:otherwise>
+					</c:choose>
+					
+					<c:forEach var="pN" begin="${start }" end="${end }">
 						<li class="page-item"><a class="page-link"  
 						onClick="paging(${pN },'${so }','${ky }')"
 						href="#">${pN }</a></li>
@@ -215,10 +234,19 @@ $(document).on('click', '#btnSearch', function(e){
 						
 					<c:choose>
 					<c:when test="${repeat eq pN}"> <!-- 마지막 페이지는 next버튼 작동 x -->
-					<li class="disabled"><a class="page-link"  href="#">Next</a></li>
+					<li class="disabled"><a class="page-link"  href="#">〉</a></li>
 					</c:when>
 					<c:otherwise>
-					<li class="page-item"><a class="page-link" onClick="paging(${pN + 1 }, '${so }', '${ky }')" href="#">Next</a></li>
+					<li class="page-item"><a class="page-link" onClick="paging(${pN + 1 }, '${so }', '${ky }')" href="#">〉</a></li>
+					</c:otherwise>
+					</c:choose>
+					
+					<c:choose>
+					<c:when test="${repeat eq pN}"> <!-- 마지막 페이지는 버튼 작동 x -->
+					<li class="disabled"><a class="page-link"  href="#">》</a></li>
+					</c:when>
+					<c:otherwise>
+					<li class="page-item"><a class="page-link" onClick="paging(${repeat }, '${so }', '${ky }')" href="#">》</a></li>
 					</c:otherwise>
 					</c:choose>
 						

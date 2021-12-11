@@ -31,6 +31,24 @@ public class CommunityServiceImpl implements CommunityService{
 			}
 			int end = pageNum * pageLetter;
 			int start = end + 1 - pageLetter;
+			
+			int pageS; // 페이지에 보여줄 첫번째 버튼 숫자
+			int pageE; // 페이지에 보여줄 끝 버튼 숫자
+			int div; 
+			div = pageNum % 10;
+			div = div % 5;
+			if(div == 0) {
+				div = pageNum % 10;
+			}
+			pageS = pageNum - div +1;
+			pageE = pageS +4;
+			if(pageE>repeat) {
+				pageE =repeat;
+			}
+			
+			
+			model.addAttribute("start",pageS);
+			model.addAttribute("end",pageE);
 			model.addAttribute("so",searchOption);
 			model.addAttribute("ky",keyword);
 			model.addAttribute("pN",pageNum);

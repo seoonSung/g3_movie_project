@@ -54,8 +54,14 @@ public class CommunityController {
 	
 	
 	@GetMapping("communityPost")
-	public String communityPost(@RequestParam int num, Model model)throws Exception {
-		
+	public String communityPost(@RequestParam int num,
+			@RequestParam(required = false, defaultValue = "") String searchOption,
+			@RequestParam(required = false, defaultValue = "") String keyword,
+			@RequestParam(required = false, defaultValue = "") int pageNum,Model model)throws Exception {
+	
+		model.addAttribute("searchOption",searchOption);
+		model.addAttribute("keyword",keyword);
+		model.addAttribute("pageNum",pageNum);
 		model.addAttribute("communityPost",cs.communityPost(num));
 		model.addAttribute("CommunityReplyDTO",new CommunityReplyDTO());
 		return "Community/communityPost";
