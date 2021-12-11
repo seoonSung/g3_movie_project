@@ -10,4 +10,8 @@ public class MovieReviewController {
 	public String review() {
 		return "movie/info";
 	}
+	@GetMapping("movie1")
+	public String movie1() {
+		return "movie/movie1";
+	}
 }

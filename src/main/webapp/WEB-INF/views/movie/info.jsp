@@ -30,7 +30,7 @@ a{
 	margin-top:20px;
 	text-align:center;
 }
-.img-box > img {
+.img-box  img {
 	width:100%;
 	display:block;
 
@@ -89,13 +89,15 @@ a{
 		
 		<li class="cell">
 		<div class="img-box">
+		<a href="movie1">
 			<img
             src="https://img.megabox.co.kr/SharedImg/2021/11/19/OSwPwX3tSSnxJZMGljSs2tZESq6uFliO_420.jpg"
             alt="킬링 카인드: 킬러의 수제자">
+          </a>
 		</div>
 		<p class="moviename">킬링 카인드: 킬러의 수제자</p>
 		<div >개봉일 : 2021.12.01</div>
-	
+		
 		</li>
 		
 		<li class="cell">
@@ -119,55 +121,7 @@ a{
 	
 		</li>
 		
-		<li class="cell">
-		<div class="img-box">
-			<img
-            src="https://img.megabox.co.kr/SharedImg/2021/12/07/iec4gByIz1OuAACskdZ0t4i4PfglBgK6_420.jpg"
-            alt="스파이더맨: 노 웨이 홈">
-		</div>
-		<div class="prod-name">단가라 0ps</div>
-		<div class="prod-price">19,800</div>
-	
-		</li>
-		<li class="cell">
-		<div class="img-box">
-			<img
-            src="https://img.megabox.co.kr/SharedImg/2021/12/07/iec4gByIz1OuAACskdZ0t4i4PfglBgK6_420.jpg"
-            alt="스파이더맨: 노 웨이 홈">
-		</div>
-		<div class="prod-name">단가라 0ps</div>
-		<div class="prod-price">19,800</div>
-	
-		</li>
-		<li class="cell">
-		<div class="img-box">
-			<img
-            src="https://img.megabox.co.kr/SharedImg/2021/12/07/iec4gByIz1OuAACskdZ0t4i4PfglBgK6_420.jpg"
-            alt="스파이더맨: 노 웨이 홈">
-		</div>
-		<div class="prod-name">단가라 0ps</div>
-		<div class="prod-price">19,800</div>
-	
-		</li>
-		<li class="cell">
-		<div class="img-box">
-			<img
-            src="https://img.megabox.co.kr/SharedImg/2021/12/07/iec4gByIz1OuAACskdZ0t4i4PfglBgK6_420.jpg"
-            alt="스파이더맨: 노 웨이 홈">
-		</div>
-		<div class="prod-name">단가라 0ps</div>
-		<div class="prod-price">19,800</div>
-	
-		</li>
-		<li class="cell">
-		<div class="img-box">
-			<img
-            src="https://img.megabox.co.kr/SharedImg/2021/12/07/iec4gByIz1OuAACskdZ0t4i4PfglBgK6_420.jpg"
-            alt="스파이더맨: 노 웨이 홈">
-		</div>
-		<div class="prod-name">단가라 0ps</div>
-		<div class="prod-price">19,800</div>
-	
+		
 		
 		
 		
