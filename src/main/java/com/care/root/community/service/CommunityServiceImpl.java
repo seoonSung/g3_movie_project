@@ -23,6 +23,9 @@ public class CommunityServiceImpl implements CommunityService{
 	@Autowired ReplyMapper rmapper;
 		
 		public List<CommunityDTO> communityMain(Model model, String searchOption, String keyword, int pageNum) throws Exception {
+			
+			//페이징 연산 ////////
+			
 			int pageLetter = 5;  // 페이지당 보여질 글 개수
 			int allCount = mapper.selectBoardCount(searchOption,keyword); // 총 개수
 			int repeat = allCount / pageLetter; // 반복횟수 및 총 페이지 수
@@ -46,7 +49,14 @@ public class CommunityServiceImpl implements CommunityService{
 				pageE =repeat;
 			}
 			
-			
+			//글번호 연산
+			int startRow;
+			int endRow;
+			startRow = allCount-(pageNum*pageLetter)+pageLetter;
+
+			model.addAttribute("startRow",startRow);
+	
+			model.addAttribute("pageLetter",pageLetter);
 			model.addAttribute("start",pageS);
 			model.addAttribute("end",pageE);
 			model.addAttribute("so",searchOption);
@@ -86,24 +96,6 @@ public class CommunityServiceImpl implements CommunityService{
 		 
 		return mapper.modify(dto);
 	}
-//
-//
-//	
-//	public void communityReply(int num, Model model) {
-//		model.addAttribute("personalDate", mapper.communityReply(num));
-//		
-//	}
-//
-//
-	
-	
-//
-//
-//	
-//	public List<CommunityReplyDTO> getRepList(int wrnum) {
-//		return mapper.getRepList(wrnum);
-//		
-//	}
 
 
 	
@@ -125,8 +117,6 @@ public class CommunityServiceImpl implements CommunityService{
 		
 	}
 
-
-	
 	public void rereSave(int renum, String content, String id, int groups,int num) { //대댓글 작성
 		rmapper.rereSave(renum, content, id, groups, num);
 		

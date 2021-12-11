@@ -167,13 +167,15 @@ $(document).on('click', '#btnSearch', function(e){
 				</c:when> 
 
 				<c:when test="${!empty boardList}">
-
+					<c:set var="wn" value="${startRow}"/>
 					<c:forEach var="boardList" items="${boardList}">
 
 						<tr>
+						<td><!-- 글번호 -->
 
-							<td><c:out value="${boardList.num}"/></td>
-
+							${wn } 
+							
+						</td>	
 							<td><!-- 클릭 했을때 fn_contentView() 함수 호출 -->
 							<a href="#" onClick="fn_contentView(${boardList.num },${pN },'${so }','${ky }')">
 								<c:out value="${boardList.title}"/>
@@ -187,7 +189,7 @@ $(document).on('click', '#btnSearch', function(e){
 							<td><c:out value="${boardList.times}"/></td>
 
 						</tr>
-
+					<c:set var="wn" value="${wn-1 }"></c:set>
 					</c:forEach>
 
 				</c:when>
@@ -200,8 +202,6 @@ $(document).on('click', '#btnSearch', function(e){
 		</div>
 			
 			<!-- 페이징 -->
-			<h1>so: ${so }</h1>
-			<h1>ky: ${ky }</h1>
 			
 				<div id="paginationBox">
 				
