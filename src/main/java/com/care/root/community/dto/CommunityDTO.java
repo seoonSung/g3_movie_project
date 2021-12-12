@@ -7,13 +7,17 @@ public class CommunityDTO {
 	private String id;
 	private String title;
 	private String content;
-	private int groups;
-	private int step;
-	private int indent;
 	private int hit;
 	private String times;
+	private int recnt;
 	
 	
+	public int getRecnt() {
+		return recnt;
+	}
+	public void setRecnt(int recnt) {
+		this.recnt = recnt;
+	}
 	public int getNum() {
 		return num;
 	}
@@ -38,24 +42,7 @@ public class CommunityDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getGroups() {
-		return groups;
-	}
-	public void setGroups(int groups) {
-		this.groups = groups;
-	}
-	public int getStep() {
-		return step;
-	}
-	public void setStep(int step) {
-		this.step = step;
-	}
-	public int getIndent() {
-		return indent;
-	}
-	public void setIndent(int indent) {
-		this.indent = indent;
-	}
+
 	public int getHit() {
 		return hit;
 	}

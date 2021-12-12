@@ -9,11 +9,9 @@
 		<result property="id" column="id"/>
 		<result property="title" column="title"/>
 		<result property="content" column="content"/>
-		<result property="groups" column="groups"/>
-		<result property="step" column="step"/>
-		<result property="indent" column="indent"/>
 		<result property="hit" column="hit"/>
 		<result property="times" column="times"/>
+		<result property="recnt" column="recnt"/>
     </resultMap>
     
     
@@ -91,8 +89,8 @@
    </select> 
 	
 	<insert id="writeSave" >
-	    insert into community_board(num,id,title,content,groups)
-	    values(community_board_seq.nextval,#{id},#{title},#{content},community_board_seq.nextval)
+	    insert into community_board(num,id,title,content)
+	    values(community_board_seq.nextval,#{id},#{title},#{content})
 	</insert>
 	<select id="communityPost" resultMap="board">
 		select * from community_board where num = #{num}
@@ -106,14 +104,10 @@
 	<update id="modify">
 		update community_board set title = #{title}, content = #{content} where num = #{num}
 	</update>
-	<select id="communityReply" resultMap="board">
-		select * from community_board where num = #{num}
-	</select>
-	<insert id="replySave" >
-	    insert into community_board(num,id,title,content,groups,step,indent)
-	    values(community_board_seq.nextval,#{id},#{title},#{content},#{groups},#{step},#{indent})
-	</insert>
 	
+	<update id="updateRecnt">
+		update community_board set recnt = #{recnt} where num = #{num}
+	</update>
 	
 	
 </mapper>

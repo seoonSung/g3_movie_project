@@ -54,8 +54,10 @@ public class CommunityServiceImpl implements CommunityService{
 			int endRow;
 			startRow = allCount-(pageNum*pageLetter)+pageLetter;
 
+			
+			
+			
 			model.addAttribute("startRow",startRow);
-	
 			model.addAttribute("pageLetter",pageLetter);
 			model.addAttribute("start",pageS);
 			model.addAttribute("end",pageE);
@@ -100,6 +102,11 @@ public class CommunityServiceImpl implements CommunityService{
 
 	
 	public List<CommunityReplyDTO> getReplyList(int num) throws Exception { //댓글 리스트보기
+		
+		//댓글개수 처리
+		int recnt = rmapper.recnt(num);
+		mapper.updateRecnt(recnt,num);
+		////
 		return rmapper.getReplyList(num);
 	}
 	public void saveReply(CommunityReplyDTO dto) { //댓글 저장

@@ -17,4 +17,5 @@ public interface ReplyMapper {
 				@Param("id") String id,
 				@Param("groups") int groups,
 				@Param("num") int num); //대댓글 작성
+		public int recnt(int num);
 }

@@ -50,4 +50,7 @@
 		(community_board_reply_seq.nextval,#{num},#{id},#{content}, #{groups}, 1, 1)
 
 	</insert>
+	<select id="recnt" resultType="Integer">
+	 	select count(*) from community_board_reply where num = #{num}
+	</select>
 </mapper>

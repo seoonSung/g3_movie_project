@@ -179,6 +179,11 @@ $(document).on('click', '#btnSearch', function(e){
 							<td><!-- 클릭 했을때 fn_contentView() 함수 호출 -->
 							<a href="#" onClick="fn_contentView(${boardList.num },${pN },'${so }','${ky }')">
 								<c:out value="${boardList.title}"/>
+								<c:if test="${boardList.recnt > 0 }">
+								<span style="color: red;">
+								(${boardList.recnt })
+								</span>
+								</c:if>
 							</a>
 							</td>
 

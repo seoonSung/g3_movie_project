@@ -24,15 +24,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 
-	/*$(document).on('click', '#btnList', function(){ //목록으로 이동
-		
-		var url = "${pageContext.request.contextPath}/main/communityMain";
-		
-		
-		
-		location.href = url;
 
-	});*/
 	function btnList(searchOption, keyword, pageNum){
 		
 		var url = "${pageContext.request.contextPath}/main/communityMain";

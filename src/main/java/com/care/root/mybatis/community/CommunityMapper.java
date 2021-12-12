@@ -22,8 +22,6 @@ public interface CommunityMapper {
 	public int modify(CommunityDTO dto); //게시글 수정
 	public int selectBoardCount(@Param("searchOption") String searchOption,
 								@Param("keyword") String keyword); //게시글 수
-//	public CommunityDTO communityReply(int nums); //답글
-//	public int replySave(CommunityDTO dto); //답글저장
-//	
-//	public List<CommunityReplyDTO> getRepList(int wrnum);
+	public void updateRecnt(@Param("recnt") int recnt, @Param("num") int num);
+
 }
