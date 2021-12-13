@@ -21,7 +21,7 @@ nav ul li a:hover {
     color: orange; padding-bottom: 3px; /* a태그 밑줄과 글씨 간격*/
     border-bottom: 1px solid orange; transition: all 0.25s;
 }
-.title {    /*오른, 아래, 번짐*/
+.title1 {    /*오른, 아래, 번짐*/
     text-shadow: 10px 10px 15px black; font-size: 70pt;
     text-align: center; margin-top: 0px; padding-bottom: 20px;
     color:burlywood; font-family:Gabriola;
@@ -29,19 +29,33 @@ nav ul li a:hover {
 .content{ margin-top: 50px; }
 </style> </head> <body>
 <div class="wrap">
-    <div class="header"> <h1 class="title">CARE LAB</h1> </div>
+    <div class="header"> <h1 class="title1">CARE LAB</h1> </div>
 </div>
 <div class="navdiv">
 <div class="wrap">
 <nav>
     <ul>
-<li><a href="#">영화</a></li>
+<li><a href="${contextPath }/info">영화</a></li>
 <li><a href="#">예매</a></li>
 <li><a href="#">극장</a></li>
 <li><a href="#">고객센터</a></li>
 <li><a href="#">스토어</a></li>
+<<<<<<< HEAD
 <li><a href="#">로그인</a></li>
 <li><a href="${contextPath }/main/communityMain">커뮤니티</a></li>
+=======
+<li>
+	<c:choose>
+		<c:when test="${loginUser != null }">
+			<a href="${contextPath }/member/logout">로그아웃</a>
+		</c:when>
+		<c:otherwise>
+			<a href="${contextPath }/member/login">로그인</a>
+		</c:otherwise>
+	</c:choose>
+</li>
+<li><a href="#">커뮤니티</a></li>
+>>>>>>> 7369e59cce7b8faea13b39eaf1c5713f578ef45f
 
 
 
