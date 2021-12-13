@@ -68,7 +68,8 @@ $(document).on('click', '#btnSearch', function(e){
 	console.log(url);
 
 });
-</script>	
+
+</script>
 </head>
 
 <body>
@@ -130,7 +131,9 @@ $(document).on('click', '#btnSearch', function(e){
 
 			<col style="width:auto;" />
 
-			<col style="width:15%;" />
+			<col style="width:10%;" />
+	
+			<col style="width:10%;" />
 
 			<col style="width:10%;" />
 
@@ -145,13 +148,16 @@ $(document).on('click', '#btnSearch', function(e){
 				<th>NO</th>
 
 				<th>글제목</th>
+				
+				<th>추천수</th>
 
 				<th>작성자</th>
 
 				<th>조회수</th>
 
 				<th>작성일</th>
-
+				
+				
 			</tr>
 
 		</thead>
@@ -171,28 +177,27 @@ $(document).on('click', '#btnSearch', function(e){
 					<c:forEach var="boardList" items="${boardList}">
 
 						<tr>
-						<td><!-- 글번호 -->
-
-							${wn } 
-							
-						</td>	
+						<td>${wn } </td>	<!-- 글번호 -->
 							<td><!-- 클릭 했을때 fn_contentView() 함수 호출 -->
 							<a href="#" onClick="fn_contentView(${boardList.num },${pN },'${so }','${ky }')">
 								<c:out value="${boardList.title}"/>
-								<c:if test="${boardList.recnt > 0 }">
-								<span style="color: red;">
-								(${boardList.recnt })
-								</span>
-								</c:if>
+									<c:if test="${boardList.recnt > 0 }"> <!-- 댓글이 있으면 옆에 빨간 글씨로 표시 -->
+									<span style="color: red;">
+									(${boardList.recnt })
+									</span>
+									</c:if>
 							</a>
 							</td>
-
+							
+							<td></td>
+							
 							<td><c:out value="${boardList.id}"/></td>
 
 							<td><c:out value="${boardList.hit}"/></td>
 
 							<td><c:out value="${boardList.times}"/></td>
-
+							
+							
 						</tr>
 					<c:set var="wn" value="${wn-1 }"></c:set>
 					</c:forEach>
@@ -207,51 +212,66 @@ $(document).on('click', '#btnSearch', function(e){
 		</div>
 			
 			<!-- 페이징 -->
-			
+
 				<div id="paginationBox">
 				
-					<ul class="pagination">
+					<ul class="pagination justify-content-center">
 					<c:choose>
 					<c:when test="${pN == 1 }"> <!-- 1번 페이지는 버튼 작동 x -->
-						<li class="disabled"><a class="page-link" href="#">《</a></li>
+						<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
 						
 					</c:when>
 					<c:otherwise>
-						<li class="page-item"><a class="page-link" onClick="paging(1, '${so }', '${ky }')" href="#">《</a></li>
+						<li class="page-item"><a class="page-link" onClick="paging(1, '${so }', '${ky }')" href="#">&laquo;</a></li>
 					</c:otherwise>
 					</c:choose>
 					
 					<c:choose>
 					<c:when test="${pN == 1 }"> <!-- 1번 페이지는 next버튼 작동 x -->
-						<li class="disabled"><a class="page-link" href="#">〈</a></li>
+						<li class="page-item disabled"><a class="page-link" href="#">이전</a></li>
 						
 					</c:when>
 					<c:otherwise>
-						<li class="page-item"><a class="page-link" onClick="paging(${pN - 1 }, '${so }', '${ky }')" href="#">〈</a></li>
+						<li class="page-item"><a class="page-link" onClick="paging(${pN - 1 }, '${so }', '${ky }')" href="#">이전</a></li>
 					</c:otherwise>
 					</c:choose>
 					
-					<c:forEach var="pN" begin="${start }" end="${end }">
-						<li class="page-item"><a class="page-link"  
+					<c:forEach var="pN" begin="${start }" end="${end }"> <!-- 현재페이지 색깔 표시 -->
+						<c:choose>
+						<c:when test="${pN == currentPage}">
+						<li class="page-item active">
+						<a class="page-link"  
 						onClick="paging(${pN },'${so }','${ky }')"
-						href="#">${pN }</a></li>
+						href="#">${pN }
+						</a>
+						</li>
+						</c:when>
+						<c:otherwise>
+						<li class="page-item">
+						<a class="page-link"  
+						onClick="paging(${pN },'${so }','${ky }')"
+						href="#">${pN }
+						</a>
+						</li>
+						</c:otherwise>
+						</c:choose>
 					</c:forEach>
 						
 					<c:choose>
 					<c:when test="${repeat eq pN}"> <!-- 마지막 페이지는 next버튼 작동 x -->
-					<li class="disabled"><a class="page-link"  href="#">〉</a></li>
+					<li class="page-item disabled"><a class="page-link"  href="#">다음</a></li>
 					</c:when>
 					<c:otherwise>
-					<li class="page-item"><a class="page-link" onClick="paging(${pN + 1 }, '${so }', '${ky }')" href="#">〉</a></li>
+					<li class="page-item"><a class="page-link" onClick="paging(${pN + 1 }, '${so }', '${ky }')" href="#">다음</a></li>
 					</c:otherwise>
 					</c:choose>
 					
 					<c:choose>
 					<c:when test="${repeat eq pN}"> <!-- 마지막 페이지는 버튼 작동 x -->
-					<li class="disabled"><a class="page-link"  href="#">》</a></li>
+					<li class="page-item disabled"><a class="page-link"  href="#">&raquo;</a></li>
 					</c:when>
 					<c:otherwise>
-					<li class="page-item"><a class="page-link" onClick="paging(${repeat }, '${so }', '${ky }')" href="#">》</a></li>
+					<li class="page-item"><a class="page-link" onClick="paging(${repeat }, '${so }', '${ky }')" href="#">&raquo;</a></li>
 					</c:otherwise>
 					</c:choose>
 						

@@ -35,7 +35,7 @@ public class CommunityController {
 			@RequestParam(required = false, defaultValue = "1") int pageNum) throws Exception { //메인페이지 리스트 보여주기
 		
 		model.addAttribute("boardList", cs.communityMain(model, searchOption, keyword, pageNum));
-
+		model.addAttribute("currentPage",pageNum);
 		return "Community/communityMainPage";
 	}
 	
