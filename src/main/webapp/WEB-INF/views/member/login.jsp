@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:import url="../default/header.jsp"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:import url="../default/header.jsp"/>
 <div align="center"><h1>로그인 페이지 입니다</h1></div>
 <div align="right" class="wrap">
     <form action = "<%=request.getContextPath() %>/member/user_check" method="post">

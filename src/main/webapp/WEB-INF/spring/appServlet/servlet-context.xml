@@ -26,6 +26,13 @@
 	<beans:bean id="autoLogin" class="com.care.root.member.interceptor.AutoLoginInterceptor"/> 
 	
 	<interceptors>
+	<interceptor>
+		
+		<mapping path="/qnaboard/boardWrite"/>
+		<mapping path="/qnaboard/contentView"/>
+		<beans:ref bean="ci"/>
+	</interceptor>
+	
       <interceptor>
         <mapping path="/member/register"/>
         <beans:ref bean="autoLogin"/> 
