@@ -54,9 +54,6 @@ public class CommunityServiceImpl implements CommunityService{
 			int endRow;
 			startRow = allCount-(pageNum*pageLetter)+pageLetter;
 
-			
-			
-			
 			model.addAttribute("startRow",startRow);
 			model.addAttribute("pageLetter",pageLetter);
 			model.addAttribute("start",pageS);
@@ -68,13 +65,9 @@ public class CommunityServiceImpl implements CommunityService{
 			model.addAttribute("ac", allCount);
 			return mapper.communityMain(searchOption, keyword, start, end);
 		}
-		
-		
 		public void writeSave(CommunityDTO dto) throws Exception {
 			mapper.writeSave(dto);
 		}
-
-
 		public CommunityDTO communityPost(int num) throws Exception {
 		
 			mapper.upHit(num);
@@ -107,6 +100,8 @@ public class CommunityServiceImpl implements CommunityService{
 		int recnt = rmapper.recnt(num);
 		mapper.updateRecnt(recnt,num);
 		////
+		
+		
 		return rmapper.getReplyList(num);
 	}
 	public void saveReply(CommunityReplyDTO dto) { //댓글 저장
@@ -114,7 +109,24 @@ public class CommunityServiceImpl implements CommunityService{
 		}
 
 	public void reDelete(int renum) { //댓글 삭제
-		rmapper.reDelete(renum);
+		
+		
+		
+		if(rmapper.deleteStep(renum)==1) { //대댓글은 그냥 삭제
+			int groups = rmapper.deleteG(renum);
+
+			if(rmapper.count(groups) == 2) { //마지막 대댓글이면
+				rmapper.deleteU(groups); //숨겨준 모댓글도 같이 삭제
+			}
+			rmapper.reDelete(renum);
+		}else {
+			if(rmapper.deleteGroup(renum)==1) { //대댓글이 없으면 그냥 삭제
+				
+				rmapper.reDelete(renum);
+			}else if(rmapper.deleteGroup(renum)>1) {
+				rmapper.deletDT(renum);
+			}
+		}
 		
 	}
 

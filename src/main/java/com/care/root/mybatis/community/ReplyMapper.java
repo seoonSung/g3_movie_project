@@ -18,4 +18,13 @@ public interface ReplyMapper {
 				@Param("groups") int groups,
 				@Param("num") int num); //대댓글 작성
 		public int recnt(int num);
+		
+		//삭제된 댓글 처리 
+		public int deleteStep(int renum);
+		public int deleteGroup(int renum);
+		public void deletDT(int renum);
+		public int deleteG(int renum);
+		public void deleteU(int groups);
+		public int count(int groups);
+		//
 }

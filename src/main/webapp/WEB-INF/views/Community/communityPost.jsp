@@ -81,11 +81,19 @@ $(document).on('click', '#loginA', function(e){ //알림
 				let htmls = ""
 				
 				result.forEach(function(data){
+					
+					
 
 					htmls += '<div class="media text-muted pt-3" id="renum' + data.renum + '">';
-
+					
 					if(data.indent == 0){ //모댓글
-						
+						if(data.dt == 1){ //삭제시 대댓글이 남아있다면
+							htmls += '<p>';
+							
+							htmls += '(삭제된 댓글입니다.)'
+							
+							htmls += '</p>'
+						}else{
 		            
                     htmls += '<p>';
 
@@ -111,7 +119,8 @@ $(document).on('click', '#loginA', function(e){ //알림
                     htmls += data.content;
 
                     htmls += '</p>';
-                    
+						}
+						
 					}else{ //대댓글이면 들여쓰기
 					htmls += '<p>'
 					

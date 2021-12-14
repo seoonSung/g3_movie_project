@@ -12,7 +12,14 @@ public class CommunityReplyDTO {
 	private String id;
 	private String content;
 	private Timestamp times;
+	private int dt;
 	
+	public int getDt() {
+		return dt;
+	}
+	public void setDt(int dt) {
+		this.dt = dt;
+	}
 	public int getGroups() {
 		return groups;
 	}

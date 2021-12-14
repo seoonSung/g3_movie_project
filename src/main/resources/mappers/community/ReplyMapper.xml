@@ -14,6 +14,7 @@
 		<result property="id" column="id" />
 		<result property="content" column="content" />
 		<result property="times" column="times" />
+		<result property="dt" column="dt" />
 	</resultMap>
 
 	<select id="getReplyList" resultMap="reply">
@@ -52,5 +53,25 @@
 	</insert>
 	<select id="recnt" resultType="Integer">
 	 	select count(*) from community_board_reply where num = #{num}
+	</select>
+	
+	<select id="deleteStep" resultType="Integer">
+	 	select step from community_board_reply where renum = #{renum}
+	</select>
+	<select id="deleteGroup" resultType="Integer">
+	 	select count(groups) from community_board_reply where groups = #{renum}
+	</select>
+	<update id="deletDT">
+		update community_board_reply set dt = 1
+		where renum = #{renum}
+	</update>
+	<select id="deleteG" resultType="Integer">
+	 	select groups from community_board_reply where renum = #{renum}
+	</select>
+	<delete id="deleteU">
+		delete from community_board_reply where groups = #{groups}
+	</delete>
+	<select id="count" resultType="Integer">
+	 	select count(groups) from community_board_reply where groups = #{groups}
 	</select>
 </mapper>
