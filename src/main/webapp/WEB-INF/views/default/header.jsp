@@ -40,10 +40,7 @@ nav ul li a:hover {
 <li><a href="#">극장</a></li>
 <li><a href="#">고객센터</a></li>
 <li><a href="#">스토어</a></li>
-<<<<<<< HEAD
-<li><a href="#">로그인</a></li>
 <li><a href="${contextPath }/main/communityMain">커뮤니티</a></li>
-=======
 <li>
 	<c:choose>
 		<c:when test="${loginUser != null }">
@@ -54,12 +51,7 @@ nav ul li a:hover {
 		</c:otherwise>
 	</c:choose>
 </li>
-<li><a href="#">커뮤니티</a></li>
->>>>>>> 7369e59cce7b8faea13b39eaf1c5713f578ef45f
-
-
-
-    </ul>
+</ul>
 </nav>
 </div>
 </div>

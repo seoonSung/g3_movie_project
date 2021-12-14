@@ -12,7 +12,20 @@
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
+	
+	$(document).on('click', '#loginA', function(e){ //알림
+	
+		e.preventDefault(); // 1. a 태그를 눌렀을때도 href 링크로 이동하지 않게 할 경우
 
+							// 2. form 안에 submit 역할을 하는 버튼을 눌렀어도 새로 실행하지 않게 하고싶을 경우 (submit은 작동됨)
+
+		alert('로그인 후 이용해주세요.');	
+		
+	
+		location.href = "${pageContext.request.contextPath}/member/login";
+	
+	});
+	
 	$(document).on('click', '#btnWriteForm', function(e){ //글쓰기
 
 		e.preventDefault();
@@ -113,9 +126,14 @@ $(document).on('click', '#btnSearch', function(e){
 			</div>
 			
 			<div style="padding-right:10px">
-
+			<c:choose>
+				<c:when test="${loginUser != null }">
 				<button type="button" class="btn btn-sm btn-primary" id="btnWriteForm">글쓰기</button>
-
+				</c:when>
+				<c:otherwise>
+				<button type="button" class="btn btn-sm btn-primary" id="loginA">글쓰기</button>
+				</c:otherwise>
+			</c:choose>	
 			</div>
 
 		</div>

@@ -23,7 +23,18 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
+$(document).on('click', '#loginA', function(e){ //알림
+	
+	e.preventDefault(); // 1. a 태그를 눌렀을때도 href 링크로 이동하지 않게 할 경우
 
+						// 2. form 안에 submit 역할을 하는 버튼을 눌렀어도 새로 실행하지 않게 하고싶을 경우 (submit은 작동됨)
+
+	alert('로그인 후 이용해주세요.');	
+	
+
+	location.href = "${pageContext.request.contextPath}/member/login";
+
+});
 
 	function btnList(searchOption, keyword, pageNum){
 		
@@ -60,7 +71,8 @@
 	//    댓글    /////////////////////////////////////////////////////////////////////////
 	//댓글 보기
 	function replyList(){
-		
+		var writer = '${loginUser}';
+		console.log(writer)
 		$.ajax({
 			url:"getReplyList/"+${communityPost.num}, type:"GET",
 			dataType:"json",
@@ -69,9 +81,7 @@
 				let htmls = ""
 				
 				result.forEach(function(data){
-					console.log(data.indent)
-					
-					
+
 					htmls += '<div class="media text-muted pt-3" id="renum' + data.renum + '">';
 
 					if(data.indent == 0){ //모댓글
@@ -84,13 +94,16 @@
                     htmls += '<strong class="text-gray-dark">' + data.id + '</strong>';
 
                     htmls += '<span style="padding-left: 7px; font-size: 9pt">';
-
+					if(writer == data.id){
                     htmls += '<a href="javascript:void(0)" onclick="reUpdate(' + data.renum + ', \'' + data.id + '\', \'' + data.content + '\' )" style="padding-right:5px">수정</a>';
 
                     htmls += '<a href="javascript:void(0)" onclick="reDelete(' + data.renum + ')" style="padding-right:5px">삭제</a>';
-
-                    htmls += '<a href="javascript:void(0)" onclick="rere(' + data.renum + ',' + data.num + ', \'' + data.groups + '\', \'' + data.id + '\')" style="padding-right:5px">답글</a>';
-                    																									// 아이디 부분 나중에 로그인한 값으로 바꿀것						
+					}					
+                    if(writer == ""){                  
+                    htmls += '<a href="javascript:void(0)" id="loginA" style="padding-right:5px">답글</a>';
+                    }else{                    	
+                    htmls += '<a href="javascript:void(0)" onclick="rere(' + data.renum + ',' + data.num + ', \'' + data.groups + '\')" style="padding-right:5px">답글</a>';
+                    }																													
                     htmls += '</span>';
 
                     htmls += '</span>';
@@ -114,12 +127,16 @@
 
                     htmls += '<span style="padding-left: 7px; font-size: 9pt">';
 
-                    htmls += '<a href="javascript:void(0)" onclick="reUpdate(' + data.renum + ', \'' + data.id + '\', \'' + data.content + '\' )" style="padding-right:5px">수정</a>';
+                    if(writer == data.id){
+                        htmls += '<a href="javascript:void(0)" onclick="reUpdate(' + data.renum + ', \'' + data.id + '\', \'' + data.content + '\' )" style="padding-right:5px">수정</a>';
 
-                    htmls += '<a href="javascript:void(0)" onclick="reDelete(' + data.renum + ')" style="padding-right:5px">삭제</a>';
-
-                    htmls += '<a href="javascript:void(0)" onclick="rere(' + data.renum + ',' + data.num + ', \'' + data.groups + '\', \'' + data.id + '\')" style="padding-right:5px">답글</a>';
-                    																									// 아이디 부분 나중에 로그인한 값으로 바꿀것						
+                        htmls += '<a href="javascript:void(0)" onclick="reDelete(' + data.renum + ')" style="padding-right:5px">삭제</a>';
+    				}	
+                    if(writer == ""){                  
+                        htmls += '<a href="javascript:void(0)" id="loginA" style="padding-right:5px">답글</a>';
+                    }else{                    	
+                        htmls += '<a href="javascript:void(0)" onclick="rere(' + data.renum + ',' + data.num + ', \'' + data.groups + '\')" style="padding-right:5px">답글</a>';
+                    }	                    																														
                     htmls += '</span>';
 
                     htmls += '</span>';
@@ -259,8 +276,9 @@
 
 	}
 	//대댓글 폼
-	function rere(renum,num,groups,id){
-
+	function rere(renum,num,groups){
+		var writer = '${loginUser}';
+		
 		var htmls = "";
 
 		htmls += '<div class="media text-muted pt-3" id="rerenum' + renum + '">';
@@ -269,12 +287,12 @@
 
 		htmls += '<span class="d-block">';
 
-		htmls += '<strong class="text-gray-dark">' + id + '</strong>';
+		htmls += '<strong class="text-gray-dark">' + writer + '</strong>';
 
 		htmls += '<span style="padding-left: 7px; font-size: 9pt">';
 		
 
-		htmls += '<a href="javascript:void(0)" onclick="rereSave(' + renum + ', \'' + id + '\',' + groups + ',' + num + ')" style="padding-right:5px">저장</a>';
+		htmls += '<a href="javascript:void(0)" onclick="rereSave(' + renum + ', \'' + writer + '\',' + groups + ',' + num + ')" style="padding-right:5px">저장</a>';
 
 		htmls += '<a href="javascript:void(0)" onClick="replyList()">취소<a>';
 
@@ -299,11 +317,11 @@
 	
 //onclick="rereSave(' + renum + ')"
 	//대댓글 작성 저장
-	function rereSave(renum,id,groups,num){
+	function rereSave(renum,writer,groups,num){
 		let replyEditContent = $('#content2').val();
 		let paramData = {"content": replyEditContent
 						, "renum": renum
-						, "id" : id
+						, "id" : writer
 						, "groups" : groups
 						, "num" : num
 		};
@@ -372,10 +390,13 @@
 
 			<div style="margin-top : 20px">
 
+			<c:choose>
+			<c:when test="${loginUser eq communityPost.id}">
 				<button type="button" class="btn btn-sm btn-primary" id="btnUpdate">수정</button>
 
 				<button type="button" class="btn btn-sm btn-primary" id="btnDelete">삭제</button>
-
+			</c:when>
+			</c:choose>
 				<button type="button" class="btn btn-sm btn-primary"  onClick="btnList('${searchOption}', '${keyword}', ${pageNum})">목록</button>
 
 				
@@ -407,14 +428,25 @@
 
 						<div class="col-sm-2">
 
-							<input  class="form-control" id="id" name="id"
-								placeholder="댓글 작성자"></input>
+							<input type="hidden" name="id" value="${loginUser}" >
 
-							<button type="button" class="btn btn-sm btn-primary"
-								onclick="reSave()" style="width: 100%; margin-top: 10px">
-								저 장</button>
+								<c:choose>
+									<c:when test="${loginUser != null }">
+										<button type="button" class="btn btn-sm btn-primary"
+											onclick="reSave()" style="width: 100%; margin-top: 10px">
+											저 장</button>
+									</c:when>
+									<c:otherwise>
+										<button type="button" class="btn btn-sm btn-primary"
+											style="width: 100%; margin-top: 10px" id="loginA">저장</button>
 
-						</div>
+									</c:otherwise>
+
+								</c:choose>
+
+
+
+							</div>
 
 					</div>
 						<div style="padding-top: 10px">

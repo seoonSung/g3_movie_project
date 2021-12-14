@@ -70,7 +70,7 @@
 
 					<label for="id">작성자</label>
 
-					<input type="text" class="form-control" name="id" id="id" value="${communityPost.id }">
+					<input type="text" class="form-control" name="id" id="id" value="${communityPost.id }" readonly="readonly">
 
 				</div>
 
@@ -80,7 +80,7 @@
 
 					<label for="content">내용</label>
 
-					<textarea class="form-control" rows="5" name="content" id="content" value="${communityPost.content }" ></textarea>
+					<textarea class="form-control" rows="5" name="content" id="content" >${communityPost.content }</textarea>
 
 				</div>
 

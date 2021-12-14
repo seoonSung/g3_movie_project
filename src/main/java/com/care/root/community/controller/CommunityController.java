@@ -83,17 +83,7 @@ public class CommunityController {
 		rt.addFlashAttribute("result","modify success");
 		return "redirect:communityMain";
 	}
-//	@GetMapping("communityReply")
-//	public String communityReply(@RequestParam int num, Model model) {
-//		cs.communityReply(num,model);
-//		return "Community/communityReply";
-//	}
-//	
-//	@PostMapping("replySave")
-//	public String replySave(CommunityDTO dto) {
-//		int result = cs.replySave(dto);
-//		return "redirect:communityMain";
-//	}
+
 	
 	
 

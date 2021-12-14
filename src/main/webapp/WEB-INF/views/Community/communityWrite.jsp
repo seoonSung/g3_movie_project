@@ -69,7 +69,7 @@
 
 					<label for="id">작성자</label>
 
-					<input type="text" class="form-control" name="id" id="id" placeholder="이름을 입력해 주세요">
+					<input type="text" class="form-control" name="id" id="id" value= "${loginUser}" readonly="readonly">
 
 				</div>
 
