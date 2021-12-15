@@ -1,5 +1,9 @@
 package com.care.root.mybatis.movieReview;
 
-public interface MovieReviewMapper {
+import java.util.List;
 
+import com.care.root.movieReview.dto.MovieReviewDTO;
+
+public interface MovieReviewMapper {
+	public List<MovieReviewDTO> reviewList();
 }

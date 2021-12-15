@@ -1,5 +1,7 @@
 package com.care.root.movieReview.service;
 
-public interface MovieReviewService {
+import org.springframework.ui.Model;
 
+public interface MovieReviewService {
+	public void reviewList(Model model);
 }

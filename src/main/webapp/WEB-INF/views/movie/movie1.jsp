@@ -7,6 +7,34 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <title>Insert title here</title>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript">
+
+function slideClick(){
+	$(".modal_wrap").slideDown("slow")
+}
+function slide_hide(){
+	$(".modal_wrap").hide()
+}
+function cancel(){
+	alert('로그인 먼저 하세요')
+	location.href = '${contextPath}/member/login'
+}
+
+
+
+
+
+
+
+
+
+
+</script>
 </head>
 <style type = "text/css">
 .movie-detail-page .movie-detail-cont .btn-util {
@@ -637,6 +665,174 @@ img {
 .movie-detail-page .movie-detail-cont .screen-type .btn.reserve {
 	background-color: #329eb1
 }
+.modal_wrap{
+	 z-index:100; margin:auto; 
+	display:none;
+}
+.review_ly{
+	position: absolute;
+    top: 0;
+    width: 535px;
+    overflow: hidden;
+    top: 150px;
+    left: 50%;
+    margin: 0 0 0 -242px;
+    padding-bottom: 35px;
+    z-index: 500;
+    border-radius: 6px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 7px 31px rgb(0 0 0 / 50%);
+    box-shadow: 0 7px 31px rgb(0 0 0 / 50%);
+}
+.input_textarea{
+	padding: 13px 15px;
+    width: 475px;
+    height: 140px;
+    line-height: 19px;
+    border: 0;
+    font-size: 14px;
+    color: rgba(0,0,0,.3);
+    letter-spacing: -0.09px;
+    resize: none;
+    background: 0;
+}
+.ly_tit{
+	display: block;
+    padding: 14px 19px 0;
+    height: 50px;
+    line-height: 19px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #2b2b2b;
+}
+.review_ly .ly_inner {
+    padding: 0 30px;
+}
+div {
+    display: block;
+}
+#wrap.basic #content {
+    width: 775px;
+    text-align: left;
+}
+.review_ly .review_tit {
+    display: block;
+    padding-top: 30px;
+    line-height: 27px;
+    text-align: center;
+    color: #000;
+    font-size: 22px;
+}
+.review_ly .ly_inner .input_star .review_point .st_off {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    margin: 1px 0 0 0;
+    padding-left: 1px;
+    background: url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;
+    background-position: 0 -1060px;
+}
+.review_ly .ly_inner .input_star .review_point {
+    overflow: hidden;
+    display: inline-block;
+    text-align: center;
+}
+.review_ly .ly_inner .input_star {
+    margin-top: 20px;
+    text-align: center;
+}
+#wrap {
+    position: relative;
+    min-height: 100%;
+    margin: 0 auto;
+    padding-top: 7px;
+    text-align: left;
+    *background: url(https://ssl.pstatic.net/static/movie/2014/04/header_bg.png) repeat-y;
+}
+.review_ly .ly_inner .input_star .review_point .st_off button:first-child {
+    position: absolute;
+    top: -9999px;
+}
+.review_ly .ly_inner .input_star .review_point button {
+    display: block;
+    overflow: hidden;
+    float: left;
+    width: 12px;
+    height: 24px;
+    border: 0;
+    background: url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;
+    background-position: -1px -1031px;
+    outline: 0;
+    text-indent: -9999px;
+}
+input[type=text], input[type=password], button, input[type=button], input[type=reset], input[type=image], input[type=submit], textarea {
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: none;
+    -webkit-border-radius: 0;
+}
+.review_ly .ly_inner .input_star .review_point button.on~button {
+    background-position: 0 -9999px;
+}
+.review_ly{position:absolute;top:0;width:535px;overflow:hidden;top:150px;left:50%;margin:0 0 0 -242px;padding-bottom:35px;z-index:500;border-radius:6px;background-color:#fff;-webkit-box-shadow:0 7px 31px rgba(0,0,0,0.5);box-shadow:0 7px 31px rgba(0,0,0,0.5)}
+
+.review_ly .ly_inner{padding:0 30px}
+.review_ly .review_tit{display:block;padding-top:30px;line-height:27px;text-align:center;color:#000;font-size:22px}
+.review_ly .ly_inner .input_star{margin-top:20px;text-align:center}
+.review_ly .ly_inner .input_star .review_point{overflow:hidden;display:inline-block;text-align:center}
+.review_ly .ly_inner .input_star .review_point .st_off{overflow:hidden;display:inline-block;vertical-align:top;margin:1px 0 0 0;padding-left:1px;background:url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;background-position:0 -1060px}
+.review_ly .ly_inner .input_star .review_point button{display:block;overflow:hidden;float:left;width:12px;height:24px;border:0;background:url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;background-position:-1px -1031px;outline:0;text-indent:-9999px}
+.review_ly .ly_inner .input_star .review_point .st_r{width:19px;background-position:-13px -1031px}
+.review_ly .ly_inner .input_star .review_point .st_off button:first-child{position:absolute;top:-9999px}
+.review_ly .ly_inner .input_star .review_point button.on~button{background-position:0 -9999px}
+.review_ly .ly_inner .input_star .review_point .st_over button.on~button{background-position:-1px -1031px}
+.review_ly .ly_inner .input_star .review_point .st_over button.on~button.st_r{background-position:-13px -1031px}
+.review_ly .ly_inner .input_star .review_point .st_over button:hover~button{background-position:0 -9999px!important}
+.review_ly .ly_inner .input_star .st_point{display:inline-block;vertical-align:top;margin-left:2px;width:32px;line-height:30px;color:#333;font-size:25px;font-family:tahoma}
+.review_ly .ly_inner .input_star .ly_point_wrap{display:inline-block;position:relative;vertical-align:top;margin:3px 0 0 5px;width:25px;height:26px}
+.review_ly .ly_inner .input_star .ly_point_wrap .btn_score{display:block;width:25px;height:26px;background:url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat -123px -852px}
+.review_ly .ly_inner .input_star .ly_point_wrap .btn_score.on{background-position:-123px -822px}
+.review_ly .ly_inner .input_star .ly_point_wrap .point_ly{overflow:hidden;position:absolute;top:32px;right:2px;width:107px;box-shadow:0 1px 0 0 rgba(0,0,0,0.06);border:solid 1px #a9a8a8;background-color:#fff;z-index:100}
+.review_ly .ly_inner .input_star .ly_point_wrap .point_ly ul{float:left;width:53px}
+.review_ly .ly_inner .input_star .ly_point_wrap .point_ly ul+ul{border-left:1px solid #f1f1f1}
+.review_ly .ly_inner .input_star .ly_point_wrap .point_ly ul li{width:100%}
+.review_ly .ly_inner .input_star .ly_point_wrap .point_ly ul li+li{border-top:1px solid #f1f1f1}
+.review_ly .ly_inner .input_star .ly_point_wrap .point_ly ul li button{width:100%;height:27px;color:#333;background:0}
+.review_ly .ly_inner .input_star .ly_point_wrap .point_ly ul li button em{font-weight:bold}
+.review_ly .ly_inner .input_star .point_notice{margin-top:5px;line-height:17px;text-align:center;color:#999;font-size:14px}
+.review_ly .ly_inner .input_choice{margin-top:30px;text-align:center;border-top:1px solid #ededed}
+.review_ly .ly_inner .input_choice+.input_choice{margin-top:35px}
+.review_ly .ly_inner .input_choice .input_tit{display:block;padding-top:35px;line-height:19px;text-align:center;color:#000;font-weight:bold;font-size:16px;letter-spacing:-0.43px}
+.review_ly .ly_inner .input_choice .input_tit em{vertical-align:top;line-height:18px;color:#999;font-size:14px;font-weight:normal}
+.review_ly .ly_inner .input_choice .choice_box{overflow:hidden;display:inline-block;position:relative;left:-8px;vertical-align:top;margin-top:20px}
+.review_ly .ly_inner .input_choice .choice_box .choice_label{display:block;position:relative;float:left;margin-left:8px;width:70px;line-height:38px;color:#333;font-size:14px;border:solid 1px #dadada;border-radius:5px}
+.review_ly .ly_inner .input_choice .choice_box input.checked+.choice_label{color:#ff3a45;font-weight:bold;border-color:#ff3a45}
+.review_ly .ly_inner .input_choice .choice_box input.checked+.choice_label:after{content:'';position:absolute;top:4px;right:4px;width:9px;height:7px;background:url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat -131px -1013px}
+.review_ly .ly_inner .input_request{position:relative;margin-top:35px;height:144px;border:solid 1px #d0d0d0;background-color:#fbfcfd}
+
+.review_ly .ly_inner .input_request .input_textarea{font-size:14px;line-height:18px;resize:none;color:#333;letter-spacing:-0.09px;font-weight:normal}
+.review_ly .ly_inner .input_request .text_length{position:absolute;bottom:10px;right:13px;color:rgba(51,51,51,.5);letter-spacing:-0.09px;font-size:13px}
+.review_ly .ly_inner .input_request .text_length em{color:#000;font-weight:bold}
+.review_ly .ly_footer{margin-top:35px;border-top:1px solid #ededed}
+.review_ly .ly_footer .spoiler_check{padding-top:35px;text-align:center}
+.review_ly .ly_footer .spoiler_check .notice_text{display:inline-block;line-height:17px;text-align:center;color:#000;font-weight:normal;font-size:14px;letter-spacing:-0.38px}
+.review_ly .ly_footer .spoiler_check .choice_box{overflow:hidden;display:inline-block;vertical-align:top;margin-left:6px}
+.review_ly .ly_footer .spoiler_check .choice_box .choice_label{display:block;position:relative;float:left;margin-left:14px;line-height:17px;color:#333;font-size:14px}
+.review_ly .ly_footer .spoiler_check .choice_box .choice_label::before{content:'';display:inline-block;vertical-align:top;margin:1px 3px 0 0;width:14px;height:14px;background:url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;background-position:-106px -976px}
+.review_ly .ly_footer .spoiler_check .choice_box input.checked+.choice_label::before{background-position:-85px -976px}
+.review_ly .ly_footer .btn_box{margin-top:25px;text-align:center}
+.review_ly .ly_footer .btn_box .box_inner{overflow:hidden;display:inline-block;vertical-align:top}
+.review_ly .ly_footer .btn_box .box_inner button{float:left;width:120px;height:38px;line-height:38px;font-size:15px;letter-spacing:-0.41px}
+.review_ly .ly_footer .btn_box .box_inner .btn_cancel{color:#333;font-weight:500;border:solid 1px #c3c3c3;background-color:#fff}
+.review_ly .ly_footer .btn_box .box_inner .btn_complete{margin-left:5px;color:#fff;font-weight:500;border:solid 1px #ff5257;background-color:#ff5257}
+.review_ly .ly_footer .btn_box .box_inner .btn_complete:disabled{cursor:default;border:1px solid #999;background-color:#999}
+.review{*z-index:50}
+
+
+
+
+
+
 
 
 </style>
@@ -732,6 +928,10 @@ img {
             alt="킬링 카인드: 킬러의 수제자"> 
 				</div>
 			</div>
+		
+
+
+
 
 
 
@@ -760,6 +960,85 @@ img {
 		</div>
 		<!--// movie-detail-cont -->
 	</div>
+	<table border = 1>
+			<tr>
+				<th>번호</th>
+				<th>id</th>
+				<th>날짜</th>
+				<th>좋아요</th>
+				<th>리뷰</th>
+				<th>평점</th>
+			</tr>
+			<c:if test="${reviewList.size() == 0 }">
+				<tr>
+					<td colspan="6">저장 데이터 없음</td>
+				</tr>
+			</c:if>
+			<c:forEach var="dto" items="${reviewList }">
+				<tr>
+					<td>${dto.movieNumber }</td>
+					<td>${dto.id }</td>
+					<td>${dto.days }</td>
+					<td>${dto.likes }</td>
+					<td>${dto.review }</td>
+					<td>${dto.avgRe }</td>
+				</tr>
+			</c:forEach>
+			<tr>
+				<td colspan="6"><a href="${contextPath }/board/writeForm">글작성</a>
+				</td>
+			</tr>
+		</table>
+	<c:choose>
+		<c:when test="${loginUser != null }">
+			<button type="button" onclick="slideClick()">관람평 등록</button>
+		</c:when>
+		<c:otherwise>
+			<button type="button" onclick="cancel()">관람평 등록</button>
+			
+		</c:otherwise>
+	</c:choose>
+	
+	
+	<div class="modal_wrap">
+		
+		<div id="point-write-form" class="review_ly" style="top: 150px; display: block;">
+            <strong class="ly_tit">내 평점 등록</strong>
+			<div class="ly_inner">
+				<strong class="review_tit">킬링 카인드: 킬러의 수제자</strong>
+					<span class="star">
+
+				
+
+
+
+
+				
+				
+				<div class="input_request">
+					<!-- [D] 입력시 active class 추가 부탁드립니다. -->
+					<textarea id="ment" row="1" cols="1" rows="1" class="input_textarea"></textarea>
+					
+				</div>
+
+				<div class="ly_footer">
+					
+
+					<div class="btn_box">
+						<div class="box_inner">
+							<button id="point-form-close" onclick="slide_hide()"class="btn_cancel">취소</button>
+							<!--[D] 입력 되면 disabled 삭제 부탁드립니다.-->
+							<button id="pointAddButton" class="btn_complete">확인</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+			
+		
+
+			
 	<c:import url="../default/footer.jsp" />
 </body>
 </html>
