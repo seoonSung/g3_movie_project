@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.care.root.mybatis.community.ReplyMapper">
+	<resultMap id="reply"
+		type="com.care.root.community.dto.CommunityReplyDTO">
+		<id property="renum" column="renum" />
+		<result property="num" column="num" />
+		<result property="step" column="step" />
+		<result property="groups" column="groups" />
+		<result property="indent" column="indent" />
+		<result property="id" column="id" />
+		<result property="content" column="content" />
+		<result property="times" column="times" />
+		<result property="dt" column="dt" />
+	</resultMap>
+
+	<select id="getReplyList" resultMap="reply">
+		SELECT * FROM community_board_reply where num = #{num}
+		order by groups asc, step ASC, times asc
+
+	</select>
+	<insert id="saveReply">
+
+		INSERT INTO community_board_reply(renum,
+		num, id, content, groups)
+
+		VALUES
+		(community_board_reply_seq.nextval,#{num},#{id},#{content},
+		community_board_reply_seq.nextval)
+
+	</insert>
+
+	<delete id="reDelete">
+		delete from community_board_reply where renum = #{renum}
+	</delete>
+
+	<update id="updateReply">
+		update community_board_reply set content = #{content}
+		where renum = #{renum}
+	</update>
+
+	<insert id="rereSave">
+
+		INSERT INTO community_board_reply
+		(renum,	num, id, content, groups, step, indent)
+
+		VALUES
+		(community_board_reply_seq.nextval,#{num},#{id},#{content}, #{groups}, 1, 1)
+
+	</insert>
+	<select id="recnt" resultType="Integer">
+	 	select count(*) from community_board_reply where num = #{num}
+	</select>
+	
+	<select id="deleteStep" resultType="Integer">
+	 	select step from community_board_reply where renum = #{renum}
+	</select>
+	<select id="deleteGroup" resultType="Integer">
+	 	select count(groups) from community_board_reply where groups = #{renum}
+	</select>
+	<update id="deletDT">
+		update community_board_reply set dt = 1
+		where renum = #{renum}
+	</update>
+	<select id="deleteG" resultType="Integer">
+	 	select groups from community_board_reply where renum = #{renum}
+	</select>
+	<delete id="deleteU">
+		delete from community_board_reply where groups = #{groups}
+	</delete>
+	<select id="count" resultType="Integer">
+	 	select count(groups) from community_board_reply where groups = #{groups}
+	</select>
+</mapper>

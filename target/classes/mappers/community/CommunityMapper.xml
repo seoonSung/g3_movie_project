@@ -4,4 +4,110 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.care.root.mybatis.community.CommunityMapper">
+	<resultMap  id="board" type="com.care.root.community.dto.CommunityDTO">
+		<id property="num" column="num"/>
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="hit" column="hit"/>
+		<result property="times" column="times"/>
+		<result property="recnt" column="recnt"/>
+    </resultMap>
+    
+    
+    
+    <!-- board 관련 -->
+    
+    <select id="selectBoardCount" resultType="Integer">
+	 	select count(*) from community_board
+	 	<choose>
+		 	<when test='searchOption == "e"'> <!-- 전체검색 -->
+		 		where title like '%' || #{keyword} || '%' 
+		 		or id like '%' || #{keyword} || '%'
+		 		or content like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "tc"'> <!-- 제목+본문 -->
+		 		where title like '%' || #{keyword} || '%'
+		 		or content like '%' || #{keyword} || '%'
+		 		or title like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "title"'> <!-- 제목 -->
+		 		where title like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "id"'> <!-- 아이디 -->
+		 		where id like '%' || #{keyword} || '%'
+		 	</when>
+		 	<when test='searchOption == "content"'> <!-- 본문 -->
+		 		where content like '%' || #{keyword} || '%'
+		 	</when>
+		 	<otherwise>
+		 	</otherwise>
+		 </choose>
+	</select>
+   <select id="communityMain" resultMap="board">
+		 select B.* from(select rownum rn, A.* from
+		 <choose>
+		 	<when test='searchOption == "e"'> <!-- 전체검색 -->
+		(select * from community_board 
+			where title like '%' || #{keyword} || '%' 
+		 	or id like '%' || #{keyword} || '%'
+		 	or content like '%' || #{keyword} || '%' 
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}	
+		 	</when>
+		 	<when test='searchOption == "tc"'> <!-- 제목+본문 -->
+		 		(select * from community_board 
+			where title like '%' || #{keyword} || '%' 
+		 	or content like '%' || #{keyword} || '%' 
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}
+		 	</when>
+		 	<when test='searchOption == "title"'> <!-- 제목 -->
+		 		(select * from community_board 
+			where title like '%' || #{keyword} || '%' 
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}
+		 	</when>
+		 	<when test='searchOption == "id"'> <!-- 아이디 -->
+		 		(select * from community_board 
+			where id like '%' || #{keyword} || '%'  
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}
+		 	</when>
+		 	<when test='searchOption == "content"'> <!-- 본문 -->
+		 		(select * from community_board 
+			where content like '%' || #{keyword} || '%'  
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}
+		 	</when>
+		 	<otherwise>
+		 	(select * from community_board  
+		 	order by num desc)A)
+		 		B where rn between #{s} and #{e}
+		 	</otherwise>
+		 </choose>
+   </select> 
+	
+	<insert id="writeSave" >
+	    insert into community_board(num,id,title,content)
+	    values(community_board_seq.nextval,#{id},#{title},#{content})
+	</insert>
+	<select id="communityPost" resultMap="board">
+		select * from community_board where num = #{num}
+	</select>
+	<update id="upHit">
+		update community_board set hit = hit + 1 where num = #{num}
+	</update>
+	<delete id="communityDelete">
+		delete from community_board where num = #{num}
+	</delete>
+	<update id="modify">
+		update community_board set title = #{title}, content = #{content} where num = #{num}
+	</update>
+	
+	<update id="updateRecnt">
+		update community_board set recnt = #{recnt} where num = #{num}
+	</update>
+	
+	
 </mapper>
