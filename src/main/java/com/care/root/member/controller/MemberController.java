@@ -75,7 +75,7 @@ public class MemberController implements SessionName{
 		}
 		
 		session.setAttribute( LOGIN, id);
-		return "member/successLogin";
+		return "/default/main";
 	}
 	@GetMapping("logout")
 	public String logout(HttpSession session, HttpServletResponse response,

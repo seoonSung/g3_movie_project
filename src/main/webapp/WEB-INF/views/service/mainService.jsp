@@ -33,7 +33,7 @@ a {
 			</h1>
 		</div>
 	</a>
-	<a href="oneOnOne">
+	<a href="oneOnOneQna">
 		<div class="oneOnOne">
 			<h1 align="center">
 				<i class="fas fa-question fa-3x"></i><br> <br>1 : 1 문 의

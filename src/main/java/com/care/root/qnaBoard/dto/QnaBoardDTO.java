@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class QnaBoardDTO {
-	private int writeNo;
+	private int num;
 	private String title;
 	private String content;
 	private String saveDate;
@@ -18,11 +18,11 @@ public class QnaBoardDTO {
 	public void setSort(String sort) {
 		this.sort = sort;
 	}
-	public int getWriteNo() {
-		return writeNo;
+	public int getNum() {
+		return num;
 	}
-	public void setWriteNo(int writeNo) {
-		this.writeNo = writeNo;
+	public void setNum(int num) {
+		this.num = num;
 	}
 	public String getTitle() {
 		return title;

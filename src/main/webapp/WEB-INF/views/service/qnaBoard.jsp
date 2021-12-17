@@ -33,10 +33,10 @@ table {
 			</c:if>
 			<c:forEach var="dto" items="${qnaList }">
 				<tr>
-					<td>${dto.writeNo}</td>
+					<td>${dto.num}</td>
 					<td>${dto.sort }</td>
 					<td><a
-						href="${contextPath}/service/qnaContentView?num=${dto.writeNo}">${dto.title }</a>
+						href="${contextPath}/service/qnaContentView?num=${dto.num}">${dto.title }</a>
 					</td>
 					<td>${dto.id }</td>
 					<td>${dto.saveDate }</td>

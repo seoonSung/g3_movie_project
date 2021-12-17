@@ -37,8 +37,8 @@
 			<br> <label for="contents" name="contents"><b>문의내용</b></label> <br> <select
 				id="sort" name="sort" size="1">
 				<option value="">선택하세요.</option>
-				<option value="change/cancel">예약변경 및 취소</option>
-				<option value="complaint">불편사항</option>
+				<option value="예약변경 및 취소">예약변경 및 취소</option>
+				<option value="불편사항">불편사항</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
 				<option value="5">5</option>

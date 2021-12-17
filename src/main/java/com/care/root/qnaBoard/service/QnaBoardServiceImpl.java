@@ -1,11 +1,15 @@
 package com.care.root.qnaBoard.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.care.root.mybatis.qnaBoard.QnaBoardMapper;
 import com.care.root.qnaBoard.dto.QnaBoardDTO;
+import com.care.root.qnaBoard.dto.QnaBoardRepDTO;
 
 @Service
 public class QnaBoardServiceImpl implements QnaBoardService{
@@ -20,7 +24,61 @@ public class QnaBoardServiceImpl implements QnaBoardService{
 	@Override
 	public void writeSave(QnaBoardDTO dto) {
 		// TODO Auto-generated method stub
-		mapper.writeSave(dto);
+		try {
+			mapper.writeSave(dto);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void qnaContentView(int num, Model model) {
+		// TODO Auto-generated method stub
+		 model.addAttribute("personalData",mapper.qnaContentView(num));
+	     upHit(num); 
+	}
+
+	private void upHit(int num) {
+		// TODO Auto-generated method stub
+		mapper.upHit(num);
+	}
+
+	@Override
+	public int modify(QnaBoardDTO dto) {
+		// TODO Auto-generated method stub
+		return mapper.modify(dto);
+	}
+
+	@Override
+	public void getData(int num, Model model) {
+		// TODO Auto-generated method stub
+	      model.addAttribute("personalData",mapper.qnaContentView(num));
+	}
+
+	@Override
+	public void addReply(@ModelAttribute("QnaBoardDTO") QnaBoardRepDTO dto) {
+		// TODO Auto-generated method stub
+		mapper.addReply(dto);
+	}
+
+	@Override
+	public List<QnaBoardRepDTO> getRepList(int write_group) {
+		// TODO Auto-generated method stub
+		return mapper.getRepList(write_group);
+	}
+	
+
+	@Override
+	public int selectBoardCount() {
+		// TODO Auto-generated method stub
+		return mapper.selectBoardCount();
+	}
+
+	@Override
+	public int delete(int num) {
+		// TODO Auto-generated method stub
+		return mapper.delete(num);
 	}
 
 	/*@Override
