@@ -118,6 +118,7 @@
 			<scope>test</scope>
 		</dependency>
 
+<<<<<<< HEAD
 		<!-- HikariCP -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -194,6 +195,24 @@
 		    <artifactId>javax.mail</artifactId>
 		    <version>1.5.3</version>
 		</dependency>
+=======
+<!-- commons-io -->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.4</version>
+</dependency>
+
+	<!-- JSON.stringify(문자열 json타입 변경)  키:값 쌍으로 이루어져 있음-->
+		<dependency>
+		   <groupId>com.fasterxml.jackson.core</groupId>
+		   <artifactId>jackson-databind</artifactId>
+		   <version>2.9.5</version>
+		</dependency>
+		
+		
+	
+>>>>>>> a09362e05959aafe23f5baeebca35e9535b56066
 	</dependencies>
 	<build>
 		<plugins>
