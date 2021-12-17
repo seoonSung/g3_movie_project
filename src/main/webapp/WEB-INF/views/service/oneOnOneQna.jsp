@@ -51,7 +51,7 @@
 		</tr>
 		<tr>
 			<th><b>이메일</b></th>
-			<td><input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus></td>
+			<td><input type="email" name="email" value="${loginEmail }" readonly></td>
 		</tr>
 		<tr>
 			<th><b>연락처</b></th>

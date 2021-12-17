@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: seoonsung
 Build-Jdk: 11.0.12
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Built-By: sc sh
-Build-Jdk: 11.0.11
-Created-By: Maven Integration for Eclipse
-
->>>>>>> a09362e05959aafe23f5baeebca35e9535b56066
