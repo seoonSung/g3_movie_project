@@ -12,3 +12,4 @@ public interface MemberMapper {
 	public void keepLogin(Map<String, Object> map);
 	public MemberDTO getUserSessionId(String sessionId);
 }
+
