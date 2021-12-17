@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.care.root.mybatis.book.BookMapper">
+	<resultMap  id="movie_info" type="com.care.root.book.dto.MovieInfoDTO">
+		<id property="movie_number" column="movie_number"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="director" column="director"/>
+		<result property="actor" column="actor"/>
+		<result property="genre" column="genre"/>
+		<result property="grade" column="grade"/>
+		<result property="avg_mo" column="avg_mo"/>
+		<result property="day" column="day"/>
+    </resultMap>
+    
+    <select id="movieList" resultMap="movie_info">
+		select * from movie_info
+		
+	</select>
+	<select id="movieDay" resultMap="movie_info">
+		select * from movie_info
+		where title = #{title}
+	</select>
+    </mapper>
