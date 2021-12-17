@@ -11,7 +11,7 @@
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 <script type="text/javascript">
 
 function slideClick(){
@@ -24,7 +24,6 @@ function cancel(){
 	alert('로그인 먼저 하세요')
 	location.href = '${contextPath}/member/login'
 }
-
 
 
 
@@ -829,7 +828,52 @@ input[type=text], input[type=password], button, input[type=button], input[type=r
 .review{*z-index:50}
 
 
+/* component */
 
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  justify-content: space-around;
+  padding: 0 0.2em;
+  text-align: center;
+  width: 5em;
+  margin:0 auto;
+
+}
+ 
+.star-rating input {
+  display: none;
+}
+ 
+.star-rating label {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-color: #2b2a29;
+  cursor: pointer;
+}
+ 
+.star-rating :checked ~ label {
+  -webkit-text-fill-color: gold;
+}
+ 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-fill-color: #fff58c;
+}
+/* explanation */
+
+article {
+  background-color:#ffe;
+  box-shadow:0 0 1em 1px rgba(0,0,0,.25);
+  color:#006;
+  font-family:cursive;
+  font-style:italic;
+  margin:4em;
+  max-width:30em;
+  padding:2em;
+}
 
 
 
@@ -962,7 +1006,7 @@ input[type=text], input[type=password], button, input[type=button], input[type=r
 	</div>
 	<table border = 1>
 			<tr>
-				<th>번호</th>
+				
 				<th>id</th>
 				<th>날짜</th>
 				<th>좋아요</th>
@@ -976,7 +1020,7 @@ input[type=text], input[type=password], button, input[type=button], input[type=r
 			</c:if>
 			<c:forEach var="dto" items="${reviewList }">
 				<tr>
-					<td>${dto.movieNumber }</td>
+					
 					<td>${dto.id }</td>
 					<td>${dto.days }</td>
 					<td>${dto.likes }</td>
@@ -984,10 +1028,7 @@ input[type=text], input[type=password], button, input[type=button], input[type=r
 					<td>${dto.avgRe }</td>
 				</tr>
 			</c:forEach>
-			<tr>
-				<td colspan="6"><a href="${contextPath }/board/writeForm">글작성</a>
-				</td>
-			</tr>
+			
 		</table>
 	<c:choose>
 		<c:when test="${loginUser != null }">
@@ -998,7 +1039,7 @@ input[type=text], input[type=password], button, input[type=button], input[type=r
 			
 		</c:otherwise>
 	</c:choose>
-	
+	<form id="fo" action="review1" method="post">
 	
 	<div class="modal_wrap">
 		
@@ -1006,7 +1047,20 @@ input[type=text], input[type=password], button, input[type=button], input[type=r
             <strong class="ly_tit">내 평점 등록</strong>
 			<div class="ly_inner">
 				<strong class="review_tit">킬링 카인드: 킬러의 수제자</strong>
-					<span class="star">
+					
+<div class="star-rating">
+  <input type="radio" id="5-stars" checked="checked" name="rating" value="5" />
+  <label for="5-stars" class="star">&#9733;</label>
+  <input type="radio" id="4-stars" name="rating" value="4" />
+  <label for="4-stars" class="star">&#9733;</label>
+  <input type="radio" id="3-stars" name="rating" value="3" />
+  <label for="3-stars" class="star">&#9733;</label>
+  <input type="radio" id="2-stars" name="rating" value="2" />
+  <label for="2-stars" class="star">&#9733;</label>
+  <input type="radio" id="1-star" name="rating" value="1" />
+  <label for="1-star" class="star">&#9733;</label>
+</div>
+
 
 				
 
@@ -1017,17 +1071,19 @@ input[type=text], input[type=password], button, input[type=button], input[type=r
 				
 				<div class="input_request">
 					<!-- [D] 입력시 active class 추가 부탁드립니다. -->
-					<textarea id="ment" row="1" cols="1" rows="1" class="input_textarea"></textarea>
+					<textarea id="ment" name="review" row="1" cols="1" rows="1" class="input_textarea"></textarea>
 					
 				</div>
+				
+				
 
 				<div class="ly_footer">
 					
 
 					<div class="btn_box">
 						<div class="box_inner">
-							<button id="point-form-close" onclick="slide_hide()"class="btn_cancel">취소</button>
-							<!--[D] 입력 되면 disabled 삭제 부탁드립니다.-->
+							<button type="button" id="point-form-close" onclick="slide_hide()"class="btn_cancel">취소</button>
+							
 							<button id="pointAddButton" class="btn_complete">확인</button>
 						</div>
 					</div>
@@ -1035,8 +1091,10 @@ input[type=text], input[type=password], button, input[type=button], input[type=r
 			</div>
 		</div>
 		</div>
-			
 		
+		
+			
+		</form>
 
 			
 	<c:import url="../default/footer.jsp" />

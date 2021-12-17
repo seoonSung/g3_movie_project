@@ -75,6 +75,7 @@ public class MemberController implements SessionName{
 		}
 		
 		session.setAttribute( LOGIN, id);
+		
 		return "member/successLogin";
 	}
 	@GetMapping("logout")

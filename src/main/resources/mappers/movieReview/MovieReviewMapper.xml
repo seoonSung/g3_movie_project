@@ -18,6 +18,13 @@
 	
 	<select id="reviewList" resultMap="review">
 		select * from movie_review
+		
 	</select>
+	
+	<insert id="writeSave">
+		insert into
+		movie_review(movie_number,id,review,avg_re)
+		values(#{movieNumber},#{id},#{review},#{avgRe})
+	</insert>
 
 </mapper>
