@@ -14,6 +14,7 @@
 		<result property="days" column="days" />
 		<result property="hit" column="hit" />
 		<result property="sort" column="sort" />
+		<result property="answer" column="answer" />
 </resultMap>
 
  <resultMap  id="rep" type="com.care.root.qnaBoard.dto.QnaBoardRepDTO">
@@ -29,6 +30,11 @@
 		insert into qna_reply(num,id,title,content,write_group) 
 			values(qna_reply_seq.nextval,#{id},#{title},#{content},#{write_group})
 </insert>
+
+<update id="answerupdate">
+	UPDATE QNA_BOARD SET ANSWER = '답변완료'
+		WHERE NUM IN (SELECT WRITE_GROUP FROM QNA_REPLY)
+</update>
 
 <select id="boardAllList" resultMap="board">
 	select * from qna_board
@@ -52,8 +58,8 @@ select B.* from(select rownum rn, A.* from
 </select>
 
 <insert id="writeSave" >
-	    insert into qna_board(num,id,title,content)
-	    values(qna_board_seq.nextval,#{id},#{title},#{content})
+	    insert into qna_board(num,id,title,content,sort)
+	    values(qna_board_seq.nextval,#{id},#{title},#{content},#{sort})
 </insert>
 
 <update id="modify_save">

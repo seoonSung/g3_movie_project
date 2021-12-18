@@ -83,7 +83,7 @@ text-align:center;
 				<td><a href="${contextPath}/qnaboard/contentView?num=${list.num}">${list.title}</a></td>   <!-- contentView로 넘어갈때 session id값으로 불러오기 -->
 				<td>${loginUser}</td>			<!-- session에 저장되어있는 아이디값 넣기 -->
 				<td>${list.days}</td>
-				<td>답변상태</td>				<!-- 답변 상태는 request값에 넣기 -->
+				<td>${list.answer}</td>				<!-- 답변 상태는 request값에 넣기 -->
 				<td>${list.hit}</td>
 			</tr>
 			

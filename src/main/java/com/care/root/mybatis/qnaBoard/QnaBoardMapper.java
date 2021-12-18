@@ -20,7 +20,8 @@ public interface QnaBoardMapper {
 	public int modify_save(QnaBoardDTO dto);
 	public int writeSave(QnaBoardDTO dto);
 	public int delete(@Param("num")int num);
-	public void addReply(QnaBoardRepDTO dto);
+	public void addReply(QnaBoardRepDTO dto);	
+	public void answerupdate(QnaBoardRepDTO dto);
 	public List<QnaBoardRepDTO> getRepList(int write_group);
 	
 	

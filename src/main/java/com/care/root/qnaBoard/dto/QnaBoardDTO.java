@@ -13,7 +13,14 @@ public class QnaBoardDTO {
 	private String id;
 	private String sort;
 	private String imageFileName;
+	private String answer;
 	
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 	public int getGroups() {
 		return groups;
 	}
