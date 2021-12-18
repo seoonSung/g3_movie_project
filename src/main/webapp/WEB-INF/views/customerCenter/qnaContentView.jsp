@@ -44,13 +44,8 @@ button {background-color:rgba(255,255,255,0.7);;padding:5px;border:1px solid #cc
 .detail {width:400px;text-align:left;line-height:1.8;display:none;}	
 </style>
 
-<script>
-
-
-</script>
-
 </head>
-<body onload="replyData()">
+<body onload="replyList()">
 <c:import url="../default/header.jsp"/>
 <div class="wrap">
 
@@ -91,6 +86,7 @@ button {background-color:rgba(255,255,255,0.7);;padding:5px;border:1px solid #cc
         
       </div>        
     </form>
+		<div id="replyList"></div>
     <div id="response">
     	<span id="response1">
     	
@@ -129,7 +125,6 @@ button {background-color:rgba(255,255,255,0.7);;padding:5px;border:1px solid #cc
 			</form>
 		</div>
 		
-		<div id="reply"></div>
 
 	<script>
     function showDetail() {
@@ -144,7 +139,7 @@ button {background-color:rgba(255,255,255,0.7);;padding:5px;border:1px solid #cc
     }
 
   </script>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 function rep(){
 	let form = {};
@@ -162,6 +157,7 @@ function rep(){
 			alert("성공적으로 답글이 달렸습니다.");
 			$("#title").val("")
 			$("#content").val("")
+			replyList()
 		},
 		error : function() {
 			alert("문제 발생!")
@@ -169,9 +165,9 @@ function rep(){
 	});
 }
 
-function replyData(){
+function replyList(){
 	$.ajax({
-		url:"replyData/"+${personalData.num}, type:"GET", 
+		url:"getReplyList/"+${personalData.num}, type:"GET", 
 		dataType:"json",
 		success: function(rep){
 			let html = ""
@@ -185,7 +181,7 @@ function replyData(){
 				html += "<b>제목</b> : "+data.title+"<br>"
 				html += "<b>내용</b> : "+data.content+"<hr></div>"
 			})
-			$("#reply").html(html)
+			$("#replyList").html(html)
 		},error:function(){
 			alert('데이터를 가져올 수 없습니다')
 		}

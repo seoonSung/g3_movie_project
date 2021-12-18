@@ -24,7 +24,7 @@ select * from movie_info
 </select>
 
 <select id="movieDay" resultMap="movie_info">
-select * from movie_infowhere title = #{title} 
+select * from movie_info where title = #{title} 
 </select>
 
 </mapper>

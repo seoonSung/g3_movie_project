@@ -14,5 +14,5 @@ public interface QnaBoardService {
 	public int modify_save(QnaBoardDTO dto);
 	public int delete(int num);
 	public void addReply(QnaBoardRepDTO dto);
-	public List<QnaBoardRepDTO> getRepList(int write_group);
+	public List<QnaBoardRepDTO> getReplyList(int write_group);
 }

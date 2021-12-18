@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.care.root.common.session.SessionName;
@@ -19,7 +20,7 @@ import com.care.root.qnaBoard.dto.QnaBoardRepDTO;
 import com.care.root.qnaBoard.service.QnaBoardService;
 
 @RestController
-@RequestMapping("/board")
+@RequestMapping("qnaboard/")
 public class QnaBoardRepController implements SessionName{
 @Autowired QnaBoardService qbs;
 
@@ -35,9 +36,10 @@ public class QnaBoardRepController implements SessionName{
 		return "{\"result\" : true}";
 	}
 	
-	@GetMapping(value="replyData/{write_group}", 
-			produces="application/json;charset=utf-8")
-		public List<QnaBoardRepDTO> replyData(@PathVariable int write_group) {
-		return qbs.getRepList(write_group);
-}
+	  @GetMapping(value = "getReplyList/{write_group}", produces = "application/json;charset=utf-8")
+	   @ResponseBody
+	   public List<QnaBoardRepDTO> getReplyList(@PathVariable int write_group) throws Exception {
+	      return qbs.getReplyList(write_group);
+
+	   }
 }

@@ -17,6 +17,7 @@
 </resultMap>
 
  <resultMap  id="rep" type="com.care.root.qnaBoard.dto.QnaBoardRepDTO">
+		<id property="num" column="num"/>
 		<result property="id" column="id"/>
 		<result property="title" column="title"/>
 		<result property="content" column="content"/>
@@ -25,8 +26,8 @@
 </resultMap>
 
  <insert id="addReply">
-		insert into qna_reply(id,title,content,write_group) 
-			values(#{id},#{title},#{content},#{write_group})
+		insert into qna_reply(num,id,title,content,write_group) 
+			values(qna_reply_seq.nextval,#{id},#{title},#{content},#{write_group})
 </insert>
 
 <select id="boardAllList" resultMap="board">

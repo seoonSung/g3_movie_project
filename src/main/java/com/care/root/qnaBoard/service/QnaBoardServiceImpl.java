@@ -74,7 +74,7 @@ public class QnaBoardServiceImpl implements QnaBoardService{
 
 
 	@Override
-	public List<QnaBoardRepDTO> getRepList(int write_group) {
+	public List<QnaBoardRepDTO> getReplyList(int write_group) {
 		return mapper.getRepList(write_group);
 	}
 
