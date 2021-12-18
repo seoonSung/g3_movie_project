@@ -19,7 +19,7 @@
 <link rel="stylesheet"
    href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 <!-- MATERIAL DESIGN ICONIC FONT -->
-
+<link rel="stylesheet" href="${contextPath}/resources/css/seat.css">
 </head>
 
 <body>
