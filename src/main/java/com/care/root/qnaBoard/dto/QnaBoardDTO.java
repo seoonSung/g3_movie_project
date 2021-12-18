@@ -12,6 +12,7 @@ public class QnaBoardDTO {
 	private int hit;
 	private String id;
 	private String sort;
+	private String imageFileName;
 	
 	public int getGroups() {
 		return groups;
@@ -65,6 +66,12 @@ public class QnaBoardDTO {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getImageFileName() {
+		return imageFileName;
+	}
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 	
 	

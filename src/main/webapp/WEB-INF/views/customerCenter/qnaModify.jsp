@@ -98,15 +98,16 @@ display:none;
 <div class="wrap">
 
  <div id="container">
-    <h1>상세보기</h1>
-   <label style="font-size:small; color:red;" >* 작성자와 작성일자는 변경할 수 없습니다.</label>
-    <form method="post" action="${contextPath}/qnaboard/modifysave" >
+    <h1 style="text-align:center;">수정 페이지</h1>
+   <label style="font-size:small; color:red;" >* 작성자는 변경할 수 없습니다.</label>
+    <form method="post" action="${contextPath}/qnaboard/modify_save" >
       <fieldset>
-        <legend>글작성 페이지</legend>
+        
         <ul id="shipping">
         <input type="hidden" name="num" value="${personalData.num }"> 
         <li>
-        	
+        	<label for="user-name">문의내용</label>
+            <input type="text" name="sort" value="${personalData.sort}" >   <!-- 수정하기 -->
         </li>     
           <li>
             <label for="user-name">제목 </label>
@@ -116,11 +117,7 @@ display:none;
           
             <label for="addr">작성자</label>
             <input type="text" name="id" value="${personalData.id}" readonly>
-          </li> 
-          <li>
-            <label for="user">작성일자</label>
-            <input type="text"  value="${personalData.days}" readonly>
-          </li>      
+          </li>    
           <li>
             <label for="memo">내용</label>
             <textarea id="memo" name="content" cols="40" rows="20">${personalData.content}</textarea>
@@ -129,7 +126,7 @@ display:none;
       </fieldset>
       <div>
         <input type="submit" value="저장하기"> 
-        <input type="reset" value="뒤로가기">
+        <input type="reset" value="취소">
       </div>        
     </form>
     <div id="response">

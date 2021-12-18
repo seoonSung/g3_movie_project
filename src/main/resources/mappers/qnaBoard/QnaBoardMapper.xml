@@ -6,7 +6,7 @@
 <mapper namespace="com.care.root.mybatis.qnaBoard.QnaBoardMapper">
 
 <resultMap id="board" type="com.care.root.qnaBoard.dto.QnaBoardDTO">
-		<id property="num" column="num" />
+		<result property="num" column="num" />
 		<result property="id" column="id" />
 		<result property="title" column="title" />
 		<result property="content" column="content" />
@@ -16,10 +16,16 @@
 		<result property="sort" column="sort" />
 </resultMap>
 
- 
+ <resultMap  id="rep" type="com.care.root.qnaBoard.dto.QnaBoardRepDTO">
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="write_group" column="write_group"/>
+		<result property="write_date" column="write_date"/>
+</resultMap>
 
-<insert id="addReply">
-		insert into QNA_reply(id,title,content,write_group) 
+ <insert id="addReply">
+		insert into qna_reply(id,title,content,write_group) 
 			values(#{id},#{title},#{content},#{write_group})
 </insert>
 
@@ -31,7 +37,6 @@
 select B.* from(select rownum rn, A.* from
 		(select * from qna_board order by num desc)A)B where rn between #{s} and #{e}
 </select>
-
 
 <select id="selectBoardCount" resultType="Integer">
 		select count(*) from qna_board
@@ -45,8 +50,22 @@ select B.* from(select rownum rn, A.* from
 		select * from qna_board where num = #{num}
 </select>
 
-<update id="modifysave">
-	update qna_board set title=#{title}, content=#{content}, id=#{id}
-	    where num=#{num}
+<insert id="writeSave" >
+	    insert into qna_board(num,id,title,content)
+	    values(qna_board_seq.nextval,#{id},#{title},#{content})
+</insert>
+
+<update id="modify_save">
+		update qna_board set title=#{title}, content=#{content}, 
+			sort=#{sort} where num=#{num}
 </update>
+
+<delete id="delete">
+		delete from qna_board where num = #{num}
+</delete>
+
+ <select id="getRepList" resultMap="rep">
+		select * from qna_reply where write_group=#{write_group} 
+												order by write_date desc
+</select>
 </mapper>

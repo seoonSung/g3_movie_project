@@ -1,13 +1,10 @@
 package com.care.root.qnaBoard.service;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.care.root.mybatis.qnaBoard.QnaBoardMapper;
 import com.care.root.qnaBoard.dto.QnaBoardDTO;
@@ -44,12 +41,43 @@ public class QnaBoardServiceImpl implements QnaBoardService{
 		mapper.upHit(num);
 	}
 
+
+
 	@Override
-	public int modifysave(QnaBoardDTO dto) {
-		int result = mapper.modifysave(dto);
+	public int writeSave(QnaBoardDTO dto) {
+		int result = mapper.writeSave(dto);
 		return result;
-		
 	}
+
+
+
+	@Override
+	public int modify_save(QnaBoardDTO dto) {
+		int result = mapper.modify_save(dto);
+		return result;
+	}
+
+
+
+	@Override
+	public int delete(int num) {
+		int result = mapper.delete(num);
+		return result;
+	}
+
+
+
+	public void addReply(QnaBoardRepDTO dto) {
+		mapper.addReply(dto);
+	}
+
+
+
+	@Override
+	public List<QnaBoardRepDTO> getRepList(int write_group) {
+		return mapper.getRepList(write_group);
+	}
+
 
 	
 

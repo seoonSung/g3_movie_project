@@ -10,32 +10,40 @@
 <style>
 .content {
  margin:50px auto;
- width:250px;
+ margin-top:80px;
+ width:180px;
  padding:30px 25px 30px 25px;
- border:1px solid black;
+ border:1px solid rgb(17, 17, 17);
  border-radius:5px;   
  }
+
   .content:hover{
 background-color: rgb(216, 216, 216);
+transition: all 1s;
+}
+a:hover{
+color : rgb(0, 0, 0);
 }
  
  a {
  text-decoration: none;
- color: black;
+color: rgb(17, 17, 17);
  }
 </style>
 </head>
 <body>
 <c:import url="../default/header.jsp"/>
 <div class="wrap">
-	
-	<div class="content">
-		<h2><a href="${contextPath }/qnaboard/boardList">Q & A 게시판</a></h2>
-	</div>
-	<div class="content">
-		<h2><a href="${contextPath }/qnaboard/boardList">1 : 1 문의</a></h2>
+	<div>
+		<div class="content">
+			<h2><a href="${contextPath }/qnaboard/boardList">Q & A 게시판</a></h2>
+		</div>
+		<div class="content">
+			<h2><a href="${contextPath }/qnaboard/boardList">1 : 1 문의</a></h2>
+		</div>
 	</div>
 </div>
+
 <c:import url="../default/footer.jsp"/>
 </body>
 </html>
