@@ -22,16 +22,13 @@ public class BookController {
 	public String seat(Model model,
 			@RequestParam String i,
 			@RequestParam String title,
-			@RequestParam String time) {
+			@RequestParam String time,
+			@RequestParam String theater) {
 		
 		model.addAttribute("i", i);
 		model.addAttribute("title", title);
 		model.addAttribute("time", time);
+		model.addAttribute("theater",theater);
 		return "book/seat";
-	}
-	
-	@GetMapping("/choice")
-	public String choice() {
-		return "book/choice";
 	}
 }

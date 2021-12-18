@@ -3,28 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.care.root.mybatis.book.BookMapper">
-
-<resultMap type="com.care.root.book.dto.MovieInfoDTO" id="movie_info">
-
-<id column="movie_number" property="movie_number"/>
-<result column="title" property="title"/>
-<result column="content" property="content"/>
-<result column="director" property="director"/>
-<result column="actor" property="actor"/>
-<result column="genre" property="genre"/>
-<result column="grade" property="grade"/>
-<result column="avg_mo" property="avg_mo"/>
-<result column="day" property="day"/>
-
-</resultMap>
-
-<select id="movieList" resultMap="movie_info">
-select * from movie_info 
-</select>
-
-<select id="movieDay" resultMap="movie_info">
-select * from movie_info where title = #{title} 
-</select>
-
-</mapper>
+  <mapper namespace="com.care.root.mybatis.book.BookMapper">
+	<resultMap  id="movie_info" type="com.care.root.book.dto.MovieInfoDTO">
+		<id property="movie_number" column="movie_number"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="director" column="director"/>
+		<result property="actor" column="actor"/>
+		<result property="genre" column="genre"/>
+		<result property="grade" column="grade"/>
+		<result property="avg_mo" column="avg_mo"/>
+		<result property="day" column="day"/>
+    </resultMap>
+    
+    <select id="movieList" resultMap="movie_info">
+		select * from movie_info
+		
+	</select>
+	<select id="movieDay" resultMap="movie_info">
+		select * from movie_info
+		where title = #{title}
+	</select>
+    </mapper>

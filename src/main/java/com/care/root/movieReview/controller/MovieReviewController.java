@@ -6,8 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MovieReviewController {
 	
-	@GetMapping("review")
+	@GetMapping("info")
 	public String review() {
-		return "movie/review";
+		return "movie/info";
+	}
+	@GetMapping("movie1")
+	public String movie1() {
+		return "movie/movie1";
 	}
 }

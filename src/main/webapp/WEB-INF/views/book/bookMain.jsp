@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-
+<%@ include file="/WEB-INF/views/Community/set.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +13,7 @@
      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
      <script type="text/javascript">
     
-     function movieList(){ //영화 리스트 불러오기
+     function movieList(){ //�화 리스불러�기
 
  		$.ajax({
  			url:"movieList", type:"GET",
@@ -25,7 +25,7 @@
  				result.forEach(function(data){
  					
  			
- 					htmls += '<button class="button" onclick="movieDay(\'' + data.title + '\')">'+data.title+'</button>'
+ 					htmls += '<button class="button" onclick="movieDay(\'' + data.title + '\',\'' + data.movie_number + '\' )">'+data.title+'</button>'
 					
  					
  					})
@@ -33,13 +33,14 @@
  				$('#movieList').html(htmls)	
  				
  			},error:function(){
- 				alert('데이터를 가져올 수 없습니다')
+ 				alert('�이�� 가�올 �습�다')
  			}
  		})
  	}
      
-     function movieDay(t){ //영화 날짜 불러오기
+     function movieDay(t,m){ //�화 �짜 불러�기
 		var title = t;
+     	var theater = m;
   		$.ajax({
   			url:"movieDay/"+title, type:"GET",
   			dataType:"json",
@@ -53,7 +54,7 @@
   				for(var i = 27; i<32; i++){
   					
   					if(day.includes(i)){
-  					htmls += '<button class="button" onclick="startTime(\''+i+'\',\'' + title + '\')">'+i+'일</button>'
+  					htmls += '<button class="button" onclick="startTime(\''+i+'\',\'' + title + '\',\'' + theater + '\')">'+i+'/button>'
   				}
   					
   				}
@@ -63,37 +64,37 @@
   				$('#movieDay').html(htmls)	
   				
   			},error:function(){
-  				alert('데이터를 가져올 수 없습니다')
+  				alert('�이�� 가�올 �습�다')
   			}
   		})
   	}
      
-     function startTime(i,title){ //영화 날짜 불러오기
-				var mo ="오전"
-				var ev = "오후"
+     function startTime(i,title,theater){ //�화 �짜 불러�기
+				var mo ="�전"
+				var ev = "�후"
    				let htmls = ""
    				htmls += '<div class="reserve-date">'
   
-   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + mo + '\')">오전</button>'
-   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + ev + '\')">오후</button>'
+   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + mo + '\',\'' + theater + '\')">�전</button>'
+   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + ev + '\',\'' + theater + '\')">�후</button>'
 
    				htmls += '</div>'
    				$('#startTime').html(htmls)	
 
      }
      
-     function book(i,title,time){ //예매버튼
+     function book(i,title,time,theater){ //�매버튼
 
 			let htmls = ""
 			htmls += '<div style="position: absolute; right: 480px; bottom: 40px;">'
-    		htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\')">예매하기</button>'
+    		htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\',\'' + theater + '\')">�매�기</button>'
 			htmls += '</div>'
 			
 			$('#book').html(htmls)	
 
 	}
      
-     function seat(i,title,time){ //예매버튼
+     function seat(i,title,time,theater){ //�매버튼
 
     	 var url = "${pageContext.request.contextPath}/seat";
  		
@@ -102,6 +103,8 @@
  		 url = url + "&title=" + title;
  		
  		 url = url + "&time="+time;
+ 		 
+ 		 url = url + "&theater="+theater;
     	 
  		location.href = url;
 
@@ -222,20 +225,20 @@ body {
     
     <div class="reserve-container">
         <div class="movie-part">
-            <div class="reserve-title">영화</div>       
+            <div class="reserve-title">�화</div>       
 			<div id="movieList">
 	
 			</div>
 		</div>
         
         <div class="day-part">
-            <div class="reserve-title">날짜</div>
+            <div class="reserve-title">�짜</div>
             <div id="movieDay"></div>
             
         </div>
         
         <div class="time-part">
-            <div class="reserve-title">시간</div>
+            <div class="reserve-title">�간</div>
             <div id="startTime"></div>
         </div>
         <div id="book"></div>
