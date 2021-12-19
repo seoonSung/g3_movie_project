@@ -94,22 +94,24 @@
                   <div class="ticket-price-title">가격</div>
                   <div class="ticket-price">0원</div>
                </div>
-               <form action="moveKakao.do" class="seatForm" method="post">
-                  <input type="hidden" class="title" name="title"> <input
-                     type="hidden" class="selectedTheater" name="selectedTheater">
-                  <input type="hidden" class="reserveDate" name="movieDate">
-                  <input type="hidden" class="runningTime" name="runningTime">
-                  <input type="hidden" class="movieAge" name="movieAge"
-                     value="">
+                 <form class="seatForm" action="${pageContext.request.contextPath}/payment" method="get">
+                  <input type="hidden" name="title" value="${title }"> 
+                  <input type="hidden" name="time" value="${time }"> 
+                  <input type="hidden" name="theater" value="${theater }"> 
+                  <input type="hidden" name="i" value="${i }"> 
                   <!-- 티켓의수(선택한 좌석) -->
                   <input type="hidden" class="ticketNumber" name="ticketNumber">
                   <input type="hidden" class="selectedSeat" name="selectedSeat">
                   <!-- 결제 정보 -->
                   <input type="hidden" class="payMoney" name="payMoney">
                   <button type="button" class="reserve-button">
-                     결제하기<img src="./images/payment_icon_yellow_medium.png">
+                     결제하기
                   </button>
-               </form>
+               </form>  
+               <!--   <button type="button" class="reserve-button" onclick="payment('${i }','${title }','${time }','${theater }')">
+                     결제하기 
+                  </button>
+               -->
             </div>
 
          </div>
@@ -407,13 +409,8 @@ function mapping(input, i, j) {
 
 //form 제출시 hidden설정하기
 reserveButton.addEventListener('click', function() {
-    title.value = selectedMovie.innerHTML;
-    selectedTheater.value =
-        selectedTheaterPlaceInfo[0].innerHTML +
-        ' ' +
-        selectedTheaterPlaceInfo[1].innerHTML;
-    reserveDate.value = theaterDate.innerHTML;
-    runningTime.value = theaterTime.innerHTML;
+   
+    
     ticketNumber.value = reserveNumber.innerHTML;
     selectedSeat.value = selectedSeats.innerHTML;
     console.log(allNumber + '임');
@@ -430,6 +427,23 @@ reserveButton.addEventListener('click', function() {
         alert('좌석을 모두선택해 주세요!');
     }
 }); 
+
+function payment(i,title,time,theater){ //예매버튼
+
+	 var url = "${pageContext.request.contextPath}/payment";
+	
+	 url = url + "?i=" + i;
+
+	 url = url + "&title=" + title;
+	
+	 url = url + "&time="+time;
+	 
+	 url = url + "&theater="+theater;
+	 
+	location.href = url;
+
+} 
+
 </script>
 
 </html> 
