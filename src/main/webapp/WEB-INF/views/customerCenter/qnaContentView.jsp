@@ -13,39 +13,15 @@
   margin:0;  /* 마진 */
   padding:0;  /* 패딩 */
 }
-#container {
-  width:480px;
-  margin:40px auto;
-}
-h1 {
-  font-size:2em;
-  margin:10px;
-}
-fieldset {
-  padding:15px;
-}
-fieldset legend {  
-  font-weight:bold;  
-}
-ul {
-  list-style:none;
-  padding-left:0;
-}
-li {
-  margin:10px;
-}
-#product input[type="number"] {
-  width:30px;
-  margin-left:10px;
-}
-#shipping li label {
- width:80px;
- float:left;
- text-align:left;     
-}
-input[type="text"], input[type="tel"], input[type="email"] {
-  width:300px;
-}
+#container {width:480px; margin:40px auto;}
+h1 {font-size:2em; margin:10px;}
+fieldset {padding:15px;}
+fieldset legend {  font-weight:bold;  }
+ul {list-style:none;padding-left:0;}
+li {margin:10px;}
+#product input[type="number"] {width:30px;margin-left:10px;}
+#shipping li label {width:80px;float:left;text-align:left;     }
+input[type="text"], input[type="tel"], input[type="email"] { width:300px;}
 
 /* '주문하기', '취소하기' 버튼 */
 form > div {
@@ -53,66 +29,45 @@ form > div {
   display:flex;
   justify-content: space-around;
 }
-form > div > input[type="submit"], input[type="reset"] {
+form > div > input[type="submit"], input[type="button"] {
   text-align:center;
   width:150px;
   height:40px;      
   background-color:#fafafa;
   border:1px solid #ccc;
   box-shadow: 1px 1px 1px #ccc;
-}
-
-	
-#test1{
-margin: auto;
-width: 300px;
-}
-#item {
-position: absolute;
-width:500px;
-height:auto;
-padding:15px 20px;
-margin:auto;
-}
-button {
-background-color:rgba(255,255,255,0.7);;
-padding:5px;
-border:1px solid #ccc;
-font-size:0.8em;			
-}
-.over {
-left:30px;
-bottom:30px;
-}
-.detail {
-width:400px;
-text-align:left;			
-line-height:1.8;
-display:none;
-}
-	
+}	
+#test1{margin: auto;width: 300px;}
+#item {position: absolute;width:500px;height:auto;padding:15px 20px;margin:auto;}
+button {background-color:rgba(255,255,255,0.7);;padding:5px;border:1px solid #ccc;font-size:0.8em;}
+.over {left:30px;bottom:30px;}
+.detail {width:400px;text-align:left;line-height:1.8;display:none;}	
 </style>
 
 </head>
-<body>
+<body onload="replyList()">
 <c:import url="../default/header.jsp"/>
 <div class="wrap">
 
  <div id="container">
-    <h1>상세보기</h1>
+    <h1 style="text-align:center;">상세보기</h1>
    
     <form method="post" action="${contextPath}/qnaboard/modify" >
       <fieldset>
-        <legend>글작성 페이지</legend>
+        
         <ul id="shipping">
-        <input type="hidden" name="num" value="${personalData.num }">      
+        <input type="hidden" name="num" value="${personalData.num }">     
+        <li>
+        	<label for="user-name">문의내용</label>
+            <input type="text" name="sort" value="${personalData.sort}" >   <!-- 수정하기 -->
+        </li>     
           <li>
             <label for="user-name">제목 </label>
             <input type="text" name="title" value="${personalData.title}" readonly>
           </li>
           <li>
             <label for="addr">작성자</label>
-            <input type="text" name="id" value="${personalData.id}" readonly>
+            <input type="text" name="id" value="${loginUser}" readonly>
           </li> 
           <li>
             <label for="user">작성일자</label>
@@ -125,24 +80,40 @@ display:none;
         </ul>  
       </fieldset>
       <div>
-        <input type="submit" value="수정하기"> 
-        <input type="reset" value="삭제하기">
+        <input type="submit"  value="수정하기"> 
+        <input type="button"  value="삭제하기" onclick="location.href='${contextPath}/qnaboard/delete?num=${personalData.num}'">
+        <input type="button" value="목록보기" onclick="location.href='${contextPath}/qnaboard/boardList'" > 
+        
       </div>        
     </form>
+		<div id="replyList"></div>
     <div id="response">
     	<span id="response1">
     	
 		
-		<input type="button" value="답글달기" class="over" id="open" onclick="showDetail() ">
+		
+		<input style="margin-top: 20px;" type="button" value="답글달기" class="over" id="open" onclick="showDetail() ">
 	
 		<div id="desc" class="detail">
 		<form id="frm">
-			<table>
+			<table id="table1">
 				<tr>
 					<td>답글작성하는 곳(관리자만 가능하도록 하기)</td>
 				</tr>
 				<tr>
-					<td><textarea name="masterContent" rows="10" cols="60"></textarea></td>
+					<td>제목 <input type="text" id="title" name="title"></td>
+					
+				</tr>
+				<tr>
+					<input type="hidden" name="id" value="${loginUser}">
+					<input type="hidden" name="write_group" value="${personalData.num}">
+	 				
+				</tr>
+				<tr>
+					<td>내용</td>
+				</tr>
+				<tr>
+					<td><textarea id="content" name="content" rows="10" cols="60"></textarea></td>
 				</tr>
 				<tr>
 					<td>
@@ -168,9 +139,57 @@ display:none;
     }
 
   </script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+function rep(){
+	let form = {};
+	let arr = $("#frm").serializeArray()
 	
+	for (i = 0; i < arr.length; i++) {
+			form[arr[i].name] = arr[i].value;}
+	$.ajax({
+		url : "master",
+		type : "POST",
+		dataType : "json",
+		data : JSON.stringify(form),
+		contentType : "application/json;charset=utf-8",
+		success : function(list) {
+			alert("성공적으로 답글이 달렸습니다.");
+			$("#title").val("")
+			$("#content").val("")
+			replyList()
+		},
+		error : function() {
+			alert("문제 발생!")
+		}
+	});
+}
 
-    	</span>
+function replyList(){
+	$.ajax({
+		url:"getReplyList/"+${personalData.num}, type:"GET", 
+		dataType:"json",
+		success: function(rep){
+			let html = ""
+			rep.forEach(function(data){
+				let date = new Date(data.write_date)
+				let writeDate = date.getFullYear()+"년"+(date.getMonth()+1)+"월"
+				writeDate += date.getDate()+"일"+date.getHours()+"시"
+				writeDate += date.getMinutes()+"분"+date.getSeconds()+"초"
+				html += "<div align='left'><b>아이디 : </b>"+data.id+"님 / ";
+				html += "<b>작성일</b> : "+writeDate+"<br>"
+				html += "<b>제목</b> : "+data.title+"<br>"
+				html += "<b>내용</b> : "+data.content+"<hr></div>"
+			})
+			$("#replyList").html(html)
+		},error:function(){
+			alert('데이터를 가져올 수 없습니다')
+		}
+	})
+}
+</script>
+
+ 
     </div>
   </div>
 </div>

@@ -4,4 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.care.root.mybatis.movieReview.MovieReviewMapper">
+	<resultMap type="com.care.root.movieReview.dto.MovieReviewDTO" id="review">
+		<id property="movieNumber" column="movie_number"></id>
+		<result property="id" column="id"/>
+		<result property="days" column="days"/>
+		<result property="likes" column="likes"/>
+		<result property="review" column="review"/>
+		<result property="avgRe" column="avg_re"/>
+		
+	</resultMap>
+	
+	
+	
+	<select id="reviewList" resultMap="review">
+		select * from movie_review
+		
+	</select>
+	
+	<insert id="writeSave">
+		insert into
+		movie_review(movie_number,id,review,avg_re)
+		values(#{movieNumber},#{id},#{review},#{avgRe})
+	</insert>
+
 </mapper>

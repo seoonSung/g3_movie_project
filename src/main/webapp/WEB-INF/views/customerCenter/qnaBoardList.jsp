@@ -51,9 +51,10 @@ text-align:center;
   .tt{
   width: 270px;
   }
+ 
 </style>
 </head>
-<body>
+<body style="background-color:white;">
 <c:import url="../default/header.jsp"/>
 <div class="wrap">
 <div id="main">
@@ -78,11 +79,11 @@ text-align:center;
 		<c:forEach var="list" items="${boardList}">
 			<tr>
 
-				<td>문의 내용</td>				<!-- 문의내용에 해당하는 값을 넣기 -->
+				<td>${list.sort}</td>				<!-- 문의내용에 해당하는 값을 넣기 -->
 				<td><a href="${contextPath}/qnaboard/contentView?num=${list.num}">${list.title}</a></td>   <!-- contentView로 넘어갈때 session id값으로 불러오기 -->
-				<td>${list.id}</td>			<!-- session에 저장되어있는 아이디값 넣기 -->
+				<td>${loginUser}</td>			<!-- session에 저장되어있는 아이디값 넣기 -->
 				<td>${list.days}</td>
-				<td>답변상태</td>				<!-- 답변 상태는 request값에 넣기 -->
+				<td>${list.answer}</td>				<!-- 답변 상태는 request값에 넣기 -->
 				<td>${list.hit}</td>
 			</tr>
 			

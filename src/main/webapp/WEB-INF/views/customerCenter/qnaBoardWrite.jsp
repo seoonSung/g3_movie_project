@@ -53,7 +53,7 @@ form > div {
   display:flex;
   justify-content: space-around;
 }
-form > div > input[type="submit"], input[type="reset"] {
+form > div > input[type="submit"], input[type="button"] {
   text-align:center;
   width:150px;
   height:40px;      
@@ -62,13 +62,8 @@ form > div > input[type="submit"], input[type="reset"] {
   box-shadow: 1px 1px 1px #ccc;
 }
 </style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-function show(){
-	var qu = document.getElementsByName('question')[1];
-	var idx = question.selectedIndex;
-	var foodText = question.options[idx].textContent;
-	document.write(foodText);
-}
 
 </script>
 </head>
@@ -77,42 +72,46 @@ function show(){
 <div class="wrap">
 
  <div id="container">
-    <h1>글작성</h1>
+    <h1 style="text-align:center;">글작성</h1>
    
     <form method="post" action="${contextPath}/qnaboard/writeSave" >
     
        <fieldset>
-        <legend>글작성 페이지</legend>
-        <ul id="shipping">
         
+        <ul id="shipping">
            <li>
             <label for="d-day">문의 내용</label>
-             <select  >
+             <select name="sort">
 		      <option value="">-- 선택 --</option>
-		      <option value="1">회원가입 문의</option>
-		      <option value="2">예매 문의</option>
-		      <option value="3">예매 취소 문의</option>
-		      <option value="4">기타 문의</option>
+		      <option value="회원가입 문의">회원가입 문의</option>
+		      <option value="예매 문의">예매 문의</option>
+		      <option value="예매 취소 문의">예매 취소 문의</option>
+		      <option value="기타 문의">기타 문의</option>
 		    </select>
 		    <small>(문의 내용을 선택 후 작성)</small>
           </li>     
           <li>
-            <label for="user-name">제목 </label>
-            <input type="text" name="title" value="">
+            <label >제목 </label>
+            <input type="text" id="changeInput" name="title" value="">
           </li>
           <li>
-            <label for="addr">작성자</label>
-            <input type="text" name="id">
+            <label>작성자</label>
+            <input type="text" name="id" value="${loginUser}" readonly>
           </li>       
           <li>
-            <label for="memo">내용</label>
+            <label >내용</label>
             <textarea id="memo" name="content" cols="40" rows="20" placeholder="내용을 입력하세요."></textarea>
           </li>   
+          <li>
+            <label style="font-size:small;">이미지 파일 첨부</label>
+            <input type="file" name="image_file_name" onchange="readURL(this);" /> 
+            <img id="preview" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
+          </li> 
         </ul>  
       </fieldset>
       <div>
         <input type="submit" value="저장하기"> 
-        <input type="reset" value="취소하기">
+        <input type="button" value="목록보기" onclick="location.href='${contextPath}/qnaboard/boardList'">
       </div>        
     </form>
   </div>
