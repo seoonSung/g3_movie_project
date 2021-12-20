@@ -4,9 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.care.root.member.dto.MemberDTO;
+import com.care.root.mybatis.member.MemberMapper;
 import com.care.root.mybatis.oneOnOneBoard.OneOnOneBoardMapper;
 import com.care.root.oneOnOneBoardDTO.OneOnOneBoardDTO;
 
@@ -14,6 +17,7 @@ import com.care.root.oneOnOneBoardDTO.OneOnOneBoardDTO;
 public class OneOnOneBoardServiceImpl implements OneOnOneBoardService{
 	@Autowired OneOnOneBoardMapper mapper;
 	@Autowired OneOnOneBoardFileService ooobfs;
+	@Autowired MemberMapper mmapper;
 
 	@Override
 	public String saved(MultipartHttpServletRequest mul, HttpServletRequest request) {
@@ -47,4 +51,10 @@ public class OneOnOneBoardServiceImpl implements OneOnOneBoardService{
 	      }
 	      return ooobfs.getMessage(request, msg, url);
 	   }
+
+	@Override
+	public void getData(, Model model) {
+		// TODO Auto-generated method stub
+		model.addAttribute("data",mmapper.getUserSessionId(email) );
+	}
 }

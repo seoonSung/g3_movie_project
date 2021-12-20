@@ -19,17 +19,30 @@
 	         $('#preview').attr('src', e.target.result);
 	        }
 	    }
-	}  
+	}
 	
-	$(document).on("keyup", ".phoneNumber", function() {
-			$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
-		});
+	 function fn_submit() {
+	     var text = document.getElementById('text').value;
+	     var regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+	     if (regPhone.test(text) === true) {
+	     }else alert("올바른 연락처를 입력하세요.");
+  }
+	
+	function emailCheck() {
+		var text = document.getElementById('inputEmail').value;
+
+		var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+		if (regEmail.test(text) === false){
+			alert('올바른 이메일을 입력해주세요.');
+		}
+	}
 </script>
 </head>
 <body>
 <c:import url="../default/header.jsp" />
 <div align="center">
-	<form method="post" action="${contextPath}/service/oneOnOneQna" enctype="multipart/form-data" >
+	<form method="post" class="gform" action="https://script.google.com/macros/s/AKfycbyHGwWaKhd_iSkpugHxGGGz3z5hTV2ixyo2ulYG3Ph9aS4_cf7G/exec" enctype="multipart/form-data"
+	data-email="${data.email }" >
 	<br><br><br>
 	<table>
 		<tr>
@@ -51,19 +64,19 @@
 		</tr>
 		<tr>
 			<th><b>이메일</b></th>
-			<td><input type="email" name="email" value="${loginEmail }" readonly></td>
+			<td><input type="email" name="email" id="inputEmail" onchange="emailCheck()" placeholder="${data.email }" required></td>
 		</tr>
 		<tr>
 			<th><b>연락처</b></th>
-			<td><input type="text" class="phoneNumber" /></td>
+			<td><input type="text" class="phoneNumber" onchange="phoneNumber(this)" maxlength="13" required autofocus/></td>
 		</tr>
 		<tr>
 			<th><b>제목</b></th>
-			<td><input type="text" name="title" /></td>
+			<td><input type="text" name="title" required/></td>
 		</tr>
 		<tr>
 			<th><b>내용</b></th>
-			<td><textarea name="content" rows="10" cols="50"></textarea></td>
+			<td><textarea name="content" rows="10" cols="50" required></textarea></td>
 		</tr>
 		<tr>
 			<th><b>이미지파일 첨부</b></th>

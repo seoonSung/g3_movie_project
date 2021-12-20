@@ -19,6 +19,7 @@ import com.care.root.oneOnOneBoard.service.OneOnOneBoardService;
 @RequestMapping("service")
 public class OneOnOneBoardController {
 	@Autowired OneOnOneBoardService ooobs;
+	
 	@GetMapping("oneOnOneQna")
 	public String oneOnOneQna() {
 		return "service/oneOnOneQna";

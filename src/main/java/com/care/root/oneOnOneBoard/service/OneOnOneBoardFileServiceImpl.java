@@ -12,8 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class OneOnOneBoardFileServiceImpl implements OneOnOneBoardFileService{
 
-	private static final String IMAGE_REPO = null;
-
 	@Override
 	public String saveFile(MultipartFile file) {
 		// TODO Auto-generated method stub
