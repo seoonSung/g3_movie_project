@@ -1,6 +1,5 @@
 package com.care.root.qnaBoard.dto;
 
-
 import java.text.SimpleDateFormat;
 
 public class QnaBoardDTO {
@@ -61,6 +60,7 @@ public class QnaBoardDTO {
 	public void setDays(java.sql.Timestamp days) {
 		SimpleDateFormat fo = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
 		this.days = fo.format(days);
+
 	}
 	public int getHit() {
 		return hit;
@@ -82,4 +82,5 @@ public class QnaBoardDTO {
 	}
 	
 	
+
 }

@@ -32,5 +32,4 @@
 	<select id="getUserSessionId" resultMap="member">
 		select * from membership where session_id=#{sessionId}
 	</select>
-
 </mapper>

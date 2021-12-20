@@ -3,6 +3,7 @@ package com.care.root.qnaBoard.dto;
 import java.sql.Timestamp;
 
 public class QnaBoardRepDTO {
+
 	  private String id;
 	    private String title;
 	    private String content;
@@ -46,4 +47,5 @@ public class QnaBoardRepDTO {
 		public void setWrite_date(Timestamp write_date) {
 			this.write_date = write_date;
 		}
+
 }

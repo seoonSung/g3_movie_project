@@ -9,8 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/header.css">
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel='stylesheet'
@@ -20,282 +19,7 @@
 <link rel="stylesheet"
    href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 <!-- MATERIAL DESIGN ICONIC FONT -->
-<style>
-/* content */
-
-.select-container {
-    margin-top: 140px;
-}
-
-.select-wrapper {
-    width: 900px;
-    background-color: #F2F0E5;
-    margin: 0 auto;
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-}
-
-.select-title {
-    background-color: #444444;
-    color: #dddddd;
-    font-size: 16px;
-    text-align: center;
-    padding: 10px;
-}
-
-.select-seat-container {
-    display: flex;
-    /* align-items: center; */
-    border-bottom: 2px solid #dddddd;
-}
-
-.select-seat-number-container {
-    flex-grow: 1;
-    border-right: 1px solid #dddddd;
-    display: flex;
-}
-
-.select-seat-number-wrapper {
-    padding: 15px 0 20px 20px;
-    flex-grow: 1;
-}
-
-.select-seat-ul {
-    display: flex;
-}
-
-.select-seat-ul>li {
-    width: 20px;
-    height: 20px;
-    border: 1px solid #dddddd;
-    text-align: center;
-    font-weight: bold;
-    /* line-height: 15px; */
-    /* padding: 5px; */
-    padding: 2px;
-}
-
-.select-seat-ul>li:hover {
-    color: white;
-    background-color: #222222;
-    cursor: pointer;
-}
-
-.select-seat-ul-active {
-    color: white;
-    background-color: #222222;
-}
-
-.select-seat-ul>li:not(:first-child) {
-    margin-left: 5px;
-}
-
-.select-seat-information {
-    flex-grow: 1;
-    padding: 15px 0 20px 20px;
-}
-
-.select-seat {
-    display: flex;
-    font-size: 12px;
-}
-
-.select-seat:not(:first-child) {
-    margin-top: 12px;
-}
-
-.select-seat-age {
-    width: 40px;
-}
-
-.select-seat-number {
-    margin-left: 15px;
-}
-
-.reserve-number-wrapper {
-    flex-grow: 1;
-    padding-top: 15px;
-    border-left: 1px solid #DDDDDD;
-    text-align: center;
-}
-
-.reserve-number {
-    margin-top: 20px;
-    font-size: 34px;
-    font-weight: bold;
-}
-
-.selected-movie {
-   font-size: 20px;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.select-seat-information-wrapper {
-    display: flex;
-}
-
-.select-theater-place {
-    font-size: 12px;
-}
-
-.select-theater-place:not(:last-child) {
-    width: 55px;
-    border-right: 1px solid #dddddd;
-}
-
-.select-theater-place:last-child {
-    width: 150px;
-    /* border-right: 1px solid #dddddd; */
-}
-
-.select-theater-place:not(:first-child) {
-    margin-left: 12px;
-}
-
-.select-theater-date {
-    /*  font-size: 18px;
-    margin-top: 8px;
-    font-weight: bold; */
-    display: flex;
-}
-
-.select-theater-date>div {
-    font-size: 18px;
-    margin-top: 8px;
-    font-weight: bold;
-}
-
-.theater-time {
-    margin-left: 5px;
-}
-
-.remain-seats {
-    margin-left: 3px;
-    color: rgba(255, 0, 0, 0.6);
-    font-weight: bold;
-}
-
-.selected-seats-wrapper {
-    margin-top: 5px;
-}
-
-.selected-seats {
-    font-size: 13px;
-    word-spacing: 2px;
-    margin-left: 20px;
-}
-
-.selected-seats-title {
-    color: black;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.ticket-price-wrapper{
-   margin-top: 5px;
-   display: flex;
-   align-items: center;
-}
-.ticket-price-wrapper>div{   
-   font-weight: bold;
-}
-.ticket-price-title{
-   font-size: 13px;
-}
-
-.ticket-price {
-   margin-left: 47px;
-   font-size:20px;
-}
-
-.reserve-button {
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 13px;
-    padding: 0;
-}
-
-.reserve-button img {
-    margin-left: 20px;
-    width: 60px;
-}
-
-.seat-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.screen-view {
-    width: 140px;
-    color: #777777;
-    padding-top: 30px;
-    font-size: 30px;
-    text-align: center;
-    margin: 0 auto 30px auto;
-    border-bottom: 1px solid #666666;
-    letter-spacing: 4px;
-}
-
-.seat-wrapper {
-    background-color: #222222;
-    width: 700px;
-    height: 460px;
-    /* padding-top: 120px; */
-}
-
-.seat {
-    width: 30px;
-    height: 30px;
-}
-
-.seat {
-    font-size: 13px;
-    background-color: #555555;
-    color: white;
-    border: 1px solid rgba(255, 0, 0, 0.6);
-}
-
-.seat:hover {
-    background-color: red;
-    color: white;
-    cursor: pointer;
-}
-
-.seat:active {
-    background-color: red;
-    color: white;
-}
-
-.clicked {
-    background-color: red;
-    color: white;
-}
-
-.seatButtonWrapper {
-    text-align: center;
-}
-
-.seatButtonWrapper>input {
-    width: 30px;
-    height: 30px;
-}
-
-.left-margin {
-    margin-left: 30px;
-}
-
-.right-margin {
-    margin-right: 30px;
-}
-
-.top-margin {
-    margin-top: 30px;
-} 
-</style>
+<link rel="stylesheet" href="${contextPath}/resources/css/seat.css">
 </head>
 
 <body>
@@ -335,9 +59,7 @@
                            <li class="select-number-teen">3</li>
                            <li class="select-number-teen">4</li>
                            <li class="select-number-teen">5</li>
-                           <!-- <li class="select-number-teen">6</li>
-                                    <li class="select-number-teen">7</li>
-                                    <li class="select-number-teen">8</li> -->
+    
                         </ul>
                      </div>
                   </div>
@@ -349,11 +71,11 @@
                </div>
             </div>
             <div class="select-seat-information">
-               <div class="selected-movie"></div>
+               <div class="selected-movie">${title }</div>
                <div class="select-seat-information-wrapper">
-                  <div class="select-theater-place selected-theater-place-info">CGV강남</div>
-                  <div class="select-theater-place selected-theater-place-info">3관
-                     8층</div>
+               	  
+                  
+                  <div class="select-theater-place selected-theater-place-info">${theater }관</div>
                   <div class="select-theater-place">
                      <span>남은좌석</span><span class="remain-seats">152</span>/<span
                         class="all-seats">172</span>
@@ -372,22 +94,21 @@
                   <div class="ticket-price-title">가격</div>
                   <div class="ticket-price">0원</div>
                </div>
-               <form action="moveKakao.do" class="seatForm" method="post">
-                  <input type="hidden" class="title" name="title"> <input
-                     type="hidden" class="selectedTheater" name="selectedTheater">
-                  <input type="hidden" class="reserveDate" name="movieDate">
-                  <input type="hidden" class="runningTime" name="runningTime">
-                  <input type="hidden" class="movieAge" name="movieAge"
-                     value="">
+                 <form class="seatForm" action="${pageContext.request.contextPath}/payment" method="get">
+                  <input type="hidden" name="title" value="${title }"> 
+                  <input type="hidden" name="time" value="${time }"> 
+                  <input type="hidden" name="theater" value="${theater }"> 
+                  <input type="hidden" name="i" value="${i }"> 
                   <!-- 티켓의수(선택한 좌석) -->
                   <input type="hidden" class="ticketNumber" name="ticketNumber">
                   <input type="hidden" class="selectedSeat" name="selectedSeat">
                   <!-- 결제 정보 -->
                   <input type="hidden" class="payMoney" name="payMoney">
                   <button type="button" class="reserve-button">
-                     결제하기<img src="./images/payment_icon_yellow_medium.png">
+                     결제하기
                   </button>
-               </form>
+               </form>  
+               
             </div>
 
          </div>
@@ -586,6 +307,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 seat.forEach(data => {
+	
     //console.log(data.value.substring(1, data.value.length));
     // console.log(data.value.substring(0, data.value.length - 1));
     //좌석이 2나 9로 끝나는얘들은 왼쪽이나 오른쪽으로 띄워주기위한 class추가
@@ -685,13 +407,8 @@ function mapping(input, i, j) {
 
 //form 제출시 hidden설정하기
 reserveButton.addEventListener('click', function() {
-    title.value = selectedMovie.innerHTML;
-    selectedTheater.value =
-        selectedTheaterPlaceInfo[0].innerHTML +
-        ' ' +
-        selectedTheaterPlaceInfo[1].innerHTML;
-    reserveDate.value = theaterDate.innerHTML;
-    runningTime.value = theaterTime.innerHTML;
+   
+    
     ticketNumber.value = reserveNumber.innerHTML;
     selectedSeat.value = selectedSeats.innerHTML;
     console.log(allNumber + '임');
@@ -708,6 +425,8 @@ reserveButton.addEventListener('click', function() {
         alert('좌석을 모두선택해 주세요!');
     }
 }); 
+
+
 </script>
 
 </html> 

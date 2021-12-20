@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-
+<%@ include file="/WEB-INF/views/Community/set.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -25,7 +25,7 @@
  				result.forEach(function(data){
  					
  			
- 					htmls += '<button class="button" onclick="movieDay(\'' + data.title + '\')">'+data.title+'</button>'
+ 					htmls += '<button class="button" onclick="movieDay(\'' + data.title + '\',\'' + data.movie_number + '\' )">'+data.title+'</button>'
 					
  					
  					})
@@ -38,8 +38,9 @@
  		})
  	}
      
-     function movieDay(t){ //영화 날짜 불러오기
+     function movieDay(t,m){ //영화 날짜 불러오기
 		var title = t;
+     	var theater = m;
   		$.ajax({
   			url:"movieDay/"+title, type:"GET",
   			dataType:"json",
@@ -53,7 +54,7 @@
   				for(var i = 27; i<32; i++){
   					
   					if(day.includes(i)){
-  					htmls += '<button class="button" onclick="startTime(\''+i+'\',\'' + title + '\')">'+i+'일</button>'
+  					htmls += '<button class="button" onclick="startTime(\''+i+'\',\'' + title + '\',\'' + theater + '\')">'+i+'일</button>'
   				}
   					
   				}
@@ -68,32 +69,32 @@
   		})
   	}
      
-     function startTime(i,title){ //영화 날짜 불러오기
+     function startTime(i,title,theater){ //영화 날짜 불러오기
 				var mo ="오전"
 				var ev = "오후"
    				let htmls = ""
    				htmls += '<div class="reserve-date">'
   
-   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + mo + '\')">오전</button>'
-   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + ev + '\')">오후</button>'
+   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + mo + '\',\'' + theater + '\')">오전</button>'
+   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + ev + '\',\'' + theater + '\')">오후</button>'
 
    				htmls += '</div>'
    				$('#startTime').html(htmls)	
 
      }
      
-     function book(i,title,time){ //예매버튼
+     function book(i,title,time,theater){ //예매버튼
 
 			let htmls = ""
 			htmls += '<div style="position: absolute; right: 480px; bottom: 40px;">'
-    		htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\')">예매하기</button>'
+    		htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\',\'' + theater + '\')">예매하기</button>'
 			htmls += '</div>'
 			
 			$('#book').html(htmls)	
 
 	}
      
-     function seat(i,title,time){ //예매버튼
+     function seat(i,title,time,theater){ //예매버튼
 
     	 var url = "${pageContext.request.contextPath}/seat";
  		
@@ -102,6 +103,8 @@
  		 url = url + "&title=" + title;
  		
  		 url = url + "&time="+time;
+ 		 
+ 		 url = url + "&theater="+theater;
     	 
  		location.href = url;
 

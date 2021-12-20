@@ -77,7 +77,9 @@ public class MemberController implements SessionName{
 		
 		session.setAttribute( LOGIN, id);
 		return "redirect:/main";
+
 	}
+	
 	@GetMapping("logout")
 	public String logout(HttpSession session, HttpServletResponse response,
 	@CookieValue(value="loginCookie", required = false) Cookie loginCookie) {

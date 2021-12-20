@@ -1,6 +1,5 @@
 package com.care.root.qnaBoard.controller;
 
-
 import java.util.List;
 import java.util.Map;
 
@@ -36,10 +35,12 @@ public class QnaBoardRepController implements SessionName{
 		return "{\"result\" : true}";
 	}
 	
+
 	  @GetMapping(value = "getReplyList/{write_group}", produces = "application/json;charset=utf-8")
 	   @ResponseBody
 	   public List<QnaBoardRepDTO> getReplyList(@PathVariable int write_group) throws Exception {
 	      return qbs.getReplyList(write_group);
 
 	   }
+
 }

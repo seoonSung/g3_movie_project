@@ -45,9 +45,9 @@ nav ul li a:hover {
 <div class="wrap">
 <nav id="nav1">
     <ul>
-<li><a href="#">영화</a></li>
+<li><a href="${contextPath }/info">영화</a></li>
 <li><a href="${contextPath}/bookMain">예매</a></li>
-<li><a href="#">극장</a></li>
+<li><a href="${contextPath }/theaterMain">극장</a></li>
 <li><a href="${contextPath}/qnaboard/main">고객센터</a></li>
 </ul>
 </nav>
@@ -64,7 +64,7 @@ nav ul li a:hover {
 		</c:otherwise>
 	</c:choose>
 </li>
-<li><a href="#">커뮤니티</a></li>
+<li><a href="${contextPath }/main/communityMain">커뮤니티</a></li>
 <li>  <a href="#" style="background-color: lemonchiffon;"><img src="1.png" width="20" height="20"></a></li>
 <li>  <a href="#" style="background-color: lemonchiffon;"><img src="2.png" width="20" height="20"></a></li>
 </ul>
