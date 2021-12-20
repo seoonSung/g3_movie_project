@@ -16,6 +16,14 @@
 		<result property="day" column="day"/>
     </resultMap>
     
+    <resultMap  id="book_info" type="com.care.root.book.dto.BookInfoDTO">
+		<id property="book_num" column="book_num"/>
+		<result property="pn" column="pn"/>
+		<result property="book_code" column="book_code"/>
+		<result property="seat" column="seat"/>
+		
+    </resultMap>
+    
     <select id="movieList" resultMap="movie_info">
 		select * from movie_info
 		
@@ -24,4 +32,9 @@
 		select * from movie_info
 		where title = #{title}
 	</select>
+	
+	<insert id="payment" >
+	    insert into book_info(book_num,pn,book_code,seat)
+	    values(book_info_seq.nextval,01012341234,#{code},#{seat})
+	</insert>
     </mapper>
