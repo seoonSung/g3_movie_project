@@ -1,6 +1,7 @@
 package com.care.root.oneOnOneBoard.service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.care.root.common.session.SessionName;
 import com.care.root.member.dto.MemberDTO;
 import com.care.root.mybatis.member.MemberMapper;
 import com.care.root.mybatis.oneOnOneBoard.OneOnOneBoardMapper;
@@ -53,8 +55,14 @@ public class OneOnOneBoardServiceImpl implements OneOnOneBoardService{
 	   }
 
 	@Override
-	public void getData(, Model model) {
+	public void getData(String email, Model model) {
 		// TODO Auto-generated method stub
 		model.addAttribute("data",mmapper.getUserSessionId(email) );
+	}
+	
+	public void allList(HttpSession session,Model model) {
+		
+		
+		model.addAttribute("List",mmapper.getMember((String)session.getAttribute(SessionName.LOGIN)));
 	}
 }

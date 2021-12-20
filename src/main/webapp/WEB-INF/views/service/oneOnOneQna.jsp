@@ -64,7 +64,7 @@
 		</tr>
 		<tr>
 			<th><b>이메일</b></th>
-			<td><input type="email" name="email" id="inputEmail" onchange="emailCheck()" placeholder="${data.email }" required></td>
+			<td><input type="email" name="email" id="inputEmail" onchange="emailCheck()" placeholder="${List.email }" required></td>
 		</tr>
 		<tr>
 			<th><b>연락처</b></th>
