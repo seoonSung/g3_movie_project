@@ -25,5 +25,14 @@ public class BookServiceImpl implements BookService{
 		return mapper.movieDay(title);
 	}
 
+	@Override
+	public void payment(String i, String title, String time, String theater, String selectedSeat) {
+		
+		
+		String code = title+","+i+","+time+","+theater;
+		String seat = ","+selectedSeat+",";
+		mapper.payment(code,seat);
+	}
+
 
 }

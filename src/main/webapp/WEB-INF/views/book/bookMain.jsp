@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 <%@ include file="/WEB-INF/views/Community/set.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,7 @@
  				result.forEach(function(data){
  					
  			
- 					htmls += '<button type="button" onclick="movieDay(\'' + data.title + '\')">'+data.title+'</button>'
+ 					htmls += '<button class="button" onclick="movieDay(\'' + data.title + '\',\'' + data.movie_number + '\' )">'+data.title+'</button>'
 					
  					
  					})
@@ -37,8 +38,9 @@
  		})
  	}
      
-     function movieDay(t){ //영화 날짜 불러오기
+     function movieDay(t,m){ //영화 날짜 불러오기
 		var title = t;
+     	var theater = m;
   		$.ajax({
   			url:"movieDay/"+title, type:"GET",
   			dataType:"json",
@@ -52,15 +54,11 @@
   				for(var i = 27; i<32; i++){
   					
   					if(day.includes(i)){
-  					htmls += '<button type="button" onclick="startTime()">'+i+'일</button>'
+  					htmls += '<button class="button" onclick="startTime(\''+i+'\',\'' + title + '\',\'' + theater + '\')">'+i+'일</button>'
   				}
   					
   				}
-  				
-  				
- 				
-  					
-  					
+ 
   					})
   					htmls += '</div>'
   				$('#movieDay').html(htmls)	
@@ -71,30 +69,46 @@
   		})
   	}
      
-     function startTime(){ //영화 날짜 불러오기
-
+     function startTime(i,title,theater){ //영화 날짜 불러오기
+				var mo ="오전"
+				var ev = "오후"
    				let htmls = ""
    				htmls += '<div class="reserve-date">'
   
-   				htmls += '<button type="button" onclick="book()">오전</button>'
-   				htmls += '<button type="button" onclick="book()">오후</button>'
+   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + mo + '\',\'' + theater + '\')">오전</button>'
+   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + ev + '\',\'' + theater + '\')">오후</button>'
 
    				htmls += '</div>'
    				$('#startTime').html(htmls)	
 
      }
      
-     function book(){ //예매버튼
+     function book(i,title,time,theater){ //예매버튼
 
 			let htmls = ""
-			htmls += '<div style="position: absolute; right: 480px; bottom: 50px;">'
-    		htmls += '<button>예매하기</button>'
+			htmls += '<div style="position: absolute; right: 480px; bottom: 40px;">'
+    		htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\',\'' + theater + '\')">예매하기</button>'
 			htmls += '</div>'
 			
 			$('#book').html(htmls)	
 
 	}
      
+     function seat(i,title,time,theater){ //예매버튼
+
+    	 var url = "${pageContext.request.contextPath}/seat";
+ 		
+    	 url = url + "?i=" + i;
+
+ 		 url = url + "&title=" + title;
+ 		
+ 		 url = url + "&time="+time;
+ 		 
+ 		 url = url + "&theater="+theater;
+    	 
+ 		location.href = url;
+
+	} 
     </script>
     
     <style>
@@ -104,7 +118,37 @@ body {
     background-color: #FFFFFF;
 }
 
+.button {
 
+  background-color: white;
+
+  border: 1px solid gray; 
+
+  color: black;
+
+  padding: 15px 30px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  display: inline-block;
+
+  font-size: 16px;
+
+  margin: 4px 2px;
+
+  cursor: pointer;
+
+}
+
+.button:hover {
+
+  background: tomato; 
+
+  color: white;
+
+}
 
 /* content */
 
