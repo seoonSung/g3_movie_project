@@ -108,10 +108,7 @@
                      결제하기
                   </button>
                </form>  
-               <!--   <button type="button" class="reserve-button" onclick="payment('${i }','${title }','${time }','${theater }')">
-                     결제하기 
-                  </button>
-               -->
+               
             </div>
 
          </div>
@@ -310,6 +307,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 seat.forEach(data => {
+	
     //console.log(data.value.substring(1, data.value.length));
     // console.log(data.value.substring(0, data.value.length - 1));
     //좌석이 2나 9로 끝나는얘들은 왼쪽이나 오른쪽으로 띄워주기위한 class추가
@@ -428,21 +426,6 @@ reserveButton.addEventListener('click', function() {
     }
 }); 
 
-function payment(i,title,time,theater){ //예매버튼
-
-	 var url = "${pageContext.request.contextPath}/payment";
-	
-	 url = url + "?i=" + i;
-
-	 url = url + "&title=" + title;
-	
-	 url = url + "&time="+time;
-	 
-	 url = url + "&theater="+theater;
-	 
-	location.href = url;
-
-} 
 
 </script>
 
