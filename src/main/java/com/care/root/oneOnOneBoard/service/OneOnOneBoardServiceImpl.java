@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -53,8 +54,8 @@ public class OneOnOneBoardServiceImpl implements OneOnOneBoardService{
 	   }
 
 	@Override
-	public void getData(, Model model) {
+	public void getData(MemberDTO dto, Model model) {
 		// TODO Auto-generated method stub
-		model.addAttribute("data",mmapper.getUserSessionId(email) );
+		model.addAttribute("data", mmapper.getUserSessionId(dto.getEmail()) );
 	}
 }
