@@ -4,4 +4,66 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.care.root.mybatis.qnaBoard.QnaBoardMapper">
+	<resultMap id="qnaBoard" type="com.care.root.qnaBoard.dto.QnaBoardDTO">
+		<id property="num" column="num" />
+		<result property="sort" column="sort" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="saveDate" column="savedate" />
+		<result property="hit" column="hit" />
+		<result property="id" column="id" />
+	</resultMap>
+	
+	
+	<resultMap type="com.care.root.qnaBoard.dto.QnaBoardRepDTO" id="reply">
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="write_group" column="write_group" />
+		<result property="write_date" column="write_date" />
+	</resultMap>
+	
+	<!--<select id="qnaBoard" resultMap="qnaBoard">
+		select B.* from(select
+		rownum rn, A.* from
+		(select * from qna_board order by num desc)A)B
+		where rn between #{s} and
+		#{e}
+	</select>-->
+	
+	 <select id="qnaBoard" resultMap="qnaBoard">
+		select * from qna_board
+	</select>
+	
+	<insert id="writeSave">
+		insert into
+		qna_board(num,sort,id,title,content)
+		values(qna_board_seq.nextval,#{sort},#{id},#{title},#{content})
+	</insert>
+	
+	<delete id="delete">
+		delete from qna_board where num = #{num}
+	</delete>
+	
+	<select id="qnaContentView" resultMap="qnaBoard">
+		select * from qna_board where num = #{num}
+	</select>
+	
+	<select id="upHit">
+		update qna_board set hit = hit + 1 where num = #{num}
+	</select>
+	
+	<update id="modify">
+		update qna_board set title=#{title}, content=#{content} where num=#{num}
+	</update>
+	
+	<select id="getRepList" resultMap="reply">
+		select * from qna_reply where
+		write_group=#{write_group}
+		order by write_date desc
+	</select>
+	
+	<select id="selectBoardCount" resultType="Integer">
+		select count(*) from qna_board
+	</select>
 </mapper>

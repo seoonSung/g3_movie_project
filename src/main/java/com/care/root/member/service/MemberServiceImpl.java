@@ -21,13 +21,10 @@ public class MemberServiceImpl implements MemberService {
 	}
 	public int userCheck(String id, String pw) {
 		MemberDTO dto = mapper.getMember(id);
-		
 		if(dto != null) {
 			//if(pw.equals(dto.getPw())) {
 			if( encoder.matches(pw, dto.getPw()) || pw.equals(dto.getPw()) ) {
-				
 				return 0;
-				
 			}
 		}
 		return 1;
