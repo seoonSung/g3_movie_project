@@ -23,19 +23,20 @@
 	
 	<context:component-scan base-package="com.care.root" />
 	<beans:bean id="ci" class="com.care.root.common.interceptor.CommonInterceptor"/>  
-	<!-- <beans:bean id="autoLogin" class="com.care.root.common.interceptor.AutoLoginInterceptor"/>   -->
+	<beans:bean id="autoLogin" class="com.care.root.member.interceptor.AutoLoginInterceptor"/> 
 	
-	<!--<interceptors>
-		 <interceptor>
-			<mapping path="/main"/>
-			<beans:ref bean="autoLogin" />
-		</interceptor> 
+	<interceptors>
+	<interceptor>
 		
-		<interceptor>
-			<mapping path="/member/memberInfo" />
-			<mapping path="/service/writeForm" />
-			<beans:ref bean="ci"/>
-		</interceptor>
-	</interceptors>-->
+		<mapping path="/qnaboard/boardWrite"/>
+		<mapping path="/qnaboard/contentView"/>
+		<beans:ref bean="ci"/>
+	</interceptor>
 	
+      <interceptor>
+        <mapping path="/member/register"/>
+        <beans:ref bean="autoLogin"/> 
+      </interceptor>
+    </interceptors>
+    
 </beans:beans>

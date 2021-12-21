@@ -22,12 +22,6 @@ import com.care.root.oneOnOneBoard.service.OneOnOneBoardService;
 public class OneOnOneBoardController {
 	@Autowired OneOnOneBoardService ooobs;
 	
-	@GetMapping("oneOnOneQna")
-	public String oneOnOneQna(HttpSession session, Model model) {
-		ooobs.allList(session,model);
-		return "service/oneOnOneQna";
-	}
-	
 	@PostMapping("save")
 	public void save(MultipartHttpServletRequest mul,
 	         HttpServletResponse response,
@@ -37,5 +31,11 @@ public class OneOnOneBoardController {
 	   response.setContentType("text/html; charset=utf-8");
 	   out = response.getWriter();
 	   out.println(message);
+	}
+	
+	@GetMapping("oneOnOneQnaForm")
+	public String oneOnOneQnaForm(HttpSession session, Model model) {
+		ooobs.allList(session,model);
+		return "redirect: /qnaboard/main";
 	}
 }

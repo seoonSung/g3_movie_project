@@ -94,9 +94,9 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="submit" value="문의하기" onclick="location.href='${contextPath}/service/mainService'"/></td>
+					<td><input type="submit" value="문의하기" onclick="location.href='${contextPath}/qnaboard/main'"/></td>
 					<td><input type="button"
-						onclick="location.href='${contextPath}/service/mainService'"
+						onclick="location.href='${contextPath}/qnaboard/main'"
 						value="취소" /></td>
 				</tr>
 			</table>

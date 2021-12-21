@@ -24,6 +24,7 @@ import com.care.root.member.service.MemberService;
 @RequestMapping("member")
 public class MemberController implements SessionName{
 	@Autowired MemberService ms;
+	
 	@GetMapping("/login")
 	public String login() {
 		return "member/login";
@@ -34,7 +35,7 @@ public class MemberController implements SessionName{
 							@RequestParam(required = false) String autoLogin,
 							@RequestParam(required = false) String saveId,
 							RedirectAttributes rs) {
-		System.out.println("autoLogin : "+autoLogin);
+		System.out.println("autoLogin : "+ autoLogin);
 		
 		int result = ms.userCheck(id, pw); 
 		if(result == 0) {
@@ -75,10 +76,10 @@ public class MemberController implements SessionName{
 		}
 		
 		session.setAttribute( LOGIN, id);
-
-		return "/default/main";
+		return "redirect:/main";
 
 	}
+	
 	@GetMapping("logout")
 	public String logout(HttpSession session, HttpServletResponse response,
 	@CookieValue(value="loginCookie", required = false) Cookie loginCookie) {

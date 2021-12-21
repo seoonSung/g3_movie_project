@@ -5,7 +5,7 @@
 
 <mapper namespace="com.care.root.mybatis.member.MemberMapper">
 	<resultMap id="member" type="com.care.root.member.dto.MemberDTO" >
-		<id property="id" column="id"/>
+		<result property="id" column="id"/>
 		<result property="pw" column="pw"/>
 		<result property="name" column="name"/>
 		<result property="email" column="email"/>

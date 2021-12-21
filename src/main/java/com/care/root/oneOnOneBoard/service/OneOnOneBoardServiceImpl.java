@@ -55,8 +55,6 @@ public class OneOnOneBoardServiceImpl implements OneOnOneBoardService{
 
 
 	public void allList(HttpSession session,Model model) {
-		
-		
 		model.addAttribute("List",mmapper.getMember((String)session.getAttribute(SessionName.LOGIN)));
 	}
 }

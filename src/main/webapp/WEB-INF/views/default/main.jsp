@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-	<c:import url="default/header.jsp"/>
+	<c:import url="../default/header.jsp"/>
 	<div class="wrap content">
 		<table class="mainTable">
 			<tr>
@@ -39,7 +39,7 @@
 			</tr>
 		</table>
 	</div>
-	<c:import url="default/footer.jsp"/>
+	<c:import url="../default/footer.jsp"/>
 
 </body>
 </html>
