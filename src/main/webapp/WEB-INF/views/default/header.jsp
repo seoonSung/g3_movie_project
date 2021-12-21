@@ -84,7 +84,7 @@ nav ul li a:hover {
 					<li><a href="${contextPath }/info">영화</a></li>
 					<li><a href="${contextPath }/bookMain">예매</a></li>
 					<li><a href="${contextPath }/theaterMain">극장</a></li>
-					<li><a href="${contextPath }/service/mainService">고객센터</a></li>
+					<li><a href="${contextPath }/qnaBoard/mainService">고객센터</a></li>
 					<li><a href="#">스토어</a></li>
 					<li><a href="${contextPath }/main/communityMain">커뮤니티</a></li>
 					<li><c:choose>
@@ -95,7 +95,6 @@ nav ul li a:hover {
 								<a href="${contextPath }/member/login">로그인</a>
 							</c:otherwise>
 						</c:choose></li>
-					<li><a href="#"><i class="far fa-user"></i></a></li>
 				</ul>
 			</nav>
 		</div>

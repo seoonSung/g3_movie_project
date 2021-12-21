@@ -23,6 +23,19 @@
 	
 	<context:component-scan base-package="com.care.root" />
 	<beans:bean id="ci" class="com.care.root.common.interceptor.CommonInterceptor"/>  
+	<!-- <beans:bean id="autoLogin" class="com.care.root.common.interceptor.AutoLoginInterceptor"/>   -->
 	
+	<!--<interceptors>
+		 <interceptor>
+			<mapping path="/main"/>
+			<beans:ref bean="autoLogin" />
+		</interceptor> 
+		
+		<interceptor>
+			<mapping path="/member/memberInfo" />
+			<mapping path="/service/writeForm" />
+			<beans:ref bean="ci"/>
+		</interceptor>
+	</interceptors>-->
 	
 </beans:beans>
