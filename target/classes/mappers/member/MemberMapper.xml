@@ -16,6 +16,10 @@
 	<select id="getMember" resultMap="member">
 		select * from membership where id = #{id}
 	</select>
+	
+	 <select id="getId" resultMap="member">
+  		SELECT ID FROM membership WHERE ID = #{id}
+  	</select>
 	<select id="memberInfo" resultMap="member">
 		select * from membership
 	</select>

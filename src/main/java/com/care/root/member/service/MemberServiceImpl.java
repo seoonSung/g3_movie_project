@@ -62,9 +62,17 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDTO getUserSessionId(String sessionId) {
 		return mapper.getUserSessionId(sessionId);
 	}
+	
+	@Override
+	public boolean getId(String id) {
+		String getId = mapper.getId(id);
+		if(!getId.equals("") && getId != null) {
+			return true;
+		}
+		return false;
+	}
+
 }
-
-
 
 
 

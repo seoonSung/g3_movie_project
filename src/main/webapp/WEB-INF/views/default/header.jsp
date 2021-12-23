@@ -12,8 +12,8 @@
 * { margin: 0; }
 .wrap { width: 1000px; margin: auto; }
 .header { width: 1000px; background-color: white; }
-.navdiv{width:100%; background-color: rgb(0, 0, 0);  }
-nav{ background-color: rgb(0, 0, 0);width: 1000px; height: 50px;}
+.navdiv{width:100%; background-color: rgb(64, 41, 68); }
+nav{ background-color: rgb(64, 41, 68); width: 1000px; height: 50px;}
 nav ul { list-style: none; display: flex; justify-content: flex-end; }
 nav ul li { margin: 0 3px; padding: 15px 15px; }
 nav ul li a { text-decoration: none; color: white; font-weight: 500;}
