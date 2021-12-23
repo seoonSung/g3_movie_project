@@ -100,7 +100,7 @@ nav ul li a:hover {
 							</c:otherwise>
 						</c:choose></li>
 					<li><a href="${contextPath }/main/communityMain">커뮤니티</a></li>
-					<li><a href="#" style="background-color: lemonchiffon;"><img
+					<li><a href="${contextPath }/myInfo/infoMain" style="background-color: lemonchiffon;"><img
 							src="1.png" width="20" height="20"></a></li>
 					<li><a href="#" style="background-color: lemonchiffon;"><img
 							src="2.png" width="20" height="20"></a></li>

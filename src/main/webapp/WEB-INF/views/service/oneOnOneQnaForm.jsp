@@ -39,13 +39,14 @@
 		}
 	}
 </script>
+<script data-cfasync="false" type="text/javascript" 
+src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js">
+</script> 
 </head>
 <body>
 	<c:import url="../default/header.jsp" />
 	<div align="center">
-		<form method="post" class="gform"
-			action="https://script.google.com/macros/s/AKfycbyHGwWaKhd_iSkpugHxGGGz3z5hTV2ixyo2ulYG3Ph9aS4_cf7G/exec"
-			enctype="multipart/form-data">
+		<form method="post" class="gform" action="${contextPath }/service/send">
 			<br>
 			<br>
 			<br>
@@ -64,6 +65,11 @@
 					</select></td>
 				</tr>
 				<tr>
+					<th><b>수신자</b></th>
+					<td><input type="text" name="receiver" value="gthreeteam@gmail.com"
+						readonly /></td>
+				</tr>
+				<tr>
 					<th><b>작성자</b></th>
 					<td><input type="text" name="id" value="${loginUser }"
 						readonly /></td>
@@ -75,7 +81,7 @@
 				</tr>
 				<tr>
 					<th><b>연락처</b></th>
-					<td><input type="text" class="phoneNumber"
+					<td><input type="text" class="phoneNumber" name="phoneNumber"
 						onchange="phoneNumber(this)" maxlength="13" required autofocus /></td>
 				</tr>
 				<tr>
@@ -85,12 +91,6 @@
 				<tr>
 					<th><b>내용</b></th>
 					<td><textarea name="content" rows="10" cols="50" required></textarea></td>
-				</tr>
-				<tr>
-					<th><b>이미지파일 첨부</b></th>
-					<td><input type="file" name="image_file_name"
-						onchange="readURL(this);" /> <img id="preview" src="#" width=100
-						height=100 alt="선택된 이미지가 없습니다" /></td>
 				</tr>
 				<tr>
 					<td></td>
