@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.care.root.book.dto.BookInfoDTO;
 import com.care.root.book.dto.MovieInfoDTO;
 import com.care.root.mybatis.book.BookMapper;
 
@@ -30,8 +31,16 @@ public class BookServiceImpl implements BookService{
 		
 		
 		String code = title+","+i+","+time+","+theater;
-		String seat = ","+selectedSeat+",";
+		String seat = selectedSeat;
 		mapper.payment(code,seat);
+	}
+
+	@Override
+	public List<BookInfoDTO> seat(String title, String i, String time, String theater) throws Exception{
+		
+		String code = title+","+i+","+time+","+theater;
+		System.out.println(code);
+		return mapper.seat(code);
 	}
 
 

@@ -25,12 +25,16 @@ public class BookController {
 			@RequestParam String i,
 			@RequestParam String title,
 			@RequestParam String time,
-			@RequestParam String theater) {
+			@RequestParam String theater) throws Exception{
 		
-		model.addAttribute("i", i);
-		model.addAttribute("title", title);
-		model.addAttribute("time", time);
-		model.addAttribute("theater",theater);
+		model.addAttribute("i", i); //날짜
+		model.addAttribute("title", title); //제목
+		model.addAttribute("time", time); //시간
+		model.addAttribute("theater",theater); // 관 
+		
+		model.addAttribute("code",bs.seat(title,i,time,theater));
+		
+		
 		return "book/seat";
 	}
 	
@@ -38,26 +42,32 @@ public class BookController {
 	public String payment(Model model, String title, String time, String theater,
 							String i, String ticketNumber, String selectedSeat,
 							String payMoney) {	
-		System.out.println("title: "+title);
-		System.out.println("time: "+time);
-		System.out.println("theater: "+theater);
-		System.out.println("i: "+i);
-		System.out.println("ticketNumber: "+ticketNumber);
-		System.out.println("selectedSeat: "+selectedSeat);
-		System.out.println("payMoney: "+payMoney);
+	
 		
 		
 		bs.payment(i, title, time, theater, selectedSeat);
-		
+
+
 		
 		
 		return "book/payment";
 	}
-	
-	@GetMapping("/test")
-	public String test() {
+	@GetMapping("/seat_test")
+	public String seat_test(Model model,
+			@RequestParam String i,
+			@RequestParam String title,
+			@RequestParam String time,
+			@RequestParam String theater) throws Exception{
+		
+		model.addAttribute("i", i); //날짜
+		model.addAttribute("title", title); //제목
+		model.addAttribute("time", time); //시간
+		model.addAttribute("theater",theater); // 관 
+		
+		model.addAttribute("code",bs.seat(title,i,time,theater));
 		
 		
-		return "book/test";
+		return "book/seat_test";
 	}
+	
 }

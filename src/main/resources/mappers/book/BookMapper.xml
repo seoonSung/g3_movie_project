@@ -37,4 +37,9 @@
 	    insert into book_info(book_num,pn,book_code,seat)
 	    values(book_info_seq.nextval,01012341234,#{code},#{seat})
 	</insert>
+	
+	<select id="seat" resultMap="book_info">
+		select * from book_info
+		where book_code = #{code}
+	</select>
     </mapper>

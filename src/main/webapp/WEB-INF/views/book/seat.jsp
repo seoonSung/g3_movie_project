@@ -24,8 +24,9 @@
 
 <body>
 <c:import url="../default/header.jsp"/>
+
 <div class="wrap">
-   
+<h1>${code.pn}</h1>   
    
    <div class="select-container">
       <div class="select-wrapper">
