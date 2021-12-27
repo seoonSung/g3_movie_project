@@ -53,11 +53,4 @@ public class BookController {
 		
 		return "book/payment";
 	}
-	
-	@GetMapping("/test")
-	public String test() {
-		
-		
-		return "book/test";
-	}
 }

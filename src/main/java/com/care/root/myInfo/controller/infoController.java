@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.care.root.book.dto.BookInfoDTO;
+import com.care.root.book.dto.MovieInfoDTO;
+import com.care.root.book.service.BookService;
 import com.care.root.common.session.SessionName;
 import com.care.root.member.dto.MemberDTO;
 import com.care.root.myInfo.service.accountService;
@@ -23,6 +26,7 @@ import com.care.root.qnaBoard.service.QnaBoardService;
 public class infoController implements SessionName{
 	@Autowired accountService as;
 	@Autowired QnaBoardService qbs;
+	@Autowired BookService bs;
 	
 	@GetMapping("myInfoMain")
 	public String infoMain() {
@@ -84,7 +88,9 @@ public class infoController implements SessionName{
 	}
 	
 	@GetMapping("bookInfo")
-	public String bookInfo() {
+	public String bookInfo(Model model, BookInfoDTO dto, MovieInfoDTO mdto) {
+		bs.getBookList(model, dto);
+		bs.movieList(model, mdto);
 		return "myInfo/bookInfo";
 	}
 }

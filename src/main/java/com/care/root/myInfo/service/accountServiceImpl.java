@@ -34,12 +34,6 @@ public class accountServiceImpl implements accountService{
 	}
 
 	@Override
-	public void getMyQna(String id) {
-		// TODO Auto-generated method stub
-		qnamapper.getMyQna(id);
-	}
-
-	@Override
 	public void delete(MemberDTO dto) {
 		// TODO Auto-generated method stub
 		mapper.delete(dto);

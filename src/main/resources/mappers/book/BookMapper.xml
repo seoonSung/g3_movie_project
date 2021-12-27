@@ -16,14 +16,7 @@
 		<result property="day" column="day"/>
     </resultMap>
     
-    <resultMap  id="book_info" type="com.care.root.book.dto.BookInfoDTO">
-		<id property="book_num" column="book_num"/>
-		<result property="pn" column="pn"/>
-		<result property="book_code" column="book_code"/>
-		<result property="seat" column="seat"/>
-    </resultMap>
-    
-    <resultMap  id="booInfo" type="com.care.root.book.dto.BookInfoDTO">
+    <resultMap  id="bookInfo" type="com.care.root.book.dto.BookInfoDTO">
 		<id property="num" column="num"/>
 		<result property="title" column="title"/>
 		<result property="days" column="days"/>

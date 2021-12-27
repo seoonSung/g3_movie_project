@@ -13,7 +13,5 @@ public interface accountService {
 	
 	public void informaion(HttpSession session,Model model) throws Exception;
 	
-	public void getMyQna(String id);
-
 	public void delete(MemberDTO dto);
 }
