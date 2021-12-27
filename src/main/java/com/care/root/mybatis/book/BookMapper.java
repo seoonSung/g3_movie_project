@@ -10,6 +10,5 @@ import com.care.root.book.dto.MovieInfoDTO;
 public interface BookMapper {
 		public List<MovieInfoDTO> movieList();
 		public List<MovieInfoDTO> movieDay(String title);
-		public void payment(@Param("code") String code,@Param("seat") String seat);
-		public List<BookInfoDTO> seat(String code) throws Exception;
+		
 }

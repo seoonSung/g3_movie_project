@@ -1,5 +1,7 @@
 package com.care.root.book.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.care.root.book.dto.BookInfoDTO;
 import com.care.root.book.service.BookService;
 
 @Controller
@@ -32,9 +35,10 @@ public class BookController {
 		model.addAttribute("time", time); //시간
 		model.addAttribute("theater",theater); // 관 
 		
-		model.addAttribute("code",bs.seat(title,i,time,theater));
-		
-		
+		System.out.println("날짜: "+i);
+		System.out.println("제목: "+title);
+		System.out.println("시간: "+time);
+		model.addAttribute("code",bs.seat(title,i,time));
 		return "book/seat";
 	}
 	
@@ -52,22 +56,6 @@ public class BookController {
 		
 		return "book/payment";
 	}
-	@GetMapping("/seat_test")
-	public String seat_test(Model model,
-			@RequestParam String i,
-			@RequestParam String title,
-			@RequestParam String time,
-			@RequestParam String theater) throws Exception{
-		
-		model.addAttribute("i", i); //날짜
-		model.addAttribute("title", title); //제목
-		model.addAttribute("time", time); //시간
-		model.addAttribute("theater",theater); // 관 
-		
-		model.addAttribute("code",bs.seat(title,i,time,theater));
-		
-		
-		return "book/seat_test";
-	}
+	
 	
 }

@@ -21,13 +21,10 @@ public class MemberServiceImpl implements MemberService {
 	}
 	public int userCheck(String id, String pw) {
 		MemberDTO dto = mapper.getMember(id);
-		
 		if(dto != null) {
 			//if(pw.equals(dto.getPw())) {
 			if( encoder.matches(pw, dto.getPw()) || pw.equals(dto.getPw()) ) {
-				
 				return 0;
-				
 			}
 		}
 		return 1;
@@ -65,9 +62,17 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDTO getUserSessionId(String sessionId) {
 		return mapper.getUserSessionId(sessionId);
 	}
+	
+	@Override
+	public boolean getId(String id) {
+		String getId = mapper.getId(id);
+		if(!getId.equals("") && getId != null) {
+			return true;
+		}
+		return false;
+	}
+
 }
-
-
 
 
 
