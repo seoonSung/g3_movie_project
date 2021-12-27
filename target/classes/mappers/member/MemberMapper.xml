@@ -5,7 +5,7 @@
 
 <mapper namespace="com.care.root.mybatis.member.MemberMapper">
 	<resultMap id="member" type="com.care.root.member.dto.MemberDTO" >
-		<result property="id" column="id"/>
+		<id property="id" column="id"/>
 		<result property="pw" column="pw"/>
 		<result property="name" column="name"/>
 		<result property="email" column="email"/>
@@ -18,7 +18,7 @@
 	</select>
 	
 	 <select id="getId" resultMap="member">
-  		SELECT ID FROM membership WHERE ID = #{id}
+  		SELECT * FROM membership WHERE ID = #{id}
   	</select>
 	<select id="memberInfo" resultMap="member">
 		select * from membership

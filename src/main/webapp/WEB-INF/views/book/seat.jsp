@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +19,11 @@
 <link rel="stylesheet"
    href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 <!-- MATERIAL DESIGN ICONIC FONT -->
+<<<<<<< HEAD
 <!--  <link rel="stylesheet" href="${contextPath}/resources/css/seat.css"> -->
+=======
+<link rel="stylesheet" href="${contextPath }/resources/css/seat.css">
+>>>>>>> 3613c7beb296774d8db02cfcf64e08b0d0221088
 <style type="text/css">
 /* content */
 
@@ -270,6 +274,7 @@
     background-color: red;
     color: white;
 }
+<<<<<<< HEAD
 .dis {
    
    width: 30px;
@@ -277,13 +282,18 @@
    opacity: 0.6;
    cursor: not-allowed;
 }
+=======
+>>>>>>> 3613c7beb296774d8db02cfcf64e08b0d0221088
 
 .clicked {
     background-color: red;
     color: white;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3613c7beb296774d8db02cfcf64e08b0d0221088
 .seatButtonWrapper {
     text-align: center;
 }

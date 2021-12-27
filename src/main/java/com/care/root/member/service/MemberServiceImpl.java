@@ -65,11 +65,13 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public boolean getId(String id) {
-		String getId = mapper.getId(id);
-		if(!getId.equals("") && getId != null) {
-			return true;
+		System.out.println("서비스 임플: "+id);
+		System.out.println("mapper: "+mapper.getId(id));
+		
+		if( mapper.getId(id) != null) { 
+			return true; //아이디 존재
 		}
-		return false;
+		return false; //사용 가능한 아이디
 	}
 
 }

@@ -11,6 +11,6 @@ public interface MemberMapper {
 	public int register(MemberDTO dto);
 	public void keepLogin(Map<String, Object> map);
 	public MemberDTO getUserSessionId(String sessionId);
-	public String getId(String id);
+	public MemberDTO getId(String id);
 }
 
