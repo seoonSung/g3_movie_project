@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,42 +9,35 @@
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/1bd9eb3151.js"
 	crossorigin="anonymous"></script>
-<style type="text/css">
-a {
-	text-decoration-line: none;
-}
-
-.memberInfo, .bookInfo, .movieRecommend, .myOneOnOne {
-	width: 200px;
-	height: 180px;
-	margin: 30px 700px;
-	padding: 20px 0;
-	border: 1px solid;
-	border-radius: 15%;
-}
-</style>
 </head>
 <body>
 	<c:import url="../default/header.jsp" />
 	<br>
-	<a href="${contextPath }/myInfo/information">
-		<div class="memberInfo">
+	<a href="${contextPath }/myInfo/aboutInfo">
+		<div class="aboutInfo">
 			<h1 align="center">
-				<i class="far fa-question-circle fa-3x"></i><br> <br>회 원 정 보
+				<i class="far fa-question-circle fa-3x"></i><br> <br>내 정 보
 			</h1>
 		</div>
 	</a>
-	<a href="${contextPath }/myInfo/bookInfo">
-		<div class="bookInfo">
+	<a href="memberInfo">
+		<div class="modifyInfo">
 			<h1 align="center">
-				<i class="fas fa-question fa-3x"></i><br> <br>나 의 예 매
+				<i class="fas fa-question fa-3x"></i><br> <br>정보변경
 			</h1>
 		</div>
 	</a>
-	<a href="${contextPath }/myInfo/myQna">
-		<div class="myOneOnOne">
+	<a href="deleteMember">
+		<div class="deleteMember">
 			<h1 align="center">
-				<i class="fas fa-question fa-3x"></i><br> <br>나 의 문 의
+				<i class="fas fa-question fa-3x"></i><br> <br>회원탈퇴
+			</h1>
+		</div>
+	</a>
+	<a href="myInfoMain">
+		<div class="modifyInfo">
+			<h1 align="center">
+				<i class="fas fa-question fa-3x"></i><br> <br>뒤	로
 			</h1>
 		</div>
 	</a>

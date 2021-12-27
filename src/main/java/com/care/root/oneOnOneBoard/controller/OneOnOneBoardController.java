@@ -1,11 +1,6 @@
 package com.care.root.oneOnOneBoard.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +11,23 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.care.root.oneOnOneBoard.service.OneOnOneBoardService;
+import com.care.root.myInfo.service.accountService;
 import com.care.root.oneOnOneBoard.service.emailService;
 import com.care.root.oneOnOneBoardDTO.OneOnOneBoardDTO;
 
 @Controller
 @RequestMapping("service")
 public class OneOnOneBoardController {
-	@Autowired OneOnOneBoardService ooobs;
+	@Autowired accountService as;
 	
 	@GetMapping("oneOnOneQnaForm")
 	public String oneOnOneQnaForm(HttpSession session, Model model) {
-		ooobs.allList(session,model);
+		try {
+			as.informaion(session,model);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "service/oneOnOneQnaForm";
 	}
 	
