@@ -65,7 +65,50 @@ function idCheckMessage(data) {
         //registerButton.setAttribute('disabled', 'true');
     }
 }
+let pwc =false;
+function passConfirm() {
+	/* 비밀번호, 비밀번호 확인 입력창에 입력된 값을 비교해서 같다면 비밀번호 일치, 그렇지 않으면 불일치 라는 텍스트 출력.*/
+	/* document : 현재 문서를 의미함. 작성되고 있는 문서를 뜻함. */
+	/* getElementByID('아이디') : 아이디에 적힌 값을 가진 id의 value를 get을 해서 password 변수 넣기 */
+		let password = document.getElementById('password');					//비밀번호 
+		let passwordConfirm = document.getElementById('passwordConfirm');	//비밀번호 확인 값
+		let confrimMsg = document.getElementById('confirmMsg');				//확인 메세지
+		let correctColor = "#00ff00";	//맞았을 때 출력되는 색깔.
+		let wrongColor ="#ff0000";	//틀렸을 때 출력되는 색깔
+		
+		if(password.value == passwordConfirm.value){//password 변수의 값과 passwordConfirm 변수의 값과 동일하다.
+			confirmMsg.style.color = correctColor;/* span 태그의 ID(confirmMsg) 사용  */
+			confirmMsg.innerHTML ="비밀번호 일치";/* innerHTML : HTML 내부에 추가적인 내용을 넣을 때 사용하는 것. */
+			pwc = "t";
+		}else{
+			confirmMsg.style.color = wrongColor;
+			confirmMsg.innerHTML ="비밀번호 불일치";
+			pwc = "f";
+		}
+	}
+	
+function register(){
+	console.log(idFlag)
+    var registerForm = document.getElementById("registerForm");
+    let id = registerForm.id.value;
+    let pw = registerForm.pw.value;
+    let name = registerForm.name.value;
+    let phonenumber = registerForm.phonenumber.value;
+    let email = registerForm.email.value;
+    
+    if(idFlag == false || !id ){
+        alert("아이디를 확인해주세요")
+    }else if(pwc == "f" || !pw){
+    	alert("비밀번호를 확인해주세요.")
+    }else if(!name || !email || !phonenumber){
+    	alert("개인정보를 입력해주세요.")
+    }else{
+    
+    	registerForm.submit();
+    }
+}
 
+	
 </script>
 <style>
 @font-face {
@@ -486,7 +529,7 @@ button:active i {
 						class="form-control"> <i class="zmdi zmdi-lock"></i>
 				</div>
 				<div class="form-wrapper">
-					<input type="password" placeholder="비밀번호 확인" class="form-control" id="passwordRepeat" onChange="passwordValidate()" >
+					<input type="password" id="passwordConfirm" placeholder="비밀번호 입력" class="form-control" onkeyup="passConfirm()"> <span id ="confirmMsg"></span>
 					<i class="zmdi zmdi-lock"></i>
 				</div>
 
@@ -496,7 +539,7 @@ button:active i {
 				</div>
 
 				<div class="form-wrapper">
-					<input type="text" name="phoneNumber" placeholder="휴대폰번호"
+					<input type="text" name="phonenumber" placeholder="휴대폰번호"
 						class="form-control"> <i class="zmdi  zmdi-phone"></i>
 				</div>
 
@@ -511,7 +554,7 @@ button:active i {
 				height: 51px;margin: auto;margin-top: 40px; cursor: pointer;display: flex;align-items: center;justify-content: center;
 				padding: 0; background: black;font-size: 15px;color: #fff;vertical-align: middle;-webkit-transform: perspective(1px) translateZ(0);
 				transform: perspective(1px) translateZ(0);-webkit-transition-duration: 0.3s;transition-duration: 0.3s;text-align: center;font-size: 13px;"
-				type="submit" class="registerButton clickedButton" value="회원가입 하기">
+				type="button" class="registerButton clickedButton" onclick="register()" value="회원가입 하기">
 					
 			</form>
 		</div>
