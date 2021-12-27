@@ -309,7 +309,7 @@
 
 <body>
 <c:import url="../default/header.jsp"/>
-<h1>${code }</h1>
+
 <div class="wrap">
  
    
