@@ -1,5 +1,6 @@
 package com.care.root.myInfo.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
@@ -90,10 +91,17 @@ public class infoController implements SessionName{
 	}
 	
 	@GetMapping("bookInfo")
-	public String bookInfo(Model model, BookInfoDTO dto) {
-		if(ms.getPn().equals(dto.getPn())) {
+	public String bookInfo(Model model, BookInfoDTO dto, MemberDTO mdto, HttpServletResponse response) throws Exception {
+		PrintWriter out = null;
+		response.setContentType("text/html; charset-utf-8");
+		out = response.getWriter();
+		if(LOGIN.equals(dto.getPn())) {
 			bs.getBookList(model, dto);
+			return "myInfo/bookInfo";
+		}else {
+			out.println("<script>alert('예매내역이 없습니다.');</script>");
+			return "redirect: myInfo/myInfoMain";
 		}
-		return "myInfo/bookInfo";
+		
 	}
 }
