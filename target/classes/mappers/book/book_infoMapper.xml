@@ -5,16 +5,19 @@
   
   <mapper namespace="com.care.root.mybatis.book.BookInfoMapper">    
     <resultMap  id="book_info" type="com.care.root.book.dto.BookInfoDTO">
-		<id property="book_num" column="book_num"/>
+		<id property="num" column="num"/>
+		<result property="title" column="title"/>
+		<result property="days" column="days"/>
+		<result property="times" column="times"/>
+		<result property="theater" column="theater"/>
+		<result property="seats" column="seats"/>
 		<result property="pn" column="pn"/>
-		<result property="book_code" column="book_code"/>
-		<result property="seat" column="seat"/>
 		
     </resultMap>
 
 	<insert id="payment" >
-	    insert into book_info(book_num,pn,book_code,seat)
-	    values(book_info_seq.nextval,01012341234,#{code},#{seat})
+	    insert into book_info(num, title, days, times, theater, seats, pn)
+	    values(book_info_seq.nextval, #{title} ,#{days}, #{times}, #{theater},#{seats}, #{pn})
 	</insert>
 	
 	<select id="seat" resultMap="book_info">

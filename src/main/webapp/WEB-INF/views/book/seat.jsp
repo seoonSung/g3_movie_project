@@ -67,16 +67,12 @@ function requestPay() {
 <link rel="stylesheet"
    href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 <!-- MATERIAL DESIGN ICONIC FONT -->
-<<<<<<< HEAD
 <link rel="stylesheet" href="${contextPath}/resources/css/seat.css">
 
 
-=======
-<<<<<<< HEAD
 <!--  <link rel="stylesheet" href="${contextPath}/resources/css/seat.css"> -->
-=======
 <link rel="stylesheet" href="${contextPath }/resources/css/seat.css">
->>>>>>> 3613c7beb296774d8db02cfcf64e08b0d0221088
+
 <style type="text/css">
 /* content */
 
@@ -327,7 +323,7 @@ function requestPay() {
     background-color: red;
     color: white;
 }
-<<<<<<< HEAD
+
 .dis {
    
    width: 30px;
@@ -335,18 +331,13 @@ function requestPay() {
    opacity: 0.6;
    cursor: not-allowed;
 }
-=======
->>>>>>> 3613c7beb296774d8db02cfcf64e08b0d0221088
+
 
 .clicked {
     background-color: red;
     color: white;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3613c7beb296774d8db02cfcf64e08b0d0221088
 .seatButtonWrapper {
     text-align: center;
 }
@@ -368,13 +359,12 @@ function requestPay() {
     margin-top: 30px;
 } 
 </style>
->>>>>>> 15db5691e4e1e253a609f07d6d9f5d25dd5ae41c
 </head>
 
 <body>
 <c:import url="../default/header.jsp"/>
 
-<div class="wrap">
+  <div class="wrap">
  
    
    <div class="select-container">
@@ -450,6 +440,7 @@ function requestPay() {
                   <input type="hidden" name="time" value="${time }"> 
                   <input type="hidden" name="theater" value="${theater }"> 
                   <input type="hidden" name="i" value="${i }"> 
+                  <input type="hidden" name="pn" value="${loginUser }"> 
                   <!-- 티켓의수(선택한 좌석) -->
                   <input type="hidden" class="ticketNumber" name="ticketNumber">
                   <input type="hidden" class="selectedSeat" name="selectedSeat">
@@ -648,11 +639,11 @@ for (let i = 0; i < 10; i++) {
         input.type = 'button';
         input.name = 'seats';
         
-        if(i==0 && j==4){    //결제완료된 좌석
-        	 input.classList = 'dis';
-        }else{    			// 예약가능한 좌석
+      //  if(i==0 && j==4){    //결제완료된 좌석
+      //  	 input.classList = 'dis';
+      //  }else{    			// 예약가능한 좌석
         	 input.classList = 'seat';
-        }
+      //  }
        
         //3중포문을 사용하지 않기위해
         mapping(input, i, j);
