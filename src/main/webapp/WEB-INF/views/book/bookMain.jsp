@@ -25,7 +25,7 @@
  				result.forEach(function(data){
  					
  			
- 					htmls += '<button class="button" onclick="movieDay(\'' + data.title + '\',\'' + data.movie_number + '\' )">'+data.title+'</button>'
+ 					htmls += '<button class="button" onclick="movieDay(\'' + data.title + '\',' + data.movie_number + ' )">'+data.title+'</button>'
 					
  					
  					})
@@ -49,12 +49,12 @@
   				let htmls = ""
   				htmls += '<div class="reserve-date">'
   				result.forEach(function(data){
-  				var day = data.day
+  				let day = data.day
   				
-  				for(var i = 27; i<32; i++){
+  				for(let i = 27; i<32; i++){
   					
   					if(day.includes(i)){
-  					htmls += '<button class="button" onclick="startTime(\''+i+'\',\'' + title + '\',\'' + theater + '\')">'+i+'일</button>'
+  					htmls += '<button class="button" onclick="startTime(\''+i+'\',\'' + title + '\',' + theater + ')">'+i+'일</button>'
   				}
   					
   				}
@@ -75,8 +75,8 @@
    				let htmls = ""
    				htmls += '<div class="reserve-date">'
   
-   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + mo + '\',\'' + theater + '\')">오전</button>'
-   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + ev + '\',\'' + theater + '\')">오후</button>'
+   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + mo + '\',' + theater + ')">오전</button>'
+   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + ev + '\',' + theater + ')">오후</button>'
 
    				htmls += '</div>'
    				$('#startTime').html(htmls)	
@@ -87,7 +87,7 @@
 
 			let htmls = ""
 			htmls += '<div style="position: absolute; right: 480px; bottom: 40px;">'
-    		htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\',\'' + theater + '\')">예매하기</button>'
+    		htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\',' + theater + ')">예매하기</button>'
 			htmls += '</div>'
 			
 			$('#book').html(htmls)	

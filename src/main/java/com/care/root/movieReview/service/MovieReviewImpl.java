@@ -1,7 +1,5 @@
 package com.care.root.movieReview.service;
 
-
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +9,6 @@ import org.springframework.ui.Model;
 import com.care.root.common.session.SessionName;
 import com.care.root.movieReview.dto.MovieReviewDTO;
 import com.care.root.mybatis.movieReview.MovieReviewMapper;
-
-
 
 @Service
 public class MovieReviewImpl implements MovieReviewService{

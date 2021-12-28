@@ -1,3 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/views/book/seat.jsp=UTF-8
+<<<<<<< HEAD
+=======
 encoding//src/main/webapp/WEB-INF/views/theater/theaterMain.jsp=UTF-8
+>>>>>>> 89c7ebd94d64c9449a9f9134034d32fec562a163

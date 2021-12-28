@@ -36,6 +36,7 @@ public class MemberServiceImpl implements MemberService {
 		model.addAttribute("info", mapper.getMember(id) );
 	}
 	public int register(MemberDTO dto) {
+		System.out.println("폰넘버: "+dto.getPhonenumber());
 		System.out.println("변경 전 : "+dto.getPw());
 		String securePw = encoder.encode(dto.getPw());
 		System.out.println("변경 후 : "+securePw);
@@ -62,9 +63,19 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDTO getUserSessionId(String sessionId) {
 		return mapper.getUserSessionId(sessionId);
 	}
+	
+	@Override
+	public boolean getId(String id) {
+		System.out.println("서비스 임플: "+id);
+		System.out.println("mapper: "+mapper.getId(id));
+		
+		if( mapper.getId(id) != null) { 
+			return true; //아이디 존재
+		}
+		return false; //사용 가능한 아이디
+	}
+
 }
-
-
 
 
 

@@ -21,8 +21,8 @@ public class CommonInterceptor extends HandlerInterceptorAdapter
          
          response.setContentType("text/html; charset=utf-8");
          PrintWriter out = response.getWriter();
-     //    out.print("<script>alert('로그인 먼저 진행하세요.');"
-     //         + "location.href='"+request.getContextPath()+"/member/login'</script>");
+        out.print("<script>alert('로그인 먼저 진행하세요.');"
+         + "location.href='"+request.getContextPath()+"/member/login'</script>");
          return false;  //사용자가 요청한 경로로 안간다.
       }
       

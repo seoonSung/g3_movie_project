@@ -25,18 +25,24 @@ public class BookController {
 			@RequestParam String i,
 			@RequestParam String title,
 			@RequestParam String time,
-			@RequestParam String theater) {
+			@RequestParam String theater) throws Exception{
 		
-		model.addAttribute("i", i);
-		model.addAttribute("title", title);
-		model.addAttribute("time", time);
-		model.addAttribute("theater",theater);
+		model.addAttribute("i", i); //날짜
+		model.addAttribute("title", title); //제목
+		model.addAttribute("time", time); //시간
+		model.addAttribute("theater",theater); // 관 
+		
+		System.out.println("날짜: "+i);
+		System.out.println("제목: "+title);
+		System.out.println("시간: "+time);
+		model.addAttribute("code",bs.seat(title,i,time));
 		return "book/seat";
 	}
 	
 	@RequestMapping(value="payment", method = RequestMethod.GET)
 	public String payment(Model model, String title, String time, String theater,
 							String i, String ticketNumber, String selectedSeat,
+<<<<<<< HEAD
 							String payMoney) {	
 		System.out.println("title: "+title);
 		System.out.println("time: "+time);
@@ -51,16 +57,10 @@ public class BookController {
 		
 		
 		
+=======
+							String payMoney) {		
+		bs.payment(i, title, time, theater, selectedSeat);
+>>>>>>> 9892a626718e0c6c491c8fd224a5975e325ec51e
 		return "book/payment";
 	}
-	
-	@GetMapping("/test")
-	public String test() {
-		
-		
-		return "book/test";
-	}
-	
-	 
-	
 }

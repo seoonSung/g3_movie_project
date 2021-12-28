@@ -2,29 +2,21 @@ package com.care.root.mybatis.qnaBoard;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.care.root.qnaBoard.dto.QnaBoardDTO;
 import com.care.root.qnaBoard.dto.QnaBoardRepDTO;
 
 public interface QnaBoardMapper {
-
-	/*public int writeSave(QnaBoardDTO dto);*/
-
-	public List<QnaBoardDTO> qnaBoard();
-
-	public void writeSave(QnaBoardDTO dto);
-
-	public QnaBoardDTO qnaContentView(int num);
-
-	public void upHit(int num);
-
-	public int modify(QnaBoardDTO dto);
-
-	public List<QnaBoardRepDTO> getRepList(int write_group);
-
-	public void addReply(QnaBoardRepDTO dto);
-
+	public List<QnaBoardDTO> boardList(@Param("s")int start,@Param("e") int end);
 	public int selectBoardCount();
-
-	public int delete(int num);
-
+	public List<QnaBoardDTO> boardAllList();
+	public void upHit(@Param("num")int num);
+	public QnaBoardDTO contentView(int num);
+	public int modify_save(QnaBoardDTO dto);
+	public int writeSave(QnaBoardDTO dto);
+	public int delete(@Param("num")int num);
+	public void addReply(QnaBoardRepDTO dto);	
+	public void answerupdate(QnaBoardRepDTO dto);
+	public List<QnaBoardRepDTO> getRepList(int write_group);
 }

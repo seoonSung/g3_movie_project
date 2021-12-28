@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.common.session.SessionName;
@@ -24,6 +26,7 @@ import com.care.root.member.service.MemberService;
 @RequestMapping("member")
 public class MemberController implements SessionName{
 	@Autowired MemberService ms;
+	
 	@GetMapping("/login")
 	public String login() {
 		return "member/login";
@@ -34,7 +37,7 @@ public class MemberController implements SessionName{
 							@RequestParam(required = false) String autoLogin,
 							@RequestParam(required = false) String saveId,
 							RedirectAttributes rs) {
-		System.out.println("autoLogin : "+autoLogin);
+		System.out.println("autoLogin : "+ autoLogin);
 		
 		int result = ms.userCheck(id, pw); 
 		if(result == 0) {
@@ -75,10 +78,10 @@ public class MemberController implements SessionName{
 		}
 		
 		session.setAttribute( LOGIN, id);
-
-		return "/default/main";
+		return "redirect:/main";
 
 	}
+	
 	@GetMapping("logout")
 	public String logout(HttpSession session, HttpServletResponse response,
 	@CookieValue(value="loginCookie", required = false) Cookie loginCookie) {
@@ -121,5 +124,13 @@ public class MemberController implements SessionName{
 			return "redirect:login";
 		return "redirect:register_form";
 	}
+	
+//	@ResponseBody
+//	@RequestMapping(value = "idCheck.do", method = { RequestMethod.GET, RequestMethod.POST })
+//	public String idCheck(String id) {
+//		boolean getId = ms.getId(id);
+//		return getId + "";
+//	}
+
 	
 }

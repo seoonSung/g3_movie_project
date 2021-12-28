@@ -5,102 +5,67 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.care.root.mybatis.qnaBoard.QnaBoardMapper;
 import com.care.root.qnaBoard.dto.QnaBoardDTO;
 import com.care.root.qnaBoard.dto.QnaBoardRepDTO;
 
 @Service
-public class QnaBoardServiceImpl implements QnaBoardService{
-	@Autowired QnaBoardMapper mapper;
+public class QnaBoardServiceImpl implements QnaBoardService {
+	@Autowired
+	QnaBoardMapper mapper;
 
 	@Override
-	public void allList(Model model) {
-		// TODO Auto-generated method stub
-		model.addAttribute("qnaList", mapper.qnaBoard());
-	}
-
-	@Override
-	public void writeSave(QnaBoardDTO dto) {
-		// TODO Auto-generated method stub
-		try {
-			mapper.writeSave(dto);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+	public void boardList(Model model, int num) {
+		int pageLetter = 13;
+		int allCount = mapper.selectBoardCount();
+		int repeat = allCount / pageLetter;
+		if (allCount % pageLetter != 0) {
+			repeat += 1;
 		}
+		int end = num * pageLetter;
+		int start = end + 1 - pageLetter;
+		model.addAttribute("repeat", repeat);
+		model.addAttribute("boardList", mapper.boardList(start, end));
+		model.addAttribute("boardAllList", mapper.boardAllList());
 	}
 
 	@Override
-	public void qnaContentView(int num, Model model) {
-		// TODO Auto-generated method stub
-		 model.addAttribute("personalData",mapper.qnaContentView(num));
-	     upHit(num); 
+	public void contentView(int num, Model model) {
+		model.addAttribute("personalData", mapper.contentView(num));
+		upHit(num);
+
 	}
 
 	private void upHit(int num) {
-		// TODO Auto-generated method stub
 		mapper.upHit(num);
 	}
 
 	@Override
-	public int modify(QnaBoardDTO dto) {
-		// TODO Auto-generated method stub
-		return mapper.modify(dto);
+	public int writeSave(QnaBoardDTO dto) {
+		int result = mapper.writeSave(dto);
+		return result;
 	}
 
 	@Override
-	public void getData(int num, Model model) {
-		// TODO Auto-generated method stub
-	      model.addAttribute("personalData",mapper.qnaContentView(num));
-	}
-
-	@Override
-	public void addReply(@ModelAttribute("QnaBoardDTO") QnaBoardRepDTO dto) {
-		// TODO Auto-generated method stub
-		mapper.addReply(dto);
-	}
-
-	@Override
-	public List<QnaBoardRepDTO> getRepList(int write_group) {
-		// TODO Auto-generated method stub
-		return mapper.getRepList(write_group);
-	}
-	
-
-	@Override
-	public int selectBoardCount() {
-		// TODO Auto-generated method stub
-		return mapper.selectBoardCount();
+	public int modify_save(QnaBoardDTO dto) {
+		int result = mapper.modify_save(dto);
+		return result;
 	}
 
 	@Override
 	public int delete(int num) {
-		// TODO Auto-generated method stub
-		return mapper.delete(num);
+		int result = mapper.delete(num);
+		return result;
 	}
 
-	/*@Override
-	public String writeSave(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		QnaBoardDTO dto = new QnaBoardDTO();
-		int result = 0;
-	      String msg;
-	      try {
-	    	  result = mapper.writeSave(dto);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-	      if(result == 1) {
-	         msg = "새글이 추가되었습니다.";
-	         return "/service/qnaBoard";
-	      }else {
-	         msg = "문제가 발생되었습니다.";
-	         return "redirect:/writeForm";
-	      }
-	}*/
+	public void addReply(QnaBoardRepDTO dto) {
+		mapper.addReply(dto);
+		mapper.answerupdate(dto);
+	}
 
-	
+	@Override
+	public List<QnaBoardRepDTO> getReplyList(int write_group) {
+		return mapper.getRepList(write_group);
+	}
 }

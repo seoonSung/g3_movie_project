@@ -8,25 +8,11 @@ import com.care.root.qnaBoard.dto.QnaBoardDTO;
 import com.care.root.qnaBoard.dto.QnaBoardRepDTO;
 
 public interface QnaBoardService {
-
-	public void allList(Model model);
-
-	public void writeSave(QnaBoardDTO dto);
-
-	public void qnaContentView(int num, Model model);
-
-	public int modify(QnaBoardDTO dto);
-	
+	public void boardList(Model model,int num);
+	public void contentView(int num, Model model);
+	public int writeSave(QnaBoardDTO dto);
+	public int modify_save(QnaBoardDTO dto);
 	public int delete(int num);
-
 	public void addReply(QnaBoardRepDTO dto);
-
-	public List<QnaBoardRepDTO> getRepList(int write_group);
-
-	public int selectBoardCount();
-
-	void getData(int num, Model model);
-
-	/*public String writeSave(HttpServletRequest request);*/
-
+	public List<QnaBoardRepDTO> getReplyList(int write_group);
 }

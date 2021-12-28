@@ -1,4 +1,7 @@
 package com.care.root.qnaBoard.controller;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,74 +9,91 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.care.root.common.session.SessionName;
 import com.care.root.qnaBoard.dto.QnaBoardDTO;
 import com.care.root.qnaBoard.service.QnaBoardService;
 
+
+
 @Controller
-@RequestMapping("service")
-public class QnaBoardController {
+@RequestMapping("qnaboard/")
+public class QnaBoardController implements SessionName{
 	@Autowired QnaBoardService qbs;
 	
-	@GetMapping("mainService")
-	public String mainService() {
-		return "/service/mainService";
+	@GetMapping("main")
+	public String main() {
+		return "customerCenter/customerMain";
 	}
 	
-	@GetMapping("qnaBoard")
-	public String qnaBoard(Model model) {
-		qbs.allList(model);
-		return "/service/qnaBoard";//qnaBoard로 model로 보냄
+	@GetMapping("boardList")
+	public String boardList(Model model,
+	@RequestParam(required = false, defaultValue = "1") int num) {
+		qbs.boardList(model,num);
+		return "customerCenter/qnaBoardList";
 	}
 	
-	@GetMapping("writeForm")
-	public String writeForm() {
-		return "/service/writeForm";
+	@GetMapping("boardWrite")
+	public String boardWrite() {
+		return "customerCenter/qnaBoardWrite";
 	}
 	
-	/*@PostMapping("writeSave")
-	public void writeSave(QnaBoardDTO dto,
-						 HttpServletRequest request,
-						 HttpServletResponse response) throws IOException {
-		String message = qbs.writeSave(request);
+	
+	@GetMapping("contentView")
+	public String contentView(@RequestParam int num,Model model) {
+		qbs.contentView(num,model);
+		return "customerCenter/qnaContentView";
+	}
+	
+	@PostMapping("modify")
+	public String modify(@RequestParam int num,Model model) {
+		qbs.contentView(num,model);
+		return "customerCenter/qnaModify";
+	}
+	
+	@PostMapping("modify_save")
+	public void modify_save(QnaBoardDTO dto, HttpServletResponse response) throws Exception {
+		int result = qbs.modify_save(dto);
 		PrintWriter out = null;
-		response.setContentType("text/html; charset-utf-8");
+		response.setContentType("text/html; charset=utf-8");
 		out = response.getWriter();
-		out.println(message);
-	}*/
+
+		if(result == 1) {
+			out.println("<script>alert('수정이 완료되었습니다!');location.href='boardList';</script>");
+		}else {
+			out.println("<script>alert('문제발생');location.href='boardList';</script>");
+		}
+		
+	}
 	
 	@PostMapping("writeSave")
-	public String writeSave(QnaBoardDTO dto) {
-		qbs.writeSave(dto);
-		return "redirect: qnaBoard";//writeForm to save
-	}
-	
-	@GetMapping("qnaContentView")
-	public String qnaContentView(@RequestParam int num, Model model) {
-		qbs.qnaContentView(num, model);
-		return "/service/qnaContentView";
-	}
-	
-	@GetMapping("modifyForm")/*수정 페이지로 이동 */
-	public String modify(@RequestParam int num, Model model) {
-		qbs.getData(num, model);
-		return "service/modifyForm";
-	}
-	
-	@PostMapping("modify")/* 수정 완료후 */
-	public String modify(QnaBoardDTO dto, RedirectAttributes ra) {
-		qbs.modify(dto);
-		ra.addFlashAttribute("result", "modify success");
-		return "redirect:/service/qnaContentView";
+	public void writeSave(QnaBoardDTO dto, HttpServletResponse response) throws Exception {
+		int result = qbs.writeSave(dto);
+		PrintWriter out = null;
+		response.setContentType("text/html; charset=utf-8");
+		out = response.getWriter();
+
+		if(result == 1) {
+			out.println("<script>alert('저장이 완료되었습니다!');location.href='boardList';</script>");
+		}else {
+			out.println("<script>alert('문제발생');location.href='boardList';</script>");
+		}
 	}
 	
 	@GetMapping("delete")
-	public String delete(@RequestParam int num, RedirectAttributes ra) {
-		qbs.delete(num);
-		ra.addFlashAttribute("result", "success");
-		return "redirect:/service/qnaContentView";
+	public void delete(@RequestParam int num,HttpServletResponse response) throws Exception {
+		int result = qbs.delete(num);
+		PrintWriter out = null;
+		response.setContentType("text/html; charset=utf-8");
+		out = response.getWriter();
+
+		if(result == 1) {
+			out.println("<script>alert('삭제가 완료되었습니다!');location.href='boardList';</script>");
+		}else {
+			out.println("<script>alert('문제발생');location.href='boardList';</script>");
+		}
 	}
 }
+	
+	
