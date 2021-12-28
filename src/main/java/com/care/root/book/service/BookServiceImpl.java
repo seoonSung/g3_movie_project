@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.care.root.book.dto.BookInfoDTO;
 import com.care.root.book.dto.MovieInfoDTO;
@@ -28,18 +29,20 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public void payment(String i, String title, String time, String theater, String selectedSeat) {
+	public void payment(String days, String title, String times, int theater, String selectedSeat, String pn) {
 		
 		
-		String code = title+","+i+","+time;
-		String seat = selectedSeat;
-		bmapper.payment(code,seat);
+		
+		String seats = selectedSeat;
+		bmapper.payment(days,title,times,theater,seats,pn);
 	}
 
 	@Override
-	public List<BookInfoDTO> seat(String title, String i, String time) {
-		String code = title+","+i+","+time;
-		return bmapper.seat(code);
+	public void seat(String writer, Model model) {
+		model.addAttribute("member",mapper.seat(writer));
+		
+		
+		
 	}
 
 	

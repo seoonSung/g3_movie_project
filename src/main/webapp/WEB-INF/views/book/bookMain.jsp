@@ -84,17 +84,22 @@
      }
      
      function book(i,title,time,theater){ //예매버튼
-
+    	 var writer = '${loginUser}';
 			let htmls = ""
 			htmls += '<div style="position: absolute; right: 480px; bottom: 40px;">'
-    		htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\',' + theater + ')">예매하기</button>'
-			htmls += '</div>'
+			if(writer == ""){
+                htmls += '<button class="button" onclick="login()">예매하기</button>'
+			}else{
+			   htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\',' + theater + ',\''+writer+'\')">예매하기</button>'
+	
+			}
+    		htmls += '</div>'
 			
 			$('#book').html(htmls)	
 
 	}
      
-     function seat(i,title,time,theater){ //예매버튼
+     function seat(i,title,time,theater,writer){ //예매버튼
 
     	 var url = "${pageContext.request.contextPath}/seat";
  		
@@ -105,10 +110,23 @@
  		 url = url + "&time="+time;
  		 
  		 url = url + "&theater="+theater;
+
+ 		 url = url + "&writer="+writer;
     	 
  		location.href = url;
 
 	} 
+    
+     function login(){ //예매버튼 비로그인시
+    	 
+    	 alert('로그인 후 이용해주세요')
+
+    	location.href = "${pageContext.request.contextPath}/member/login";
+ 		
+	} 	
+
+    		
+     
     </script>
     
     <style>
@@ -148,6 +166,11 @@ body {
 
   color: white;
 
+}
+
+.button:focus {
+    background-color: tomato;
+    color: white;
 }
 
 /* content */

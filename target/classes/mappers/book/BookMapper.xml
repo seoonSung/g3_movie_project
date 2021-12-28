@@ -15,6 +15,20 @@
 		<result property="avg_mo" column="avg_mo"/>
 		<result property="day" column="day"/>
     </resultMap>
+    
+    <resultMap id="member" type="com.care.root.member.dto.MemberDTO" >
+		<id property="id" column="id"/>
+		<result property="pw" column="pw"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="limitTime" column="limit_time"/>
+		<result property="sessionId" column="session_id"/>
+		<result property="phonenumber" column="phonenumber"/>
+	</resultMap>
+	
+	<select id="seat" resultMap="member">
+		select * from membership where id = #{id}
+	</select>
 
     
     <select id="movieList" resultMap="movie_info">

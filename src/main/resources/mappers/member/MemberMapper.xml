@@ -14,6 +14,8 @@
 		<result property="phonenumber" column="phonenumber"/>
 	</resultMap>
 	
+	
+	
 	<select id="getMember" resultMap="member">
 		select * from membership where id = #{id}
 	</select>
