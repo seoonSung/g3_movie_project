@@ -34,7 +34,7 @@
 	<c:import url="../default/header.jsp" />
 	<div class="movie-detail-page">
 		<div class="bg-img"
-			style="background-image: url('https://img.megabox.co.kr/SharedImg/2021/12/27/FZzLnkGKZUDxPqZ6ydUaqWlor8XAaKt6_570.jpg');"></div>
+			style="background-image: url('https://img.megabox.co.kr/SharedImg/2021/12/16/pP1d3DrHmo5d4rcb4ZLoBsMScFRHlbKn_570.jpg');"></div>
 		<div class="bg-pattern"></div>
 		<div class="bg-mask"></div>
 
@@ -50,8 +50,8 @@
 
 
 			<p class="contents-type"></p>
-			<p class="title">킹스맨: 퍼스트 에이전트</p>
-			<p class="title-eng">THE KING'S MAN</p>
+			<p class="title">스파이더맨: 노 웨이 홈</p>
+			<p class="title-eng">Spider-Man: No Way Home</p>
 
 
 
@@ -117,8 +117,8 @@
 
 
 					<img
-						src="https://img.megabox.co.kr/SharedImg/2021/12/27/25gHj5XQ6zm8zB5VYpJQSH9b6veVrN2n_420.jpg"
-						alt="킹스맨: 퍼스트 에이전트">
+						src="https://img.megabox.co.kr/SharedImg/2021/12/16/ixl5QxDVs5Gn8nQN3rslK8BUmgFVklj8_420.jpg"
+						alt="스파이더맨: 노 웨이 홈">
 				</div>
 			</div>
 
@@ -163,27 +163,25 @@
 		<div class="movie-summary infoContent on" id="info">
 
 			<div class="txt">
-				12월, 베일에 감춰졌던 킹스맨의 탄생을 목격하라!<br>
-				<br>역사상 최악의 폭군들과 범죄자들이 모여<br>수백만 명의 생명을 위협할 전쟁을 모의하는 광기의
-				시대.
-				<br>이들을 막으려는 한 사람과<br>그가 비밀리에 운영 중인 독립 정보기관,<br>‘킹스맨’의
-				최초 미션이 시작된다!
+				영화 &lt;스파이더맨: 노 웨이 홈&gt;은 정체가 탄로난 스파이더맨<br><br> '피터 파커'(톰 홀랜드)가 문제를
+				해결하기 위해 '닥터 스트레인지'(베네딕트 컴버배치)의 도움을 받던 중 <br>뜻하지 않게 멀티버스가 열리게 되고<br> 이를 통해
+				'닥터 옥토퍼스'(알프리드 몰리나) 등 각기 다른 차원의 숙적들이 나타나며 <br>사상 최악의 위기를 맞게 되는 이야기를 그린
+				마블 액션 블록버스터.
 			</div>
-			
+
 		</div>
 
 		<div class="movie-info infoContent">
         <p>상영타입 : 2D ATMOS(자막), 2D Dolby(자막), 2D(자막)</p>
 
         <div class="line">
-           <p>감독&nbsp;: 매튜 본</p>
-           <p>장르&nbsp;: 액션 / 131 분</p>
-           <p>등급&nbsp;: 청소년관람불가</p>
-           <p>개봉일&nbsp;: 2021.12.22</p>
+           <p>감독&nbsp;: 존 왓츠</p>
+           <p>장르&nbsp;: SF, 액션, 어드벤처 / 148 분</p>
+           <p>등급&nbsp;: 12세이상관람가</p>
+           <p>개봉일&nbsp;: 2021.12.15</p>
   <!--           -->
         </div>
-           <p>출연진&nbsp;: 랄프 파인즈, 해리스 딕킨슨, 리스 이판, 젬마 아터튼, 디몬 하운수, 매튜 구드, 톰 홀랜더, 다니엘 브륄, 찰스 댄스, 애런 존슨, 스탠리 투치, 알렉산드라 마리아 라라, 크리스티안 네크라소프</p>
-           <br><br><br>
+           <p>출연진&nbsp;: 톰 홀랜드, 젠데이아 콜먼, 베네딕트 컴버배치, 존 파브로, 제이콥 배덜런, 마리사 토메이</p>
     </div>
 		<div class="tab-list fixed">
 			<ul>
@@ -235,7 +233,7 @@
 					style="top: 150px; display: block;">
 					<strong class="ly_tit">내 평점 등록</strong>
 					<div class="ly_inner">
-						<strong class="review_tit">킬링 카인드: 킬러의 수제자</strong>
+						<strong class="review_tit">스파이더맨: 노 웨이 홈</strong>
 
 						<div class="star-rating">
 							<input type="radio" id="5-stars" checked="checked" name="rating"
@@ -263,7 +261,7 @@
 								class="input_textarea"></textarea>
 
 						</div>
-						<input type="hidden" name="number" value="1"> 
+						<input type="hidden" name="number" value="2">
 
 
 
@@ -284,7 +282,7 @@
 			</div>
 
 
-		
+
 		</form>
 <br><br>
 <div class="tab-list fixed">
@@ -294,13 +292,16 @@
 			</ul>
 		</div>
 		<br>
-	<iframe width="1100" height="520" src="https://www.youtube.com/embed/K1xdzJHSHTA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<iframe width="1100" height="520" src="https://www.youtube.com/embed/W7edvITC9g4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	<br><br>
-	<iframe width="1100" height="520" src="https://www.youtube.com/embed/qmplEPm3RUI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<iframe width="1100" height="520" src="https://www.youtube.com/embed/yFZh-Wqi7RI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 
+
 	
-	
+
+
+
 
 
 

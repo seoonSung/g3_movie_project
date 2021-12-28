@@ -25,18 +25,38 @@ public class MovieReviewController {
 	
 	@GetMapping("movie1")
 	public String movie1(Model model) {
-		
-		mrs.reviewList(model);
+		int num =1;
+		mrs.reviewList(model,num);
 		return "movie/movie1";
 	}
+	@GetMapping("movie2")
+	public String movie2(Model model) {
+		int num =2;
+		mrs.reviewList(model,num);
+		return "movie/movie2";
+	}
+	@GetMapping("movie3")
+	public String movie3(Model model) {
+		int num =3;
+		mrs.reviewList(model,num);
+		return "movie/movie3";
+	}
+	@GetMapping("movie4")
+	public String movie4(Model model) {
+		int num =4;
+		mrs.reviewList(model,num);
+		return "movie/movie4";
+	}
+	
 	
 	@PostMapping("review1")
-	public void review1(@RequestParam("review") String review ,@RequestParam("rating") int rate,  
+	public void review1(@RequestParam("review") String review ,@RequestParam("rating") int rate,
+			@RequestParam("number") int num,
 			Model model,HttpSession session,HttpServletResponse response) throws Exception {
 		model.addAttribute("review",review);
 		model.addAttribute("rating",rate);
 		
-		String message = mrs.review1(session,review,rate,model);
+		String message = mrs.review1(session,review,rate,model,num);
 		
 		System.out.println(message);
 		

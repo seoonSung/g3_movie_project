@@ -17,7 +17,7 @@
 	
 	
 	<select id="reviewList" resultMap="review">
-		select * from movie_review
+		select * from movie_review where movie_number=#{num}
 		
 	</select>
 	

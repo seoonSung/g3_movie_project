@@ -34,7 +34,7 @@
 	<c:import url="../default/header.jsp" />
 	<div class="movie-detail-page">
 		<div class="bg-img"
-			style="background-image: url('https://img.megabox.co.kr/SharedImg/2021/12/27/FZzLnkGKZUDxPqZ6ydUaqWlor8XAaKt6_570.jpg');"></div>
+			style="background-image: url('https://img.megabox.co.kr/SharedImg/2021/12/27/aaZBkxRObU5xFC5CBVmSwt5PiKjbrsgK_570.jpg');"></div>
 		<div class="bg-pattern"></div>
 		<div class="bg-mask"></div>
 
@@ -50,8 +50,8 @@
 
 
 			<p class="contents-type"></p>
-			<p class="title">킹스맨: 퍼스트 에이전트</p>
-			<p class="title-eng">THE KING'S MAN</p>
+			<p class="title">해피 뉴 이어</p>
+			<p class="title-eng">A YEAR-END MEDLEY</p>
 
 
 
@@ -117,8 +117,8 @@
 
 
 					<img
-						src="https://img.megabox.co.kr/SharedImg/2021/12/27/25gHj5XQ6zm8zB5VYpJQSH9b6veVrN2n_420.jpg"
-						alt="킹스맨: 퍼스트 에이전트">
+						src="https://img.megabox.co.kr/SharedImg/2021/12/10/IfzIFvSnuJV9ZS0W7yfmq89V6hWGKC0s_420.jpg"
+						alt="해피 뉴 이어">
 				</div>
 			</div>
 
@@ -163,27 +163,30 @@
 		<div class="movie-summary infoContent on" id="info">
 
 			<div class="txt">
-				12월, 베일에 감춰졌던 킹스맨의 탄생을 목격하라!<br>
-				<br>역사상 최악의 폭군들과 범죄자들이 모여<br>수백만 명의 생명을 위협할 전쟁을 모의하는 광기의
-				시대.
-				<br>이들을 막으려는 한 사람과<br>그가 비밀리에 운영 중인 독립 정보기관,<br>‘킹스맨’의
-				최초 미션이 시작된다!
+				우리에게도 소중한 인연이 찾아올까요?<br>
+				<br>15년째 남사친에게 고백을 망설이는 호텔리어 ‘소진’<br>그런 소진의 속도 모른 채 여자친구
+				‘영주’ 와의 초고속 깜짝 결혼을 발표하는 ‘승효’<br>모든 걸 다 가졌지만 짝수 강박증으로 고생하는 호텔 대표
+				‘용진’<br>뮤지컬 배우의 꿈을 접고 생활전선에 뛰어든 하우스키퍼 ‘이영’<br>공무원 시험 낙방 5
+				년 차, 되는 일이 하나도 없는 호텔 투숙객 ‘재용’ 에게 걸려온 뜻밖의 모닝콜<br>오랜 무명 끝 전성기를
+				맞이하고 함께하는 마지막 콘서트를 앞둔 가수 ‘이강’ 과 매니저 ‘상훈’<br>40년 만에 우연히 첫사랑
+				‘캐서린’을 다시 만난 호텔 간판 도어맨 ‘상규’<br>매주 토요일 호텔 라운지에서 새로운 인연을 기다리는 맞선남
+				‘진호’까지<br>
+				<br>때론 아찔하고, 때론 애틋하고,<br>때론 눈물나게 행복한 올해의 마지막,<br>호텔
+				엠로스에서 당신을 기다립니다!
 			</div>
-			
 		</div>
 
 		<div class="movie-info infoContent">
-        <p>상영타입 : 2D ATMOS(자막), 2D Dolby(자막), 2D(자막)</p>
+        <p>상영타입 : 2D</p>
 
         <div class="line">
-           <p>감독&nbsp;: 매튜 본</p>
-           <p>장르&nbsp;: 액션 / 131 분</p>
-           <p>등급&nbsp;: 청소년관람불가</p>
-           <p>개봉일&nbsp;: 2021.12.22</p>
+           <p>감독&nbsp;: 곽재용</p>
+           <p>장르&nbsp;: 드라마, 로맨스 / 138 분</p>
+           <p>등급&nbsp;: 12세이상관람가</p>
+           <p>개봉일&nbsp;: 2021.12.29</p>
   <!--           -->
         </div>
-           <p>출연진&nbsp;: 랄프 파인즈, 해리스 딕킨슨, 리스 이판, 젬마 아터튼, 디몬 하운수, 매튜 구드, 톰 홀랜더, 다니엘 브륄, 찰스 댄스, 애런 존슨, 스탠리 투치, 알렉산드라 마리아 라라, 크리스티안 네크라소프</p>
-           <br><br><br>
+           <p>출연진&nbsp;: 한지민, 이동욱, 강하늘, 임윤아, 원진아, 이혜영, 정진영, 김영광, 서강준, 이광수, 고성희, 이진욱, 조준영, 원지안</p>
     </div>
 		<div class="tab-list fixed">
 			<ul>
@@ -235,7 +238,7 @@
 					style="top: 150px; display: block;">
 					<strong class="ly_tit">내 평점 등록</strong>
 					<div class="ly_inner">
-						<strong class="review_tit">킬링 카인드: 킬러의 수제자</strong>
+						<strong class="review_tit">해피 뉴 이어</strong>
 
 						<div class="star-rating">
 							<input type="radio" id="5-stars" checked="checked" name="rating"
@@ -263,7 +266,7 @@
 								class="input_textarea"></textarea>
 
 						</div>
-						<input type="hidden" name="number" value="1"> 
+						<input type="hidden" name="number" value="4">
 
 
 
@@ -284,23 +287,24 @@
 			</div>
 
 
-		
+
 		</form>
-<br><br>
-<div class="tab-list fixed">
+		<br> <br>
+		<div class="tab-list fixed">
 			<ul>
 				<li class="on"><a href="#">예고편</a></li>
 
 			</ul>
 		</div>
 		<br>
-	<iframe width="1100" height="520" src="https://www.youtube.com/embed/K1xdzJHSHTA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	<br><br>
-	<iframe width="1100" height="520" src="https://www.youtube.com/embed/qmplEPm3RUI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="1100" height="520" src="https://www.youtube.com/embed/tAhLvuK7hb0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 
-	
-	
+
+
+
+
+
 
 
 
