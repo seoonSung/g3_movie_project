@@ -42,7 +42,6 @@ public class BookController {
 	@RequestMapping(value="payment", method = RequestMethod.GET)
 	public String payment(Model model, String title, String time, String theater,
 							String i, String ticketNumber, String selectedSeat,
-<<<<<<< HEAD
 							String payMoney) {	
 		System.out.println("title: "+title);
 		System.out.println("time: "+time);
@@ -55,12 +54,6 @@ public class BookController {
 		
 		bs.payment(i, title, time, theater, selectedSeat,payMoney);
 		
-		
-		
-=======
-							String payMoney) {		
-		bs.payment(i, title, time, theater, selectedSeat);
->>>>>>> 9892a626718e0c6c491c8fd224a5975e325ec51e
 		return "book/payment";
 	}
 }

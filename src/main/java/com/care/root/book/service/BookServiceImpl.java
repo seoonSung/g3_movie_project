@@ -26,21 +26,17 @@ public class BookServiceImpl implements BookService{
 	public void payment(String i, String title, String time, String theater, String selectedSeat,String payMoney) {
 		
 		
-<<<<<<< HEAD
+
 		
 		String seat = selectedSeat;
 		mapper.payment(i,seat,title,time,theater,payMoney);
-=======
-		String code = title+","+i+","+time;
-		String seat = selectedSeat;
-		bmapper.payment(code,seat);
+		
 	}
 
 	@Override
 	public void getBookList(Model model, BookInfoDTO dto) {
 		// TODO Auto-generated method stub
 		model.addAttribute("bookList", mapper.getBookInfo(dto));
->>>>>>> 9892a626718e0c6c491c8fd224a5975e325ec51e
 	}
 
 	public List<BookInfoDTO> seat(String title, String i, String time) {
