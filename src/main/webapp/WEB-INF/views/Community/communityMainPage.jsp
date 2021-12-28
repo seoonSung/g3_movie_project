@@ -83,6 +83,16 @@ $(document).on('click', '#btnSearch', function(e){
 });
 
 </script>
+<style type="text/css">
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+}
+
+</style>
 </head>
 
 <body>

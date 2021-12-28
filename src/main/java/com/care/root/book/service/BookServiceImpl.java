@@ -23,12 +23,9 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public void payment(String i, String title, String time, String theater, String selectedSeat) {
-		
-		
-		String code = title+","+i+","+time;
-		String seat = selectedSeat;
-		bmapper.payment(code,seat);
+	public void payment(String days, String title, String times, int theater, String selectedSeat, String pn) {
+		String seats = selectedSeat;
+		bmapper.payment(days,title,times,theater,seats,pn);
 	}
 
 	@Override
@@ -36,11 +33,11 @@ public class BookServiceImpl implements BookService{
 		// TODO Auto-generated method stub
 		model.addAttribute("bookList", mapper.getBookInfo(dto));
 	}
-
-	public List<BookInfoDTO> seat(String title, String i, String time) {
-		String code = title+","+i+","+time;
-		return bmapper.seat(code);
-	}
+		
+	@Override
+	public void seat(String writer, Model model) {
+		model.addAttribute("member",mapper.seat(writer));
+		}
 
 	@Override
 	public List<MovieInfoDTO> movieList() {
@@ -52,5 +49,11 @@ public class BookServiceImpl implements BookService{
 	public List<BookInfoDTO> getBookInfo(BookInfoDTO dto ) {
 		// TODO Auto-generated method stub
 		return mapper.getBookInfo(dto);
+	}
+
+	@Override
+	public void getPn(String id) {
+		// TODO Auto-generated method stub
+		mapper.getPn(id);
 	}
 }

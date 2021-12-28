@@ -1,6 +1,5 @@
 package com.care.root.myInfo.controller;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.care.root.book.dto.BookInfoDTO;
-import com.care.root.book.dto.MovieInfoDTO;
 import com.care.root.book.service.BookService;
 import com.care.root.common.session.SessionName;
 import com.care.root.member.dto.MemberDTO;
@@ -29,7 +27,6 @@ public class infoController implements SessionName{
 	@Autowired accountService as;
 	@Autowired QnaBoardService qbs;
 	@Autowired BookService bs;
-	@Autowired MemberService ms;
 	
 	@GetMapping("myInfoMain")
 	public String infoMain() {
@@ -95,7 +92,7 @@ public class infoController implements SessionName{
 		PrintWriter out = null;
 		response.setContentType("text/html; charset-utf-8");
 		out = response.getWriter();
-		if(LOGIN.equals(dto.getPn())) {
+		if(LOGIN.equals(bs.getPn())) {
 			bs.getBookList(model, dto);
 			return "myInfo/bookInfo";
 		}else {

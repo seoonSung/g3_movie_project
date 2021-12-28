@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import com.care.root.book.dto.BookInfoDTO;
 
 public interface BookInfoMapper {
-	public void payment(@Param("code") String code,@Param("seat") String seat);
-	public List<BookInfoDTO> seat(String code);
+	public void payment(@Param("days") String days, @Param("title") String title,
+						@Param("times") String times, @Param("theater") int theater, 
+						@Param("seats") String seats, @Param("pn") String pn);
+	
 }
