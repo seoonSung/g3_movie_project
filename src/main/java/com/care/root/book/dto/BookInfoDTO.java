@@ -22,6 +22,7 @@ public class BookInfoDTO {
 	}
 	private int getDays() {
 		return days;
+
 	}
 	private void setDays(int days) {
 		this.days = days;
@@ -38,6 +39,7 @@ public class BookInfoDTO {
 	private void setTheater(int theater) {
 		this.theater = theater;
 	}
+
 	private String getSeats() {
 		return seats;
 	}
@@ -50,9 +52,5 @@ public class BookInfoDTO {
 	private void setPn(String pn) {
 		this.pn = pn;
 	}
-	
-	
-	
-	
-	
+
 }

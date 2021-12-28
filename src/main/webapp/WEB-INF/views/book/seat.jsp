@@ -12,6 +12,54 @@
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+<script>
+
+
+function requestPay() {
+    var date = new Date();
+    var time = date.getTime();
+	let email = {$}
+	
+    var IMP = window.IMP; // 생략 가능
+	IMP.init("imp36024730"); // 예: imp00000000
+	//IMP.request_pay(param, callback) 결제창 호출
+    IMP.request_pay({ // param
+        pg: "html5_inicis",
+        pay_method: "card",
+        merchant_uid: "merchant_"+time,
+        name: "영화 예매",
+        amount: allMoney,
+        buyer_email: "gildong@gmail.com",
+        buyer_name: "홍길동",
+        buyer_tel: "010-4242-4242",
+        buyer_addr: "서울특별시 강남구 신사동",
+        buyer_postcode: "01181"
+    }, function (rsp) { // callback
+    	if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
+    	      // jQuery로 HTTP 요청
+    	      jQuery.ajax({
+    	          url: "https://www.myservice.com/payments/complete", // 가맹점 서버
+    	          method: "POST",
+    	          headers: { "Content-Type": "application/json" },
+    	          data: {
+    	              imp_uid: rsp.imp_uid,
+    	              merchant_uid: rsp.merchant_uid
+    	              //기타 필요한 데이터가 있으면 추가 전달
+    	          }
+    	         
+    	      }).done(function (data) {
+    	        // 가맹점 서버 결제 API 성공시 로직
+    	      })
+    	      fo.submit()
+    	    } else {
+    	      alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+    	    }
+    	  });
+  }
+
+</script>
+
 <link rel='stylesheet'
    href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
 <script
@@ -19,6 +67,7 @@
 <link rel="stylesheet"
    href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 <!-- MATERIAL DESIGN ICONIC FONT -->
+
 <link rel="stylesheet" href="${contextPath }/resources/css/seat.css">
 
 <style type="text/css">
@@ -307,6 +356,7 @@
     margin-top: 30px;
 } 
 </style>
+
 </head>
 
 <body>
@@ -382,7 +432,8 @@
                   <div class="ticket-price-title">가격</div>
                   <div class="ticket-price">0원</div>
                </div>
-                 <form class="seatForm" action="${pageContext.request.contextPath}/payment" method="get">
+                 <form id="fo"class="seatForm" action="${pageContext.request.contextPath}/payment" method="get">
+                 
                   <input type="hidden" name="title" value="${title }"> 
                   <input type="hidden" name="time" value="${time }"> 
                   <input type="hidden" name="theater" value="${theater }"> 
@@ -393,11 +444,14 @@
                   <input type="hidden" class="selectedSeat" name="selectedSeat">
                   <!-- 결제 정보 -->
                   <input type="hidden" class="payMoney" name="payMoney">
-                  <button type="button" class="reserve-button">
+                   <button type = "button"  class="reserve-button">
                      결제하기
-                  </button>
+               		</button>
+                  
                </form>  
                
+               
+              
             </div>
 
          </div>
@@ -715,13 +769,24 @@ reserveButton.addEventListener('click', function() {
         ticketNumber.value !== '0' &&
         ticketNumber.value !== 0
     ) {
-        seatForm.submit();
+    	requestPay();
+        
     } else {
         alert('좌석을 모두선택해 주세요!');
     }
 }); 
 
 
+
+
+
+
+
 </script>
+
+
+
+
+
 
 </html> 

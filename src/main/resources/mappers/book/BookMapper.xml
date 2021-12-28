@@ -16,6 +16,7 @@
 		<result property="day" column="day"/>
     </resultMap>
     
+
     <resultMap id="member" type="com.care.root.member.dto.MemberDTO" >
 		<id property="id" column="id"/>
 		<result property="pw" column="pw"/>
@@ -30,6 +31,16 @@
 		select * from membership where id = #{id}
 	</select>
 
+
+    <resultMap  id="bookInfo" type="com.care.root.book.dto.BookInfoDTO">
+		<id property="pn" column="pn"/>
+		<result property="title" column="title"/>
+		<result property="days" column="days"/>
+		<result property="times" column="times"/>
+		<result property="theater" column="theater"/>
+		<result property="seats" column="seats"/>
+    </resultMap>
+
     
     <select id="movieList" resultMap="movie_info">
 		select * from movie_info
@@ -39,5 +50,17 @@
 		select * from movie_info
 		where title = #{title}
 	</select>
-
+	
+	<insert id="payment" >
+	    insert into book_info(book_num,pn,book_code,seat)
+	    values(book_info_seq.nextval,01012341234,#{code},#{seat})
+	</insert>
+	
+	<select id="getBookInfo" resultMap="bookInfo">
+		select * from book_info where pn = ${pn}
+	</select>
+	
+	<select id="bookInfo" resultMap="bookInfo">
+		select * from book_info
+	</select>
     </mapper>

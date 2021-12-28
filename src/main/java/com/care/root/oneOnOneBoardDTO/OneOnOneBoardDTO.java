@@ -1,8 +1,5 @@
 package com.care.root.oneOnOneBoardDTO;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-
 public class OneOnOneBoardDTO {
 	private String sort;
 	private String id;
@@ -10,9 +7,15 @@ public class OneOnOneBoardDTO {
 	private String phoneNumber;
 	private String title;
 	private String content;
-	private String imageFileName;
-	private String saveDate;
+	private String receiver;
 	
+	
+	public String getReceiver() {
+		return receiver;
+	}
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
+	}
 	public String getSort() {
 		return sort;
 	}
@@ -49,18 +52,9 @@ public class OneOnOneBoardDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getImageFileName() {
-		return imageFileName;
-	}
-	public void setImageFileName(String imageFileName) {
-		this.imageFileName = imageFileName;
-	}
-	public String getSaveDate() {
-		return saveDate;
-	}
-	public void setSaveDate(Timestamp saveDate) {
-		SimpleDateFormat fo = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
-		this.saveDate = fo.format(saveDate);
-	}
-	
+	@Override
+    public String toString() {
+        return "OneOnOneBoardDTO [id=" + id + ", email=" + email + ", receiver=" + receiver
+                + ", title=" + title + ", content=" + content + "]";
+    }
 }

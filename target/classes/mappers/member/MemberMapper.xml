@@ -39,4 +39,13 @@
 	<select id="getUserSessionId" resultMap="member">
 		select * from membership where session_id=#{sessionId}
 	</select>
+	
+	<update id="modify">
+		update membership set pw=#{pw}, phoneNumber=#{phoneNumber}, 
+		email=#{email} where id=#{id}
+	</update>
+	
+	<delete id="delete">
+		delete from membership where id=#{id}
+	</delete>
 </mapper>

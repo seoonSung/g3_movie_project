@@ -9,8 +9,14 @@ import com.care.root.book.dto.MovieInfoDTO;
 import com.care.root.member.dto.MemberDTO;
 
 public interface BookMapper {
-		public List<MovieInfoDTO> movieList();
 		public List<MovieInfoDTO> movieDay(String title);
+
 		public List<MemberDTO> seat(String id);
 		
-}
+
+
+		public void payment(@Param("code") String code,@Param("seat") String seat);
+		public List<MovieInfoDTO> movieList();	
+		public List<BookInfoDTO> getBookInfo(BookInfoDTO dto);
+		}
+

@@ -1,9 +1,5 @@
 package com.care.root.mybatis.qnaBoard;
 
-
-
-
-
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -23,8 +19,4 @@ public interface QnaBoardMapper {
 	public void addReply(QnaBoardRepDTO dto);	
 	public void answerupdate(QnaBoardRepDTO dto);
 	public List<QnaBoardRepDTO> getRepList(int write_group);
-	
-	
-	
-	
 }

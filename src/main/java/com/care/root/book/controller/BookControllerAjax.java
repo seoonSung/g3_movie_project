@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.care.root.book.dto.BookInfoDTO;
 import com.care.root.book.dto.MovieInfoDTO;
 import com.care.root.book.service.BookService;
 

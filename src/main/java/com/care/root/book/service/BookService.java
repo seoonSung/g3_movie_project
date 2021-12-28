@@ -10,6 +10,13 @@ import com.care.root.book.dto.MovieInfoDTO;
 public interface BookService {
 	public List<MovieInfoDTO> movieList();
 	public List<MovieInfoDTO> movieDay(String title);
+
 	public void payment(String days, String title, String times, int theater, String selectedSeat, String pn);
 	public void seat(String writer,Model model);
+
+	
+	public void getBookList(Model model, BookInfoDTO dto);
+	public List<BookInfoDTO> seat(String title,String i,String time);
+	public List<BookInfoDTO> getBookInfo(BookInfoDTO dto);
+
 }

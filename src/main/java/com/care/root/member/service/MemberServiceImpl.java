@@ -74,6 +74,11 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return false; //사용 가능한 아이디
 	}
+	@Override
+	public String getPn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
 

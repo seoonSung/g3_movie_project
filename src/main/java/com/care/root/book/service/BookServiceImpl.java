@@ -17,12 +17,6 @@ public class BookServiceImpl implements BookService{
 	@Autowired BookInfoMapper bmapper;
 	
 	@Override
-	public List<MovieInfoDTO> movieList() {
-		return mapper.movieList();
-			
-	}
-
-	@Override
 	public List<MovieInfoDTO> movieDay(String title) {
 		
 		return mapper.movieDay(title);
@@ -43,9 +37,32 @@ public class BookServiceImpl implements BookService{
 		
 		
 		
-	}
 
 	
+	}
 
+	@Override
+	public List<MovieInfoDTO> movieList() {
+		// TODO Auto-generated method stub
+		return mapper.movieList();
+	}
 
+	@Override
+	public List<BookInfoDTO> getBookInfo(BookInfoDTO dto ) {
+		// TODO Auto-generated method stub
+		return mapper.getBookInfo(dto);
+	}
+
+	@Override
+	public void getBookList(Model model, BookInfoDTO dto) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+	@Override
+	public List<BookInfoDTO> seat(String title, String i, String time) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
