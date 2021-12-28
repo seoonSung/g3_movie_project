@@ -13,5 +13,6 @@ public interface MemberMapper {
 	public MemberDTO getUserSessionId(String sessionId);
 	public void modify(MemberDTO dto);
 	public void delete(MemberDTO dto);
+	public MemberDTO getId(String id);
 }
 

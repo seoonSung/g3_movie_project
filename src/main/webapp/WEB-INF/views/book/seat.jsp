@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 
@@ -67,15 +67,315 @@ function requestPay() {
 <link rel="stylesheet"
    href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 <!-- MATERIAL DESIGN ICONIC FONT -->
+<<<<<<< HEAD
 <link rel="stylesheet" href="${contextPath}/resources/css/seat.css">
 
 
+=======
+<<<<<<< HEAD
+<!--  <link rel="stylesheet" href="${contextPath}/resources/css/seat.css"> -->
+=======
+<link rel="stylesheet" href="${contextPath }/resources/css/seat.css">
+>>>>>>> 3613c7beb296774d8db02cfcf64e08b0d0221088
+<style type="text/css">
+/* content */
+
+.select-container {
+    margin-top: 140px;
+}
+
+.select-wrapper {
+    width: 900px;
+    background-color: #F2F0E5;
+    margin: 0 auto;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+}
+
+.select-title {
+    background-color: #444444;
+    color: #dddddd;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+}
+
+.select-seat-container {
+    display: flex;
+    /* align-items: center; */
+    border-bottom: 2px solid #dddddd;
+}
+
+.select-seat-number-container {
+    flex-grow: 1;
+    border-right: 1px solid #dddddd;
+    display: flex;
+}
+
+.select-seat-number-wrapper {
+    padding: 15px 0 20px 20px;
+    flex-grow: 1;
+}
+
+.select-seat-ul {
+    display: flex;
+    list-style:none;
+}
+
+.select-seat-ul>li {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    font-weight: bold;
+    /* line-height: 15px; */
+    /* padding: 5px; */
+    padding: 2px;
+}
+
+.select-seat-ul>li:hover {
+    color: white;
+    background-color: #222222;
+    cursor: pointer;
+}
+
+.select-seat-ul-active {
+    color: white;
+    background-color: #222222;
+}
+
+.select-seat-ul>li:not(:first-child) {
+    margin-left: 5px;
+}
+
+.select-seat-information {
+    flex-grow: 1;
+    padding: 15px 0 20px 20px;
+}
+
+.select-seat {
+    display: flex;
+    font-size: 12px;
+}
+
+.select-seat:not(:first-child) {
+    margin-top: 12px;
+}
+
+.select-seat-age {
+    width: 40px;
+}
+
+.select-seat-number {
+    margin-left: 15px;
+}
+
+.reserve-number-wrapper {
+    flex-grow: 1;
+    padding-top: 15px;
+    border-left: 1px solid #DDDDDD;
+    text-align: center;
+}
+
+.reserve-number {
+    margin-top: 20px;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.selected-movie {
+	font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.select-seat-information-wrapper {
+    display: flex;
+}
+
+.select-theater-place {
+    font-size: 12px;
+}
+
+.select-theater-place:not(:last-child) {
+    width: 55px;
+    border-right: 1px solid #dddddd;
+}
+
+.select-theater-place:last-child {
+    width: 150px;
+    /* border-right: 1px solid #dddddd; */
+}
+
+.select-theater-place:not(:first-child) {
+    margin-left: 12px;
+}
+
+.select-theater-date {
+    /*  font-size: 18px;
+    margin-top: 8px;
+    font-weight: bold; */
+    display: flex;
+}
+
+.select-theater-date>div {
+    font-size: 18px;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.theater-time {
+    margin-left: 5px;
+}
+
+.remain-seats {
+    margin-left: 3px;
+    color: rgba(255, 0, 0, 0.6);
+    font-weight: bold;
+}
+
+.selected-seats-wrapper {
+    margin-top: 5px;
+}
+
+.selected-seats {
+    font-size: 13px;
+    word-spacing: 2px;
+    margin-left: 20px;
+}
+
+.selected-seats-title {
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.ticket-price-wrapper{
+	margin-top: 5px;
+	display: flex;
+	align-items: center;
+}
+.ticket-price-wrapper>div{	
+	font-weight: bold;
+}
+.ticket-price-title{
+	font-size: 13px;
+}
+
+.ticket-price {
+	margin-left: 47px;
+	font-size:20px;
+}
+
+.reserve-button {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 0;
+}
+
+.reserve-button img {
+    margin-left: 20px;
+    width: 60px;
+}
+
+.seat-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.screen-view {
+    width: 140px;
+    color: #777777;
+    padding-top: 30px;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+    border-bottom: 1px solid #666666;
+    letter-spacing: 4px;
+}
+
+.seat-wrapper {
+    background-color: #222222;
+    width: 700px;
+    height: 460px;
+    /* padding-top: 120px; */
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+}
+
+.seat {
+    font-size: 13px;
+    background-color: #555555;
+    color: white;
+    border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+.seat:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.seat:active {
+    background-color: red;
+    color: white;
+}
+<<<<<<< HEAD
+.dis {
+   
+   width: 30px;
+   height: 30px;
+   opacity: 0.6;
+   cursor: not-allowed;
+}
+=======
+>>>>>>> 3613c7beb296774d8db02cfcf64e08b0d0221088
+
+.clicked {
+    background-color: red;
+    color: white;
+}
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3613c7beb296774d8db02cfcf64e08b0d0221088
+.seatButtonWrapper {
+    text-align: center;
+}
+
+.seatButtonWrapper>input {
+    width: 30px;
+    height: 30px;
+}
+
+.left-margin {
+    margin-left: 30px;
+}
+
+.right-margin {
+    margin-right: 30px;
+}
+
+.top-margin {
+    margin-top: 30px;
+} 
+</style>
+>>>>>>> 15db5691e4e1e253a609f07d6d9f5d25dd5ae41c
 </head>
 
 <body>
 <c:import url="../default/header.jsp"/>
+
 <div class="wrap">
-   
+ 
    
    <div class="select-container">
       <div class="select-wrapper">
@@ -178,7 +478,7 @@ function requestPay() {
    </div>
    <c:import url="../default/footer.jsp"/>
 </body>
-<script >
+<script>
 let test = [];
 let selectedSeatsArray = new Array();
 const seatWrapper = document.querySelector('.seat-wrapper');
@@ -347,7 +647,13 @@ for (let i = 0; i < 10; i++) {
         const input = document.createElement('input');
         input.type = 'button';
         input.name = 'seats';
-        input.classList = 'seat';
+        
+        if(i==0 && j==4){    //결제완료된 좌석
+        	 input.classList = 'dis';
+        }else{    			// 예약가능한 좌석
+        	 input.classList = 'seat';
+        }
+       
         //3중포문을 사용하지 않기위해
         mapping(input, i, j);
         div.append(input);
@@ -355,7 +661,7 @@ for (let i = 0; i < 10; i++) {
         inputClickEvent(input);
     }
 
-    seat = document.querySelectorAll('.seat');
+    seat = document.querySelectorAll('.dis , .seat');
     remainSeat.innerHTML = seat.length;
     allSeat.innerHTML = seat.length;
 }

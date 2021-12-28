@@ -13,13 +13,10 @@
 	<c:import url="../default/header.jsp" />
 	<h1>나의 예매 내역</h1>
 	<div class="ticket">
-		<c:forEach var="movie" items="${movieList }">
-			<div class="grade">${movie.grade }</div>
-			<hr>
-			<div class="title"><h3>${movie.title }</h3></div>
-			<hr>
-		</c:forEach>
 		<c:forEach var="book" items="${bookInfo }">
+			<hr>
+			<div class="title"><h3>${book.title }</h3></div>
+			<hr>
 			<div class="theater">${book.theater }</div><br>
 			<div class="seats"><b><h3>${book.seats }</h3></b></div><br>
 			<div class="days">${book.days }</div><br>

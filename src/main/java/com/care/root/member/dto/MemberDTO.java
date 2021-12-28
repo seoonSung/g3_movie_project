@@ -14,6 +14,13 @@ public class MemberDTO {
 	}
 	private String email;
 	private String sessionId;
+	private String phonenumber;
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
 	private java.sql.Date limitTime;
 	
 	public java.sql.Date getLimitTime() {

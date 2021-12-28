@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.common.session.SessionName;
@@ -122,5 +124,13 @@ public class MemberController implements SessionName{
 			return "redirect:login";
 		return "redirect:register_form";
 	}
+	
+//	@ResponseBody
+//	@RequestMapping(value = "idCheck.do", method = { RequestMethod.GET, RequestMethod.POST })
+//	public String idCheck(String id) {
+//		boolean getId = ms.getId(id);
+//		return getId + "";
+//	}
+
 	
 }

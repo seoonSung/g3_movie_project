@@ -18,6 +18,7 @@ import com.care.root.book.dto.MovieInfoDTO;
 import com.care.root.book.service.BookService;
 import com.care.root.common.session.SessionName;
 import com.care.root.member.dto.MemberDTO;
+import com.care.root.member.service.MemberService;
 import com.care.root.myInfo.service.accountService;
 import com.care.root.qnaBoard.service.QnaBoardService;
 
@@ -27,6 +28,7 @@ public class infoController implements SessionName{
 	@Autowired accountService as;
 	@Autowired QnaBoardService qbs;
 	@Autowired BookService bs;
+	@Autowired MemberService ms;
 	
 	@GetMapping("myInfoMain")
 	public String infoMain() {
@@ -88,9 +90,10 @@ public class infoController implements SessionName{
 	}
 	
 	@GetMapping("bookInfo")
-	public String bookInfo(Model model, BookInfoDTO dto, MovieInfoDTO mdto) {
-		bs.getBookList(model, dto);
-		bs.movieList(model, mdto);
+	public String bookInfo(Model model, BookInfoDTO dto) {
+		if(ms.getPn().equals(dto.getPn())) {
+			bs.getBookList(model, dto);
+		}
 		return "myInfo/bookInfo";
 	}
 }
