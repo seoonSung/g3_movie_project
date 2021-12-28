@@ -47,7 +47,7 @@ public class BookController {
 		System.out.println("payMoney: "+payMoney);
 		
 		
-		bs.payment(i, title, time, theater, selectedSeat);
+		bs.payment(i, title, time, theater, selectedSeat,payMoney);
 		
 		
 		

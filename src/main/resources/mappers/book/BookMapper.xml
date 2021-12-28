@@ -34,7 +34,7 @@
 	</select>
 	
 	<insert id="payment" >
-	    insert into book_info(book_num,pn,book_code,seat)
-	    values(book_info_seq.nextval,01012341234,#{code},#{seat})
+	    insert into book_info
+	    values(book_info_seq.nextval,#{title},#{i},#{time},#{theater},#{seat},#{i},#{payMoney})
 	</insert>
     </mapper>
