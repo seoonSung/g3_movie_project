@@ -11,7 +11,6 @@ public class QnaBoardDTO {
 	private int hit;
 	private String id;
 	private String sort;
-	private String imageFileName;
 	private String answer;
 	
 	public String getAnswer() {
@@ -74,12 +73,7 @@ public class QnaBoardDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getImageFileName() {
-		return imageFileName;
-	}
-	public void setImageFileName(String imageFileName) {
-		this.imageFileName = imageFileName;
-	}
+	
 	
 	
 

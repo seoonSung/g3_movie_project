@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.care.root.mybatis.book.BookInfoMapper">    
+    <resultMap  id="book_info" type="com.care.root.book.dto.BookInfoDTO">
+		<id property="book_num" column="book_num"/>
+		<result property="pn" column="pn"/>
+		<result property="book_code" column="book_code"/>
+		<result property="seat" column="seat"/>
+		
+    </resultMap>
+
+	<insert id="payment" >
+	    insert into book_info(book_num,pn,book_code,seat)
+	    values(book_info_seq.nextval,01012341234,#{code},#{seat})
+	</insert>
+	
+	<select id="seat" resultMap="book_info">
+		select * from book_info
+		where book_code = #{code}
+	</select>
+    </mapper>

@@ -11,6 +11,8 @@ public class MovieInfoDTO {
 	private int avg_mo;
 	private String day;
 	
+	
+	
 	public String getDay() {
 		return day;
 	}

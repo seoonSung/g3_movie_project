@@ -28,7 +28,6 @@ public class QnaBoardServiceImpl implements QnaBoardService {
 		model.addAttribute("repeat", repeat);
 		model.addAttribute("boardList", mapper.boardList(start, end));
 		model.addAttribute("boardAllList", mapper.boardAllList());
-		
 	}
 
 	@Override
@@ -69,5 +68,4 @@ public class QnaBoardServiceImpl implements QnaBoardService {
 	public List<QnaBoardRepDTO> getReplyList(int write_group) {
 		return mapper.getRepList(write_group);
 	}
-
 }

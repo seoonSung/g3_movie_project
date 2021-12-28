@@ -5,8 +5,22 @@ public class MemberDTO {
 	private String id;
 	private String pw;
 	private String name;
+	private String phoneNumber;
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 	private String email;
 	private String sessionId;
+	private String phonenumber;
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
 	private java.sql.Date limitTime;
 	
 	public java.sql.Date getLimitTime() {

@@ -29,5 +29,6 @@ public class BookControllerAjax {
 		return bs.movieDay(title);
 
 	}
-	   
+	 
+	
 }
