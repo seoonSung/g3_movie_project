@@ -26,6 +26,7 @@ public class MovieReviewController {
 	public String movie1(Model model) {
 		int num =1;
 		mrs.reviewList(model,num);
+		
 		return "movie/movie1";
 	}
 	@GetMapping("movie2")

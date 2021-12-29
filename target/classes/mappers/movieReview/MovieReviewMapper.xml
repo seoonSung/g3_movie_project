@@ -21,6 +21,13 @@
 		
 	</select>
 	
+	<select id="reviewAvg" resultType="float">
+		select round(avg(avg_re),1) from movie_review where movie_number = #{num}
+		
+	</select>
+	
+	
+	
 	<insert id="writeSave">
 		insert into
 		movie_review(movie_number,id,review,avg_re)

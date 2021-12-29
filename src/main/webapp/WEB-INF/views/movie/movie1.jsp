@@ -95,7 +95,7 @@
 					<p title="관람 전 점수" class="before"><em>0</em><span class="ir">점</span></p>
 					<p title="관람 후 점수" class="after"><em>8.7</em><span class="ir">점</span></p> -->
 						<p title="실관람 평점" class="before">
-							<em>8.7점</em>
+							<em>${avg}점</em>
 						</p>
 					</div>
 				</div>

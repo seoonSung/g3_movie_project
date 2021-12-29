@@ -16,6 +16,7 @@ public class MovieReviewImpl implements MovieReviewService{
 	public void reviewList(Model model,int num) {
 		
 		model.addAttribute("reviewList",mapper.reviewList(num));
+		model.addAttribute("avg",mapper.reviewAvg(num));
 		
 	}
 	public String review1(HttpSession session,String review,int rate,Model model,int num) {
