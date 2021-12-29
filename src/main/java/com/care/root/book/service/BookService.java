@@ -18,5 +18,5 @@ public interface BookService {
 	public void getBookList(Model model, BookInfoDTO dto);
 	public List<BookInfoDTO> seat(String title,String i,String time);
 	public List<BookInfoDTO> getBookInfo(BookInfoDTO dto);
-
+	public void seatconfirm(String title,String days,String times, Model model);
 }

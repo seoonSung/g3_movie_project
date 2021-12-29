@@ -86,7 +86,7 @@
      function book(i,title,time,theater){ //예매버튼
     	 var writer = '${loginUser}';
 			let htmls = ""
-			htmls += '<div style="position: absolute; right: 480px; bottom: 40px;">'
+			htmls += '<div style="position: absolute; right: 492px; bottom: 170px;">'
 			if(writer == ""){
                 htmls += '<button class="button" onclick="login()">예매하기</button>'
 			}else{
@@ -264,12 +264,14 @@ body {
             <div class="reserve-title">시간</div>
             <div id="startTime"></div>
         </div>
-        <div id="book"></div>
+        
 		
 		
     </div>
-    
-   
+	    
+	    	<div id="book"></div>
+	   
+	   	
     <c:import url="../default/footer.jsp"/>
     
 </body>

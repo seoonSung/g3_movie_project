@@ -309,7 +309,7 @@ $(document).on('click', '#btnSearch', function(e){
 	
 		</div>	
 </article>
-<c:import url="../default/footer.jsp"/>
+
 </body>
 
 </html>

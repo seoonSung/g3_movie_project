@@ -65,4 +65,10 @@ public class BookServiceImpl implements BookService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void seatconfirm(String title, String days, String times, Model model) {
+		
+		model.addAttribute("booklist", bmapper.seatconfirm(title,days,times));
+	}
 }

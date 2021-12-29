@@ -102,7 +102,7 @@
 		</div>
 
 	</article>
-<c:import url="../default/footer.jsp"/>
+
 </body>
 
 </html>

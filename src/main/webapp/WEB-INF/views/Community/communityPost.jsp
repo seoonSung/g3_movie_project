@@ -392,8 +392,8 @@ $(document).on('click', '#loginA', function(e){ //알림
 				<!-- 각 class="이름" <- resources/common/css/common.css 파일에 설정해둠 -->
 				<div class="board_info_box">
 
-					<span class="board_author"><c:out value="작성자: ${communityPost.id}"/></span>
-					<span class="board_author"><c:out value="작성일: ${communityPost.times}"/></span>
+					<span class="board_author"><c:out value="작성자: ${communityPost.id}"/>&nbsp;</span>
+					<span class="board_author"><c:out value="작성일: ${communityPost.times}"/>&nbsp;</span>
 					<span class="board_author"><c:out value="조회수: ${communityPost.hit}"/></span>
 				</div>
 
@@ -494,7 +494,7 @@ $(document).on('click', '#loginA', function(e){ //알림
 		
 
 	</article>
-<c:import url="../default/footer.jsp"/>
+
 </body>
 
 </html>

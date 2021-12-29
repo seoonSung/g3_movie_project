@@ -10,5 +10,8 @@ public interface BookInfoMapper {
 	public void payment(@Param("days") String days, @Param("title") String title,
 						@Param("times") String times, @Param("theater") int theater, 
 						@Param("seats") String seats, @Param("pn") String pn);
+	public List<String> seatconfirm(@Param("title") String title,
+										@Param("days") String days,
+										@Param("times") String times);
 	
 }
