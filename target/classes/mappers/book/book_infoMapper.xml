@@ -24,4 +24,9 @@
 		select * from book_info
 		where book_code = #{code}
 	</select>
+	
+	<select id="seatconfirm" resultType="map">
+		select seats from book_info
+		where title = #{title} and days = #{i} and times = #{time}
+	</select>
     </mapper>

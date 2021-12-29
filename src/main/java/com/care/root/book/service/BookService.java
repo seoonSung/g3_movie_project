@@ -18,5 +18,5 @@ public interface BookService {
 
 	public void seat(String writer,Model model);
 	public void getPn(String id);
-
+	public void seatInfo(String title,int i,String time,Model model);
 }

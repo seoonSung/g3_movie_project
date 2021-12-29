@@ -22,7 +22,7 @@ public class BookController {
 	
 	@GetMapping("/seat")
 	public String seat(Model model,
-			@RequestParam String i,
+			@RequestParam int i,
 			@RequestParam String title,
 			@RequestParam String time,
 			@RequestParam String theater,
@@ -36,6 +36,7 @@ public class BookController {
 		System.out.println("날짜: "+i);
 		System.out.println("제목: "+title);
 		System.out.println("시간: "+time);
+		bs.seatInfo(title,i,time,model);
 		
 		return "book/seat";
 	}

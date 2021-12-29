@@ -59,4 +59,8 @@ public class BookServiceImpl implements BookService{
 		// TODO Auto-generated method stub
 		mapper.getPn(id);
 	}
+	public void seatInfo(String title,int i,String time,Model model) {
+		
+		model.addAttribute("List",bmapper.seatconfirm(title,i,time));
+	}
 }
