@@ -12,5 +12,4 @@ public interface MemberService {
 	public void keepLogin(String sessionId,java.sql.Date limitDate,String id);
 	public boolean getId(String id);
 	public MemberDTO getUserSessionId(String sessionId);
-	public String getPn();
 }

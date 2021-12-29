@@ -11,12 +11,13 @@ public interface BookService {
 	public List<MovieInfoDTO> movieList();
 	public List<MovieInfoDTO> movieDay(String title);
 
+	public void getBookList(Model model, BookInfoDTO dto);
+	public List<BookInfoDTO> getBookInfo(BookInfoDTO dto);
+
+	public void seatconfirm(String title,String days,String times, Model model);
+
 	public void payment(String days, String title, String times, int theater, String selectedSeat, String pn);
 	public void seat(String writer,Model model);
+	public void getPn(String id);
 
-	
-	public void getBookList(Model model, BookInfoDTO dto);
-	public List<BookInfoDTO> seat(String title,String i,String time);
-	public List<BookInfoDTO> getBookInfo(BookInfoDTO dto);
-	public void seatconfirm(String title,String days,String times, Model model);
 }

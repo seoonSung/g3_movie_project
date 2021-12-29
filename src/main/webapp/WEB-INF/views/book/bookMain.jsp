@@ -15,117 +15,119 @@
     
      function movieList(){ //영화 리스트 불러오기
 
- 		$.ajax({
- 			url:"movieList", type:"GET",
- 			dataType:"json",
- 			success: function(result){
- 				
- 				let htmls = ""
- 				htmls += '<div class="reserve-date">'
- 				result.forEach(function(data){
- 					
- 			
- 					htmls += '<button class="button" onclick="movieDay(\'' + data.title + '\',' + data.movie_number + ' )">'+data.title+'</button>'
-					
- 					
- 					})
- 					htmls += '</div>'
- 				$('#movieList').html(htmls)	
- 				
- 			},error:function(){
- 				alert('데이터를 가져올 수 없습니다')
- 			}
- 		})
- 	}
+       $.ajax({
+          url:"movieList", type:"GET",
+          dataType:"json",
+          success: function(result){
+             
+             let htmls = ""
+             htmls += '<div class="reserve-date">'
+             result.forEach(function(data){
+                
+          
+                htmls += '<button class="button" onclick="movieDay(\'' + data.title + '\',' + data.movie_number + ' )">'+data.title+'</button>'
+               
+                
+                })
+                htmls += '</div>'
+             $('#movieList').html(htmls)   
+             
+          },error:function(){
+             alert('데이터를 가져올 수 없습니다')
+          }
+       })
+    }
      
      function movieDay(t,m){ //영화 날짜 불러오기
-		var title = t;
-     	var theater = m;
-  		$.ajax({
-  			url:"movieDay/"+title, type:"GET",
-  			dataType:"json",
-  			success: function(result){
-  				
-  				let htmls = ""
-  				htmls += '<div class="reserve-date">'
-  				result.forEach(function(data){
-  				let day = data.day
-  				
-  				for(let i = 27; i<32; i++){
-  					
-  					if(day.includes(i)){
-  					htmls += '<button class="button" onclick="startTime(\''+i+'\',\'' + title + '\',' + theater + ')">'+i+'일</button>'
-  				}
-  					
-  				}
+      var title = t;
+        var theater = m;
+        $.ajax({
+           url:"movieDay/"+title, type:"GET",
+           dataType:"json",
+           success: function(result){
+              
+              let htmls = ""
+              htmls += '<div class="reserve-date">'
+              result.forEach(function(data){
+              let day = data.day
+              
+              for(let i = 27; i<32; i++){
+                 
+                 if(day.includes(i)){
+                 htmls += '<button class="button" onclick="startTime(\''+i+'\',\'' + title + '\',' + theater + ')">'+i+'일</button>'
+              }
+                 
+              }
  
-  					})
-  					htmls += '</div>'
-  				$('#movieDay').html(htmls)	
-  				
-  			},error:function(){
-  				alert('데이터를 가져올 수 없습니다')
-  			}
-  		})
-  	}
+                 })
+                 htmls += '</div>'
+              $('#movieDay').html(htmls)   
+              
+           },error:function(){
+              alert('데이터를 가져올 수 없습니다')
+           }
+        })
+     }
      
      function startTime(i,title,theater){ //영화 날짜 불러오기
-				var mo ="오전"
-				var ev = "오후"
-   				let htmls = ""
-   				htmls += '<div class="reserve-date">'
+            var mo ="오전"
+            var ev = "오후"
+               let htmls = ""
+               htmls += '<div class="reserve-date">'
   
-   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + mo + '\',' + theater + ')">오전</button>'
-   				htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + ev + '\',' + theater + ')">오후</button>'
+               htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + mo + '\',' + theater + ')">오전</button>'
+               htmls += '<button class="button" onclick="book(\''+i+'\',\'' + title + '\',\'' + ev + '\',' + theater + ')">오후</button>'
 
-   				htmls += '</div>'
-   				$('#startTime').html(htmls)	
+               htmls += '</div>'
+               $('#startTime').html(htmls)   
 
      }
      
      function book(i,title,time,theater){ //예매버튼
-    	 var writer = '${loginUser}';
-			let htmls = ""
-			htmls += '<div style="position: absolute; right: 492px; bottom: 170px;">'
-			if(writer == ""){
-                htmls += '<button class="button" onclick="login()">예매하기</button>'
-			}else{
-			   htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\',' + theater + ',\''+writer+'\')">예매하기</button>'
-	
-			}
-    		htmls += '</div>'
-			
-			$('#book').html(htmls)	
 
-	}
+        var writer = '${loginUser}';
+         let htmls = ""
+         htmls += '<div style="position: absolute; right: 480px; bottom: 40px;">'
+         if(writer == ""){
+
+                htmls += '<button class="button" onclick="login()">예매하기</button>'
+         }else{
+            htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\',' + theater + ',\''+writer+'\')">예매하기</button>'
+   
+         }
+          htmls += '</div>'
+         
+         $('#book').html(htmls)   
+
+   }
      
      function seat(i,title,time,theater,writer){ //예매버튼
 
-    	 var url = "${pageContext.request.contextPath}/seat";
- 		
-    	 url = url + "?i=" + i;
+        var url = "${pageContext.request.contextPath}/seat";
+       
+        url = url + "?i=" + i;
 
- 		 url = url + "&title=" + title;
- 		
- 		 url = url + "&time="+time;
- 		 
- 		 url = url + "&theater="+theater;
+        url = url + "&title=" + title;
+       
+        url = url + "&time="+time;
+        
+        url = url + "&theater="+theater;
 
- 		 url = url + "&writer="+writer;
-    	 
- 		location.href = url;
+        url = url + "&writer="+writer;
+        
+       location.href = url;
 
-	} 
+   } 
     
      function login(){ //예매버튼 비로그인시
-    	 
-    	 alert('로그인 후 이용해주세요')
+        
+        alert('로그인 후 이용해주세요')
 
-    	location.href = "${pageContext.request.contextPath}/member/login";
- 		
-	} 	
+       location.href = "${pageContext.request.contextPath}/member/login";
+       
+   }    
 
-    		
+          
      
     </script>
     
@@ -249,10 +251,10 @@ body {
     <div class="reserve-container">
         <div class="movie-part">
             <div class="reserve-title">영화</div>       
-			<div id="movieList">
-	
-			</div>
-		</div>
+         <div id="movieList">
+   
+         </div>
+      </div>
         
         <div class="day-part">
             <div class="reserve-title">날짜</div>
@@ -264,9 +266,7 @@ body {
             <div class="reserve-title">시간</div>
             <div id="startTime"></div>
         </div>
-        
-		
-		
+
     </div>
 	    
 	    	<div id="book"></div>

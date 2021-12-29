@@ -43,11 +43,7 @@ public class BookController {
 	public String payment(Model model, String title, String time, int theater,
 							String i, String ticketNumber, String selectedSeat,
 							String payMoney, String pn) {	
-	
-		
-		
 		bs.payment(i, title, time, theater, selectedSeat, pn);
-
 
 		return "book/payment";
 	}

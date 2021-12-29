@@ -17,6 +17,16 @@
     </resultMap>
     
 
+    <resultMap  id="bookInfo" type="com.care.root.book.dto.BookInfoDTO">
+		<id property="pn" column="pn"/>
+		<result property="title" column="title"/>
+		<result property="days" column="days"/>
+		<result property="times" column="times"/>
+		<result property="theater" column="theater"/>
+		<result property="seats" column="seats"/>
+    </resultMap>
+
+
     <resultMap id="member" type="com.care.root.member.dto.MemberDTO" >
 		<id property="id" column="id"/>
 		<result property="pw" column="pw"/>
@@ -31,15 +41,6 @@
 		select * from membership where id = #{id}
 	</select>
 
-
-    <resultMap  id="bookInfo" type="com.care.root.book.dto.BookInfoDTO">
-		<id property="pn" column="pn"/>
-		<result property="title" column="title"/>
-		<result property="days" column="days"/>
-		<result property="times" column="times"/>
-		<result property="theater" column="theater"/>
-		<result property="seats" column="seats"/>
-    </resultMap>
 
     
     <select id="movieList" resultMap="movie_info">
