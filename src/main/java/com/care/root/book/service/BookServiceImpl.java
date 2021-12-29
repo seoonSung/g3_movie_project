@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.care.root.book.dto.BookInfoDTO;
 import com.care.root.book.dto.MovieInfoDTO;
 import com.care.root.mybatis.book.BookInfoMapper;
 import com.care.root.mybatis.book.BookMapper;
@@ -29,9 +28,9 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public void getBookList(Model model, BookInfoDTO dto) {
+	public void getBookList(Model model, String pn) {
 		// TODO Auto-generated method stub
-		model.addAttribute("bookList", mapper.getBookInfo(dto));
+		model.addAttribute("bookList", bmapper.getBookInfo(pn));
 	}
 		
 	@Override
@@ -43,17 +42,5 @@ public class BookServiceImpl implements BookService{
 	public List<MovieInfoDTO> movieList() {
 		// TODO Auto-generated method stub
 		return mapper.movieList();
-	}
-
-	@Override
-	public List<BookInfoDTO> getBookInfo(BookInfoDTO dto ) {
-		// TODO Auto-generated method stub
-		return mapper.getBookInfo(dto);
-	}
-
-	@Override
-	public void getPn(String id) {
-		// TODO Auto-generated method stub
-		mapper.getPn(id);
 	}
 }

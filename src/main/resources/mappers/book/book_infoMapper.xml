@@ -2,26 +2,34 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="com.care.root.mybatis.book.BookInfoMapper">    
-    <resultMap  id="book_info" type="com.care.root.book.dto.BookInfoDTO">
-		<id property="num" column="num"/>
-		<result property="title" column="title"/>
-		<result property="days" column="days"/>
-		<result property="times" column="times"/>
-		<result property="theater" column="theater"/>
-		<result property="seats" column="seats"/>
-		<result property="pn" column="pn"/>
-		
-    </resultMap>
 
-	<insert id="payment" >
-	    insert into book_info(num, title, days, times, theater, seats, pn)
-	    values(book_info_seq.nextval, #{title} ,#{days}, #{times}, #{theater},#{seats}, #{pn})
+<mapper namespace="com.care.root.mybatis.book.BookInfoMapper">
+	<resultMap id="book_info"
+		type="com.care.root.book.dto.BookInfoDTO">
+		<id property="num" column="num" />
+		<result property="title" column="title" />
+		<result property="days" column="days" />
+		<result property="times" column="times" />
+		<result property="theater" column="theater" />
+		<result property="seats" column="seats" />
+		<result property="pn" column="pn" />
+
+	</resultMap>
+
+	<insert id="payment">
+		insert into book_info(num, title, days, times, theater, seats, pn)
+		values(book_info_seq.nextval, #{title} ,#{days}, #{times},
+		#{theater},#{seats}, #{pn})
 	</insert>
-	
+
 	<select id="seat" resultMap="book_info">
 		select * from book_info
-		where book_code = #{code}
+		where
+		book_code = #{code}
 	</select>
-    </mapper>
+
+	<select id="getBookInfo" resultMap="book_info">
+		select * from book_info where
+		pn = #{pn}
+	</select>
+</mapper>

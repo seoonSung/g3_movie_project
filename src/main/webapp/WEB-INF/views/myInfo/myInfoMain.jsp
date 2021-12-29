@@ -24,6 +24,13 @@ a {
 	border-radius: 15%;
 }
 </style>
+<script type="text/javascript">
+function login(){
+	pn = ${loginUser}
+	return pn
+}
+</script>
+
 </head>
 <body>
 	<c:import url="../default/header.jsp" />
@@ -35,7 +42,7 @@ a {
 			</h1>
 		</div>
 	</a>
-	<a href="${contextPath }/myInfo/bookInfo">
+	<a href="${contextPath }/myInfo/bookInfo?pn=${loginUser}"><!--pn으로 세션값 넘김 -->
 		<div class="bookInfo">
 			<h1 align="center">
 				<i class="fas fa-question fa-3x"></i><br> <br>나 의 예 매

@@ -17,7 +17,7 @@
     </resultMap>
     
     <resultMap  id="bookInfo" type="com.care.root.book.dto.BookInfoDTO">
-		<id property="pn" column="pn"/>
+		<result property="pn" column="pn"/>
 		<result property="title" column="title"/>
 		<result property="days" column="days"/>
 		<result property="times" column="times"/>
@@ -54,10 +54,6 @@
 	</insert>
 	
 	<select id="getBookInfo" resultMap="bookInfo">
-		select * from book_info where pn = ${pn}
-	</select>
-	
-	<select id="bookInfo" resultMap="bookInfo">
-		select * from book_info
+		select * from book_info where pn=#{pn}
 	</select>
     </mapper>
