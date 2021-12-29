@@ -13,7 +13,7 @@
 <body>
 	<c:import url="../default/header.jsp" />
 	<h1>나의 예매 내역</h1>
-	<table id="ticket">
+	<table id="ticket" border="1">
 		<tr>
 			<th>영화 제목</th>
 			<th>영 화 관</th>
@@ -21,13 +21,13 @@
 			<th>상 영 일</th>
 			<th>상영시간</th>
 		</tr>
-		<c:forEach var="book" items="${bookList }">
-			<c:if test="${empty loginUser}">
+		<c:if test="${bookList.size() == 0}">
 				<tr>
 					<td colspan="6">예약내역이 없습니다.</td>
 				</tr>
 			</c:if>
-			<c:if test="${loginUser eq book.pn}">
+		<c:forEach var="book" items="${bookList }">
+			<c:if test="${bookList.size() == 1}">
 				<tr>
 					<td>${book.title }</td>
 					<!-- 영화 제목 -->
@@ -42,6 +42,11 @@
 					<td><i class="fas fa-barcode"></i></td>
 				</tr>
 			</c:if>
+			<c:otherwise>
+				<tr>
+					<td colspan="6">예약내역이 없습니다.</td>
+				</tr>
+			</c:otherwise>
 		</c:forEach>
 	</table>
 	<c:import url="../default/footer.jsp" />

@@ -86,8 +86,8 @@ public class infoController implements SessionName{
 	}
 	
 	@GetMapping("bookInfo")
-	public String bookInfo(Model model,@RequestParam(value="pn", required=false) String pn) throws Exception {
-		bs.getBookList(model, pn);
+	public String bookInfo(Model model,@RequestParam(value="pn", required=false) String pn, HttpServletResponse response) throws Exception {
+		bs.getBookList(model, pn, response);
 		return "myInfo/bookInfo";
 	}
 }
