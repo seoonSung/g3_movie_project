@@ -23,20 +23,12 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-<<<<<<< HEAD
-	public void payment(String i, String title, String time, String theater, String selectedSeat,String payMoney) {
+	public void payment(String i, String title, String time, int theater, String selectedSeat,String payMoney,String pn) {
 		
 		
-
 		
 		String seat = selectedSeat;
-		mapper.payment(i,seat,title,time,theater,payMoney);
-		
-=======
-	public void payment(String days, String title, String times, int theater, String selectedSeat, String pn) {
-		String seats = selectedSeat;
-		bmapper.payment(days,title,times,theater,seats,pn);
->>>>>>> bf9b2e8ba63ac0f7e666e9488d41c4b66d33d47a
+		mapper.payment(i,seat,title,time,theater,payMoney,pn);
 	}
 
 	@Override
