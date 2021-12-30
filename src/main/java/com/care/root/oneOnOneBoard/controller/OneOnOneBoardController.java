@@ -52,6 +52,6 @@ public class OneOnOneBoardController {
 	         e.printStackTrace();
 	         model.addAttribute("message", "이메일 발송 실패..."); // 이메일 발송이 실패되었다는 메시지를 출력
 	     }
-	     return "/service/oneOnOneQnaForm"; // 실패했으므로 다시 write jsp 페이지로 이동함
+	     return "/service/oneOnOneQnaForm"; // 다시 write jsp 페이지로 이동함
 	 }
 }
