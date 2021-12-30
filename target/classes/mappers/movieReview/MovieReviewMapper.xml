@@ -17,9 +17,16 @@
 	
 	
 	<select id="reviewList" resultMap="review">
-		select * from movie_review
+		select * from movie_review where movie_number=#{num}
 		
 	</select>
+	
+	<select id="reviewAvg" resultType="float">
+		select round(avg(avg_re),1) from movie_review where movie_number = #{num}
+		
+	</select>
+	
+	
 	
 	<insert id="writeSave">
 		insert into

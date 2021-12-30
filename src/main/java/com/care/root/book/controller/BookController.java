@@ -22,7 +22,7 @@ public class BookController {
 	
 	@GetMapping("/seat")
 	public String seat(Model model,
-			@RequestParam String i,
+			@RequestParam int i,
 			@RequestParam String title,
 			@RequestParam String time,
 			@RequestParam String theater,
@@ -33,8 +33,6 @@ public class BookController {
 		model.addAttribute("time", time); //시간
 		model.addAttribute("theater",theater); // 관 
 		bs.seat(writer,model);
-		bs.seatconfirm(title,i,time,model);
-		
 		
 		return "book/seat";
 	}
@@ -42,8 +40,18 @@ public class BookController {
 	@RequestMapping(value="payment", method = RequestMethod.GET)
 	public String payment(Model model, String title, String time, int theater,
 							String i, String ticketNumber, String selectedSeat,
-							String payMoney, String pn) {	
-		bs.payment(i, title, time, theater, selectedSeat, pn);
+							String payMoney,String pn) {	
+		System.out.println("title: "+title);
+		System.out.println("time: "+time);
+		System.out.println("theater: "+theater);
+		System.out.println("i: "+i);
+		System.out.println("ticketNumber: "+ticketNumber);
+		System.out.println("selectedSeat: "+selectedSeat);
+		System.out.println("payMoney: "+payMoney);
+		
+		
+		bs.payment(i, title, time, theater, selectedSeat,payMoney,pn);
+		
 
 		return "book/payment";
 	}

@@ -1,31 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@seoonSung 
-juyeong95
-/
-g3_movie_project
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-g3_movie_project/src/main/webapp/WEB-INF/views/movie/movie1.jsp
-@s5157
-s5157 평점 구현
-Latest commit 22efcb4 yesterday
- History
- 1 contributor
-313 lines (193 sloc)  7.12 KB
-   
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -62,7 +34,7 @@ Latest commit 22efcb4 yesterday
 	<c:import url="../default/header.jsp" />
 	<div class="movie-detail-page">
 		<div class="bg-img"
-			style="background-image: url('https://img.megabox.co.kr/SharedImg/2021/12/27/FZzLnkGKZUDxPqZ6ydUaqWlor8XAaKt6_570.jpg');"></div>
+			style="background-image: url('https://img.megabox.co.kr/SharedImg/2021/12/09/V4JC05frxJ4qBWlFe7mF7mWfCSGMt3mq_570.jpg');"></div>
 		<div class="bg-pattern"></div>
 		<div class="bg-mask"></div>
 
@@ -78,8 +50,8 @@ Latest commit 22efcb4 yesterday
 
 
 			<p class="contents-type"></p>
-			<p class="title">킹스맨: 퍼스트 에이전트</p>
-			<p class="title-eng">THE KING'S MAN</p>
+			<p class="title">매트릭스: 리저렉션</p>
+			<p class="title-eng">The Matrix Resurrections</p>
 
 
 
@@ -145,8 +117,8 @@ Latest commit 22efcb4 yesterday
 
 
 					<img
-						src="https://img.megabox.co.kr/SharedImg/2021/12/27/25gHj5XQ6zm8zB5VYpJQSH9b6veVrN2n_420.jpg"
-						alt="킹스맨: 퍼스트 에이전트">
+						src="https://img.megabox.co.kr/SharedImg/2021/12/09/zmGroljDQtGcKUYrY6xMdhErBIIkcutu_420.jpg"
+						alt="매트릭스: 리저렉션">
 				</div>
 			</div>
 
@@ -191,28 +163,29 @@ Latest commit 22efcb4 yesterday
 		<div class="movie-summary infoContent on" id="info">
 
 			<div class="txt">
-				12월, 베일에 감춰졌던 킹스맨의 탄생을 목격하라!<br>
-				<br>역사상 최악의 폭군들과 범죄자들이 모여<br>수백만 명의 생명을 위협할 전쟁을 모의하는 광기의
-				시대.
-				<br>이들을 막으려는 한 사람과<br>그가 비밀리에 운영 중인 독립 정보기관,<br>‘킹스맨’의
-				최초 미션이 시작된다!
+				선택은 당신의 것, 날아오를 시간이다!<br> <br>토마스 앤더슨은 ‘자신’의 현실이 물리적
+				구성개념인지 아니면 정신적 구성개념인지 알아내기 위해 이번에도 흰 토끼를 따라가야 한다.<br>토마스, 아니
+				네오가 배운 게 있다면 비록 환상이라 할지라도 선택이야말로 매트릭스를 탈출할 유일한 길이라는 것이다.<br>물론
+				네오는 무엇을 해야 할지 이미 알고 있다.<br>그가 아직 모르는 사실은 이 새로운 버전의 매트릭스가 그 어느
+				때보다도 강력하고, 확고부동하고, 위험하다는 것이다.<br> <br>평범한 일상과 그 이면에 놓여 있는
+				또 다른 세계,<br>두 개의 현실이 존재하는 세상에서 운명처럼 인류를 위해 다시 깨어난 구원자 네오.<br>빨간
+				약과 파란 약 중 어떤 것을 선택할 것인가?
 			</div>
-			
 		</div>
 
 		<div class="movie-info infoContent">
-        <p>상영타입 : 2D ATMOS(자막), 2D Dolby(자막), 2D(자막)</p>
+			<p>상영타입 : 2D ATMOS(자막), 2D Dolby(자막), 2D(자막)</p>
 
-        <div class="line">
-           <p>감독&nbsp;: 매튜 본</p>
-           <p>장르&nbsp;: 액션 / 131 분</p>
-           <p>등급&nbsp;: 청소년관람불가</p>
-           <p>개봉일&nbsp;: 2021.12.22</p>
-  <!--           -->
-        </div>
-           <p>출연진&nbsp;: 랄프 파인즈, 해리스 딕킨슨, 리스 이판, 젬마 아터튼, 디몬 하운수, 매튜 구드, 톰 홀랜더, 다니엘 브륄, 찰스 댄스, 애런 존슨, 스탠리 투치, 알렉산드라 마리아 라라, 크리스티안 네크라소프</p>
-           <br><br><br>
-    </div>
+			<div class="line">
+				<p>감독&nbsp;: 라나 워쇼스키</p>
+				<p>장르&nbsp;: SF, 액션 / 148 분</p>
+				<p>등급&nbsp;: 15세이상관람가</p>
+				<p>개봉일&nbsp;: 2021.12.22</p>
+				<!--           -->
+			</div>
+			<p>출연진&nbsp;: 키아누 리브스, 캐리 앤 모스, 닐 패트릭 해리스, 제이다 핀켓 스미스, 야히아 압둘 마틴
+				2세, 조나단 그로프, 프리얀카 초프라</p>
+		</div>
 		<div class="tab-list fixed">
 			<ul>
 				<li class="on"><a href="#">관람평</a></li>
@@ -263,7 +236,7 @@ Latest commit 22efcb4 yesterday
 					style="top: 150px; display: block;">
 					<strong class="ly_tit">내 평점 등록</strong>
 					<div class="ly_inner">
-						<strong class="review_tit">킬링 카인드: 킬러의 수제자</strong>
+						<strong class="review_tit">매트릭스: 리저렉션</strong>
 
 						<div class="star-rating">
 							<input type="radio" id="5-stars" checked="checked" name="rating"
@@ -291,7 +264,7 @@ Latest commit 22efcb4 yesterday
 								class="input_textarea"></textarea>
 
 						</div>
-						<input type="hidden" name="number" value="1"> 
+						<input type="hidden" name="number" value="3">
 
 
 
@@ -312,23 +285,34 @@ Latest commit 22efcb4 yesterday
 			</div>
 
 
-		
+
 		</form>
-<br><br>
-<div class="tab-list fixed">
+		<br> <br>
+		<div class="tab-list fixed">
 			<ul>
 				<li class="on"><a href="#">예고편</a></li>
 
 			</ul>
 		</div>
 		<br>
-	<iframe width="1100" height="520" src="https://www.youtube.com/embed/K1xdzJHSHTA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	<br><br>
-	<iframe width="1100" height="520" src="https://www.youtube.com/embed/qmplEPm3RUI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="1100" height="520"
+			src="https://www.youtube.com/embed/yEPgqn5f1uk"
+			title="YouTube video player" frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen></iframe>
+		<br> <br>
+		<iframe width="1100" height="520"
+			src="https://www.youtube.com/embed/-5BrUWtDHfE"
+			title="YouTube video player" frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen></iframe>
 	</div>
 
-	
-	
+
+
+
+
+
 
 
 
@@ -339,16 +323,3 @@ Latest commit 22efcb4 yesterday
 	<c:import url="../default/footer.jsp" />
 </body>
 </html>
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete

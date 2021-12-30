@@ -91,20 +91,22 @@ a{
 		<div class="img-box">
 		<a href="movie1">
 			<img
-            src="https://img.megabox.co.kr/SharedImg/2021/11/19/OSwPwX3tSSnxJZMGljSs2tZESq6uFliO_420.jpg"
-            alt="킬링 카인드: 킬러의 수제자">
+            src="https://img.megabox.co.kr/SharedImg/2021/12/27/25gHj5XQ6zm8zB5VYpJQSH9b6veVrN2n_420.jpg"
+            alt="킹스맨 : 퍼스트 에이전트">
           </a>
 		</div>
-		<p class="moviename">킬링 카인드: 킬러의 수제자</p>
-		<div >개봉일 : 2021.12.01</div>
+		<p class="moviename">킹스맨 : 퍼스트 에이전트</p>
+		<div >개봉일 : 2021.12.22</div>
 		
 		</li>
 		
 		<li class="cell">
 		<div class="img-box">
+		<a href="movie2">
 			<img
             src="https://img.megabox.co.kr/SharedImg/2021/12/07/iec4gByIz1OuAACskdZ0t4i4PfglBgK6_420.jpg"
             alt="스파이더맨: 노 웨이 홈">
+           </a>
 		</div>
 		<p class="moviename">스파이더맨: 노 웨이 홈</p>
 		<div>개봉일 : 2021.12.15</div>
@@ -112,16 +114,29 @@ a{
 		</li>
 		<li class="cell">
 		<div class="img-box">
+		<a href="movie3">
 			<img
-            src="https://img.megabox.co.kr/SharedImg/2021/12/02/E3UIW76SDtxGcGAOqHD7ZsXcJ0y856tf_420.jpg"
-            alt="돈룩업">
+            src="https://img.megabox.co.kr/SharedImg/2021/12/09/zmGroljDQtGcKUYrY6xMdhErBIIkcutu_420.jpg"
+            alt="매트릭스: 리저렉션">
+            </a>
 		</div>
-		<p class="moviename">돈룩업</p>
-		<div class="prod-price">개봉일 : 2021.12.08</div>
+		<p class="moviename">매트릭스: 리저렉션</p>
+		<div class="prod-price">개봉일 : 2021.12.22</div>
 	
 		</li>
 		
-		
+		<li class="cell">
+		<div class="img-box">
+		<a href="movie4">
+			<img
+           src="https://img.megabox.co.kr/SharedImg/2021/12/10/IfzIFvSnuJV9ZS0W7yfmq89V6hWGKC0s_420.jpg"
+            alt="해피 뉴 이어">
+           </a>
+		</div>
+		<p class="moviename">해피 뉴 이어</p>
+		<div>개봉일 : 2021.12.29</div>
+	
+		</li>
 		
 		
 		

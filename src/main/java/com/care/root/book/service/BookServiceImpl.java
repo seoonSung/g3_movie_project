@@ -21,9 +21,9 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public void payment(String days, String title, String times, int theater, String selectedSeat, String pn) {
-		String seats = selectedSeat;
-		bmapper.payment(days,title,times,theater,seats,pn);
+	public void payment(String i, String title, String time, int theater, String selectedSeat,String payMoney,String pn) {
+		String seat = selectedSeat;
+		mapper.payment(i,seat,title,time,theater,payMoney,pn);
 	}
 
 	@Override
@@ -53,5 +53,10 @@ public class BookServiceImpl implements BookService{
 	public void seatconfirm(String title, String days, String times, Model model) {
 		// TODO Auto-generated method stub
 		model.addAttribute("booklist", bmapper.seatconfirm(title,days,times));
+	}
+
+	public void seatInfo(String title,int i,String time,Model model) {
+		
+		model.addAttribute("List",bmapper.seatconfirm(title,i,time));
 	}
 }

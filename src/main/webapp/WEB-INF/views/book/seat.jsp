@@ -348,7 +348,7 @@ function requestPay() {
                </div>
             </div>
             <div class="select-seat-information">
-               <div class="selected-movie">${title }</div>
+               <div class="selected-movie">${List }</div>
                <div class="select-seat-information-wrapper">
                	  
                   

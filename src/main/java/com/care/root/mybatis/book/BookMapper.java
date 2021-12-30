@@ -11,9 +11,8 @@ import com.care.root.member.dto.MemberDTO;
 public interface BookMapper {
 		public List<MovieInfoDTO> movieDay(String title);
 		public List<MemberDTO> seat(String id);
-		public void payment(@Param("code") String code,@Param("seat") String seat);
+		public void payment(@Param("i")String i,@Param("seat")String seat,@Param("title")String title,@Param("time")String time,@Param("theater")int theater,@Param("payMoney")String payMoney,@Param("pn")String pn);
 		public List<MovieInfoDTO> movieList();	
 		public List<BookInfoDTO> getBookInfo(@Param("pn") String pn);
 		public void getPn(String id);
 }
-
