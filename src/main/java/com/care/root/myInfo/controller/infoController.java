@@ -85,6 +85,7 @@ public class infoController implements SessionName{
 		return "myInfo/myQna";
 	}
 	
+
 	@GetMapping("bookInfo")
 	public String bookInfo(Model model,@RequestParam(value="pn", required=false) String pn) throws Exception {
 		bs.getBookList(model, pn);
@@ -105,4 +106,5 @@ public class infoController implements SessionName{
 		out.println("<script>alert('예매가 취소되었습니다.'); location.href='/myInfoMain';</script>");
 		return "myInfo/myInfoMain";
 	}
+
 }

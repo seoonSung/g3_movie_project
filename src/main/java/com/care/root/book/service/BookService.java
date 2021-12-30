@@ -13,4 +13,5 @@ public interface BookService {
 	public void payment(String days, String title, String times, int theater, String selectedSeat, String pn);
 	public void seat(String writer,Model model);
 	public void cancel(String title, int days, String times, int theater, String seats);
+	public void seatconfirm(String title,String days,String times, Model model);
 }

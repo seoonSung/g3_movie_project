@@ -433,7 +433,7 @@ button:active i {
 			</div>
 			<form action="${contextPath}/member/user_check" id="loginForm" method="post">
 				<p class="register-title">
-					<img src="http://img.cgv.co.kr/R2014/images/title/h1_cgv.png">
+				<!--  	<img src="http://img.cgv.co.kr/R2014/images/title/h1_cgv.png"> -->
 					<span>로그인</span>
 				</p>
 				<div class="form-wrapper form-wrapper-id">

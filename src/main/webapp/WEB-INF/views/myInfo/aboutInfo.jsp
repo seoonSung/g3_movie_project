@@ -19,7 +19,7 @@
 			<tr><th>이	름</th>
 			<td><input type="text" name="name" value="${List.name }" readonly /></td></tr>
 			<tr><th>연락처</th>
-			<td><input type="text" name="phoneNumber" value="${List.phoneNumber }" readonly/></td></tr>
+			<td><input type="text" name="phoneNumber" value="${List.phonenumber }" readonly/></td></tr>
 			<tr><th>이메일</th>
 			<td><input type="text" name="email" value="${List.email }" readonly/></td></tr>
 		</table>

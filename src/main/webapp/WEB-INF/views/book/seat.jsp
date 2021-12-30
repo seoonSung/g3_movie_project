@@ -67,10 +67,7 @@ function requestPay() {
 <link rel="stylesheet"
    href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 <!-- MATERIAL DESIGN ICONIC FONT -->
-<link rel="stylesheet" href="${contextPath}/resources/css/seat.css">
 
-
-<!--  <link rel="stylesheet" href="${contextPath}/resources/css/seat.css"> -->
 <link rel="stylesheet" href="${contextPath }/resources/css/seat.css">
 
 <style type="text/css">
@@ -359,6 +356,7 @@ function requestPay() {
     margin-top: 30px;
 } 
 </style>
+
 </head>
 
 <body>
@@ -417,8 +415,8 @@ function requestPay() {
                   
                   <div class="select-theater-place selected-theater-place-info">${theater }관</div>
                   <div class="select-theater-place">
-                     <span>남은좌석</span><span class="remain-seats">152</span>/<span
-                        class="all-seats">172</span>
+                     <span class="remain-seats" style="display:none"></span><span
+                        class="all-seats" style="display:none"></span>
                   </div>
 
                </div>
@@ -629,6 +627,10 @@ selectSeatList(selectSeatListNormal);
 selectSeatList(selectSeatListTeen);
 selectSeatList(selectSeatListOld);
 
+
+ let seatbook = '${booklist}'; 
+ 
+
 for (let i = 0; i < 10; i++) {
     div = document.createElement('div');
     div.classList = 'seatButtonWrapper';
@@ -639,23 +641,91 @@ for (let i = 0; i < 10; i++) {
         input.type = 'button';
         input.name = 'seats';
         
-      //  if(i==0 && j==4){    //결제완료된 좌석
-      //  	 input.classList = 'dis';
-      //  }else{    			// 예약가능한 좌석
-        	 input.classList = 'seat';
-      //  }
+
+        // i 0:a 1:b 2:c 3:d 4:e 5:f 6:g 7:h 8:i 9:j
+
+       	 input.classList = 'seat';
+      
        
-        //3중포문을 사용하지 않기위해
+		for (let k=0; k<seatbook.length; k++) {
+			if(seatbook[k]=="A" && i==0){
+				if(j==seatbook[k+1]){
+					input.classList = 'dis';
+				}
+				
+			}
+			if(seatbook[k]=="B" && i==1){
+				if(j==seatbook[k+1]){
+					input.classList = 'dis';
+				}
+				
+			}
+			if(seatbook[k]=="C" && i==2){
+				if(j==seatbook[k+1]){
+					input.classList = 'dis';
+				}
+				
+			}
+			if(seatbook[k]=="D" && i==3){
+				if(j==seatbook[k+1]){
+					input.classList = 'dis';
+				}
+				
+			}
+			if(seatbook[k]=="E" && i==4){
+				if(j==seatbook[k+1]){
+					input.classList = 'dis';
+				}
+				
+			}
+			if(seatbook[k]=="F" && i==5){
+				if(j==seatbook[k+1]){
+					input.classList = 'dis';
+				}
+				
+			}
+			if(seatbook[k]=="G" && i==6){
+				if(j==seatbook[k+1]){
+					input.classList = 'dis';
+				}
+				
+			}
+			if(seatbook[k]=="H" && i==7){
+				if(j==seatbook[k+1]){
+					input.classList = 'dis';
+				}
+				
+			}
+			if(seatbook[k]=="I" && i==8){
+				if(j==seatbook[k+1]){
+					input.classList = 'dis';
+				}
+				
+			}
+			if(seatbook[k]=="J" && i==9){
+				if(j==seatbook[k+1]){
+					input.classList = 'dis';
+				}
+				
+			}
+		}
+
+        
+        
+        
         mapping(input, i, j);
         div.append(input);
         //클릭시 이벤트
         inputClickEvent(input);
+        
+        
     }
 
     seat = document.querySelectorAll('.dis , .seat');
     remainSeat.innerHTML = seat.length;
     allSeat.innerHTML = seat.length;
 }
+
 
 seat.forEach(data => {
 	

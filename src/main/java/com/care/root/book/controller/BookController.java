@@ -33,9 +33,8 @@ public class BookController {
 		model.addAttribute("time", time); //시간
 		model.addAttribute("theater",theater); // 관 
 		bs.seat(writer,model);
-		System.out.println("날짜: "+i);
-		System.out.println("제목: "+title);
-		System.out.println("시간: "+time);
+		bs.seatconfirm(title,i,time,model);
+		
 		
 		return "book/seat";
 	}
@@ -45,6 +44,7 @@ public class BookController {
 							String i, String ticketNumber, String selectedSeat,
 							String payMoney, String pn) {	
 		bs.payment(i, title, time, theater, selectedSeat, pn);
+
 		return "book/payment";
 	}
 }

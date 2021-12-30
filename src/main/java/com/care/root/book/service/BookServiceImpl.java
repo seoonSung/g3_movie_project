@@ -17,7 +17,6 @@ public class BookServiceImpl implements BookService{
 	
 	@Override
 	public List<MovieInfoDTO> movieDay(String title) {
-		
 		return mapper.movieDay(title);
 	}
 
@@ -48,5 +47,11 @@ public class BookServiceImpl implements BookService{
 	public void cancel(String title, int days, String times, int theater, String seats) {
 		// TODO Auto-generated method stub
 		bmapper.cancel(title, days, times, theater, seats);
+	}
+
+	@Override
+	public void seatconfirm(String title, String days, String times, Model model) {
+		// TODO Auto-generated method stub
+		model.addAttribute("booklist", bmapper.seatconfirm(title,days,times));
 	}
 }

@@ -74,7 +74,6 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return false; //사용 가능한 아이디
 	}
-
 }
 
 

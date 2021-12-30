@@ -512,7 +512,7 @@ button:active i {
 			</div>
 			<form action="${contextPath}/member/register" id="registerForm" method="post">
 				<p class="register-title">
-					<img  src="http://img.cgv.co.kr/R2014/images/title/h1_cgv.png">
+				<!--  	<img  src="http://img.cgv.co.kr/R2014/images/title/h1_cgv.png"> -->
 					<span>회원가입</span>
 				</p>
 				<div class="form-wrapper form-wrapper-id">

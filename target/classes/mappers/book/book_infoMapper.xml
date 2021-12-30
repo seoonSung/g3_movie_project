@@ -37,4 +37,9 @@
 		delete from book_info where
 		title = #{title} and days = #{days} and times = #{times} and theater = #{theater} and seats = #{seats} 
 	</delete>
+	
+	<select id="seatconfirm" resultType="String">
+		select seats from book_info
+		where title = #{title} and days = #{days} and times = #{times}
+	</select>
 </mapper>

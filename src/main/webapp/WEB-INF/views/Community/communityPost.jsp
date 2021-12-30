@@ -367,6 +367,16 @@ $(document).on('click', '#loginA', function(e){ //알림
     }
   </script>
 
+<style type="text/css">
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 60px;
+}
+
+</style>
 
 </head>
 
@@ -378,12 +388,12 @@ $(document).on('click', '#loginA', function(e){ //알림
 
 			<div class="bg-white rounded shadow-sm">
 
-				<div class="board_title"><c:out value="${communityPost.title}"/></div>
+				<div class="board_title"><h3><c:out value="${communityPost.title}"/></h3></div>
 				<!-- 각 class="이름" <- resources/common/css/common.css 파일에 설정해둠 -->
 				<div class="board_info_box">
 
-					<span class="board_author"><c:out value="작성자: ${communityPost.id}"/></span>
-					<span class="board_author"><c:out value="작성일: ${communityPost.times}"/></span>
+					<span class="board_author"><c:out value="작성자: ${communityPost.id}"/>&nbsp;</span>
+					<span class="board_author"><c:out value="작성일: ${communityPost.times}"/>&nbsp;</span>
 					<span class="board_author"><c:out value="조회수: ${communityPost.hit}"/></span>
 				</div>
 
@@ -484,7 +494,7 @@ $(document).on('click', '#loginA', function(e){ //알림
 		
 
 	</article>
-<c:import url="../default/footer.jsp"/>
+
 </body>
 
 </html>

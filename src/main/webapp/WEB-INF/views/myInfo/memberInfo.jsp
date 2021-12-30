@@ -34,7 +34,7 @@
 			<tr><th>이	름</th>
 			<td><input type="text" name="name" value="${List.name }" readonly /></td></tr>
 			<tr><th>연락처</th>
-			<td><input type="text" name="phoneNumber" onfocus="this.value=''; return true" value="${List.phoneNumber }" /></td></tr>
+			<td><input type="text" name="phoneNumber" onfocus="this.value=''; return true" value="${List.phonenumber }" /></td></tr>
 			<tr><th>이메일</th>
 			<td><input type="text" name="email" value="${List.email }" /></td></tr>
 		</table>

@@ -31,6 +31,6 @@
 				onClick="location.href='${contextPath}/main/communityMain'">
 		</form>
 	</div>
-	<c:import url="../default/footer.jsp" />
+	
 </body>
 </html>

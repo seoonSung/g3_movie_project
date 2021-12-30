@@ -6,8 +6,8 @@ public class BookInfoDTO {
 	private int days;
 	private String times;
 	private int theater;
-	private String pn;
 	private String seats;
+	private String pn;
 	public int getNum() {
 		return num;
 	}
@@ -38,17 +38,18 @@ public class BookInfoDTO {
 	public void setTheater(int theater) {
 		this.theater = theater;
 	}
-	public String getPn() {
-		return pn;
-	}
-	public void setPn(String pn) {
-		this.pn = pn;
-	}
 	public String getSeats() {
 		return seats;
 	}
 	public void setSeats(String seats) {
 		this.seats = seats;
 	}
+	public String getPn() {
+		return pn;
+	}
+	public void setPn(String pn) {
+		this.pn = pn;
+	}
 	
 }
+
