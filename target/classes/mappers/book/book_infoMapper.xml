@@ -32,4 +32,9 @@
 		select * from book_info where
 		pn = #{pn}
 	</select>
+	
+	<delete id="cancel">
+		delete from book_info where
+		title = #{title} and days = #{days} and times = #{times} and theater = #{theater} and seats = #{seats} 
+	</delete>
 </mapper>

@@ -15,20 +15,26 @@ a {
 	text-decoration-line: none;
 }
 
-.memberInfo, .bookInfo, .movieRecommend, .myOneOnOne {
-	width: 200px;
-	height: 180px;
-	margin: 30px 700px;
-	padding: 20px 0;
-	border: 1px solid;
-	border-radius: 15%;
+.memberInfo {
+	background: red;
+}
+
+.bookInfo {
+	background: yellow;
+}
+
+.myOneOnOne {
+	background: green;
 }
 </style>
 <script type="text/javascript">
-function login(){
-	pn = ${loginUser}
-	return pn
-}
+	function login() {
+		pn = $
+		{
+			loginUser
+		}
+		return pn
+	}
 </script>
 
 </head>
@@ -38,21 +44,21 @@ function login(){
 	<a href="${contextPath }/myInfo/information">
 		<div class="memberInfo">
 			<h1 align="center">
-				<i class="far fa-question-circle fa-3x"></i><br> <br>회 원 정 보
+				<i class="far fa-question-circle fa-3x"></i><br> 회 원 정 보
 			</h1>
 		</div>
 	</a>
-	<a href="${contextPath }/myInfo/bookInfo?pn=${loginUser}"><!-- pn으로 세션값 넘김 -->
+	<a href="${contextPath }/myInfo/bookInfo?pn=${loginUser}"> <!-- pn으로 세션값 넘김 -->
 		<div class="bookInfo">
 			<h1 align="center">
-				<i class="fas fa-question fa-3x"></i><br> <br>나 의 예 매
+				<i class="fas fa-question fa-3x"></i><br> 나 의 예 매
 			</h1>
 		</div>
 	</a>
 	<a href="${contextPath }/myInfo/myQna">
 		<div class="myOneOnOne">
 			<h1 align="center">
-				<i class="fas fa-question fa-3x"></i><br> <br>나 의 문 의
+				<i class="fas fa-question fa-3x"></i><br> 나 의 문 의
 			</h1>
 		</div>
 	</a>

@@ -1,16 +1,11 @@
 package com.care.root.book.service;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.care.root.book.dto.BookInfoDTO;
 import com.care.root.book.dto.MovieInfoDTO;
 import com.care.root.mybatis.book.BookInfoMapper;
 import com.care.root.mybatis.book.BookMapper;
@@ -33,19 +28,9 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public void getBookList(Model model, String pn,HttpServletResponse response) {
+	public void getBookList(Model model, String pn) {
 		// TODO Auto-generated method stub
-		PrintWriter out = null;
-		response.setContentType("text/html; charset-utf-8");
-		try {
-			out = response.getWriter();
-			if(bmapper.getBookInfo(pn).isEmpty()) {
-				out.println("<script>alert('nono.'); location.href='/myInfoMain';</script>");
-			}else 	model.addAttribute("bookList", bmapper.getBookInfo(pn));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		model.addAttribute("bookList", bmapper.getBookInfo(pn));
 	}
 		
 	@Override
@@ -57,5 +42,11 @@ public class BookServiceImpl implements BookService{
 	public List<MovieInfoDTO> movieList() {
 		// TODO Auto-generated method stub
 		return mapper.movieList();
+	}
+
+	@Override
+	public void cancel(String title, int days, String times, int theater, String seats) {
+		// TODO Auto-generated method stub
+		bmapper.cancel(title, days, times, theater, seats);
 	}
 }

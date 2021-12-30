@@ -86,8 +86,23 @@ public class infoController implements SessionName{
 	}
 	
 	@GetMapping("bookInfo")
-	public String bookInfo(Model model,@RequestParam(value="pn", required=false) String pn, HttpServletResponse response) throws Exception {
-		bs.getBookList(model, pn, response);
+	public String bookInfo(Model model,@RequestParam(value="pn", required=false) String pn) throws Exception {
+		bs.getBookList(model, pn);
 		return "myInfo/bookInfo";
+	}
+	
+	@GetMapping("cancel")
+	public String cancel(@RequestParam String title,
+						 @RequestParam int days,
+						 @RequestParam String times,
+						 @RequestParam int theater,
+						 @RequestParam String seats,
+						 HttpServletResponse response) throws Exception {
+		PrintWriter out = null;
+		response.setContentType("text/html; charset-utf-8");
+		out = response.getWriter();
+		bs.cancel(title, days, times, theater, seats);
+		out.println("<script>alert('예매가 취소되었습니다.'); location.href='/myInfoMain';</script>");
+		return "myInfo/myInfoMain";
 	}
 }

@@ -12,4 +12,10 @@ public interface BookInfoMapper {
 						@Param("seats") String seats, @Param("pn") String pn);
 
 	public List<BookInfoDTO> getBookInfo(String pn);
+
+	public void cancel(@Param("title")String title,
+					   @Param("days")int days,
+					   @Param("times")String times,
+					   @Param("theater")int theater,
+					   @Param("seats")String seats);
 }

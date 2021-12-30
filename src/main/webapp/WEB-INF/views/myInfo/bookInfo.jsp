@@ -8,7 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="fontawesome-free-5.15.1-web/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css"
+	href="fontawesome-free-5.15.1-web/css/fontawesome.min.css">
 </head>
 <body>
 	<c:import url="../default/header.jsp" />
@@ -21,13 +22,13 @@
 			<th>상 영 일</th>
 			<th>상영시간</th>
 		</tr>
-		<c:if test="${bookList.size() == 0}">
-				<tr>
-					<td colspan="6">예약내역이 없습니다.</td>
-				</tr>
-			</c:if>
+		<c:if test="${empty bookList}">
+			<tr>
+				<td colspan="6">예약내역이 없습니다.</td>
+			</tr>
+		</c:if>
 		<c:forEach var="book" items="${bookList }">
-			<c:if test="${bookList.size() == 1}">
+			<c:if test="${bookList.size() >= 1}">
 				<tr>
 					<td>${book.title }</td>
 					<!-- 영화 제목 -->
@@ -38,15 +39,11 @@
 					<td>${book.days }</td>
 					<!-- 상영일 -->
 					<td>${book.times }</td>
-					<!-- 상영시간 -->
+					<!-- 상영시간 -->				
 					<td><i class="fas fa-barcode"></i></td>
+					<td><input type="button"  value="취	소" onclick="location.href='${contextPath}/myInfo/cancel?title=${book.title}&seats=${book.seats}&theater=${book.theater}&times=${book.times}&days=${book.days}'">
 				</tr>
 			</c:if>
-			<c:otherwise>
-				<tr>
-					<td colspan="6">예약내역이 없습니다.</td>
-				</tr>
-			</c:otherwise>
 		</c:forEach>
 	</table>
 	<c:import url="../default/footer.jsp" />
