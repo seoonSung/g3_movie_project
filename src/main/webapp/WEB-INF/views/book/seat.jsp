@@ -617,6 +617,7 @@ function selectListUiFunction(selectSeatListUlActive) {
                     timeOut: 4000,
                 }
             );
+          // alert('지정한 인원수를 넘었습니다.');
         }
         payMoney.value = allMoney;
         console.log(allMoney);
@@ -774,12 +775,13 @@ function inputClickEvent(input) {
             console.log(allNumber);
             if (clicked.length > allNumber) {
                 input.classList.remove('clicked');
-                toastr.error(
-                    '<div style="color:white">지정한 인원수를 넘었습니다</div>',
-                    '<div style="color:white">인원수 확인</div>', {
-                        timeOut: 4000
-                    }
-                );
+               // toastr.error(
+                //    '<div style="color:white">지정한 인원수를 넘었습니다</div>',
+                //    '<div style="color:white">인원수 확인</div>', {
+                //        timeOut: 4000
+                //    }
+               // );
+               alert("지정한 인원수를 넘었습니다.")
                 return;
             }
 

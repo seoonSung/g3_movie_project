@@ -87,7 +87,7 @@
 
         var writer = '${loginUser}';
          let htmls = ""
-         htmls += '<div style="position: absolute; right: 480px; bottom: 40px;">'
+         htmls += '<div style="position: absolute; right: 493px; bottom: 160px;">'
          if(writer == ""){
 
                 htmls += '<button class="button" onclick="login()">예매하기</button>'
