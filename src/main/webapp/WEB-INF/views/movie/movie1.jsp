@@ -1004,7 +1004,7 @@ article {
 		</div>
 		<!--// movie-detail-cont -->
 	</div>
-	<table border = 1>
+	<!-- <table border = 1>
 			<tr>
 				
 				<th>id</th>
@@ -1029,7 +1029,7 @@ article {
 				</tr>
 			</c:forEach>
 			
-		</table>
+		</table> 
 	<c:choose>
 		<c:when test="${loginUser != null }">
 			<button type="button" onclick="slideClick()">관람평 등록</button>
@@ -1039,6 +1039,104 @@ article {
 			
 		</c:otherwise>
 	</c:choose>
+	-->
+<style>
+#main{
+
+padding: 50px;
+text-align:center;
+}
+ #table{
+ margin: auto;
+width: 100%;
+border-top-style:  solid;  
+border-collapse:collapse;       
+}
+  a {
+text-decoration: none;
+color: black;
+ }
+ td, th{padding: 10px;
+ border-bottom:1px solid #444444;
+ }
+ td{
+text-align:center;
+
+ }
+ th{
+ background-color: white;
+ padding:15px;
+ }
+  thead tr {
+    background-color: #0d47a1;
+    color: #ffffff;
+  }
+  tbody tr:nth-child(2n) {
+    
+   background-color: rgb(233, 233, 233);
+  }
+  tbody tr:nth-child(2n+1) {
+   background-color:white;
+  }
+  #num{
+  padding: 10px 100px;
+  margin-left: 360px;
+  }
+  .tt{
+  width: 270px;
+  }
+ 
+</style>
+	<div id="main">
+	<h1>관람평</h1>
+</div>
+	
+	<div class="wrap">
+		<table id="table">
+			<tr>
+				<th>ID</th>
+				<th>날짜</th>
+				<th>좋아요</th>
+				<th>리뷰</th>
+				<th>평점</th>
+			</tr>
+		<c:if test="${reviewList.size() == 0 }">
+			<tr>
+				<td colspan="5">저장 데이터 없음</td>
+			</tr>
+		</c:if>
+		<c:forEach var="dto" items="${reviewList}">
+			<tr>
+
+				<td>${dto.id}</td>				
+				<td>${dto.days}</td>  
+				<td>${dto.likes}</td>		
+				<td>${dto.review}</td>
+				<td>${dto.avgRe}</td>				
+			</tr>	
+		</c:forEach>
+		</table>
+        <c:choose>
+            <c:when test="${loginUser != null }">
+                <button type="button" onclick="slideClick()">관람평 등록</button>
+            </c:when>
+            <c:otherwise>
+                <button type="button" onclick="cancel()">관람평 등록</button>
+            </c:otherwise>
+        </c:choose>
+            
+				<div align="left" style="padding:10px;">
+				<span id="num">
+					<c:forEach var="num" begin="1" end="${repeat}">
+						<button type="button" onclick="location.href='boardList?num=${num}'">${num}</button>
+					</c:forEach>
+				</span>
+				</div>
+			<hr>
+	</div>
+	
+	
+	
 	<form id="fo" action="review1" method="post">
 	
 	<div class="modal_wrap">
