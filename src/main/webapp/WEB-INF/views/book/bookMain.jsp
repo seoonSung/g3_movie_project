@@ -84,12 +84,10 @@
      }
      
      function book(i,title,time,theater){ //예매버튼
-
         var writer = '${loginUser}';
          let htmls = ""
          htmls += '<div style="position: absolute; right: 480px; bottom: 40px;">'
          if(writer == ""){
-
                 htmls += '<button class="button" onclick="login()">예매하기</button>'
          }else{
             htmls += '<button class="button" onclick="seat(\''+i+'\',\'' + title + '\',\'' + time + '\',' + theater + ',\''+writer+'\')">예매하기</button>'
@@ -98,7 +96,6 @@
           htmls += '</div>'
          
          $('#book').html(htmls)   
-
    }
      
      function seat(i,title,time,theater,writer){ //예매버튼
@@ -240,6 +237,9 @@ body {
     height: 770px;
     overflow-x: hidden;
 }
+#m{
+margin-top: 50px;
+}
 
     </style>
    
@@ -247,7 +247,7 @@ body {
 
 <body onload="movieList()">
     <c:import url="../default/header.jsp"/>
-    
+    <div id="m">
     <div class="reserve-container">
         <div class="movie-part">
             <div class="reserve-title">영화</div>       
@@ -266,12 +266,12 @@ body {
             <div class="reserve-title">시간</div>
             <div id="startTime"></div>
         </div>
-
+        <div id="book"></div>
+      
+      
     </div>
-	    
-	    	<div id="book"></div>
-	   
-	   	
+    
+   </div>
     <c:import url="../default/footer.jsp"/>
     
 </body>

@@ -14,8 +14,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <script>
-
-
 function requestPay() {
     var date = new Date();
     var time = date.getTime();
@@ -57,7 +55,6 @@ function requestPay() {
     	    }
     	  });
   }
-
 </script>
 
 <link rel='stylesheet'
@@ -68,15 +65,14 @@ function requestPay() {
    href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 <!-- MATERIAL DESIGN ICONIC FONT -->
 
+
 <link rel="stylesheet" href="${contextPath }/resources/css/seat.css">
 
 <style type="text/css">
 /* content */
-
 .select-container {
     margin-top: 140px;
 }
-
 .select-wrapper {
     width: 900px;
     background-color: #F2F0E5;
@@ -84,7 +80,6 @@ function requestPay() {
     border-left: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
 }
-
 .select-title {
     background-color: #444444;
     color: #dddddd;
@@ -92,29 +87,24 @@ function requestPay() {
     text-align: center;
     padding: 10px;
 }
-
 .select-seat-container {
     display: flex;
     /* align-items: center; */
     border-bottom: 2px solid #dddddd;
 }
-
 .select-seat-number-container {
     flex-grow: 1;
     border-right: 1px solid #dddddd;
     display: flex;
 }
-
 .select-seat-number-wrapper {
     padding: 15px 0 20px 20px;
     flex-grow: 1;
 }
-
 .select-seat-ul {
     display: flex;
     list-style:none;
 }
-
 .select-seat-ul>li {
     width: 20px;
     height: 20px;
@@ -125,124 +115,90 @@ function requestPay() {
     /* padding: 5px; */
     padding: 2px;
 }
-
 .select-seat-ul>li:hover {
     color: white;
     background-color: #222222;
     cursor: pointer;
 }
-
 .select-seat-ul-active {
     color: white;
     background-color: #222222;
 }
-
 .select-seat-ul>li:not(:first-child) {
     margin-left: 5px;
 }
-
 .select-seat-information {
     flex-grow: 1;
     padding: 15px 0 20px 20px;
 }
-
-.select-seat {
-    display: flex;
-    font-size: 12px;
-}
-
-.select-seat:not(:first-child) {
-    margin-top: 12px;
-}
-
-.select-seat-age {
-    width: 40px;
-}
-
 .select-seat-number {
     margin-left: 15px;
 }
-
 .reserve-number-wrapper {
     flex-grow: 1;
     padding-top: 15px;
     border-left: 1px solid #DDDDDD;
     text-align: center;
 }
-
 .reserve-number {
     margin-top: 20px;
     font-size: 34px;
     font-weight: bold;
 }
-
 .selected-movie {
 	font-size: 20px;
     margin-bottom: 5px;
     font-weight: bold;
 }
-
 .select-seat-information-wrapper {
     display: flex;
 }
-
 .select-theater-place {
     font-size: 12px;
 }
-
 .select-theater-place:not(:last-child) {
     width: 55px;
     border-right: 1px solid #dddddd;
 }
-
 .select-theater-place:last-child {
     width: 150px;
     /* border-right: 1px solid #dddddd; */
 }
-
 .select-theater-place:not(:first-child) {
     margin-left: 12px;
 }
-
 .select-theater-date {
     /*  font-size: 18px;
     margin-top: 8px;
     font-weight: bold; */
     display: flex;
 }
-
 .select-theater-date>div {
     font-size: 18px;
     margin-top: 8px;
     font-weight: bold;
 }
-
 .theater-time {
     margin-left: 5px;
 }
-
 .remain-seats {
     margin-left: 3px;
     color: rgba(255, 0, 0, 0.6);
     font-weight: bold;
 }
-
 .selected-seats-wrapper {
     margin-top: 5px;
 }
-
 .selected-seats {
     font-size: 13px;
     word-spacing: 2px;
     margin-left: 20px;
 }
-
 .selected-seats-title {
     color: black;
     font-size: 13px;
     font-weight: bold;
 }
-
 .ticket-price-wrapper{
 	margin-top: 5px;
 	display: flex;
@@ -254,12 +210,10 @@ function requestPay() {
 .ticket-price-title{
 	font-size: 13px;
 }
-
 .ticket-price {
 	margin-left: 47px;
 	font-size:20px;
 }
-
 .reserve-button {
     margin-top: 5px;
     display: flex;
@@ -268,18 +222,15 @@ function requestPay() {
     font-size: 13px;
     padding: 0;
 }
-
 .reserve-button img {
     margin-left: 20px;
     width: 60px;
 }
-
 .seat-container {
     margin-top: 20px;
     display: flex;
     justify-content: center;
 }
-
 .screen-view {
     width: 140px;
     color: #777777;
@@ -290,37 +241,31 @@ function requestPay() {
     border-bottom: 1px solid #666666;
     letter-spacing: 4px;
 }
-
 .seat-wrapper {
     background-color: #222222;
     width: 700px;
     height: 460px;
     /* padding-top: 120px; */
 }
-
 .seat {
     width: 30px;
     height: 30px;
 }
-
 .seat {
     font-size: 13px;
     background-color: #555555;
     color: white;
     border: 1px solid rgba(255, 0, 0, 0.6);
 }
-
 .seat:hover {
     background-color: red;
     color: white;
     cursor: pointer;
 }
-
 .seat:active {
     background-color: red;
     color: white;
 }
-
 .dis {
    
    width: 30px;
@@ -328,34 +273,28 @@ function requestPay() {
    opacity: 0.6;
    cursor: not-allowed;
 }
-
-
 .clicked {
     background-color: red;
     color: white;
 }
-
 .seatButtonWrapper {
     text-align: center;
 }
-
 .seatButtonWrapper>input {
     width: 30px;
     height: 30px;
 }
-
 .left-margin {
     margin-left: 30px;
 }
-
 .right-margin {
     margin-right: 30px;
 }
-
 .top-margin {
     margin-top: 30px;
 } 
 </style>
+
 
 </head>
 
@@ -493,11 +432,9 @@ let normalMoney = 0;
 let teenMoney = 0;
 let oldMoney = 0;
 let allMoney = 0;
-
 const selectNumberNormal = document.querySelectorAll('.select-number-normal');
 const selectNumberTeen = document.querySelectorAll('.select-number-teen');
 const selectNumberOld = document.querySelectorAll('.select-number-old');
-
 //예약 관련
 const selectedMovie = document.querySelector('.selected-movie');
 const selectedTheaterPlaceInfo = document.querySelectorAll(
@@ -507,7 +444,6 @@ const theaterTime = document.querySelector('.theater-time');
 const theaterDate = document.querySelector('.theater-date');
 const ticketPrice = document.querySelector('.ticket-price');
 const payMoney = document.querySelector('.payMoney');
-
 const seatForm = document.querySelector('.seatForm');
 const reserveButton = document.querySelector('.reserve-button');
 const title = document.querySelector('.title');
@@ -516,14 +452,12 @@ const reserveDate = document.querySelector('.reserveDate');
 const runningTime = document.querySelector('.runningTime');
 const ticketNumber = document.querySelector('.ticketNumber');
 const selectedSeat = document.querySelector('.selectedSeat');
-
 toastr.options = {
     positionClass: 'toast-top-right',
     progressBar: true,
     timeOut: 1000,
     preventDuplicates: true,
 };
-
 //버튼클릭시 다른 class 추가 초기화해주기
 function selectSeatList(list) {
     allNumber = 0;
@@ -533,7 +467,6 @@ function selectSeatList(list) {
         initList(list, li);
     });
 }
-
 function initList(list, li) {
     li.addEventListener('click', function() {
         list.forEach(li => {
@@ -546,14 +479,12 @@ function initList(list, li) {
         console.log(selectSeatListUlActive);
         selectListUiFunction(selectSeatListUlActive);
         console.log('머니머니' + allMoney);
-
         console.log(normalNumber);
         console.log(teenNumber);
         console.log(oldNumber);
         console.log(allNumber);
     });
 }
-
 function selectListUiFunction(selectSeatListUlActive) {
     selectSeatListUlActive.forEach(li => {
         if (li.parentNode.classList.contains('select-seat-ul-normal')) {
@@ -566,7 +497,6 @@ function selectListUiFunction(selectSeatListUlActive) {
                 li.classList.remove('select-seat-ul-active');
                 allMoney -= normalMoney;
                 allNumber = allNumber - normalNumber;
-
                 selectNumberNormal[0].classList.add('select-seat-ul-active');
                 ticketPrice.innerHTML = allMoney + '원';
             }
@@ -581,7 +511,6 @@ function selectListUiFunction(selectSeatListUlActive) {
                 //normalNumber = teenNumber = oldNumber = 0;
                 allMoney -= teenMoney;
                 allNumber = allNumber - teenNumber;
-
                 selectNumberTeen[0].classList.add('select-seat-ul-active');
                 ticketPrice.innerHTML = allMoney + '원';
             }
@@ -593,20 +522,16 @@ function selectListUiFunction(selectSeatListUlActive) {
             ticketPrice.innerHTML = allMoney + '원';
             if (allNumber > 16) {
                 li.classList.remove('select-seat-ul-active');
-
                 allMoney -= oldMoney;
                 allNumber = allNumber - oldNumber;
-
                 selectNumberOld[0].classList.add('select-seat-ul-active');
                 ticketPrice.innerHTML = allMoney + '원';
             }
         }
-
         // allNumber = normalNumber + teenNumber + oldNumber;
         // allMoney = normalMoney + teenMoney + oldMoney;
         console.log(allNumber + '뭥미');
         ticketPrice.innerHTML = allMoney + '원';
-
         if (allNumber > 16) {
             console.log(li);
             li.classList.remove('select-seat-ul-active');
@@ -617,33 +542,27 @@ function selectListUiFunction(selectSeatListUlActive) {
                     timeOut: 4000,
                 }
             );
+          // alert('지정한 인원수를 넘었습니다.');
         }
         payMoney.value = allMoney;
         console.log(allMoney);
     });
 }
-
 selectSeatList(selectSeatListNormal);
 selectSeatList(selectSeatListTeen);
 selectSeatList(selectSeatListOld);
-
-
  let seatbook = '${booklist}'; 
  
-
 for (let i = 0; i < 10; i++) {
     div = document.createElement('div');
     div.classList = 'seatButtonWrapper';
     seatWrapper.append(div);
-
     for (let j = 0; j < 12; j++) {
         const input = document.createElement('input');
         input.type = 'button';
         input.name = 'seats';
         
-
         // i 0:a 1:b 2:c 3:d 4:e 5:f 6:g 7:h 8:i 9:j
-
        	 input.classList = 'seat';
       
        
@@ -709,7 +628,6 @@ for (let i = 0; i < 10; i++) {
 				
 			}
 		}
-
         
         
         
@@ -720,13 +638,10 @@ for (let i = 0; i < 10; i++) {
         
         
     }
-
     seat = document.querySelectorAll('.dis , .seat');
     remainSeat.innerHTML = seat.length;
     allSeat.innerHTML = seat.length;
 }
-
-
 seat.forEach(data => {
 	
     //console.log(data.value.substring(1, data.value.length));
@@ -745,9 +660,7 @@ seat.forEach(data => {
         data.classList.add('top-margin');
     }
 });
-
 //TODO 좌석 2개씩은 커플석으로 분리하기위해서 해당 class를 추가해줘야하는데 value가 2로끝나는얘들이랑 7로끝나는 얘들은 class를 추가해주기
-
 function inputClickEvent(input) {
     input.addEventListener('click', function(e) {
         console.log(e.target.value);
@@ -755,12 +668,10 @@ function inputClickEvent(input) {
         selectedSeatsArray = selectedSeatsArray.filter(
             (element, index) => selectedSeatsArray.indexOf(element) != index
         );
-
         //click class가 존재할때(제거해주는 toggle)
         if (input.classList.contains('clicked')) {
             input.classList.remove('clicked');
             clicked = document.querySelectorAll('.clicked');
-
             //배열안의 값 제거
             selectedSeatsArray.splice(selectedSeatsArray.indexOf(e.target.value), 1);
             clicked.forEach(data => {
@@ -774,20 +685,19 @@ function inputClickEvent(input) {
             console.log(allNumber);
             if (clicked.length > allNumber) {
                 input.classList.remove('clicked');
-                toastr.error(
-                    '<div style="color:white">지정한 인원수를 넘었습니다</div>',
-                    '<div style="color:white">인원수 확인</div>', {
-                        timeOut: 4000
-                    }
-                );
+               // toastr.error(
+                //    '<div style="color:white">지정한 인원수를 넘었습니다</div>',
+                //    '<div style="color:white">인원수 확인</div>', {
+                //        timeOut: 4000
+                //    }
+               // );
+               alert("지정한 인원수를 넘었습니다.")
                 return;
             }
-
             clicked.forEach(data => {
                 selectedSeatsArray.push(data.value);
             });
         }
-
         console.log(selectedSeatsArray.length);
         console.log(selectedSeatsArray);
         //좌석번호의 innerHTML 설정
@@ -799,7 +709,6 @@ function inputClickEvent(input) {
         // }
     });
 }
-
 function mapping(input, i, j) {
     if (i === 0) {
         input.value = 'A' + j;
@@ -825,7 +734,6 @@ function mapping(input, i, j) {
         input.value = 'K' + j;
     }
 }
-
 //form 제출시 hidden설정하기
 reserveButton.addEventListener('click', function() {
    
@@ -847,13 +755,6 @@ reserveButton.addEventListener('click', function() {
         alert('좌석을 모두선택해 주세요!');
     }
 }); 
-
-
-
-
-
-
-
 </script>
 
 
