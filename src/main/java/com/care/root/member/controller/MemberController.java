@@ -125,12 +125,12 @@ public class MemberController implements SessionName{
 		return "redirect:register_form";
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "idCheck.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String idCheck(String id) {
-		boolean getId = ms.getId(id);
-		return getId + "";
-	}
+//	@ResponseBody
+//	@RequestMapping(value = "idCheck.do", method = { RequestMethod.GET, RequestMethod.POST })
+//	public String idCheck(String id) {
+//		boolean getId = ms.getId(id);
+//		return getId + "";
+//	}
 
 	
 }

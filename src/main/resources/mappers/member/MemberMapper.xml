@@ -5,12 +5,13 @@
 
 <mapper namespace="com.care.root.mybatis.member.MemberMapper">
 	<resultMap id="member" type="com.care.root.member.dto.MemberDTO" >
-		<result property="id" column="id"/>
+		<id property="id" column="id"/>
 		<result property="pw" column="pw"/>
 		<result property="name" column="name"/>
 		<result property="email" column="email"/>
 		<result property="limitTime" column="limit_time"/>
 		<result property="sessionId" column="session_id"/>
+		<result property="phonenumber" column="phonenumber"/>
 	</resultMap>
 	
 	<select id="getMember" resultMap="member">
@@ -18,14 +19,14 @@
 	</select>
 	
 	 <select id="getId" resultMap="member">
-  		SELECT ID FROM membership WHERE ID = #{id}
+  		SELECT * FROM membership WHERE ID = #{id}
   	</select>
 	<select id="memberInfo" resultMap="member">
 		select * from membership
 	</select>
 	
 	<insert id="register">
-		insert into membership(id, pw, name,email) values(#{id}, #{pw}, #{name}, #{email})
+		insert into membership(id, pw, name,email,phonenumber) values(#{id}, #{pw}, #{name}, #{email}, #{phonenumber})
 	</insert>
 
 	<update id="keepLogin">
@@ -36,4 +37,13 @@
 	<select id="getUserSessionId" resultMap="member">
 		select * from membership where session_id=#{sessionId}
 	</select>
+	
+	<update id="modify">
+		update membership set pw=#{pw}, phoneNumber=#{phoneNumber}, 
+		email=#{email} where id=#{id}
+	</update>
+	
+	<delete id="delete">
+		delete from membership where id=#{id}
+	</delete>
 </mapper>

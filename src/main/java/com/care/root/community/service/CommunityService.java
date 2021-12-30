@@ -1,12 +1,8 @@
 package com.care.root.community.service;
 
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.care.root.community.dto.CommunityDTO;
 import com.care.root.community.dto.CommunityReplyDTO;
