@@ -84,6 +84,8 @@
      }
      
      function book(i,title,time,theater){ //예매버튼
+  
+
 
         var writer = '${loginUser}';
          let htmls = ""
@@ -98,6 +100,7 @@
           htmls += '</div>'
          
          $('#book').html(htmls)   
+
 
    }
      
@@ -240,6 +243,9 @@ body {
     height: 770px;
     overflow-x: hidden;
 }
+#m{
+margin-top: 50px;
+}
 
     </style>
    
@@ -247,7 +253,7 @@ body {
 
 <body onload="movieList()">
     <c:import url="../default/header.jsp"/>
-    
+    <div id="m">
     <div class="reserve-container">
         <div class="movie-part">
             <div class="reserve-title">영화</div>       
@@ -267,11 +273,20 @@ body {
             <div id="startTime"></div>
         </div>
 
+
     </div>
 	    
 	    	<div id="book"></div>
 	   
 	   	
+
+        
+      
+      
+    </div>
+    
+   
+
     <c:import url="../default/footer.jsp"/>
     
 </body>

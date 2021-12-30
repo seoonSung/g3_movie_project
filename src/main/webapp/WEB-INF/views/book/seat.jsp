@@ -68,6 +68,7 @@ function requestPay() {
    href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 <!-- MATERIAL DESIGN ICONIC FONT -->
 
+
 <link rel="stylesheet" href="${contextPath }/resources/css/seat.css">
 
 <style type="text/css">
@@ -146,18 +147,9 @@ function requestPay() {
     padding: 15px 0 20px 20px;
 }
 
-.select-seat {
-    display: flex;
-    font-size: 12px;
-}
 
-.select-seat:not(:first-child) {
-    margin-top: 12px;
-}
 
-.select-seat-age {
-    width: 40px;
-}
+
 
 .select-seat-number {
     margin-left: 15px;
@@ -356,6 +348,7 @@ function requestPay() {
     margin-top: 30px;
 } 
 </style>
+
 
 </head>
 
