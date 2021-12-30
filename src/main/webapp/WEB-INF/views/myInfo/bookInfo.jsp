@@ -9,11 +9,72 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
-	href="fontawesome-free-5.15.1-web/css/fontawesome.min.css">
+	href="fontawesome-free-5.15.1-web/css/fontawesome.min.css">	
+	<style type="text/css">
+		table {
+			text-align: center;
+			margin-left:auto; 
+    		margin-right:auto;
+		}
+		
+		#main {
+	margin-left: 330px;
+	padding: 50px;
+}
+
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+td, th {
+	padding: 10px;
+	border-bottom: 1px solid #444444;
+}
+
+td {
+	text-align: center;
+}
+
+th {
+	background-color: white;
+	padding: 15px;
+}
+
+thead tr {
+	background-color: #0d47a1;
+	color: #ffffff;
+}
+
+tbody tr:nth-child(2n) {
+	background-color: rgb(233, 233, 233);
+}
+
+tbody tr:nth-child(2n+1) {
+	background-color: white;
+}
+
+#num {
+	padding: 10px 100px;
+	margin-left: 360px;
+}
+
+.tt {
+	width: 270px;
+}
+
+#button{
+	text-align: center;
+	margin-left:auto; 
+    margin-right:auto;
+}
+
+	</style>
 </head>
 <body>
 	<c:import url="../default/header.jsp" />
-	<h1>나의 예매 내역</h1>
+	<h1 align="center">나의 예매 내역</h1>
 	<table id="ticket" border="1">
 		<tr>
 			<th>영화 제목</th>
@@ -40,12 +101,14 @@
 					<!-- 상영일 -->
 					<td>${book.times }</td>
 					<!-- 상영시간 -->				
-					<td><i class="fas fa-barcode"></i></td>
 					<td><input type="button"  value="취	소" onclick="location.href='${contextPath}/myInfo/cancel?title=${book.title}&seats=${book.seats}&theater=${book.theater}&times=${book.times}&days=${book.days}'">
 				</tr>
 			</c:if>
 		</c:forEach>
-	</table>
+	</table><br>
+	<div id="button">
+		<input type="button" value="확	인" onclick="history.back()" />
+	</div>
 	<c:import url="../default/footer.jsp" />
 </body>
 </html>

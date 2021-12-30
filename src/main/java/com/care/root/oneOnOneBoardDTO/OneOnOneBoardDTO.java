@@ -4,7 +4,7 @@ public class OneOnOneBoardDTO {
 	private String sort;
 	private String id;
 	private String email;
-	private String phoneNumber;
+	private String phonenumber;
 	private String title;
 	private String content;
 	private String receiver;
@@ -35,10 +35,10 @@ public class OneOnOneBoardDTO {
 		this.email = email;
 	}
 	public String getPhoneNumber() {
-		return phoneNumber;
+		return phonenumber;
 	}
 	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+		this.phonenumber = phoneNumber;
 	}
 	public String getTitle() {
 		return title;

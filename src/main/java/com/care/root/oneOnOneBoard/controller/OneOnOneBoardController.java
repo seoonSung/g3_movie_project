@@ -1,6 +1,5 @@
 package com.care.root.oneOnOneBoard.controller;
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +20,8 @@ public class OneOnOneBoardController {
 	@Autowired accountService as;
 	
 	@GetMapping("oneOnOneQnaForm")
-	public String oneOnOneQnaForm(HttpSession session, Model model) {
-		try {
-			as.informaion(session,model);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public String oneOnOneQnaForm(HttpSession session, Model model) throws Exception {
+		as.informaion(session,model);
 		return "service/oneOnOneQnaForm";
 	}
 	
@@ -40,7 +34,7 @@ public class OneOnOneBoardController {
 	   out = response.getWriter();
 	   out.println(message);
 	}*/
-	 @Inject
+	 @Autowired
 	 emailService es; // 서비스를 호출하기위한 의존성 주입
 	 
 	 @PostMapping("send") // 확인 (메일발송) 버튼을 누르면 맵핑되는 메소드
