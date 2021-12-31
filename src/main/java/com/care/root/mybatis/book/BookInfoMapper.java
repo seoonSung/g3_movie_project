@@ -22,5 +22,5 @@ public interface BookInfoMapper {
 	public List<String> seatconfirm(@Param("title") String title,
 									@Param("days") String days,
 									@Param("times") String times);
-	public List<String> seatconfirm(@Param("title")String title,@Param("i")int i,@Param("time")String time);
+	
 }

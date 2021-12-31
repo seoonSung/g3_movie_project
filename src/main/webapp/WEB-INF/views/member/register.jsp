@@ -129,8 +129,7 @@ function register(){
 				</p>
 				<div class="form-wrapper form-wrapper-id">
 					<div class="id-wrapper">
-						<input id="id" name="id" type="text" placeholder="아이디"
-							class="form-control">
+						<input id="id" name="id" type="text" placeholder="아이디" class="form-control">
 						<!-- <i class="zmdi zmdi-id">아이디 체크</i> -->
 						<button type="button" class="idCheckButton" onclick="idCheck()">아이디 체크</button>
 					</div>

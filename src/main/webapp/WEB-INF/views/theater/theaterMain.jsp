@@ -49,6 +49,7 @@
 </head>
 <body>
 <c:import url="../default/header.jsp"/>
+<div class="wrap">
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 
@@ -56,7 +57,7 @@
         <div class="option">
             <div>
                 <form onsubmit="searchPlaces(); return false;">
-                    키워드 : <input type="text" value="서울 메가박스" id="keyword" size="15"> 
+                    키워드 : <input type="text" value="서울 cgv" id="keyword" size="15"> 
                     <button type="submit">검색하기</button> 
                 </form>
             </div>
@@ -66,7 +67,7 @@
         <div id="pagination"></div>
     </div>
 </div>
-
+</div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c068a46badbd08cadc1b9a05431abfca&libraries=services"></script>
 <script>
 // 마커를 담을 배열입니다
@@ -286,6 +287,7 @@ function removeAllChildNods(el) {
     }
 }
 </script>
+
 <c:import url="../default/footer.jsp"/>
 </body>
 </html>
