@@ -20,8 +20,13 @@ public class OneOnOneBoardController {
 	@Autowired accountService as;
 	
 	@GetMapping("oneOnOneQnaForm")
-	public String oneOnOneQnaForm(HttpSession session, Model model) throws Exception {
-		as.informaion(session,model);
+	public String oneOnOneQnaForm(HttpSession session, Model model){
+		try {
+			as.informaion(session,model);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "service/oneOnOneQnaForm";
 	}
 	

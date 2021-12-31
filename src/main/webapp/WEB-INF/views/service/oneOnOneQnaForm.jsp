@@ -50,7 +50,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 			<br>
 			<br>
 			<br>
-			<table>
+			<table border="1">
 				<tr>
 					<th><b>문의내용</b></th>
 					<td><select id="sort" name="sort" size="1">
@@ -92,13 +92,14 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 					<th><b>내용</b></th>
 					<td><textarea name="content" rows="10" cols="50" required></textarea></td>
 				</tr>
-				<tr>
-					<td><input type="submit" value="문의하기" onclick="location.href='${contextPath}/qnaboard/main'"/></td>
-					<td><input type="button"
-						onclick="location.href='${contextPath}/qnaboard/main'"
-						value="취소" /></td>
-				</tr>
 			</table>
+			<br>
+				<div text-align="center">
+					<input type="submit" value="문의하기" onclick="location.href='${contextPath}/qnaboard/main'"/>
+					<input type="button"
+						onclick="location.href='${contextPath}/qnaboard/main'"
+						value="취소" />
+				</div>
 		</form>
 	</div>
 	<c:import url="../default/footer.jsp" />
