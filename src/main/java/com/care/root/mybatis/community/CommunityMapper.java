@@ -1,12 +1,10 @@
 package com.care.root.mybatis.community;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
 import com.care.root.community.dto.CommunityDTO;
-import com.care.root.community.dto.CommunityReplyDTO;
 
 
 

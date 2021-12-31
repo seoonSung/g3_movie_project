@@ -1,10 +1,10 @@
 package com.care.root.oneOnOneBoard.service;
 
-import javax.inject.Inject;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMessage.RecipientType;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import com.care.root.oneOnOneBoardDTO.OneOnOneBoardDTO;
 
 @Service
 public class emailServiceImpl implements emailService{
-	@Inject
+	@Autowired
     JavaMailSender mailSender;
 
 	@Override

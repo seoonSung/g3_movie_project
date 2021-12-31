@@ -1,7 +1,6 @@
 package com.care.root.community.dto;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
 public class CommunityReplyDTO {
 	private int renum;
