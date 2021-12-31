@@ -58,7 +58,7 @@ text-align:center;
 <c:import url="../default/header.jsp"/>
 <div class="wrap">
 <div id="main">
-	<h1>Q & A 게시판</h1>
+	<h1 style="font-size:50px;">Q & A 게시판</h1>
 </div>
 <h3>Total :${boardAllList.size()}건(1/1page)</h3>
 	<div>

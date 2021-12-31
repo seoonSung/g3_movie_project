@@ -29,19 +29,33 @@ color : rgb(0, 0, 0);
  text-decoration: none;
 color: rgb(17, 17, 17);
  }
+ table{
+ margin:auto;
+ border-spacing:30px;
+ }
+
 </style>
 </head>
 <body>
 <c:import url="../default/header.jsp"/>
-<div class="wrap">
-	<div>
-		<div class="content">
+<div style="margin-top:100px;"class="wrap">
+
+<table>
+	<tr>
+	 <td>
+	 <div class="content">
 			<h2><a href="${contextPath }/qnaboard/boardList">Q & A 게시판</a></h2>
 		</div>
-		<div class="content">
+	 </td>
+	 <td>
+	 <div class="content">
 			<h2><a href="${contextPath }/service/oneOnOneQnaForm">1 : 1 문의</a></h2>
 		</div>
-	</div>
+	 </td>
+	</tr>
+
+</table>
+
 </div>
 
 <c:import url="../default/footer.jsp"/>

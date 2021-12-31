@@ -227,6 +227,7 @@ del {
                     <div><button class="b"><a href="${contextPath}/bookMain">예매</a></button></div>
                     <div><button class="b"><a href="${contextPath }/theaterMain">극장</a></button></div>
                     <div><button class="b"><a href="${contextPath}/qnaboard/main">고객센터</a></button></div>
+                    <div><button class="b"><a href="${contextPath }/main/communityMain">커뮤니티</a></button></div>
                 </div>
             </div>
             <div></div>

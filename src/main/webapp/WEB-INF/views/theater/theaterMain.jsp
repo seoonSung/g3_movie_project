@@ -49,6 +49,7 @@
 </head>
 <body>
 <c:import url="../default/header.jsp"/>
+<div class-="wrap">
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 
@@ -66,7 +67,7 @@
         <div id="pagination"></div>
     </div>
 </div>
-
+</div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c068a46badbd08cadc1b9a05431abfca&libraries=services"></script>
 <script>
 // 마커를 담을 배열입니다

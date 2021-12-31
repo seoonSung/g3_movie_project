@@ -88,12 +88,15 @@ button {background-color:rgba(255,255,255,0.7);;padding:5px;border:1px solid #cc
     </form>
 		<div id="replyList"></div>
     <div id="response">
-    	<span id="response1">
     	
-		
-		
-		<input style="margin-top: 20px;" type="button" value="답글달기" class="over" id="open" onclick="showDetail() ">
-	
+	 <c:choose>
+         <c:when test="${loginUser eq 'master' }">
+              <input style="margin-top: 20px;" type="button" value="답글달기" class="over" id="open" onclick="showDetail() ">  	
+         </c:when>
+         <c:otherwise>
+                	
+         </c:otherwise>
+    </c:choose>
 		<div id="desc" class="detail">
 		<form id="frm">
 			<table id="table1">
