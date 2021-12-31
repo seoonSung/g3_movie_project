@@ -38,6 +38,10 @@ public class BookController {
 		
 		return "book/seat";
 	}
+
+	
+
+
 	
 	@RequestMapping(value="payment", method = RequestMethod.GET)
 	public String payment(Model model, String title, String time, int theater,
@@ -57,4 +61,5 @@ public class BookController {
 
 		return "book/payment";
 	}
+	
 }

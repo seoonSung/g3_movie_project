@@ -81,12 +81,12 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 				</tr>
 				<tr>
 					<th><b>연락처</b></th>
-					<td><input type="text" class="phoneNumber" name="phoneNumber"
-						onchange="phoneNumber(this)" maxlength="13" required autofocus /></td>
+					<td><input type="text" value="${List.phonenumber }" name="phonenumber"
+						onchange="phonenumber(this)" maxlength="13" required /></td>
 				</tr>
 				<tr>
 					<th><b>제목</b></th>
-					<td><input type="text" name="title" required /></td>
+					<td><input type="text" name="title" required autofocus/></td>
 				</tr>
 				<tr>
 					<th><b>내용</b></th>

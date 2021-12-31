@@ -1,31 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@seoonSung 
-juyeong95
-/
-g3_movie_project
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-g3_movie_project/src/main/webapp/WEB-INF/views/movie/movie1.jsp
-@s5157
-s5157 평점 구현
-Latest commit 22efcb4 yesterday
- History
- 1 contributor
-313 lines (193 sloc)  7.12 KB
-   
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -154,7 +126,7 @@ Latest commit 22efcb4 yesterday
 				<div class="reserve">
 
 
-					<a href="#" class="btn reserve" title="영화 예매하기">예매</a>
+					<a href="bookMain" class="btn reserve" title="영화 예매하기">예매</a>
 
 
 
@@ -209,41 +181,137 @@ Latest commit 22efcb4 yesterday
 			</ul>
 		</div>
 		<br>
-		<table border=1>
+<style>
+#main{
+padding: 10px;
+text-align:center;
+}
+ #table{
+ margin: auto;
+width: 100%;
+border-top-style:  solid;  
+border-collapse:collapse;       
+}
+  a {
+text-decoration: none;
+color: black;
+ }
+ td, th{padding: 10px;
+ border-bottom:1px solid #444444;
+ }
+ td{
+text-align:center;
+ }
+ th{
+ background-color: white;
+ padding:15px;
+ }
+  thead tr {
+    background-color: #0d47a1;
+    color: #ffffff;
+  }
+  tbody tr:nth-child(2n) {
+    
+   background-color: rgb(233, 233, 233);
+  }
+  tbody tr:nth-child(2n+1) {
+   background-color:white;
+  }
+  #num{
+  padding: 10px 100px;
+  margin-left: 360px;
+  }
+  .tt{
+  width: 270px;
+  }
+ 
+</style>
+	<div style="margin-top:10px;" class="wrap">
+		<table id="table">
 			<tr>
-
-				<th>id</th>
+				<th>ID</th>
 				<th>날짜</th>
 				<th>좋아요</th>
 				<th>리뷰</th>
 				<th>평점</th>
 			</tr>
-			<c:if test="${reviewList.size() == 0 }">
-				<tr>
-					<td colspan="6">저장 데이터 없음</td>
-				</tr>
-			</c:if>
-			<c:forEach var="dto" items="${reviewList }">
-				<tr>
+		<c:if test="${reviewList.size() == 0 }">
+			<tr>
+				<td colspan="5">저장 데이터 없음</td>
+			</tr>
+		</c:if>
+		<c:forEach var="dto" items="${reviewList}">
+			<tr>
 
-					<td>${dto.id }</td>
-					<td>${dto.days }</td>
-					<td>${dto.likes }</td>
-					<td>${dto.review }</td>
-					<td>${dto.avgRe }</td>
-				</tr>
-			</c:forEach>
-
+				<td>${dto.id}</td>				
+				<td>${dto.days}</td>  
+				<td>${dto.likes}</td>		
+				<td>${dto.review}</td>
+				<td>
+				<c:if test="${dto.avgRe ==1 }">
+				
+				
+							<i class="fas fa-star fa-xs"></i>
+							<i class="far fa-star fa-xs"></i>
+							<i class="far fa-star fa-xs"></i>
+							<i class="far fa-star fa-xs"></i>
+							<i class="far fa-star fa-xs"></i>
+							</c:if>
+							<c:if test="${dto.avgRe ==2 }">
+				
+				
+							<i class="fas fa-star fa-xs"></i>
+							<i class="fas fa-star fa-xs"></i>
+							<i class="far fa-star fa-xs"></i>
+							<i class="far fa-star fa-xs"></i>
+							<i class="far fa-star fa-xs"></i>
+							</c:if>
+							<c:if test="${dto.avgRe ==3 }">
+				
+				
+							<i class="fas fa-star fa-xs"></i>
+							<i class="fas fa-star fa-xs"></i>
+							<i class="fas fa-star fa-xs"></i>
+							<i class="far fa-star fa-xs"></i>
+							<i class="far fa-star fa-xs"></i>
+							</c:if>
+							<c:if test="${dto.avgRe ==4 }">
+				
+				
+							<i class="fas fa-star fa-xs"></i>
+							<i class="fas fa-star fa-xs"></i>
+							<i class="fas fa-star fa-xs"></i>
+							<i class="fas fa-star fa-xs"></i>
+							<i class="far fa-star fa-xs"></i>
+							</c:if>
+							<c:if test="${dto.avgRe ==5 }">
+				
+							<i class="fas fa-star fa-xs"></i>
+							<i class="fas fa-star fa-xs"></i>
+							<i class="fas fa-star fa-xs"></i>
+							<i class="fas fa-star fa-xs"></i>
+							<i class="fas fa-star fa-xs"></i>
+							</c:if>
+						</td>				
+			</tr>	
+		</c:forEach>
 		</table>
-		<c:choose>
-			<c:when test="${loginUser != null }">
-				<button type="button" onclick="slideClick()">관람평 등록</button>
-			</c:when>
-			<c:otherwise>
-				<button type="button" onclick="cancel()">관람평 등록</button>
-
-			</c:otherwise>
-		</c:choose>
+        <c:choose>
+            <c:when test="${loginUser != null }">
+                <button type="button" onclick="slideClick()">관람평 등록</button>
+            </c:when>
+            <c:otherwise>
+                <button type="button" onclick="cancel()">관람평 등록</button>
+            </c:otherwise>
+        </c:choose>
+            
+				<div align="left" style="padding:10px;">
+				<span id="num">
+					<c:forEach var="num" begin="1" end="${repeat}">
+						<button type="button" onclick="location.href='boardList?num=${num}'">${num}</button>
+					</c:forEach>
+				</span>
+				</div>
 		<form id="fo" action="review1" method="post">
 
 			<div class="modal_wrap">
@@ -252,7 +320,7 @@ Latest commit 22efcb4 yesterday
 					style="top: 150px; display: block;">
 					<strong class="ly_tit">내 평점 등록</strong>
 					<div class="ly_inner">
-						<strong class="review_tit">킬링 카인드: 킬러의 수제자</strong>
+						<strong class="review_tit">킹스맨: 퍼스트 에이전트</strong>
 
 						<div class="star-rating">
 							<input type="radio" id="5-stars" checked="checked" name="rating"
@@ -328,16 +396,3 @@ Latest commit 22efcb4 yesterday
 	<c:import url="../default/footer.jsp" />
 </body>
 </html>
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete

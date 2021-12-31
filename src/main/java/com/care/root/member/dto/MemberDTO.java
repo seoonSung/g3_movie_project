@@ -5,13 +5,6 @@ public class MemberDTO {
 	private String id;
 	private String pw;
 	private String name;
-	private String phoneNumber;
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
 	private String email;
 	private String sessionId;
 	private String phonenumber;
