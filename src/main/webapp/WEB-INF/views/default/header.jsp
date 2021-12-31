@@ -245,6 +245,7 @@ del {
             </div>
      
         <nav class="nav-wrapper">
+
             <div class="logo-wrapper"><a href="${contextPath}/main"><img class="cgvLogo" src="${contextPath}/resources/img/cgv.png"></a></div>
             <div class="nav-content">
                 <div class="movieLogo-wrapper"><img class="cgvMovie" src="${contextPath}/resources/img/h2_movie.png"></div>
