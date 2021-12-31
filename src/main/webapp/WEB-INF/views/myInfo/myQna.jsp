@@ -13,7 +13,7 @@
 	padding: 50px;
 }
 
-#table {
+table {
 	margin: auto;
 	width: 100%;
 	border-top-style: solid;
@@ -60,6 +60,11 @@ tbody tr:nth-child(2n+1) {
 .tt {
 	width: 270px;
 }
+
+h1{
+	font-size: 20px;
+}
+
 </style>
 </head>
 <body style="background-color: white;">
@@ -68,7 +73,6 @@ tbody tr:nth-child(2n+1) {
 		<div id="main">
 			<h1>나의 Q & A</h1>
 		</div>
-		<h3>Total :${boardAllList.size()}건(1/1page)</h3>
 		<div>
 			<table id="table">
 				<tr>
@@ -113,7 +117,7 @@ tbody tr:nth-child(2n+1) {
 			<hr>
 			<br>
 			<button type="button"
-				onclick="location.href=history.back()">뒤로가기</button>
+				onclick="history.back()">뒤로가기</button>
 		</div>
 	</div>
 	<c:import url="../default/footer.jsp" />

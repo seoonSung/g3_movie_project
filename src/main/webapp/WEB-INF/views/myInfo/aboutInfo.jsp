@@ -7,11 +7,60 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#table {
+	margin: auto;
+	width: 100%;
+	border-top-style: solid;
+	border-collapse: collapse;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+td, th {
+	padding: 10px;
+	border-bottom: 1px solid #444444;
+}
+
+td {
+	text-align: center;
+}
+
+th {
+	background-color: white;
+	padding: 15px;
+}
+
+thead tr {
+	background-color: #0d47a1;
+	color: #ffffff;
+}
+
+tbody tr:nth-child(2n) {
+	background-color: rgb(233, 233, 233);
+}
+
+tbody tr:nth-child(2n+1) {
+	background-color: white;
+}
+
+#num {
+	padding: 10px 100px;
+	margin-left: 360px;
+}
+
+.tt {
+	width: 270px;
+}
+</style>
 </head>
 <body>
 	<c:import url="../default/header.jsp" />
 	<div class = modifyForm align="center">
-	<h1 align="right">회원 정보 변경</h1>
+	<h1 align="center">${loginUser }님의 정보</h1>
 	<form action="${contextPath }/myInfo/memberInfo" name="memberInfo" method="get" onsubmit="return CheckPassword()">
 		<table border="1">
 			<tr><th>아이디</th>
