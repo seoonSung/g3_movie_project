@@ -36,10 +36,10 @@ color: rgb(17, 17, 17);
 <div class="wrap">
 	<div>
 		<div class="content">
-			<h2><a href="${contextPath }/qnaboard/boardList">Q & A 게시판</a></h2>
+			<h2><a href="${contextPath }/qnaboard/boardList"><i class="far fa-question-circle fa-3x"></i>Q & A 게시판</a></h2>
 		</div>
 		<div class="content">
-			<h2><a href="${contextPath }/service/oneOnOneQnaForm">1 : 1 문의</a></h2>
+			<h2><a href="${contextPath }/service/oneOnOneQnaForm"><i class="fas fa-question fa-3x"></i>1 : 1 문의</a></h2>
 		</div>
 	</div>
 </div>

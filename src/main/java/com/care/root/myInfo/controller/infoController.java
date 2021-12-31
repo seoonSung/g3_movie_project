@@ -93,7 +93,7 @@ public class infoController implements SessionName{
 	}
 	
 	@GetMapping("cancel")
-	public String cancel(@RequestParam String title,
+	public void cancel(@RequestParam String title,
 						 @RequestParam int days,
 						 @RequestParam String times,
 						 @RequestParam int theater,
@@ -103,8 +103,7 @@ public class infoController implements SessionName{
 		response.setContentType("text/html; charset-utf-8");
 		out = response.getWriter();
 		bs.cancel(title, days, times, theater, seats);
-		out.println("<script>alert('예매가 취소되었습니다.'); location.href='/myInfoMain';</script>");
-		return "myInfo/myInfoMain";
+		out.println("<script>alert('예매가 취소되었습니다.'); location.href='../myInfo/myInfoMain';</script>");
 	}
 
 }

@@ -46,7 +46,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 <body>
 	<c:import url="../default/header.jsp" />
 	<div align="center">
-		<form method="post" class="gform" action="${contextPath }/service/send">
+		<form method="post" class="gform" action="${contextPath }/service/emailSend">
 			<br>
 			<br>
 			<br>
@@ -93,7 +93,6 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 					<td><textarea name="content" rows="10" cols="50" required></textarea></td>
 				</tr>
 				<tr>
-					<td></td>
 					<td><input type="submit" value="문의하기" onclick="location.href='${contextPath}/qnaboard/main'"/></td>
 					<td><input type="button"
 						onclick="location.href='${contextPath}/qnaboard/main'"

@@ -39,7 +39,6 @@ public class emailServiceImpl implements emailService{
             msg.setSubject(dto.getTitle(), "utf-8");
             // 이메일 본문 (인코딩을 해야 한글이 깨지지 않음)
             msg.setText(dto.getContent(), "utf-8");
-
             
 //            html로 보낼 경우            
 //            MimeMessage message = mailSender.createMimeMessage();

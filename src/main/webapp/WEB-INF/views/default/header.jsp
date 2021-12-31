@@ -17,7 +17,7 @@
 </head>
 
 <style>
-.wrap {
+.wrap1 {
  width: 1000px;
   margin: auto;
   margin-top: 150px; 
@@ -226,7 +226,7 @@ del {
 </head>
 
 <body>
-<div class="wrap">
+<div class="wrap1">
 </div>
     <div class="header-nav-wrapper">
       
