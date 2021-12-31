@@ -59,6 +59,6 @@ public class BookServiceImpl implements BookService{
 	}
 	public void seatInfo(String title,int i,String time,Model model) {
 		
-		model.addAttribute("List",bmapper.seatconfirm(title,i,time));
+		//model.addAttribute("List",bmapper.seatconfirm(title,i,time));
 	}
 }
