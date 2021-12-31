@@ -19,7 +19,7 @@ const registerForm = document.querySelector('#registerForm');
 const password = document.querySelector('#password');
 const passwordRepeat = document.querySelector('#passwordRepeat');
 const poster = document.querySelector('#poster');
-let idFlag = false;
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
+let idFlag = false;
 function idCheck() {
 	let id = document.querySelector('#id').value
 	
@@ -48,23 +48,16 @@ function idCheck() {
         },
     });
 }
-
-
 function idCheckMessage(data) {
-	console.log(data)
-	console.log(data)
-    
-
     if (data == false) {
     	alert('사용 가능한 아이디 입니다.')
         return idFlag = true;
-        //registerButton.removeAttribute('disabled');
     } else {
     	alert('이미 존재하는 아이디 입니다.')
         return idFlag = false;
-        //registerButton.setAttribute('disabled', 'true');
     }
 }
+
 let pwc =false;
 function passConfirm() {
 	/* 비밀번호, 비밀번호 확인 입력창에 입력된 값을 비교해서 같다면 비밀번호 일치, 그렇지 않으면 불일치 라는 텍스트 출력.*/
@@ -140,7 +133,9 @@ function register(){
 						class="form-control"> <i class="zmdi zmdi-lock"></i>
 				</div>
 				<div class="form-wrapper">
-					<input type="password" id="passwordConfirm" placeholder="비밀번호 입력" class="form-control" onkeyup="passConfirm()"> <span id ="confirmMsg"></span>
+					<input type="password" id="passwordConfirm" placeholder="비밀번호 입력" 
+					class="form-control" onkeyup="passConfirm()"> 
+					<span id ="confirmMsg"></span>
 					<i class="zmdi zmdi-lock"></i>
 				</div>
 
