@@ -24,7 +24,7 @@
 
 }
 * {
-    font-size: 11px;
+    
 }
 
 body {
