@@ -89,18 +89,7 @@ Latest commit 22efcb4 yesterday
 
 
 
-			<div class="btn-util">
-				<button type="button" title="보고싶어 안함" class="btn btn-like"
-					rpst-movie-no="21070700">
-					<i class="iconset ico-heart-line"></i> <span title="보고싶어 한 명수"
-						id="intrstCnt"> 949 </span>
-				</button>
-
-
-
-
-
-			</div>
+			
 
 
 

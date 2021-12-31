@@ -22,7 +22,7 @@ public class BookController {
 	
 	@GetMapping("/seat")
 	public String seat(Model model,
-			@RequestParam int i,
+			@RequestParam String i,
 			@RequestParam String title,
 			@RequestParam String time,
 			@RequestParam String theater,
@@ -33,6 +33,8 @@ public class BookController {
 		model.addAttribute("time", time); //시간
 		model.addAttribute("theater",theater); // 관 
 		bs.seat(writer,model);
+		bs.seatconfirm(title,i,time,model);
+		
 		
 		return "book/seat";
 	}
