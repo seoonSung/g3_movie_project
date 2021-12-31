@@ -1,10 +1,10 @@
 package com.care.root.oneOnOneBoard.service;
 
-import javax.inject.Inject;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMessage.RecipientType;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import com.care.root.oneOnOneBoardDTO.OneOnOneBoardDTO;
 
 @Service
 public class emailServiceImpl implements emailService{
-	@Inject
+	@Autowired
     JavaMailSender mailSender;
 
 	@Override
@@ -39,7 +39,6 @@ public class emailServiceImpl implements emailService{
             msg.setSubject(dto.getTitle(), "utf-8");
             // 이메일 본문 (인코딩을 해야 한글이 깨지지 않음)
             msg.setText(dto.getContent(), "utf-8");
-
             
 //            html로 보낼 경우            
 //            MimeMessage message = mailSender.createMimeMessage();
